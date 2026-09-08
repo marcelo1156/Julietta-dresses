@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#b99a9f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<title>Julietta Dresses | Control</title>
+
+<style>
+:root{
+    --rosa:#b99a9f;
+    --rosa-claro:#f7eeee;
+    --vino:#6d3d49;
+    --vino-oscuro:#4b2731;
+    --crema:#fffaf8;
+    --blanco:#ffffff;
+    --texto:#3e3034;
+    --gris:#85777b;
+    --borde:#eadcdf;
+    --verde:#557c61;
+    --rojo:#a84b50;
+    --amarillo:#b58b3c;
+    --sombra:0 8px 25px rgba(80,45,55,.10);
+}
+
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    background:var(--crema);
+    color:var(--texto);
+    padding-bottom:82px;
+}
+
+button,input,select,textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.top{
+    background:linear-gradient(135deg,var(--vino),var(--rosa));
+    color:white;
+    padding:22px 18px 24px;
+    border-radius:0 0 28px 28px;
+    box-shadow:var(--sombra);
+}
+
+.top-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:rgba(255,255,255,.18);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    font-size:20px;
+    border:1px solid rgba(255,255,255,.35);
+}
+
+.brand h1{
+    margin:0;
+    font-size:21px;
+}
+
+.brand small{
+    opacity:.85;
+}
+
+.page{
+    display:none;
+    padding:18px;
+}
+
+.page.active{
+    display:block;
+}
+
+h2{
+    margin:5px 0 4px;
+    color:var(--vino-oscuro);
+}
+
+.subtitle{
+    color:var(--gris);
+    margin:0 0 18px;
+    font-size:14px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--borde);
+    border-radius:18px;
+    padding:15px;
+    box-shadow:var(--sombra);
+}
+
+.stat{
+    font-size:25px;
+    font-weight:800;
+    color:var(--vino);
+}
+
+.label{
+    font-size:13px;
+    color:var(--gris);
+    margin-top:3px;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin:18px 0 10px;
+}
+
+.btn{
+    border:0;
+    border-radius:13px;
+    padding:11px 14px;
+    font-weight:700;
+}
+
+.btn-primary{
+    background:var(--vino);
+    color:white;
+}
+
+.btn-secondary{
+    background:var(--rosa-claro);
+    color:var(--vino);
+}
+
+.btn-danger{
+    background:#f8e2e2;
+    color:var(--rojo);
+}
+
+.btn-success{
+    background:#e3f1e6;
+    color:var(--verde);
+}
+
+.search{
+    width:100%;
+    border:1px solid var(--borde);
+    background:white;
+    padding:13px 15px;
+    border-radius:14px;
+    outline:none;
+    margin-bottom:12px;
+}
+
+.list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.item{
+    background:white;
+    border:1px solid var(--borde);
+    border-radius:18px;
+    padding:15px;
+    box-shadow:var(--sombra);
+}
+
+.item-top{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.item-title{
+    font-weight:800;
+    color:var(--vino-oscuro);
+}
+
+.item-info{
+    color:var(--gris);
+    font-size:13px;
+    line-height:1.55;
+    margin-top:7px;
+}
+
+.actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:12px;
+}
+
+.actions button{
+    padding:8px 10px;
+    border-radius:10px;
+    border:0;
+    font-size:12px;
+    font-weight:700;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:800;
+}
+
+.badge-green{
+    background:#e3f1e6;
+    color:var(--verde);
+}
+
+.badge-red{
+    background:#f8e2e2;
+    color:var(--rojo);
+}
+
+.badge-yellow{
+    background:#f8efd8;
+    color:var(--amarillo);
+}
+
+.badge-gray{
+    background:#eee8ea;
+    color:#706469;
+}
+
+.empty{
+    text-align:center;
+    padding:30px 15px;
+    color:var(--gris);
+}
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:white;
+    border-top:1px solid var(--borde);
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    padding:8px 4px calc(8px + env(safe-area-inset-bottom));
+    z-index:50;
+}
+
+.nav-btn{
+    border:0;
+    background:transparent;
+    color:#817477;
+    font-size:10px;
+    padding:5px 1px;
+}
+
+.nav-btn span{
+    display:block;
+    font-size:19px;
+    margin-bottom:2px;
+}
+
+.nav-btn.active{
+    color:var(--vino);
+    font-weight:800;
+}
+
+.fab{
+    position:fixed;
+    right:18px;
+    bottom:92px;
+    width:54px;
+    height:54px;
+    border:0;
+    border-radius:50%;
+    background:var(--vino);
+    color:white;
+    font-size:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.20);
+    z-index:40;
+}
+
+.modal-bg{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(35,20,24,.48);
+    z-index:100;
+    align-items:flex-end;
+    justify-content:center;
+}
+
+.modal-bg.show{
+    display:flex;
+}
+
+.modal{
+    width:100%;
+    max-width:600px;
+    max-height:92vh;
+    overflow:auto;
+    background:white;
+    border-radius:26px 26px 0 0;
+    padding:20px;
+}
+
+.modal h3{
+    margin:0 0 16px;
+    color:var(--vino-oscuro);
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:11px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.field.full{
+    grid-column:1/-1;
+}
+
+.field label{
+    font-size:12px;
+    font-weight:700;
+    color:var(--gris);
+}
+
+.field input,
+.field select,
+.field textarea{
+    width:100%;
+    border:1px solid var(--borde);
+    border-radius:12px;
+    padding:12px;
+    outline:none;
+    background:#fffdfd;
+}
+
+.field textarea{
+    min-height:80px;
+    resize:vertical;
+}
+
+.modal-actions{
+    display:flex;
+    gap:9px;
+    margin-top:18px;
+}
+
+.modal-actions button{
+    flex:1;
+}
+
+.calendar{
+    background:white;
+    border:1px solid var(--borde);
+    border-radius:18px;
+    padding:12px;
+    overflow:auto;
+}
+
+.calendar-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+.calendar-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:4px;
+    min-width:420px;
+}
+
+.day-name{
+    text-align:center;
+    font-size:10px;
+    color:var(--gris);
+    padding:5px;
+}
+
+.day{
+    min-height:58px;
+    border:1px solid #f0e6e8;
+    border-radius:8px;
+    padding:5px;
+    font-size:11px;
+}
+
+.day.today{
+    border:2px solid var(--rosa);
+}
+
+.day-num{
+    font-weight:800;
+}
+
+.event-dot{
+    margin-top:3px;
+    background:var(--rosa-claro);
+    color:var(--vino);
+    border-radius:5px;
+    padding:2px 3px;
+    font-size:8px;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.notice{
+    padding:13px;
+    border-radius:15px;
+    margin-bottom:10px;
+    background:var(--rosa-claro);
+    color:var(--vino);
+    font-size:13px;
+}
+
+.money-positive{
+    color:var(--verde);
+    font-weight:800;
+}
+
+.money-negative{
+    color:var(--rojo);
+    font-weight:800;
+}
+
+.setting{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    padding:15px 0;
+    border-bottom:1px solid var(--borde);
+}
+
+.setting:last-child{
+    border-bottom:0;
+}
+
+@media(min-width:700px){
+    .page{
+        max-width:900px;
+        margin:auto;
+    }
+
+    .top{
+        padding-left:max(18px,calc((100% - 900px)/2 + 18px));
+        padding-right:max(18px,calc((100% - 900px)/2 + 18px));
+    }
+
+    .bottom-nav{
+        left:50%;
+        transform:translateX(-50%);
+        width:min(900px,100%);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="top">
+    <div class="top-row">
+        <div class="brand">
+            <div class="logo">JD</div>
+            <div>
+                <h1>Julietta Dresses</h1>
+                <small>Control de rentas</small>
+            </div>
+        </div>
+        <button class="btn btn-secondary" onclick="mostrarPagina('config')">⚙️</button>
+    </div>
+</header>
+
+<main>
+
+<section id="inicio" class="page active">
+    <h2>Inicio</h2>
+    <p class="subtitle">Resumen de tu negocio</p>
+
+    <div class="grid">
+        <div class="card">
+            <div class="stat" id="statVestidos">0</div>
+            <div class="label">Vestidos</div>
+        </div>
+        <div class="card">
+            <div class="stat" id="statClientes">0</div>
+            <div class="label">Clientes</div>
+        </div>
+        <div class="card">
+            <div class="stat" id="statRentas">0</div>
+            <div class="label">Rentas activas</div>
+        </div>
+        <div class="card">
+            <div class="stat" id="statIngresos">$0</div>
+            <div class="label">Ingresos registrados</div>
+        </div>
+    </div>
+
+    <div class="section-head">
+        <h2>Próximos regresos</h2>
+    </div>
+    <div id="inicioRegresos" class="list"></div>
+
+    <div class="section-head">
+        <h2>Acciones rápidas</h2>
+    </div>
+
+    <div class="grid">
+        <button class="btn btn-primary" onclick="abrirVestido()">👗 Nuevo vestido</button>
+        <button class="btn btn-primary" onclick="abrirCliente()">👩 Nuevo cliente</button>
+        <button class="btn btn-secondary" onclick="abrirRenta()">📝 Nueva renta</button>
+        <button class="btn btn-secondary" onclick="abrirMovimiento()">💰 Movimiento</button>
+    </div>
+</section>
+
+<section id="vestidos" class="page">
+    <div class="section-head">
+        <div>
+            <h2>Vestidos</h2>
+            <p class="subtitle">Inventario completo</p>
+        </div>
+        <button class="btn btn-primary" onclick="abrirVestido()">＋ Agregar</button>
+    </div>
+
+    <input class="search" id="buscarVestido" placeholder="Buscar vestido..." oninput="renderVestidos()">
+
+    <div id="listaVestidos" class="list"></div>
+</section>
+
+<section id="calendario" class="page">
+    <div class="section-head">
+        <div>
+            <h2>Calendario</h2>
+            <p class="subtitle">Consulta tus rentas</p>
+        </div>
+    </div>
+
+    <div class="calendar">
+        <div class="calendar-head">
+            <button class="btn btn-secondary" onclick="mesAnterior()">‹</button>
+            <strong id="mesTitulo"></strong>
+            <button class="btn btn-secondary" onclick="mesSiguiente()">›</button>
+        </div>
+        <div class="calendar-grid" id="calendarioGrid"></div>
+    </div>
+</section>
+
+<section id="clientes" class="page">
+    <div class="section-head">
+        <div>
+            <h2>Clientes</h2>
+            <p class="subtitle">Tus clientas</p>
+        </div>
+        <button class="btn btn-primary" onclick="abrirCliente()">＋ Agregar</button>
+    </div>
+
+    <input class="search" id="buscarCliente" placeholder="Buscar cliente..." oninput="renderClientes">
+
+    <div id="listaClientes" class="list"></div>
+</section>
+
+<section id="rentas" class="page">
+    <div class="section-head">
+        <div>
+            <h2>Rentas</h2>
+            <p class="subtitle">Reservaciones y contratos</p>
+        </div>
+        <button class="btn btn-primary" onclick="abrirRenta()">＋ Nueva</button>
+    </div>
+
+    <input class="search" id="buscarRenta" placeholder="Buscar renta..." oninput="renderRentas()">
+
+    <div id="listaRentas" class="list"></div>
+</section>
+
+<section id="caja" class="page">
+    <div class="section-head">
+        <div>
+            <h2>Caja</h2>
+            <p class="subtitle">Entradas y salidas</p>
+        </div>
+        <button class="btn btn-primary" onclick="abrirMovimiento()">＋ Movimiento</button>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="stat money-positive" id="totalIngresos">$0</div>
+            <div class="label">Ingresos</div>
+        </div>
+        <div class="card">
+            <div class="stat money-negative" id="totalGastos">$0</div>
+            <div class="label">Gastos</div>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+        <div class="label">Balance</div>
+        <div class="stat" id="balance">$0</div>
+    </div>
+
+    <div class="section-head">
+        <h2>Movimientos</h2>
+    </div>
+
+    <div id="listaMovimientos" class="list"></div>
+</section>
+
+<section id="mas" class="page">
+    <h2>Más</h2>
+    <p class="subtitle">Herramientas de control</p>
+
+    <div class="list">
+        <button class="card" style="text-align:left;border:1px solid var(--borde)" onclick="mostrarPagina('regresos')">
+            🔔 <strong>Regresos</strong><br>
+            <span class="label">Vestidos próximos a regresar</span>
+        </button>
+
+        <button class="card" style="text-align:left;border:1px solid var(--borde)" onclick="mostrarPagina('revision')">
+            🧼 <strong>Revisión y limpieza</strong><br>
+            <span class="label">Controlar vestidos después de cada renta</span>
+        </button>
+
+        <button class="card" style="text-align:left;border:1px solid var(--borde)" onclick="mostrarPagina('config')">
+            ⚙️ <strong>Configuración</strong><br>
+            <span class="label">Respaldos y datos</span>
+        </button>
+    </div>
+</section>
+
+<section id="regresos" class="page">
+    <div class="section-head">
+        <div>
+            <h2>Regresos</h2>
+            <p class="subtitle">Vestidos pendientes de regresar</p>
+        </div>
+    </div>
+
+    <div id="listaRegresos" class="list"></div>
+</section>
+
+<section id="revision" class="page">
+    <div class="section-head">
+        <div>
+            <h2>Revisión</h2>
+            <p class="subtitle">Limpieza y estado de vestidos</p>
+        </div>
+    </div>
+
+    <div id="listaRevision" class="list"></div>
+</section>
+
+<section id="config" class="page">
+    <h2>Configuración</h2>
+    <p class="subtitle">Administra la información de tu aplicación</p>
+
+    <div class="card">
+
+        <div class="setting">
+            <div>
+                <strong>Respaldar información</strong>
+                <div class="label">Descarga todos tus datos en un archivo JSON.</div>
+            </div>
+            <button class="btn btn-primary" onclick="exportarDatos()">⬇️</button>
+        </div>
+
+        <div class="setting">
+            <div>
+                <strong>Restaurar información</strong>
+                <div class="label">Carga un respaldo anterior.</div>
+            </div>
+            <button class="btn btn-secondary" onclick="document.getElementById('archivoImportar').click()">⬆️</button>
+            <input type="file" id="archivoImportar" accept=".json" style="display:none" onchange="importarDatos(event)">
+        </div>
+
+        <div class="setting">
+            <div>
+                <strong>WhatsApp</strong>
+                <div class="label">Abre WhatsApp para contactar clientes.</div>
+            </div>
+            <button class="btn btn-success" onclick="abrirWhatsAppGeneral()">💬</button>
+        </div>
+
+        <div class="setting">
+            <div>
+                <strong>Borrar todos los datos</strong>
+                <div class="label">Esta acción no se puede deshacer.</div>
+            </div>
+            <button class="btn btn-danger" onclick="borrarTodo()">🗑️</button>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<button class="fab" onclick="abrirRenta()">＋</button>
+
+<nav class="bottom-nav">
+    <button class="nav-btn active" onclick="mostrarPagina('inicio',this)">
+        <span>🏠</span>Inicio
+    </button>
+    <button class="nav-btn" onclick="mostrarPagina('vestidos',this)">
+        <span>👗</span>Vestidos
+    </button>
+    <button class="nav-btn" onclick="mostrarPagina('calendario',this)">
+        <span>📅</span>Calendario
+    </button>
+    <button class="nav-btn" onclick="mostrarPagina('clientes',this)">
+        <span>👩</span>Clientes
+    </button>
+    <button class="nav-btn" onclick="mostrarPagina('rentas',this)">
+        <span>📝</span>Rentas
+    </button>
+    <button class="nav-btn" onclick="mostrarPagina('caja',this)">
+        <span>💰</span>Caja
+    </button>
+    <button class="nav-btn" onclick="mostrarPagina('mas',this)">
+        <span>☰</span>Más
+    </button>
+</nav>
+
+<div class="modal-bg" id="modalVestido">
+    <div class="modal">
+        <h3 id="tituloModalVestido">Nuevo vestido</h3>
+
+        <input type="hidden" id="vestidoId">
+
+        <div class="form-grid">
+            <div class="field">
+                <label>Nombre / modelo</label>
+                <input id="vestidoNombre" placeholder="Ej. Modelo Sofía">
+            </div>
+
+            <div class="field">
+                <label>Talla</label>
+                <input id="vestidoTalla" placeholder="Ej. M / G">
+            </div>
+
+            <div class="field">
+                <label>Color</label>
+                <input id="vestidoColor" placeholder="Ej. Rosa">
+            </div>
+
+            <div class="field">
+                <label>Precio de renta</label>
+                <input id="vestidoPrecio" type="number" min="0" placeholder="0">
+            </div>
+
+            <div class="field">
+                <label>Estado</label>
+                <select id="vestidoEstado">
+                    <option value="Disponible">Disponible</option>
+                    <option value="Rentado">Rentado</option>
+                    <option value="Limpieza">Limpieza</option>
+                    <option value="Revisión">Revisión</option>
+                    <option value="Apartado">Apartado</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Notas</label>
+                <input id="vestidoNotas" placeholder="Detalles">
+            </div>
+
+            <div class="field full">
+                <label>Foto / enlace de foto</label>
+                <input id="vestidoFoto" placeholder="Opcional">
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn btn-secondary" onclick="cerrarModal('modalVestido')">Cancelar</button>
+            <button class="btn btn-primary" onclick="guardarVestido()">Guardar</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-bg" id="modalCliente">
+    <div class="modal">
+        <h3 id="tituloModalCliente">Nuevo cliente</h3>
+
+        <input type="hidden" id="clienteId">
+
+        <div class="form-grid">
+            <div class="field full">
+                <label>Nombre completo</label>
+                <input id="clienteNombre" placeholder="Nombre">
+            </div>
+
+            <div class="field">
+                <label>Teléfono</label>
+                <input id="clienteTelefono" type="tel" placeholder="81...">
+            </div>
+
+            <div class="field">
+                <label>Ciudad</label>
+                <input id="clienteCiudad" placeholder="Monterrey">
+            </div>
+
+            <div class="field full">
+                <label>Notas</label>
+                <textarea id="clienteNotas" placeholder="Información adicional"></textarea>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn btn-secondary" onclick="cerrarModal('modalCliente')">Cancelar</button>
+            <button class="btn btn-primary" onclick="guardarCliente()">Guardar</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-bg" id="modalRenta">
+    <div class="modal">
+        <h3 id="tituloModalRenta">Nueva renta</h3>
+
+        <input type="hidden" id="rentaId">
+
+        <div class="form-grid">
+            <div class="field full">
+                <label>Cliente</label>
+                <select id="rentaCliente"></select>
+            </div>
+
+            <div class="field full">
+                <label>Vestido</label>
+                <select id="rentaVestido"></select>
+            </div>
+
+            <div class="field">
+                <label>Fecha de salida</label>
+                <input id="rentaSalida" type="date">
+            </div>
+
+            <div class="field">
+                <label>Fecha de regreso</label>
+                <input id="rentaRegreso" type="date">
+            </div>
+
+            <div class="field">
+                <label>Precio</label>
+                <input id="rentaPrecio" type="number" min="0">
+            </div>
+
+            <div class="field">
+                <label>Anticipo</label>
+                <input id="rentaAnticipo" type="number" min="0">
+            </div>
+
+            <div class="field">
+                <label>Depósito</label>
+                <input id="rentaDeposito" type="number" min="0">
+            </div>
+
+            <div class="field">
+                <label>Estado</label>
+                <select id="rentaEstado">
+                    <option value="Apartada">Apartada</option>
+                    <option value="Entregada">Entregada</option>
+                    <option value="Devuelta">Devuelta</option>
+                    <option value="Cancelada">Cancelada</option>
+                </select>
+            </div>
+
+            <div class="field full">
+                <label>Notas</label>
+                <textarea id="rentaNotas"></textarea>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn btn-secondary" onclick="cerrarModal('modalRenta')">Cancelar</button>
+            <button class="btn btn-primary" onclick="guardarRenta()">Guardar</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-bg" id="modalMovimiento">
+    <div class="modal">
+        <h3>Nuevo movimiento</h3>
+
+        <div class="form-grid">
+            <div class="field">
+                <label>Tipo</label>
+                <select id="movTipo">
+                    <option value="Ingreso">Ingreso</option>
+                    <option value="Gasto">Gasto</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Monto</label>
+                <input id="movMonto" type="number" min="0">
+            </div>
+
+            <div class="field full">
+                <label>Concepto</label>
+                <input id="movConcepto" placeholder="Ej. Renta vestido">
+            </div>
+
+            <div class="field">
+                <label>Fecha</label>
+                <input id="movFecha" type="date">
+            </div>
+
+            <div class="field">
+                <label>Notas</label>
+                <input id="movNotas">
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn btn-secondary" onclick="cerrarModal('modalMovimiento')">Cancelar</button>
+            <button class="btn btn-primary" onclick="guardarMovimiento()">Guardar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+const STORAGE_KEY = "juliettaDresses";
+
+let datos = {
+    vestidos: [],
+    clientes: [],
+    rentas: [],
+    movimientos: []
+};
+
+let fechaCalendario = new Date();
+
+function cargarDatos(){
+    const guardado = localStorage.getItem(STORAGE_KEY);
+
+    if(guardado){
+        try{
+            const parsed = JSON.parse(guardado);
+
+            datos = {
+                vestidos: parsed.vestidos || [],
+                clientes: parsed.clientes || [],
+                rentas: parsed.rentas || [],
+                movimientos: parsed.movimientos || []
+            };
+        }catch(e){
+            console.log(e);
+        }
+    }
+}
+
+function guardarDatos(){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(datos));
+    actualizarTodo();
+}
+
+function id(){
+    return Date.now().toString(36) + Math.random().toString(36).slice(2);
+}
+
+function dinero(valor){
+    return Number(valor || 0).toLocaleString("es-MX",{
+        style:"currency",
+        currency:"MXN"
+    });
+}
+
+function fechaBonita(fecha){
+    if(!fecha) return "Sin fecha";
+
+    const d = new Date(fecha + "T12:00:00");
+
+    return d.toLocaleDateString("es-MX",{
+        day:"2-digit",
+        month:"2-digit",
+        year:"numeric"
+    });
+}
+
+function hoyISO(){
+    const d = new Date();
+
+    const y = d.getFullYear();
+    const m = String(d.getMonth()+1).padStart(2,"0");
+    const day = String(d.getDate()).padStart(2,"0");
+
+    return `${y}-${m}-${day}`;
+}
+
+function mostrarPagina(nombre, boton){
+    document.querySelectorAll(".page").forEach(p=>{
+        p.classList.remove("active");
+    });
+
+    const pagina = document.getElementById(nombre);
+
+    if(pagina){
+        pagina.classList.add("active");
+    }
+
+    if(boton){
+        document.querySelectorAll(".nav-btn").forEach(b=>{
+            b.classList.remove("active");
+        });
+
+        boton.classList.add("active");
+    }
+
+    window.scrollTo(0,0);
+
+    actualizarTodo();
+}
+
+function cerrarModal(idModal){
+    document.getElementById(idModal).classList.remove("show");
+}
+
+function abrirModal(idModal){
+    document.getElementById(idModal).classList.add("show");
+}
+
+function abrirVestido(idVestido=null){
+
+    document.getElementById("tituloModalVestido").textContent =
+        idVestido ? "Editar vestido" : "Nuevo vestido";
+
+    document.getElementById("vestidoId").value = "";
+    document.getElementById("vestidoNombre").value = "";
+    document.getElementById("vestidoTalla").value = "";
+    document.getElementById("vestidoColor").value = "";
+    document.getElementById("vestidoPrecio").value = "";
+    document.getElementById("vestidoEstado").value = "Disponible";
+    document.getElementById("vestidoNotas").value = "";
+    document.getElementById("vestidoFoto").value = "";
+
+    if(idVestido){
+        const v = datos.vestidos.find(x=>x.id===idVestido);
+
+        if(v){
+            document.getElementById("vestidoId").value = v.id;
+            document.getElementById("vestidoNombre").value = v.nombre || "";
+            document.getElementById("vestidoTalla").value = v.talla || "";
+            document.getElementById("vestidoColor").value = v.color || "";
+            document.getElementById("vestidoPrecio").value = v.precio || "";
+            document.getElementById("vestidoEstado").value = v.estado || "Disponible";
+            document.getElementById("vestidoNotas").value = v.notas || "";
+            document.getElementById("vestidoFoto").value = v.foto || "";
+        }
+    }
+
+    abrirModal("modalVestido");
+}
+
+function guardarVestido(){
+
+    const nombre = document.getElementById("vestidoNombre").value.trim();
+
+    if(!nombre){
+        alert("Escribe el nombre o modelo del vestido.");
+        return;
+    }
+
+    const idActual = document.getElementById("vestidoId").value;
+
+    const objeto = {
+        id:idActual || id(),
+        nombre,
+        talla:document.getElementById("vestidoTalla").value.trim(),
+        color:document.getElementById("vestidoColor").value.trim(),
+        precio:Number(document.getElementById("vestidoPrecio").value || 0),
+        estado:document.getElementById("vestidoEstado").value,
+        notas:document.getElementById("vestidoNotas").value.trim(),
+        foto:document.getElementById("vestidoFoto").value.trim()
+    };
+
+    const indice = datos.vestidos.findIndex(x=>x.id===objeto.id);
+
+    if(indice >= 0){
+        datos.vestidos[indice] = objeto;
+    }else{
+        datos.vestidos.push(objeto);
+    }
+
+    guardarDatos();
+    cerrarModal("modalVestido");
+}
+
+function eliminarVestido(idVestido){
+
+    if(!confirm("¿Eliminar este vestido?")) return;
+
+    datos.vestidos = datos.vestidos.filter(x=>x.id!==idVestido);
+
+    guardarDatos();
+}
+
+function renderVestidos(){
+
+    const cont = document.getElementById("listaVestidos");
+
+    if(!cont) return;
+
+    const busqueda =
+        (document.getElementById("buscarVestido")?.value || "")
+        .toLowerCase();
+
+    const lista = datos.vestidos.filter(v=>
+        `${v.nombre} ${v.talla} ${v.color} ${v.estado}`
+        .toLowerCase()
+        .includes(busqueda)
+    );
+
+    if(!lista.length){
+        cont.innerHTML = `
+            <div class="empty">
+                👗<br><br>
+                No hay vestidos registrados.
+                <br><br>
+                Agrega el primero con el botón “Agregar”.
+            </div>
+        `;
+        return;
+    }
+
+    cont.innerHTML = lista.map(v=>{
+
+        let clase = "badge-gray";
+
+        if(v.estado==="Disponible") clase="badge-green";
+        if(v.estado==="Rentado") clase="badge-red";
+        if(v.estado==="Limpieza") clase="badge-yellow";
+
+        return `
+        <div class="item">
+            <div class="item-top">
+                <div>
+                    <div class="item-title">👗 ${esc(v.nombre)}</div>
+                    <div class="item-info">
+                        Talla: ${esc(v.talla || "—")}<br>
+                        Color: ${esc(v.color || "—")}<br>
+                        Renta: ${dinero(v.precio)}
+                    </div>
+                </div>
+
+                <span class="badge ${clase}">
+                    ${esc(v.estado)}
+                </span>
+            </div>
+
+            ${v.notas ? `<div class="item-info">📝 ${esc(v.notas)}</div>` : ""}
+
+            <div class="actions">
+                <button class="btn-secondary" onclick="abrirVestido('${v.id}')">✏️ Editar</button>
+                <button class="btn-danger" onclick="eliminarVestido('${v.id}')">🗑️ Eliminar</button>
+            </div>
+        </div>
+        `;
+    }).join("");
+}
+
+function abrirCliente(idCliente=null){
+
+    document.getElementById("tituloModalCliente").textContent =
+        idCliente ? "Editar cliente" : "Nuevo cliente";
+
+    document.getElementById("clienteId").value="";
+    document.getElementById("clienteNombre").value="";
+    document.getElementById("clienteTelefono").value="";
+    document.getElementById("clienteCiudad").value="";
+    document.getElementById("clienteNotas").value="";
+
+    if(idCliente){
+
+        const c = datos.clientes.find(x=>x.id===idCliente);
+
+        if(c){
+            document.getElementById("clienteId").value=c.id;
+            document.getElementById("clienteNombre").value=c.nombre || "";
+            document.getElementById("clienteTelefono").value=c.telefono || "";
+            document.getElementById("clienteCiudad").value=c.ciudad || "";
+            document.getElementById("clienteNotas").value=c.notas || "";
+        }
+    }
+
+    abrirModal("modalCliente");
+}
+
+function guardarCliente(){
+
+    const nombre =
+        document.getElementById("clienteNombre").value.trim();
+
+    if(!nombre){
+        alert("Escribe el nombre de la clienta.");
+        return;
+    }
+
+    const objeto = {
+        id:document.getElementById("clienteId").value || id(),
+        nombre,
+        telefono:document.getElementById("clienteTelefono").value.trim(),
+        ciudad:document.getElementById("clienteCiudad").value.trim(),
+        notas:document.getElementById("clienteNotas").value.trim()
+    };
+
+    const indice = datos.clientes.findIndex(x=>x.id===objeto.id);
+
+    if(indice>=0){
+        datos.clientes[indice]=objeto;
+    }else{
+        datos.clientes.push(objeto);
+    }
+
+    guardarDatos();
+    cerrarModal("modalCliente");
+}
+
+function eliminarCliente(idCliente){
+
+    if(!confirm("¿Eliminar este cliente?")) return;
+
+    datos.clientes =
+        datos.clientes.filter(x=>x.id!==idCliente);
+
+    guardarDatos();
+}
+
+function renderClientes(){
+
+    const cont=document.getElementById("listaClientes");
+
+    if(!cont) return;
+
+    const busqueda =
+        (document.getElementById("buscarCliente")?.value || "")
+        .toLowerCase();
+
+    const lista=datos.clientes.filter(c=>
+        `${c.nombre} ${c.telefono} ${c.ciudad}`
+        .toLowerCase()
+        .includes(busqueda)
+    );
+
+    if(!lista.length){
+        cont.innerHTML=`
+            <div class="empty">
+                👩<br><br>
+                No hay clientes registrados.
+            </div>
+        `;
+        return;
+    }
+
+    cont.innerHTML=lista.map(c=>`
+
+        <div class="item">
+            <div class="item-title">👩 ${esc(c.nombre)}</div>
+
+            <div class="item-info">
+                📱 ${esc(c.telefono || "Sin teléfono")}<br>
+                📍 ${esc(c.ciudad || "Sin ciudad")}
+            </div>
+
+            ${c.notas ? `<div class="item-info">📝 ${esc(c.notas)}</div>` : ""}
+
+            <div class="actions">
+
+                ${
+                    c.telefono
+                    ?
+                    `<button class="btn-success" onclick="whatsapp('${c.telefono}','Hola ${esc(c.nombre)}, te escribo de Julietta Dresses.')">💬 WhatsApp</button>`
+                    :
+                    ""
+                }
+
+                <button class="btn-secondary" onclick="abrirCliente('${c.id}')">✏️ Editar</button>
+
+                <button class="btn-danger" onclick="eliminarCliente('${c.id}')">🗑️ Eliminar</button>
+
+            </div>
+        </div>
+
+    `).join("");
+}
+
+function abrirRenta(idRenta=null){
+
+    document.getElementById("tituloModalRenta").textContent =
+        idRenta ? "Editar renta" : "Nueva renta";
+
+    llenarSelectsRenta();
+
+    document.getElementById("rentaId").value="";
+    document.getElementById("rentaCliente").value="";
+    document.getElementById("rentaVestido").value="";
+    document.getElementById("rentaSalida").value=hoyISO();
+    document.getElementById("rentaRegreso").value="";
+    document.getElementById("rentaPrecio").value="";
+    document.getElementById("rentaAnticipo").value="";
+    document.getElementById("rentaDeposito").value="";
+    document.getElementById("rentaEstado").value="Apartada";
+    document.getElementById("rentaNotas").value="";
+
+    if(idRenta){
+
+        const r=datos.rentas.find(x=>x.id===idRenta);
+
+        if(r){
+
+            document.getElementById("rentaId").value=r.id;
+            document.getElementById("rentaCliente").value=r.clienteId;
+            document.getElementById("rentaVestido").value=r.vestidoId;
+            document.getElementById("rentaSalida").value=r.salida || "";
+            document.getElementById("rentaRegreso").value=r.regreso || "";
+            document.getElementById("rentaPrecio").value=r.precio || "";
+            document.getElementById("rentaAnticipo").value=r.anticipo || "";
+            document.getElementById("rentaDeposito").value=r.deposito || "";
+            document.getElementById("rentaEstado").value=r.estado || "Apartada";
+            document.getElementById("rentaNotas").value=r.notas || "";
+        }
+    }
+
+    actualizarPrecioRenta();
+
+    abrirModal("modalRenta");
+}
+
+function llenarSelectsRenta(){
+
+    const clienteSelect=document.getElementById("rentaCliente");
+    const vestidoSelect=document.getElementById("rentaVestido");
+
+    clienteSelect.innerHTML =
+        `<option value="">Seleccionar cliente</option>` +
+        datos.clientes.map(c=>
+            `<option value="${c.id}">${esc(c.nombre)}</option>`
+        ).join("");
+
+    vestidoSelect.innerHTML =
+        `<option value="">Seleccionar vestido</option>` +
+        datos.vestidos.map(v=>
+            `<option value="${v.id}">${esc(v.nombre)} — ${esc(v.talla || "")}</option>`
+        ).join("");
+}
+
+document.getElementById("rentaVestido").addEventListener("change",actualizarPrecioRenta);
+
+function actualizarPrecioRenta(){
+
+    const idVestido=document.getElementById("rentaVestido").value;
+
+    const vestido=datos.vestidos.find(x=>x.id===idVestido);
+
+    if(vestido && !document.getElementById("rentaPrecio").value){
+        document.getElementById("rentaPrecio").value=vestido.precio || "";
+    }
+}
+
+function guardarRenta(){
+
+    const clienteId=document.getElementById("rentaCliente").value;
+    const vestidoId=document.getElementById("rentaVestido").value;
+
+    if(!clienteId){
+        alert("Selecciona una clienta.");
+        return;
+    }
+
+    if(!vestidoId){
+        alert("Selecciona un vestido.");
+        return;
+    }
+
+    const objeto={
+        id:document.getElementById("rentaId").value || id(),
+        clienteId,
+        vestidoId,
+        salida:document.getElementById("rentaSalida").value,
+        regreso:document.getElementById("rentaRegreso").value,
+        precio:Number(document.getElementById("rentaPrecio").value || 0),
+        anticipo:Number(document.getElementById("rentaAnticipo").value || 0),
+        deposito:Number(document.getElementById("rentaDeposito").value || 0),
+        estado:document.getElementById("rentaEstado").value,
+        notas:document.getElementById("rentaNotas").value.trim()
+    };
+
+    const indice=datos.rentas.findIndex(x=>x.id===objeto.id);
+
+    if(indice>=0){
+        datos.rentas[indice]=objeto;
+    }else{
+        datos.rentas.push(objeto);
+    }
+
+    const vestido=datos.vestidos.find(x=>x.id===vestidoId);
+
+    if(vestido){
+
+        if(objeto.estado==="Apartada"){
+            vestido.estado="Apartado";
+        }
+
+        if(objeto.estado==="Entregada"){
+            vestido.estado="Rentado";
+        }
+
+        if(objeto.estado==="Devuelta"){
+            vestido.estado="Limpieza";
+        }
+
+        if(objeto.estado==="Cancelada"){
+            vestido.estado="Disponible";
+        }
+    }
+
+    guardarDatos();
+    cerrarModal("modalRenta");
+}
+
+function eliminarRenta(idRenta){
+
+    if(!confirm("¿Eliminar esta renta?")) return;
+
+    datos.rentas =
+        datos.rentas.filter(x=>x.id!==idRenta);
+
+    guardarDatos();
+}
+
+function nombreCliente(idCliente){
+
+    const c=datos.clientes.find(x=>x.id===idCliente);
+
+    return c ? c.nombre : "Cliente eliminado";
+}
+
+function nombreVestido(idVestido){
+
+    const v=datos.vestidos.find(x=>x.id===idVestido);
+
+    return v ? v.nombre : "Vestido eliminado";
+}
+
+function renderRentas(){
+
+    const cont=document.getElementById("listaRentas");
+
+    if(!cont) return;
+
+    const busqueda =
+        (document.getElementById("buscarRenta")?.value || "")
+        .toLowerCase();
+
+    const lista=datos.rentas.filter(r=>
+        `${nombreCliente(r.clienteId)} ${nombreVestido(r.vestidoId)} ${r.estado}`
+        .toLowerCase()
+        .includes(busqueda)
+    ).sort((a,b)=>
+        (a.regreso || "9999").localeCompare(b.regreso || "9999")
+    );
+
+    if(!lista.length){
+
+        cont.innerHTML=`
+            <div class="empty">
+                📝<br><br>
+                No hay rentas registradas.
+            </div>
+        `;
+
+        return;
+    }
+
+    cont.innerHTML=lista.map(r=>{
+
+        const cliente=datos.clientes.find(c=>c.id===r.clienteId);
+
+        let clase="badge-gray";
+
+        if(r.estado==="Apartada") clase="badge-yellow";
+        if(r.estado==="Entregada") clase="badge-red";
+        if(r.estado==="Devuelta") clase="badge-green";
+
+        const pendiente=Math.max(0,Number(r.precio||0)-Number(r.anticipo||0));
+
+        return `
+        <div class="item">
+
+            <div class="item-top">
+
+                <div>
+                    <div class="item-title">
+                        📝 ${esc(nombreVestido(r.vestidoId))}
+                    </div>
+
+                    <div class="item-info">
+                        👩 ${esc(nombreCliente(r.clienteId))}<br>
+                        📤 Salida: ${fechaBonita(r.salida)}<br>
+                        📥 Regreso: ${fechaBonita(r.regreso)}<br>
+                        💰 Renta: ${dinero(r.precio)}<br>
+                        💵 Anticipo: ${dinero(r.anticipo)}<br>
+                        📌 Pendiente: ${dinero(pendiente)}
+                    </div>
+                </div>
+
+                <span class="badge ${clase}">
+                    ${esc(r.estado)}
+                </span>
+
+            </div>
+
+            ${r.notas ? `<div class="item-info">📝 ${esc(r.notas)}</div>` : ""}
+
+            <div class="actions">
+
+                ${
+                    cliente?.telefono
+                    ?
+                    `<button class="btn-success" onclick="whatsapp('${cliente.telefono}','Hola ${esc(cliente.nombre)}, te escribo de Julietta Dresses sobre tu renta de ${esc(nombreVestido(r.vestidoId))}.')">💬 WhatsApp</button>`
+                    :
+                    ""
+                }
+
+                <button class="btn-secondary" onclick="abrirRenta('${r.id}')">✏️ Editar</button>
+
+                <button class="btn-danger" onclick="eliminarRenta('${r.id}')">🗑️ Eliminar</button>
+
+            </div>
+
+        </div>
+        `;
+    }).join("");
+}
+
+function renderRegresos(){
+
+    const cont=document.getElementById("listaRegresos");
+
+    if(!cont) return;
+
+    const hoy=hoyISO();
+
+    const lista=datos.rentas
+        .filter(r=>
+            r.estado!=="Devuelta" &&
+            r.estado!=="Cancelada" &&
+            r.regreso
+        )
+        .sort((a,b)=>a.regreso.localeCompare(b.regreso));
+
+    if(!lista.length){
+
+        cont.innerHTML=`
+            <div class="empty">
+                🔔<br><br>
+                No hay regresos pendientes.
+            </div>
+        `;
+
+        return;
+    }
+
+    cont.innerHTML=lista.map(r=>{
+
+        const vencido=r.regreso<hoy;
+        const hoyMismo=r.regreso===hoy;
+
+        return `
+        <div class="item">
+
+            <div class="item-title">
+                ${vencido ? "🔴" : hoyMismo ? "🟡" : "🟢"}
+                ${esc(nombreVestido(r.vestidoId))}
+            </div>
+
+            <div class="item-info">
+                👩 ${esc(nombreCliente(r.clienteId))}<br>
+                📥 Regreso: <strong>${fechaBonita(r.regreso)}</strong>
+            </div>
+
+            <div class="actions">
+
+                <button class="btn-secondary" onclick="abrirRenta('${r.id}')">
+                    ✏️ Ver renta
+                </button>
+
+                <button class="btn-success" onclick="marcarDevuelta('${r.id}')">
+                    ✓ Devuelto
+                </button>
+
+            </div>
+
+        </div>
+        `;
+    }).join("");
+}
+
+function marcarDevuelta(idRenta){
+
+    const r=datos.rentas.find(x=>x.id===idRenta);
+
+    if(!r) return;
+
+    r.estado="Devuelta";
+
+    const v=datos.vestidos.find(x=>x.id===r.vestidoId);
+
+    if(v){
+        v.estado="Limpieza";
+    }
+
+    guardarDatos();
+}
+
+function renderRevision(){
+
+    const cont=document.getElementById("listaRevision");
+
+    if(!cont) return;
+
+    const lista=datos.vestidos.filter(v=>
+        ["Limpieza","Revisión"].includes(v.estado)
+    );
+
+    if(!lista.length){
+
+        cont.innerHTML=`
+            <div class="empty">
+                ✨<br><br>
+                No hay vestidos pendientes de revisión.
+            </div>
+        `;
+
+        return;
+    }
+
+    cont.innerHTML=lista.map(v=>`
+
+        <div class="item">
+
+            <div class="item-title">
+                👗 ${esc(v.nombre)}
+            </div>
+
+            <div class="item-info">
+                Estado actual: ${esc(v.estado)}
+            </div>
+
+            <div class="actions">
+
+                <button class="btn-success" onclick="cambiarEstadoVestido('${v.id}','Disponible')">
+                    ✓ Disponible
+                </button>
+
+                <button class="btn-secondary" onclick="cambiarEstadoVestido('${v.id}','Revisión')">
+                    🔍 Revisión
+                </button>
+
+                <button class="btn-yellow" onclick="cambiarEstadoVestido('${v.id}','Limpieza')">
+                    🧼 Limpieza
+                </button>
+
+            </div>
+
+        </div>
+
+    `).join("");
+}
+
+function cambiarEstadoVestido(idVestido,estado){
+
+    const v=datos.vestidos.find(x=>x.id===idVestido);
+
+    if(!v) return;
+
+    v.estado=estado;
+
+    guardarDatos();
+}
+
+function abrirMovimiento(){
+
+    document.getElementById("movTipo").value="Ingreso";
+    document.getElementById("movMonto").value="";
+    document.getElementById("movConcepto").value="";
+    document.getElementById("movFecha").value=hoyISO();
+    document.getElementById("movNotas").value="";
+
+    abrirModal("modalMovimiento");
+}
+
+function guardarMovimiento(){
+
+    const monto=Number(document.getElementById("movMonto").value || 0);
+
+    if(monto<=0){
+        alert("Escribe un monto válido.");
+        return;
+    }
+
+    datos.movimientos.push({
+        id:id(),
+        tipo:document.getElementById("movTipo").value,
+        monto,
+        concepto:document.getElementById("movConcepto").value.trim() || "Sin concepto",
+        fecha:document.getElementById("movFecha").value || hoyISO(),
+        notas:document.getElementById("movNotas").value.trim()
+    });
+
+    guardarDatos();
+    cerrarModal("modalMovimiento");
+}
+
+function eliminarMovimiento(idMovimiento){
+
+    if(!confirm("¿Eliminar este movimiento?")) return;
+
+    datos.movimientos =
+        datos.movimientos.filter(x=>x.id!==idMovimiento);
+
+    guardarDatos();
+}
+
+function renderCaja(){
+
+    const cont=document.getElementById("listaMovimientos");
+
+    if(!cont) return;
+
+    let ingresos=0;
+    let gastos=0;
+
+    datos.movimientos.forEach(m=>{
+
+        if(m.tipo==="Ingreso"){
+            ingresos+=Number(m.monto||0);
+        }else{
+            gastos+=Number(m.monto||0);
+        }
+    });
+
+    document.getElementById("totalIngresos").textContent=dinero(ingresos);
+    document.getElementById("totalGastos").textContent=dinero(gastos);
+    document.getElementById("balance").textContent=dinero(ingresos-gastos);
+
+    const lista=[...datos.movimientos]
+        .sort((a,b)=>(b.fecha||"").localeCompare(a.fecha||""));
+
+    if(!lista.length){
+
+        cont.innerHTML=`
+            <div class="empty">
+                💰<br><br>
+                No hay movimientos.
+            </div>
+        `;
+
+        return;
+    }
+
+    cont.innerHTML=lista.map(m=>`
+
+        <div class="item">
+
+            <div class="item-top">
+
+                <div>
+                    <div class="item-title">
+                        ${m.tipo==="Ingreso" ? "🟢" : "🔴"}
+                        ${esc(m.concepto)}
+                    </div>
+
+                    <div class="item-info">
+                        ${fechaBonita(m.fecha)}
+                        ${m.notas ? `<br>📝 ${esc(m.notas)}` : ""}
+                    </div>
+                </div>
+
+                <strong class="${m.tipo==="Ingreso" ? "money-positive" : "money-negative"}">
+                    ${m.tipo==="Ingreso" ? "+" : "-"}${dinero(m.monto)}
+                </strong>
+
+            </div>
+
+            <div class="actions">
+
+                <button class="btn-danger" onclick="eliminarMovimiento('${m.id}')">
+                    🗑️ Eliminar
+                </button>
+
+            </div>
+
+        </div>
+
+    `).join("");
+}
+
+function renderInicio(){
+
+    document.getElementById("statVestidos").textContent=datos.vestidos.length;
+
+    document.getElementById("statClientes").textContent=datos.clientes.length;
+
+    document.getElementById("statRentas").textContent=
+        datos.rentas.filter(r=>
+            !["Devuelta","Cancelada"].includes(r.estado)
+        ).length;
+
+    let ingresos=0;
+
+    datos.movimientos.forEach(m=>{
+        if(m.tipo==="Ingreso"){
+            ingresos+=Number(m.monto||0);
+        }
+    });
+
+    document.getElementById("statIngresos").textContent=dinero(ingresos);
+
+    const cont=document.getElementById("inicioRegresos");
+
+    const lista=datos.rentas
+        .filter(r=>
+            !["Devuelta","Cancelada"].includes(r.estado) &&
+            r.regreso
+        )
+        .sort((a,b)=>a.regreso.localeCompare(b.regreso))
+        .slice(0,5);
+
+    if(!lista.length){
+
+        cont.innerHTML=`
+            <div class="empty">
+                No tienes regresos pendientes.
+            </div>
+        `;
+
+        return;
+    }
+
+    cont.innerHTML=lista.map(r=>`
+
+        <div class="item">
+
+            <div class="item-title">
+                📥 ${esc(nombreVestido(r.vestidoId))}
+            </div>
+
+            <div class="item-info">
+                ${esc(nombreCliente(r.clienteId))}<br>
+                Regreso: ${fechaBonita(r.regreso)}
+            </div>
+
+        </div>
+
+    `).join("");
+}
+
+function renderCalendario(){
+
+    const grid=document.getElementById("calendarioGrid");
+
+    if(!grid) return;
+
+    const año=fechaCalendario.getFullYear();
+    const mes=fechaCalendario.getMonth();
+
+    document.getElementById("mesTitulo").textContent=
+        fechaCalendario.toLocaleDateString("es-MX",{
+            month:"long",
+            year:"numeric"
+        });
+
+    const nombres=["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"];
+
+    let html=nombres.map(n=>
+        `<div class="day-name">${n}</div>`
+    ).join("");
+
+    const primerDia=new Date(año,mes,1).getDay();
+
+    const offset=primerDia===0 ? 6 : primerDia-1;
+
+    for(let i=0;i<offset;i++){
+        html+=`<div></div>`;
+    }
+
+    const dias=new Date(año,mes+1,0).getDate();
+
+    const hoy=new Date();
+
+    for(let dia=1;dia<=dias;dia++){
+
+        const iso=
+            `${año}-${String(mes+1).padStart(2,"0")}-${String(dia).padStart(2,"0")}`;
+
+        const esHoy=
+            dia===hoy.getDate() &&
+            mes===hoy.getMonth() &&
+            año===hoy.getFullYear();
+
+        const eventos=datos.rentas.filter(r=>
+            r.salida===iso || r.regreso===iso
+        );
+
+        html+=`
+        <div class="day ${esHoy ? "today" : ""}">
+
+            <div class="day-num">${dia}</div>
+
+            ${eventos.slice(0,3).map(r=>`
+                <div class="event-dot">
+                    ${r.salida===iso ? "📤" : "📥"}
+                    ${esc(nombreVestido(r.vestidoId))}
+                </div>
+            `).join("")}
+
+        </div>
+        `;
+    }
+
+    grid.innerHTML=html;
+}
+
+function mesAnterior(){
+
+    fechaCalendario.setMonth(fechaCalendario.getMonth()-1);
+
+    renderCalendario();
+}
+
+function mesSiguiente(){
+
+    fechaCalendario.setMonth(fechaCalendario.getMonth()+1);
+
+    renderCalendario();
+}
+
+function whatsapp(numero,mensaje){
+
+    let limpio=String(numero).replace(/\D/g,"");
+
+    if(limpio.length===10){
+        limpio="52"+limpio;
+    }
+
+    const url=
+        "https://wa.me/"+limpio+"?text="+encodeURIComponent(mensaje);
+
+    window.open(url,"_blank");
+}
+
+function abrirWhatsAppGeneral(){
+
+    const numero=prompt("Escribe el número de WhatsApp:");
+
+    if(!numero) return;
+
+    whatsapp(numero,"Hola, te escribo de Julietta Dresses.");
+}
+
+function exportarDatos(){
+
+    const archivo=new Blob(
+        [JSON.stringify(datos,null,2)],
+        {type:"application/json"}
+    );
+
+    const url=URL.createObjectURL(archivo);
+
+    const a=document.createElement("a");
+
+    a.href=url;
+    a.download=
+        "julietta-dresses-respaldo-"+hoyISO()+".json";
+
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    URL.revokeObjectURL(url);
+}
+
+function importarDatos(event){
+
+    const archivo=event.target.files[0];
+
+    if(!archivo) return;
+
+    const lector=new FileReader();
+
+    lector.onload=function(){
+
+        try{
+
+            const nuevo=JSON.parse(lector.result);
+
+            if(!nuevo || typeof nuevo!=="object"){
+                throw new Error();
+            }
+
+            datos={
+                vestidos:Array.isArray(nuevo.vestidos) ? nuevo.vestidos : [],
+                clientes:Array.isArray(nuevo.clientes) ? nuevo.clientes : [],
+                rentas:Array.isArray(nuevo.rentas) ? nuevo.rentas : [],
+                movimientos:Array.isArray(nuevo.movimientos) ? nuevo.movimientos : []
+            };
+
+            guardarDatos();
+
+            alert("Respaldo restaurado correctamente.");
+
+        }catch(e){
+
+            alert("El archivo no es un respaldo válido.");
+        }
+
+        event.target.value="";
+    };
+
+    lector.readAsText(archivo);
+}
+
+function borrarTodo(){
+
+    if(!confirm("¿Seguro que quieres borrar TODOS los datos?")) return;
+
+    if(!confirm("Esta acción no se puede deshacer. ¿Continuar?")) return;
+
+    datos={
+        vestidos:[],
+        clientes:[],
+        rentas:[],
+        movimientos:[]
+    };
+
+    guardarDatos();
+
+    alert("Todos los datos fueron eliminados.");
+}
+
+function esc(texto){
+
+    return String(texto ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+function actualizarTodo(){
+
+    renderInicio();
+    renderVestidos();
+    renderClientes();
+    renderRentas();
+    renderCaja();
+    renderRegresos();
+    renderRevision();
+    renderCalendario();
+}
+
+cargarDatos();
+actualizarTodo();
+
+document.querySelectorAll(".modal-bg").forEach(modal=>{
+    modal.addEventListener("click",e=>{
+        if(e.target===modal){
+            modal.classList.remove("show");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
