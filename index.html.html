@@ -31,7 +31,7 @@ body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   background:#faf7f7;
   color:var(--texto);
-  padding-bottom:85px;
+  padding-bottom:90px;
 }
 
 button,input,select,textarea{font:inherit}
@@ -39,7 +39,7 @@ button{cursor:pointer}
 
 header{
   background:linear-gradient(135deg,#fff,#f1e4e6);
-  padding:22px 18px 18px;
+  padding:20px 18px;
   border-bottom:1px solid var(--borde);
   position:sticky;
   top:0;
@@ -49,42 +49,40 @@ header{
 .brand{
   display:flex;
   align-items:center;
-  gap:13px;
+  gap:12px;
 }
 
 .logo{
-  width:55px;
-  height:55px;
+  width:48px;
+  height:48px;
   border-radius:50%;
-  background:#fff;
-  border:1px solid #d9c2c6;
+  background:var(--vino);
+  color:white;
   display:flex;
   align-items:center;
   justify-content:center;
+  font-weight:700;
+  font-size:18px;
+  box-shadow:var(--sombra);
+}
+
+.brand h1{
+  margin:0;
   font-family:Georgia,serif;
   font-size:23px;
   color:var(--vino);
-  flex-shrink:0;
 }
 
-h1{
-  margin:0;
-  font-family:Georgia,serif;
-  font-weight:500;
-  font-size:24px;
-}
-
-.subtitle{
-  font-size:12px;
+.brand p{
+  margin:3px 0 0;
   color:var(--gris);
-  margin-top:3px;
-  letter-spacing:.7px;
+  font-size:12px;
 }
 
 main{
-  max-width:850px;
+  max-width:900px;
   margin:auto;
-  padding:18px 15px;
+  padding:18px;
 }
 
 .page{display:none}
@@ -92,240 +90,174 @@ main{
 
 h2{
   font-family:Georgia,serif;
-  font-weight:500;
-  margin:5px 0 4px;
-  font-size:25px;
+  color:var(--vino);
+  margin:5px 0 5px;
 }
 
-.section-sub{
+.subtitle{
   color:var(--gris);
-  font-size:13px;
-  margin-bottom:18px;
+  margin:0 0 18px;
+  font-size:14px;
 }
 
-.cards{
+.grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:12px;
 }
 
 .card{
-  background:#fff;
+  background:white;
   border:1px solid var(--borde);
   border-radius:18px;
   padding:16px;
   box-shadow:var(--sombra);
 }
 
-.card .icon{
+.stat{
   font-size:25px;
-}
-
-.card .number{
-  font-size:26px;
   font-weight:700;
   color:var(--vino);
-  margin-top:7px;
+  margin-top:6px;
 }
 
-.card .label{
+.label{
   font-size:12px;
   color:var(--gris);
-  margin-top:2px;
 }
 
-.actions{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
+.section{
+  margin-top:20px;
+}
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   gap:10px;
-  margin:18px 0;
+  margin-bottom:10px;
 }
 
 .btn{
   border:0;
-  border-radius:14px;
-  padding:13px 15px;
+  border-radius:12px;
+  padding:11px 15px;
   background:var(--vino);
-  color:#fff;
+  color:white;
   font-weight:600;
 }
 
 .btn.secondary{
   background:var(--rosa-claro);
   color:var(--vino);
-  border:1px solid var(--borde);
 }
 
 .btn.green{background:var(--verde)}
 .btn.red{background:var(--rojo)}
 .btn.gold{background:var(--amarillo)}
+
 .btn.small{
   padding:8px 10px;
   font-size:12px;
-  border-radius:10px;
 }
 
-.search{
+.actions{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+input,select,textarea{
   width:100%;
-  padding:13px 14px;
   border:1px solid var(--borde);
-  border-radius:13px;
   background:#fff;
+  border-radius:12px;
+  padding:12px;
   outline:none;
+}
+
+input:focus,select:focus,textarea:focus{
+  border-color:var(--rosa);
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.field label{
+  display:block;
+  font-size:12px;
+  color:var(--gris);
+  margin-bottom:5px;
+}
+
+.field.full{grid-column:1/-1}
+
+.search{
   margin-bottom:12px;
 }
 
-.search:focus,
-input:focus,
-select:focus,
-textarea:focus{
-  border-color:var(--rosa);
-  outline:none;
-}
-
 .item{
-  background:#fff;
+  background:white;
   border:1px solid var(--borde);
-  border-radius:17px;
-  padding:15px;
-  margin-bottom:11px;
-  box-shadow:0 4px 15px rgba(70,45,50,.05);
+  border-radius:16px;
+  padding:14px;
+  margin-bottom:10px;
 }
 
 .item-top{
   display:flex;
   justify-content:space-between;
   gap:10px;
-  align-items:flex-start;
 }
 
-.item h3{
-  margin:0 0 5px;
-  font-family:Georgia,serif;
-  font-weight:500;
-  font-size:19px;
+.item-title{
+  font-weight:700;
+  color:var(--vino);
 }
 
-.item p{
-  margin:4px 0;
-  color:#666;
+.item-info{
+  color:var(--gris);
   font-size:13px;
+  margin-top:5px;
+  line-height:1.5;
 }
 
-.tag{
+.badge{
   display:inline-block;
-  padding:5px 9px;
   border-radius:20px;
+  padding:5px 9px;
   font-size:11px;
   font-weight:600;
   background:var(--rosa-claro);
   color:var(--vino);
 }
 
-.tag.green{background:#edf4ef;color:#55705e}
-.tag.red{background:#f7eaea;color:#8e5050}
-.tag.gold{background:#f5efdf;color:#876c39}
+.badge.green{
+  background:#e8f1eb;
+  color:var(--verde);
+}
 
-.item-buttons{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-  margin-top:12px;
+.badge.red{
+  background:#f6e6e6;
+  color:var(--rojo);
+}
+
+.badge.gold{
+  background:#f4eedf;
+  color:var(--amarillo);
 }
 
 .empty{
   text-align:center;
-  padding:35px 15px;
-  color:#888;
-  background:#fff;
-  border:1px dashed #d9c8cb;
-  border-radius:17px;
-}
-
-.form-box{
-  background:#fff;
-  border:1px solid var(--borde);
-  border-radius:18px;
-  padding:17px;
-  margin-bottom:17px;
-  box-shadow:var(--sombra);
-}
-
-label{
-  display:block;
-  font-size:12px;
-  color:#666;
-  margin:12px 0 6px;
-  font-weight:600;
-}
-
-input,select,textarea{
-  width:100%;
-  padding:12px;
-  border:1px solid #ddd0d3;
-  border-radius:11px;
-  background:#fff;
-}
-
-textarea{
-  min-height:75px;
-  resize:vertical;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-.form-grid .full{
-  grid-column:1/-1;
-}
-
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(30,20,22,.45);
-  z-index:100;
-  align-items:flex-end;
-  justify-content:center;
-}
-
-.modal.show{display:flex}
-
-.modal-content{
-  background:#fff;
-  width:100%;
-  max-width:650px;
-  max-height:92vh;
-  overflow:auto;
-  border-radius:24px 24px 0 0;
-  padding:20px;
-}
-
-.modal-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:10px;
-}
-
-.modal-title h3{
-  margin:0;
-  font-family:Georgia,serif;
-  font-size:22px;
-  font-weight:500;
-}
-
-.close{
-  width:35px;
-  height:35px;
-  border-radius:50%;
-  border:0;
-  background:#f3eded;
-  color:var(--vino);
-  font-size:20px;
+  padding:30px 15px;
+  color:var(--gris);
+  background:white;
+  border:1px dashed var(--borde);
+  border-radius:16px;
 }
 
 .bottom-nav{
@@ -333,11 +265,12 @@ textarea{
   bottom:0;
   left:0;
   right:0;
-  height:72px;
+  height:78px;
   background:rgba(255,255,255,.96);
   border-top:1px solid var(--borde);
   display:flex;
   justify-content:space-around;
+  align-items:center;
   z-index:50;
   padding-bottom:env(safe-area-inset-bottom);
 }
@@ -350,9 +283,7 @@ textarea{
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:center;
   gap:3px;
-  min-width:55px;
 }
 
 .nav-btn span{
@@ -364,130 +295,165 @@ textarea{
   font-weight:700;
 }
 
-.alert{
-  background:#fff7e9;
-  border:1px solid #ead9b7;
-  color:#806733;
-  border-radius:15px;
-  padding:13px;
-  margin-bottom:15px;
-  font-size:13px;
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(40,25,30,.45);
+  z-index:100;
+  align-items:flex-end;
+  justify-content:center;
 }
 
-.success{
-  background:#edf5ef;
-  color:#58715e;
-  border:1px solid #cfe0d2;
-  padding:12px;
-  border-radius:12px;
-  margin-bottom:12px;
-  font-size:13px;
+.modal.show{display:flex}
+
+.modal-box{
+  background:#fff;
+  width:100%;
+  max-width:650px;
+  max-height:92vh;
+  overflow:auto;
+  border-radius:24px 24px 0 0;
+  padding:20px;
 }
 
-.danger{
-  background:#faeeee;
-  color:#8c5050;
-  border:1px solid #ebcccc;
-  padding:12px;
-  border-radius:12px;
-  margin-bottom:12px;
-  font-size:13px;
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:16px;
 }
 
-.money{
-  font-size:22px;
-  font-weight:700;
+.modal-head h3{
+  margin:0;
   color:var(--vino);
+  font-family:Georgia,serif;
 }
 
-hr{
+.close{
   border:0;
-  border-top:1px solid var(--borde);
-  margin:15px 0;
+  background:var(--rosa-claro);
+  color:var(--vino);
+  border-radius:50%;
+  width:35px;
+  height:35px;
+  font-size:20px;
+}
+
+.toast{
+  position:fixed;
+  bottom:95px;
+  left:50%;
+  transform:translateX(-50%) translateY(20px);
+  background:#292629;
+  color:#fff;
+  padding:12px 17px;
+  border-radius:12px;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  z-index:200;
+  font-size:13px;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
 }
 
 .calendar-head{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:10px;
-}
-
-.calendar-head button{
-  border:0;
-  background:var(--rosa-claro);
-  border-radius:10px;
-  padding:8px 12px;
-  color:var(--vino);
+  margin-bottom:12px;
 }
 
 .calendar-title{
-  font-family:Georgia,serif;
-  font-size:18px;
+  font-weight:700;
+  color:var(--vino);
 }
 
 .calendar{
   display:grid;
   grid-template-columns:repeat(7,1fr);
-  gap:5px;
+  gap:4px;
 }
 
 .day-name{
   text-align:center;
   font-size:10px;
-  color:#888;
-  padding:4px 0;
+  color:var(--gris);
+  padding:5px 0;
 }
 
 .day{
-  min-height:55px;
-  background:#fff;
-  border:1px solid #eee2e4;
+  min-height:48px;
+  border:1px solid var(--borde);
   border-radius:9px;
+  background:#fff;
   padding:5px;
   font-size:11px;
 }
 
+.day.muted{
+  opacity:.35;
+}
+
 .day.today{
-  border:2px solid var(--rosa);
+  border:2px solid var(--vino);
 }
 
 .day.has-event{
   background:var(--rosa-claro);
 }
 
-.day-number{
+.dot{
+  width:6px;
+  height:6px;
+  background:var(--rojo);
+  border-radius:50%;
+  display:inline-block;
+  margin-left:2px;
+}
+
+.money{
+  font-size:22px;
   font-weight:700;
 }
 
-.event-dot{
-  font-size:9px;
+.money.plus{color:var(--verde)}
+.money.minus{color:var(--rojo)}
+
+hr{
+  border:0;
+  border-top:1px solid var(--borde);
+  margin:16px 0;
+}
+
+.notice{
+  background:var(--rosa-claro);
+  border-radius:15px;
+  padding:13px;
   color:var(--vino);
-  margin-top:5px;
-  white-space:nowrap;
-  overflow:hidden;
-}
-
-.stats-row{
-  display:flex;
-  justify-content:space-between;
-  padding:10px 0;
-  border-bottom:1px solid var(--borde);
   font-size:13px;
+  margin-bottom:12px;
 }
 
-@media(max-width:500px){
+@media(max-width:600px){
   .form-grid{grid-template-columns:1fr}
-  .form-grid .full{grid-column:auto}
+  .field.full{grid-column:auto}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  main{padding:14px}
 }
 
 @media(min-width:700px){
   .bottom-nav{
-    position:static;
-    max-width:850px;
-    margin:20px auto;
-    border:1px solid var(--borde);
-    border-radius:20px;
+    max-width:900px;
+    left:50%;
+    transform:translateX(-50%);
+    border-left:1px solid var(--borde);
+    border-right:1px solid var(--borde);
+    border-radius:20px 20px 0 0;
   }
 }
 </style>
@@ -500,7 +466,7 @@ hr{
     <div class="logo">JD</div>
     <div>
       <h1>Julietta Dresses</h1>
-      <div class="subtitle">CONTROL DE NEGOCIO</div>
+      <p>Control de rentas y vestidos</p>
     </div>
   </div>
 </header>
@@ -508,473 +474,468 @@ hr{
 <main>
 
 <!-- INICIO -->
-<section id="inicio" class="page active">
-  <h2>Buenos días 👋</h2>
-  <div class="section-sub" id="fechaActual"></div>
+<section id="page-inicio" class="page active">
+  <h2>Hola 👋</h2>
+  <p class="subtitle">Aquí tienes el resumen de tu negocio.</p>
 
-  <div class="cards">
+  <div class="grid">
     <div class="card">
-      <div class="icon">👗</div>
-      <div class="number" id="totalVestidos">0</div>
       <div class="label">Vestidos</div>
+      <div class="stat" id="statVestidos">0</div>
     </div>
 
     <div class="card">
-      <div class="icon">📅</div>
-      <div class="number" id="rentasHoy">0</div>
-      <div class="label">Rentas hoy</div>
+      <div class="label">Clientes</div>
+      <div class="stat" id="statClientes">0</div>
     </div>
 
     <div class="card">
-      <div class="icon">💰</div>
-      <div class="number" id="ingresoMes">$0</div>
-      <div class="label">Ingresos del mes</div>
+      <div class="label">Rentas activas</div>
+      <div class="stat" id="statRentas">0</div>
     </div>
 
     <div class="card">
-      <div class="icon">⚠️</div>
-      <div class="number" id="porRegresar">0</div>
-      <div class="label">Por regresar</div>
+      <div class="label">Ingresos</div>
+      <div class="stat" id="statIngresos">$0</div>
     </div>
   </div>
 
-  <div class="actions">
-    <button class="btn" onclick="abrirVestido()">＋ Vestido</button>
-    <button class="btn secondary" onclick="abrirRenta()">＋ Nueva renta</button>
-    <button class="btn secondary" onclick="abrirCliente()">＋ Cliente</button>
-    <button class="btn secondary" onclick="mostrarPagina('caja')">💰 Ver caja</button>
+  <div class="section">
+    <div class="section-title">
+      <h3>Próximos regresos</h3>
+      <button class="btn small secondary" onclick="mostrarPagina('regresos')">Ver todos</button>
+    </div>
+    <div id="alertasInicio"></div>
   </div>
 
-  <div id="alertasInicio"></div>
-
-  <div class="form-box">
-    <h3 style="font-family:Georgia,serif;font-weight:500;margin-top:0">
-      Próximas reservaciones
-    </h3>
-    <div id="proximas"></div>
+  <div class="section">
+    <div class="section-title">
+      <h3>Próximas rentas</h3>
+    </div>
+    <div id="proximasRentas"></div>
   </div>
 </section>
 
-
 <!-- INVENTARIO -->
-<section id="inventario" class="page">
-  <h2>Inventario 👗</h2>
-  <div class="section-sub">Administra todos tus vestidos.</div>
-
-  <button class="btn" style="width:100%;margin-bottom:15px" onclick="abrirVestido()">
-    ＋ Agregar vestido
-  </button>
+<section id="page-inventario" class="page">
+  <div class="section-title">
+    <div>
+      <h2>Inventario 👗</h2>
+      <p class="subtitle">Administra todos tus vestidos.</p>
+    </div>
+    <button class="btn" onclick="abrirVestido()">+ Vestido</button>
+  </div>
 
   <input class="search" id="buscarVestido" placeholder="🔎 Buscar vestido..." oninput="renderInventario()">
 
-  <div id="listaVestidos"></div>
+  <div id="listaInventario"></div>
 </section>
-
 
 <!-- CALENDARIO -->
-<section id="calendario" class="page">
+<section id="page-calendario" class="page">
   <h2>Calendario 📅</h2>
-  <div class="section-sub">Consulta tus reservaciones.</div>
+  <p class="subtitle">Consulta tus rentas por fecha.</p>
 
-  <div class="form-box">
+  <div class="card">
     <div class="calendar-head">
-      <button onclick="cambiarMes(-1)">‹</button>
+      <button class="btn small secondary" onclick="cambiarMes(-1)">‹</button>
       <div class="calendar-title" id="mesCalendario"></div>
-      <button onclick="cambiarMes(1)">›</button>
+      <button class="btn small secondary" onclick="cambiarMes(1)">›</button>
     </div>
 
-    <div class="calendar">
-      <div class="day-name">L</div>
-      <div class="day-name">M</div>
-      <div class="day-name">M</div>
-      <div class="day-name">J</div>
-      <div class="day-name">V</div>
-      <div class="day-name">S</div>
-      <div class="day-name">D</div>
-    </div>
-
-    <div class="calendar" id="calendarioDias"></div>
+    <div class="calendar" id="calendario"></div>
   </div>
 
-  <div id="eventosCalendario"></div>
+  <div class="section">
+    <h3>Eventos del mes</h3>
+    <div id="eventosMes"></div>
+  </div>
 </section>
 
-
 <!-- CLIENTES -->
-<section id="clientes" class="page">
-  <h2>Clientes 👩</h2>
-  <div class="section-sub">Guarda y consulta la información de tus clientas.</div>
+<section id="page-clientes" class="page">
+  <div class="section-title">
+    <div>
+      <h2>Clientes 👩</h2>
+      <p class="subtitle">Guarda y consulta tus clientas.</p>
+    </div>
+    <button class="btn" onclick="abrirCliente()">+ Cliente</button>
+  </div>
 
-  <button class="btn" style="width:100%;margin-bottom:15px" onclick="abrirCliente()">
-    ＋ Agregar cliente
-  </button>
-
-  <input class="search" id="buscarCliente" placeholder="🔎 Buscar cliente..." oninput="renderClientes">
+  <input class="search" id="buscarCliente" placeholder="🔎 Buscar cliente..." oninput="renderClientes()">
 
   <div id="listaClientes"></div>
 </section>
 
-
 <!-- RENTAS -->
-<section id="rentas" class="page">
-  <h2>Rentas y apartados 📝</h2>
-  <div class="section-sub">Controla fechas, anticipos y saldos.</div>
+<section id="page-rentas" class="page">
+  <div class="section-title">
+    <div>
+      <h2>Rentas 📝</h2>
+      <p class="subtitle">Controla reservaciones y rentas.</p>
+    </div>
+    <button class="btn" onclick="abrirRenta()">+ Renta</button>
+  </div>
 
-  <button class="btn" style="width:100%;margin-bottom:15px" onclick="abrirRenta()">
-    ＋ Nueva renta / apartado
-  </button>
-
-  <input class="search" id="buscarRenta" placeholder="🔎 Buscar renta..." oninput="renderRentas">
+  <input class="search" id="buscarRenta" placeholder="🔎 Buscar renta..." oninput="renderRentas()">
 
   <div id="listaRentas"></div>
 </section>
 
-
 <!-- CAJA -->
-<section id="caja" class="page">
-  <h2>Caja 💰</h2>
-  <div class="section-sub">Control de ingresos y movimientos.</div>
+<section id="page-caja" class="page">
+  <div class="section-title">
+    <div>
+      <h2>Caja 💰</h2>
+      <p class="subtitle">Control de ingresos y gastos.</p>
+    </div>
+    <button class="btn" onclick="abrirMovimiento()">+ Movimiento</button>
+  </div>
 
-  <div class="cards">
+  <div class="grid">
     <div class="card">
-      <div class="icon">💵</div>
-      <div class="number" id="cajaTotal">$0</div>
-      <div class="label">Total ingresado</div>
+      <div class="label">Ingresos</div>
+      <div class="money plus" id="totalIngresos">$0</div>
     </div>
 
     <div class="card">
-      <div class="icon">📅</div>
-      <div class="number" id="cajaMes">$0</div>
-      <div class="label">Este mes</div>
+      <div class="label">Gastos</div>
+      <div class="money minus" id="totalGastos">$0</div>
     </div>
   </div>
 
-  <button class="btn" style="width:100%;margin:15px 0" onclick="abrirMovimiento()">
-    ＋ Registrar movimiento
-  </button>
+  <div class="card" style="margin-top:12px">
+    <div class="label">Saldo</div>
+    <div class="stat" id="saldoCaja">$0</div>
+  </div>
 
-  <div id="listaMovimientos"></div>
+  <div class="section">
+    <h3>Movimientos</h3>
+    <div id="listaMovimientos"></div>
+  </div>
 </section>
 
-
 <!-- REGRESOS -->
-<section id="regresos" class="page">
-  <h2>Vestidos por regresar ⚠️</h2>
-  <div class="section-sub">Rentas cuya fecha de regreso ya llegó.</div>
+<section id="page-regresos" class="page">
+  <h2>Regresos 🔔</h2>
+  <p class="subtitle">Vestidos que deben regresar.</p>
 
   <div id="listaRegresos"></div>
 </section>
 
-
 <!-- REVISION -->
-<section id="revision" class="page">
-  <h2>Revisión y limpieza 🧼</h2>
-  <div class="section-sub">Controla qué vestidos están listos para volver a rentarse.</div>
+<section id="page-revision" class="page">
+  <div class="section-title">
+    <div>
+      <h2>Revisión 🧼</h2>
+      <p class="subtitle">Controla lavado, daños y disponibilidad.</p>
+    </div>
+  </div>
 
   <div id="listaRevision"></div>
 </section>
 
-
-<!-- CONFIGURACION -->
-<section id="configuracion" class="page">
+<!-- CONFIGURACIÓN -->
+<section id="page-config" class="page">
   <h2>Configuración ⚙️</h2>
-  <div class="section-sub">Respalda y administra la información de Julietta Dresses.</div>
+  <p class="subtitle">Personaliza y respalda tu información.</p>
 
-  <div class="form-box">
-    <h3 style="font-family:Georgia,serif;font-weight:500">💾 Respaldo</h3>
-    <p style="font-size:13px;color:#777">
-      Descarga una copia de todos tus vestidos, clientes, rentas y movimientos.
-    </p>
+  <div class="card">
+    <h3>Datos del negocio</h3>
 
-    <button class="btn" style="width:100%;margin-bottom:10px" onclick="exportarDatos()">
-      ⬇️ Descargar respaldo
+    <div class="field">
+      <label>Nombre del negocio</label>
+      <input id="configNombre" placeholder="Julietta Dresses">
+    </div>
+
+    <div class="field" style="margin-top:10px">
+      <label>WhatsApp</label>
+      <input id="configWhatsapp" placeholder="Ej. 8112345678">
+    </div>
+
+    <button class="btn" style="margin-top:12px" onclick="guardarConfiguracion()">
+      Guardar
     </button>
-
-    <label>Restaurar respaldo</label>
-    <input type="file" id="archivoRespaldo" accept=".json" onchange="importarDatos(event)">
   </div>
 
-  <div class="form-box">
-    <h3 style="font-family:Georgia,serif;font-weight:500">📱 Información</h3>
+  <div class="card" style="margin-top:15px">
+    <h3>💾 Respaldo</h3>
+    <p class="item-info">
+      Descarga una copia de toda la información de Julietta Dresses.
+    </p>
 
-    <div class="stats-row">
-      <span>Vestidos registrados</span>
-      <strong id="infoVestidos">0</strong>
-    </div>
-
-    <div class="stats-row">
-      <span>Clientes registrados</span>
-      <strong id="infoClientes">0</strong>
-    </div>
-
-    <div class="stats-row">
-      <span>Rentas registradas</span>
-      <strong id="infoRentas">0</strong>
-    </div>
-
-    <div class="stats-row">
-      <span>Movimientos</span>
-      <strong id="infoMovimientos">0</strong>
+    <div class="actions">
+      <button class="btn green" onclick="exportarDatos()">⬇️ Descargar respaldo</button>
+      <button class="btn secondary" onclick="document.getElementById('archivoImportar').click()">⬆️ Restaurar respaldo</button>
+      <input type="file" id="archivoImportar" accept=".json" style="display:none" onchange="importarDatos(event)">
     </div>
   </div>
 
-  <div class="form-box">
-    <h3 style="font-family:Georgia,serif;font-weight:500">⚠️ Zona de peligro</h3>
-    <p style="font-size:13px;color:#777">
-      Esta opción elimina toda la información guardada en este teléfono.
+  <div class="card" style="margin-top:15px">
+    <h3>⚠️ Zona de cuidado</h3>
+    <p class="item-info">
+      Esta opción elimina toda la información guardada en este dispositivo.
     </p>
-    <button class="btn red" style="width:100%" onclick="borrarTodo()">
-      🗑️ Borrar todos los datos
-    </button>
+    <button class="btn red" onclick="borrarTodo()">Borrar todos los datos</button>
   </div>
 </section>
 
 </main>
 
-
-<!-- NAVEGACION -->
+<!-- NAVEGACIÓN -->
 <nav class="bottom-nav">
-  <button class="nav-btn active" data-page="inicio" onclick="mostrarPagina('inicio')">
+  <button class="nav-btn active" onclick="mostrarPagina('inicio',this)">
     <span>🏠</span>Inicio
   </button>
 
-  <button class="nav-btn" data-page="inventario" onclick="mostrarPagina('inventario')">
+  <button class="nav-btn" onclick="mostrarPagina('inventario',this)">
     <span>👗</span>Vestidos
   </button>
 
-  <button class="nav-btn" data-page="calendario" onclick="mostrarPagina('calendario')">
+  <button class="nav-btn" onclick="mostrarPagina('calendario',this)">
     <span>📅</span>Calendario
   </button>
 
-  <button class="nav-btn" data-page="clientes" onclick="mostrarPagina('clientes')">
+  <button class="nav-btn" onclick="mostrarPagina('clientes',this)">
     <span>👩</span>Clientes
   </button>
 
-  <button class="nav-btn" data-page="rentas" onclick="mostrarPagina('rentas')">
+  <button class="nav-btn" onclick="mostrarPagina('rentas',this)">
     <span>📝</span>Rentas
   </button>
 
-  <button class="nav-btn" data-page="caja" onclick="mostrarPagina('caja')">
+  <button class="nav-btn" onclick="mostrarPagina('caja',this)">
     <span>💰</span>Caja
   </button>
 
-  <button class="nav-btn" data-page="configuracion" onclick="mostrarPagina('configuracion')">
+  <button class="nav-btn" onclick="mostrarPagina('config',this)">
     <span>⚙️</span>Más
   </button>
 </nav>
 
-
 <!-- MODAL VESTIDO -->
 <div class="modal" id="modalVestido">
-<div class="modal-content">
-  <div class="modal-title">
-    <h3 id="tituloVestido">Nuevo vestido</h3>
-    <button class="close" onclick="cerrarModal('modalVestido')">×</button>
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="tituloVestido">Nuevo vestido</h3>
+      <button class="close" onclick="cerrarModal('modalVestido')">×</button>
+    </div>
+
+    <input type="hidden" id="vestidoId">
+
+    <div class="form-grid">
+      <div class="field">
+        <label>Nombre / modelo</label>
+        <input id="vestidoNombre" placeholder="Ej. Vestido Rosa">
+      </div>
+
+      <div class="field">
+        <label>Talla</label>
+        <input id="vestidoTalla" placeholder="Ej. M">
+      </div>
+
+      <div class="field">
+        <label>Color</label>
+        <input id="vestidoColor" placeholder="Ej. Rosa">
+      </div>
+
+      <div class="field">
+        <label>Precio de renta</label>
+        <input id="vestidoPrecio" type="number" min="0" placeholder="0">
+      </div>
+
+      <div class="field">
+        <label>Estado</label>
+        <select id="vestidoEstado">
+          <option value="Disponible">Disponible</option>
+          <option value="Rentado">Rentado</option>
+          <option value="Apartado">Apartado</option>
+          <option value="Lavado">Lavado</option>
+          <option value="Reparación">Reparación</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Notas</label>
+        <input id="vestidoNotas" placeholder="Detalles">
+      </div>
+    </div>
+
+    <button class="btn" style="width:100%;margin-top:16px" onclick="guardarVestido()">
+      Guardar vestido
+    </button>
   </div>
-
-  <input type="hidden" id="vestidoId">
-
-  <label>Nombre / modelo</label>
-  <input id="vestidoNombre" placeholder="Ej. Modelo Aurora">
-
-  <div class="form-grid">
-    <div>
-      <label>Talla</label>
-      <input id="vestidoTalla" placeholder="Ej. M">
-    </div>
-
-    <div>
-      <label>Color</label>
-      <input id="vestidoColor" placeholder="Ej. Rosa">
-    </div>
-
-    <div>
-      <label>Precio de renta</label>
-      <input id="vestidoPrecio" type="number" min="0" placeholder="0">
-    </div>
-
-    <div>
-      <label>Precio de compra</label>
-      <input id="vestidoCompra" type="number" min="0" placeholder="Opcional">
-    </div>
-  </div>
-
-  <label>Estado</label>
-  <select id="vestidoEstado">
-    <option value="Disponible">Disponible</option>
-    <option value="Rentado">Rentado</option>
-    <option value="Limpieza">En limpieza</option>
-    <option value="Reparación">En reparación</option>
-  </select>
-
-  <label>Notas</label>
-  <textarea id="vestidoNotas" placeholder="Detalles del vestido..."></textarea>
-
-  <button class="btn" style="width:100%;margin-top:15px" onclick="guardarVestido()">
-    Guardar vestido
-  </button>
 </div>
-</div>
-
 
 <!-- MODAL CLIENTE -->
 <div class="modal" id="modalCliente">
-<div class="modal-content">
-  <div class="modal-title">
-    <h3 id="tituloCliente">Nueva cliente</h3>
-    <button class="close" onclick="cerrarModal('modalCliente')">×</button>
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="tituloCliente">Nueva cliente</h3>
+      <button class="close" onclick="cerrarModal('modalCliente')">×</button>
+    </div>
+
+    <input type="hidden" id="clienteId">
+
+    <div class="form-grid">
+      <div class="field">
+        <label>Nombre</label>
+        <input id="clienteNombre" placeholder="Nombre completo">
+      </div>
+
+      <div class="field">
+        <label>Teléfono</label>
+        <input id="clienteTelefono" type="tel" placeholder="8112345678">
+      </div>
+
+      <div class="field full">
+        <label>Notas</label>
+        <textarea id="clienteNotas" rows="3" placeholder="Medidas, preferencias, etc."></textarea>
+      </div>
+    </div>
+
+    <button class="btn" style="width:100%;margin-top:16px" onclick="guardarCliente()">
+      Guardar cliente
+    </button>
   </div>
-
-  <input type="hidden" id="clienteId">
-
-  <label>Nombre completo</label>
-  <input id="clienteNombre" placeholder="Nombre de la clienta">
-
-  <label>Teléfono / WhatsApp</label>
-  <input id="clienteTelefono" type="tel" placeholder="Ej. 8112345678">
-
-  <label>Notas</label>
-  <textarea id="clienteNotas" placeholder="Preferencias, medidas, notas..."></textarea>
-
-  <button class="btn" style="width:100%;margin-top:15px" onclick="guardarCliente()">
-    Guardar cliente
-  </button>
 </div>
-</div>
-
 
 <!-- MODAL RENTA -->
 <div class="modal" id="modalRenta">
-<div class="modal-content">
-  <div class="modal-title">
-    <h3 id="tituloRenta">Nueva renta</h3>
-    <button class="close" onclick="cerrarModal('modalRenta')">×</button>
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="tituloRenta">Nueva renta</h3>
+      <button class="close" onclick="cerrarModal('modalRenta')">×</button>
+    </div>
+
+    <input type="hidden" id="rentaId">
+
+    <div class="form-grid">
+      <div class="field">
+        <label>Cliente</label>
+        <select id="rentaCliente"></select>
+      </div>
+
+      <div class="field">
+        <label>Vestido</label>
+        <select id="rentaVestido"></select>
+      </div>
+
+      <div class="field">
+        <label>Fecha de entrega</label>
+        <input id="rentaEntrega" type="date">
+      </div>
+
+      <div class="field">
+        <label>Fecha de regreso</label>
+        <input id="rentaRegreso" type="date">
+      </div>
+
+      <div class="field">
+        <label>Precio acordado</label>
+        <input id="rentaPrecio" type="number" min="0">
+      </div>
+
+      <div class="field">
+        <label>Anticipo</label>
+        <input id="rentaAnticipo" type="number" min="0">
+      </div>
+
+      <div class="field">
+        <label>Estado</label>
+        <select id="rentaEstado">
+          <option value="Apartada">Apartada</option>
+          <option value="Confirmada">Confirmada</option>
+          <option value="Entregada">Entregada</option>
+          <option value="Devuelta">Devuelta</option>
+          <option value="Cancelada">Cancelada</option>
+        </select>
+      </div>
+
+      <div class="field full">
+        <label>Notas</label>
+        <textarea id="rentaNotas" rows="3"></textarea>
+      </div>
+    </div>
+
+    <button class="btn" style="width:100%;margin-top:16px" onclick="guardarRenta()">
+      Guardar renta
+    </button>
   </div>
-
-  <input type="hidden" id="rentaId">
-
-  <label>Cliente</label>
-  <select id="rentaCliente"></select>
-
-  <label>Vestido</label>
-  <select id="rentaVestido"></select>
-
-  <div class="form-grid">
-    <div>
-      <label>Fecha de salida</label>
-      <input id="rentaSalida" type="date">
-    </div>
-
-    <div>
-      <label>Fecha de regreso</label>
-      <input id="rentaRegreso" type="date">
-    </div>
-
-    <div>
-      <label>Precio total</label>
-      <input id="rentaPrecio" type="number" min="0" placeholder="0">
-    </div>
-
-    <div>
-      <label>Anticipo</label>
-      <input id="rentaAnticipo" type="number" min="0" placeholder="0">
-    </div>
-  </div>
-
-  <label>Tipo</label>
-  <select id="rentaTipo">
-    <option value="Apartado">Apartado</option>
-    <option value="Renta">Renta confirmada</option>
-  </select>
-
-  <label>Estado</label>
-  <select id="rentaEstado">
-    <option value="Reservada">Reservada</option>
-    <option value="Entregada">Entregada</option>
-    <option value="Regresada">Regresada</option>
-    <option value="Cancelada">Cancelada</option>
-  </select>
-
-  <label>Notas</label>
-  <textarea id="rentaNotas" placeholder="Detalles del evento..."></textarea>
-
-  <button class="btn" style="width:100%;margin-top:15px" onclick="guardarRenta()">
-    Guardar renta
-  </button>
-</div>
 </div>
 
-
-<!-- MODAL MOVIMIENTO -->
+<!-- MODAL CAJA -->
 <div class="modal" id="modalMovimiento">
-<div class="modal-content">
-  <div class="modal-title">
-    <h3>Nuevo movimiento</h3>
-    <button class="close" onclick="cerrarModal('modalMovimiento')">×</button>
-  </div>
-
-  <label>Concepto</label>
-  <input id="movConcepto" placeholder="Ej. Anticipo renta Aurora">
-
-  <div class="form-grid">
-    <div>
-      <label>Monto</label>
-      <input id="movMonto" type="number" min="0" placeholder="0">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>Nuevo movimiento</h3>
+      <button class="close" onclick="cerrarModal('modalMovimiento')">×</button>
     </div>
 
-    <div>
-      <label>Fecha</label>
-      <input id="movFecha" type="date">
+    <div class="form-grid">
+      <div class="field">
+        <label>Tipo</label>
+        <select id="movTipo">
+          <option value="Ingreso">Ingreso</option>
+          <option value="Gasto">Gasto</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Cantidad</label>
+        <input id="movCantidad" type="number" min="0">
+      </div>
+
+      <div class="field full">
+        <label>Concepto</label>
+        <input id="movConcepto" placeholder="Ej. Renta vestido">
+      </div>
     </div>
+
+    <button class="btn" style="width:100%;margin-top:16px" onclick="guardarMovimiento()">
+      Guardar movimiento
+    </button>
   </div>
-
-  <label>Tipo</label>
-  <select id="movTipo">
-    <option value="Ingreso">Ingreso</option>
-    <option value="Gasto">Gasto</option>
-  </select>
-
-  <label>Notas</label>
-  <textarea id="movNotas"></textarea>
-
-  <button class="btn" style="width:100%;margin-top:15px" onclick="guardarMovimiento()">
-    Guardar movimiento
-  </button>
-</div>
 </div>
 
+<div class="toast" id="toast"></div>
 
 <script>
-/* =========================
-   DATOS
-========================= */
+const STORAGE_KEY = "juliettaDresses";
 
-let datos = JSON.parse(localStorage.getItem("juliettaDresses")) || {
-  vestidos: [],
-  clientes: [],
-  rentas: [],
-  movimientos: []
+let datos = {
+  configuracion:{
+    nombre:"Julietta Dresses",
+    whatsapp:""
+  },
+  vestidos:[],
+  clientes:[],
+  rentas:[],
+  movimientos:[]
 };
 
-let mesActual = new Date();
+let fechaCalendario = new Date();
 
+function cargarDatos(){
+  try{
+    const guardado = localStorage.getItem(STORAGE_KEY);
 
-/* =========================
-   GUARDAR
-========================= */
+    if(guardado){
+      datos = JSON.parse(guardado);
 
-function guardarDatos(){
-  localStorage.setItem("juliettaDresses", JSON.stringify(datos));
-  actualizarTodo();
+      if(!datos.configuracion) datos.configuracion={nombre:"Julietta Dresses",whatsapp:""};
+      if(!datos.vestidos) datos.vestidos=[];
+      if(!datos.clientes) datos.clientes=[];
+      if(!datos.rentas) datos.rentas=[];
+      if(!datos.movimientos) datos.movimientos=[];
+    }
+  }catch(e){
+    console.log(e);
+  }
 }
 
-
-/* =========================
-   UTILIDADES
-========================= */
-
-function idNuevo(){
-  return Date.now().toString() + Math.random().toString(16).slice(2);
+function guardarDatos(){
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(datos));
 }
 
 function dinero(numero){
@@ -984,155 +945,277 @@ function dinero(numero){
   });
 }
 
-function fechaHoy(){
-  let d = new Date();
-  return d.toISOString().split("T")[0];
+function escapeHTML(text){
+  return String(text ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 }
 
-function formatearFecha(fecha){
-  if(!fecha) return "Sin fecha";
-  let partes = fecha.split("-");
-  if(partes.length !== 3) return fecha;
+function fechaBonita(fecha){
+  if(!fecha)return "Sin fecha";
+
+  const partes=fecha.split("-");
+
+  if(partes.length!==3)return fecha;
+
   return `${partes[2]}/${partes[1]}/${partes[0]}`;
 }
 
-function clientePorId(id){
-  return datos.clientes.find(c=>c.id===id);
+function hoyISO(){
+  const d=new Date();
+  const y=d.getFullYear();
+  const m=String(d.getMonth()+1).padStart(2,"0");
+  const day=String(d.getDate()).padStart(2,"0");
+  return `${y}-${m}-${day}`;
 }
 
-function vestidoPorId(id){
-  return datos.vestidos.find(v=>v.id===id);
+function mostrarToast(mensaje){
+  const toast=document.getElementById("toast");
+  toast.textContent=mensaje;
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+    toast.classList.remove("show");
+  },2200);
 }
 
-
-/* =========================
-   NAVEGACIÓN
-========================= */
-
-function mostrarPagina(nombre){
+function mostrarPagina(nombre,boton){
 
   document.querySelectorAll(".page").forEach(p=>{
     p.classList.remove("active");
   });
 
-  let pagina=document.getElementById(nombre);
+  const pagina=document.getElementById("page-"+nombre);
 
-  if(pagina){
-    pagina.classList.add("active");
-  }
+  if(pagina) pagina.classList.add("active");
 
-  document.querySelectorAll(".nav-btn").forEach(btn=>{
-    btn.classList.toggle("active",btn.dataset.page===nombre);
+  document.querySelectorAll(".nav-btn").forEach(b=>{
+    b.classList.remove("active");
   });
 
-  window.scrollTo({top:0,behavior:"smooth"});
+  if(boton){
+    boton.classList.add("active");
+  }else{
+    const botones=document.querySelectorAll(".nav-btn");
+
+    botones.forEach(b=>{
+      if(b.getAttribute("onclick")?.includes("'"+nombre+"'")){
+        b.classList.add("active");
+      }
+    });
+  }
 
   actualizarTodo();
+  window.scrollTo(0,0);
 }
 
+function actualizarTodo(){
+  renderInicio();
+  renderInventario();
+  renderClientes();
+  renderRentas();
+  renderCaja();
+  renderRegresos();
+  renderRevision();
+  renderCalendario();
+  cargarConfiguracion();
+}
+
+function abrirModal(id){
+  document.getElementById(id).classList.add("show");
+}
+
+function cerrarModal(id){
+  document.getElementById(id).classList.remove("show");
+}
 
 /* =========================
-   VESTIDOS
+   INICIO
+========================= */
+
+function renderInicio(){
+
+  document.getElementById("statVestidos").textContent=datos.vestidos.length;
+  document.getElementById("statClientes").textContent=datos.clientes.length;
+
+  const rentasActivas=datos.rentas.filter(r=>
+    r.estado!=="Devuelta" &&
+    r.estado!=="Cancelada"
+  );
+
+  document.getElementById("statRentas").textContent=rentasActivas.length;
+
+  const ingresos=datos.movimientos
+    .filter(m=>m.tipo==="Ingreso")
+    .reduce((s,m)=>s+Number(m.cantidad||0),0);
+
+  document.getElementById("statIngresos").textContent=dinero(ingresos);
+
+  const alertas=document.getElementById("alertasInicio");
+
+  const proximos=datos.rentas
+    .filter(r=>
+      r.estado!=="Devuelta" &&
+      r.estado!=="Cancelada" &&
+      r.regreso
+    )
+    .sort((a,b)=>a.regreso.localeCompare(b.regreso))
+    .slice(0,4);
+
+  if(!proximos.length){
+    alertas.innerHTML='<div class="empty">No tienes regresos próximos.</div>';
+  }else{
+    alertas.innerHTML=proximos.map(r=>{
+
+      const cliente=datos.clientes.find(c=>c.id===r.clienteId);
+      const vestido=datos.vestidos.find(v=>v.id===r.vestidoId);
+
+      return `
+      <div class="item">
+        <div class="item-top">
+          <div>
+            <div class="item-title">${escapeHTML(cliente?.nombre || "Cliente")}</div>
+            <div class="item-info">
+              ${escapeHTML(vestido?.nombre || "Vestido")}<br>
+              Regresa: <b>${fechaBonita(r.regreso)}</b>
+            </div>
+          </div>
+          <span class="badge gold">${escapeHTML(r.estado)}</span>
+        </div>
+      </div>`;
+    }).join("");
+  }
+
+  const futuras=datos.rentas
+    .filter(r=>r.entrega && r.entrega>=hoyISO() && r.estado!=="Cancelada")
+    .sort((a,b)=>a.entrega.localeCompare(b.entrega))
+    .slice(0,4);
+
+  const cont=document.getElementById("proximasRentas");
+
+  if(!futuras.length){
+    cont.innerHTML='<div class="empty">No hay rentas próximas.</div>';
+  }else{
+    cont.innerHTML=futuras.map(r=>{
+
+      const cliente=datos.clientes.find(c=>c.id===r.clienteId);
+      const vestido=datos.vestidos.find(v=>v.id===r.vestidoId);
+
+      return `
+      <div class="item">
+        <div class="item-title">${escapeHTML(cliente?.nombre || "Cliente")}</div>
+        <div class="item-info">
+          ${escapeHTML(vestido?.nombre || "Vestido")} ·
+          Entrega ${fechaBonita(r.entrega)}
+        </div>
+      </div>`;
+    }).join("");
+  }
+}
+
+/* =========================
+   INVENTARIO
 ========================= */
 
 function abrirVestido(id=null){
 
-  document.getElementById("modalVestido").classList.add("show");
+  document.getElementById("vestidoId").value="";
+  document.getElementById("vestidoNombre").value="";
+  document.getElementById("vestidoTalla").value="";
+  document.getElementById("vestidoColor").value="";
+  document.getElementById("vestidoPrecio").value="";
+  document.getElementById("vestidoEstado").value="Disponible";
+  document.getElementById("vestidoNotas").value="";
+
+  document.getElementById("tituloVestido").textContent="Nuevo vestido";
 
   if(id){
-    let v=vestidoPorId(id);
+    const v=datos.vestidos.find(x=>x.id===id);
+
+    if(!v)return;
 
     document.getElementById("tituloVestido").textContent="Editar vestido";
     document.getElementById("vestidoId").value=v.id;
-    document.getElementById("vestidoNombre").value=v.nombre;
-    document.getElementById("vestidoTalla").value=v.talla;
-    document.getElementById("vestidoColor").value=v.color;
-    document.getElementById("vestidoPrecio").value=v.precio;
-    document.getElementById("vestidoCompra").value=v.compra || "";
-    document.getElementById("vestidoEstado").value=v.estado;
+    document.getElementById("vestidoNombre").value=v.nombre || "";
+    document.getElementById("vestidoTalla").value=v.talla || "";
+    document.getElementById("vestidoColor").value=v.color || "";
+    document.getElementById("vestidoPrecio").value=v.precio || "";
+    document.getElementById("vestidoEstado").value=v.estado || "Disponible";
     document.getElementById("vestidoNotas").value=v.notas || "";
-
-  }else{
-
-    document.getElementById("tituloVestido").textContent="Nuevo vestido";
-
-    [
-      "vestidoId",
-      "vestidoNombre",
-      "vestidoTalla",
-      "vestidoColor",
-      "vestidoPrecio",
-      "vestidoCompra",
-      "vestidoNotas"
-    ].forEach(id=>{
-      document.getElementById(id).value="";
-    });
-
-    document.getElementById("vestidoEstado").value="Disponible";
   }
+
+  abrirModal("modalVestido");
 }
 
 function guardarVestido(){
 
-  let nombre=document.getElementById("vestidoNombre").value.trim();
+  const nombre=document.getElementById("vestidoNombre").value.trim();
 
   if(!nombre){
     alert("Escribe el nombre o modelo del vestido.");
     return;
   }
 
-  let id=document.getElementById("vestidoId").value;
+  const id=document.getElementById("vestidoId").value;
 
-  let objeto={
-    id:id || idNuevo(),
+  const vestido={
+    id:id || Date.now().toString(),
     nombre,
-    talla:document.getElementById("vestidoTalla").value,
-    color:document.getElementById("vestidoColor").value,
-    precio:Number(document.getElementById("vestidoPrecio").value)||0,
-    compra:Number(document.getElementById("vestidoCompra").value)||0,
+    talla:document.getElementById("vestidoTalla").value.trim(),
+    color:document.getElementById("vestidoColor").value.trim(),
+    precio:Number(document.getElementById("vestidoPrecio").value || 0),
     estado:document.getElementById("vestidoEstado").value,
-    notas:document.getElementById("vestidoNotas").value
+    notas:document.getElementById("vestidoNotas").value.trim()
   };
 
   if(id){
-    let indice=datos.vestidos.findIndex(v=>v.id===id);
-    datos.vestidos[indice]=objeto;
+    const index=datos.vestidos.findIndex(v=>v.id===id);
+
+    if(index>=0) datos.vestidos[index]=vestido;
   }else{
-    datos.vestidos.push(objeto);
+    datos.vestidos.push(vestido);
   }
 
   guardarDatos();
   cerrarModal("modalVestido");
-  mostrarPagina("inventario");
-}
-
-function editarVestido(id){
-  abrirVestido(id);
+  actualizarTodo();
+  mostrarToast("Vestido guardado ✓");
 }
 
 function eliminarVestido(id){
 
-  if(!confirm("¿Seguro que quieres eliminar este vestido?")) return;
+  const v=datos.vestidos.find(x=>x.id===id);
 
-  datos.vestidos=datos.vestidos.filter(v=>v.id!==id);
+  if(!v)return;
+
+  if(!confirm(`¿Eliminar "${v.nombre}"?`))return;
+
+  datos.vestidos=datos.vestidos.filter(x=>x.id!==id);
+
   guardarDatos();
+  actualizarTodo();
+  mostrarToast("Vestido eliminado");
 }
 
 function renderInventario(){
 
-  let cont=document.getElementById("listaVestidos");
-  let buscar=(document.getElementById("buscarVestido")?.value || "").toLowerCase();
+  const buscar=(document.getElementById("buscarVestido")?.value || "").toLowerCase();
 
-  let lista=datos.vestidos.filter(v=>
+  const lista=datos.vestidos.filter(v=>
     `${v.nombre} ${v.talla} ${v.color} ${v.estado}`.toLowerCase().includes(buscar)
   );
+
+  const cont=document.getElementById("listaInventario");
 
   if(!lista.length){
     cont.innerHTML=`
       <div class="empty">
         <div style="font-size:35px">👗</div>
         <p>No tienes vestidos registrados.</p>
-        <button class="btn small" onclick="abrirVestido()">Agregar el primero</button>
+        <button class="btn" onclick="abrirVestido()">Agregar vestido</button>
       </div>`;
     return;
   }
@@ -1140,33 +1223,34 @@ function renderInventario(){
   cont.innerHTML=lista.map(v=>`
 
     <div class="item">
-
       <div class="item-top">
         <div>
-          <h3>${escapeHTML(v.nombre)}</h3>
-          <p>Talla: ${escapeHTML(v.talla || "—")} · Color: ${escapeHTML(v.color || "—")}</p>
+          <div class="item-title">${escapeHTML(v.nombre)}</div>
+          <div class="item-info">
+            Talla: ${escapeHTML(v.talla || "—")}<br>
+            Color: ${escapeHTML(v.color || "—")}<br>
+            Renta: <b>${dinero(v.precio)}</b>
+          </div>
         </div>
 
-        <span class="tag ${v.estado==="Disponible"?"green":v.estado==="Rentado"?"red":"gold"}">
+        <span class="badge ${
+          v.estado==="Disponible" ? "green" :
+          v.estado==="Rentado" ? "red" : "gold"
+        }">
           ${escapeHTML(v.estado)}
         </span>
       </div>
 
-      <hr>
+      ${v.notas ? `<div class="notice">${escapeHTML(v.notas)}</div>` : ""}
 
-      <p><strong>Renta:</strong> ${dinero(v.precio)}</p>
-
-      ${v.notas ? `<p><strong>Notas:</strong> ${escapeHTML(v.notas)}</p>` : ""}
-
-      <div class="item-buttons">
-        <button class="btn small secondary" onclick="editarVestido('${v.id}')">✏️ Editar</button>
-        <button class="btn small red" onclick="eliminarVestido('${v.id}')">🗑️ Eliminar</button>
+      <div class="actions">
+        <button class="btn small secondary" onclick="abrirVestido('${v.id}')">✏️ Editar</button>
+        <button class="btn small red" onclick="eliminarVestido('${v.id}')">Eliminar</button>
       </div>
-
     </div>
+
   `).join("");
 }
-
 
 /* =========================
    CLIENTES
@@ -1174,82 +1258,108 @@ function renderInventario(){
 
 function abrirCliente(id=null){
 
-  document.getElementById("modalCliente").classList.add("show");
+  document.getElementById("clienteId").value="";
+  document.getElementById("clienteNombre").value="";
+  document.getElementById("clienteTelefono").value="";
+  document.getElementById("clienteNotas").value="";
+
+  document.getElementById("tituloCliente").textContent="Nueva cliente";
 
   if(id){
 
-    let c=clientePorId(id);
+    const c=datos.clientes.find(x=>x.id===id);
+
+    if(!c)return;
 
     document.getElementById("tituloCliente").textContent="Editar cliente";
     document.getElementById("clienteId").value=c.id;
-    document.getElementById("clienteNombre").value=c.nombre;
+    document.getElementById("clienteNombre").value=c.nombre || "";
     document.getElementById("clienteTelefono").value=c.telefono || "";
     document.getElementById("clienteNotas").value=c.notas || "";
-
-  }else{
-
-    document.getElementById("tituloCliente").textContent="Nueva cliente";
-    document.getElementById("clienteId").value="";
-    document.getElementById("clienteNombre").value="";
-    document.getElementById("clienteTelefono").value="";
-    document.getElementById("clienteNotas").value="";
   }
+
+  abrirModal("modalCliente");
 }
 
 function guardarCliente(){
 
-  let nombre=document.getElementById("clienteNombre").value.trim();
+  const nombre=document.getElementById("clienteNombre").value.trim();
 
   if(!nombre){
     alert("Escribe el nombre de la cliente.");
     return;
   }
 
-  let id=document.getElementById("clienteId").value;
+  const id=document.getElementById("clienteId").value;
 
-  let objeto={
-    id:id || idNuevo(),
+  const cliente={
+    id:id || Date.now().toString(),
     nombre,
     telefono:document.getElementById("clienteTelefono").value.trim(),
-    notas:document.getElementById("clienteNotas").value
+    notas:document.getElementById("clienteNotas").value.trim()
   };
 
   if(id){
-    let indice=datos.clientes.findIndex(c=>c.id===id);
-    datos.clientes[indice]=objeto;
+    const index=datos.clientes.findIndex(c=>c.id===id);
+
+    if(index>=0) datos.clientes[index]=cliente;
   }else{
-    datos.clientes.push(objeto);
+    datos.clientes.push(cliente);
   }
 
   guardarDatos();
   cerrarModal("modalCliente");
-  mostrarPagina("clientes");
+  actualizarTodo();
+  mostrarToast("Cliente guardada ✓");
 }
 
 function eliminarCliente(id){
 
-  if(!confirm("¿Eliminar esta cliente?")) return;
+  const c=datos.clientes.find(x=>x.id===id);
 
-  datos.clientes=datos.clientes.filter(c=>c.id!==id);
+  if(!c)return;
+
+  if(!confirm(`¿Eliminar a ${c.nombre}?`))return;
+
+  datos.clientes=datos.clientes.filter(x=>x.id!==id);
+
   guardarDatos();
+  actualizarTodo();
+  mostrarToast("Cliente eliminada");
+}
+
+function whatsapp(telefono){
+
+  if(!telefono){
+    alert("Esta cliente no tiene teléfono registrado.");
+    return;
+  }
+
+  let numero=telefono.replace(/\D/g,"");
+
+  if(numero.length===10){
+    numero="52"+numero;
+  }
+
+  window.open("https://wa.me/"+numero,"_blank");
 }
 
 function renderClientes(){
 
-  let cont=document.getElementById("listaClientes");
+  const buscar=(document.getElementById("buscarCliente")?.value || "").toLowerCase();
 
-  let buscar=(document.getElementById("buscarCliente")?.value || "").toLowerCase();
-
-  let lista=datos.clientes.filter(c=>
+  const lista=datos.clientes.filter(c=>
     `${c.nombre} ${c.telefono}`.toLowerCase().includes(buscar)
   );
+
+  const cont=document.getElementById("listaClientes");
 
   if(!lista.length){
     cont.innerHTML=`
       <div class="empty">
         <div style="font-size:35px">👩</div>
         <p>No tienes clientes registradas.</p>
-        <button class="btn small" onclick="abrirCliente()">Agregar cliente</button>
+        <button class="btn" onclick="abrirCliente()">Agregar cliente</button>
       </div>`;
     return;
   }
@@ -1257,30 +1367,27 @@ function renderClientes(){
   cont.innerHTML=lista.map(c=>`
 
     <div class="item">
+      <div class="item-title">${escapeHTML(c.nombre)}</div>
 
-      <div class="item-top">
-        <div>
-          <h3>${escapeHTML(c.nombre)}</h3>
-          <p>📞 ${escapeHTML(c.telefono || "Sin teléfono")}</p>
-        </div>
+      <div class="item-info">
+        📱 ${escapeHTML(c.telefono || "Sin teléfono")}
       </div>
 
-      ${c.notas ? `<p>📝 ${escapeHTML(c.notas)}</p>` : ""}
+      ${c.notas ? `<div class="notice">${escapeHTML(c.notas)}</div>` : ""}
 
-      <div class="item-buttons">
+      <div class="actions">
 
         ${c.telefono ? `
-        <button class="btn small green"
-          onclick="abrirWhatsApp('${c.telefono}','Hola ${escapeHTML(c.nombre)}, te contactamos de Julietta Dresses. 💕')">
-          📲 WhatsApp
-        </button>` : ""}
+          <button class="btn small green" onclick="whatsapp('${escapeHTML(c.telefono)}')">
+            WhatsApp
+          </button>` : ""}
 
         <button class="btn small secondary" onclick="abrirCliente('${c.id}')">
           ✏️ Editar
         </button>
 
         <button class="btn small red" onclick="eliminarCliente('${c.id}')">
-          🗑️
+          Eliminar
         </button>
 
       </div>
@@ -1288,7 +1395,6 @@ function renderClientes(){
 
   `).join("");
 }
-
 
 /* =========================
    RENTAS
@@ -1299,73 +1405,72 @@ function abrirRenta(id=null){
   llenarSelectClientes();
   llenarSelectVestidos();
 
-  document.getElementById("modalRenta").classList.add("show");
+  document.getElementById("rentaId").value="";
+  document.getElementById("rentaCliente").value="";
+  document.getElementById("rentaVestido").value="";
+  document.getElementById("rentaEntrega").value=hoyISO();
+
+  const manana=new Date();
+  manana.setDate(manana.getDate()+1);
+
+  document.getElementById("rentaRegreso").value=manana.toISOString().slice(0,10);
+
+  document.getElementById("rentaPrecio").value="";
+  document.getElementById("rentaAnticipo").value="";
+  document.getElementById("rentaEstado").value="Apartada";
+  document.getElementById("rentaNotas").value="";
+
+  document.getElementById("tituloRenta").textContent="Nueva renta";
 
   if(id){
 
-    let r=datos.rentas.find(x=>x.id===id);
+    const r=datos.rentas.find(x=>x.id===id);
+
+    if(!r)return;
 
     document.getElementById("tituloRenta").textContent="Editar renta";
     document.getElementById("rentaId").value=r.id;
     document.getElementById("rentaCliente").value=r.clienteId;
     document.getElementById("rentaVestido").value=r.vestidoId;
-    document.getElementById("rentaSalida").value=r.salida;
-    document.getElementById("rentaRegreso").value=r.regreso;
-    document.getElementById("rentaPrecio").value=r.precio;
-    document.getElementById("rentaAnticipo").value=r.anticipo;
-    document.getElementById("rentaTipo").value=r.tipo;
-    document.getElementById("rentaEstado").value=r.estado;
+    document.getElementById("rentaEntrega").value=r.entrega || "";
+    document.getElementById("rentaRegreso").value=r.regreso || "";
+    document.getElementById("rentaPrecio").value=r.precio || "";
+    document.getElementById("rentaAnticipo").value=r.anticipo || "";
+    document.getElementById("rentaEstado").value=r.estado || "Apartada";
     document.getElementById("rentaNotas").value=r.notas || "";
-
-  }else{
-
-    document.getElementById("tituloRenta").textContent="Nueva renta";
-    document.getElementById("rentaId").value="";
-    document.getElementById("rentaSalida").value=fechaHoy();
-
-    let d=new Date();
-    d.setDate(d.getDate()+1);
-
-    document.getElementById("rentaRegreso").value=d.toISOString().split("T")[0];
-
-    document.getElementById("rentaPrecio").value="";
-    document.getElementById("rentaAnticipo").value="0";
-    document.getElementById("rentaTipo").value="Apartado";
-    document.getElementById("rentaEstado").value="Reservada";
-    document.getElementById("rentaNotas").value="";
   }
+
+  abrirModal("modalRenta");
 }
 
 function llenarSelectClientes(){
 
-  let select=document.getElementById("rentaCliente");
+  const select=document.getElementById("rentaCliente");
 
-  select.innerHTML=`
-    <option value="">Seleccionar cliente...</option>
-    ${datos.clientes.map(c=>
+  select.innerHTML=
+    `<option value="">Selecciona una cliente</option>`+
+    datos.clientes.map(c=>
       `<option value="${c.id}">${escapeHTML(c.nombre)}</option>`
-    ).join("")}
-  `;
+    ).join("");
 }
 
 function llenarSelectVestidos(){
 
-  let select=document.getElementById("rentaVestido");
+  const select=document.getElementById("rentaVestido");
 
-  select.innerHTML=`
-    <option value="">Seleccionar vestido...</option>
-    ${datos.vestidos.map(v=>
+  select.innerHTML=
+    `<option value="">Selecciona un vestido</option>`+
+    datos.vestidos.map(v=>
       `<option value="${v.id}">
-        ${escapeHTML(v.nombre)} · ${escapeHTML(v.talla || "")}
+        ${escapeHTML(v.nombre)} — ${escapeHTML(v.talla || "Sin talla")}
       </option>`
-    ).join("")}
-  `;
+    ).join("");
 }
 
 function guardarRenta(){
 
-  let clienteId=document.getElementById("rentaCliente").value;
-  let vestidoId=document.getElementById("rentaVestido").value;
+  const clienteId=document.getElementById("rentaCliente").value;
+  const vestidoId=document.getElementById("rentaVestido").value;
 
   if(!clienteId){
     alert("Selecciona una cliente.");
@@ -1377,178 +1482,163 @@ function guardarRenta(){
     return;
   }
 
-  let precio=Number(document.getElementById("rentaPrecio").value)||0;
-  let anticipo=Number(document.getElementById("rentaAnticipo").value)||0;
+  const id=document.getElementById("rentaId").value;
 
-  let id=document.getElementById("rentaId").value;
-
-  let objeto={
-    id:id || idNuevo(),
+  const renta={
+    id:id || Date.now().toString(),
     clienteId,
     vestidoId,
-    salida:document.getElementById("rentaSalida").value,
+    entrega:document.getElementById("rentaEntrega").value,
     regreso:document.getElementById("rentaRegreso").value,
-    precio,
-    anticipo,
-    tipo:document.getElementById("rentaTipo").value,
+    precio:Number(document.getElementById("rentaPrecio").value || 0),
+    anticipo:Number(document.getElementById("rentaAnticipo").value || 0),
     estado:document.getElementById("rentaEstado").value,
-    notas:document.getElementById("rentaNotas").value
+    notas:document.getElementById("rentaNotas").value.trim()
   };
 
   if(id){
 
-    let anterior=datos.rentas.find(r=>r.id===id);
+    const index=datos.rentas.findIndex(r=>r.id===id);
 
-    let indice=datos.rentas.findIndex(r=>r.id===id);
-    datos.rentas[indice]=objeto;
+    if(index>=0) datos.rentas[index]=renta;
 
   }else{
 
-    datos.rentas.push(objeto);
+    datos.rentas.push(renta);
 
-    if(anticipo>0){
-      datos.movimientos.push({
-        id:idNuevo(),
-        concepto:"Anticipo - "+(clientePorId(clienteId)?.nombre || "Cliente"),
-        monto:anticipo,
-        fecha:fechaHoy(),
-        tipo:"Ingreso",
-        notas:"Anticipo de renta"
-      });
+    const vestido=datos.vestidos.find(v=>v.id===vestidoId);
+
+    if(vestido && renta.estado!=="Devuelta" && renta.estado!=="Cancelada"){
+      vestido.estado="Rentado";
     }
-  }
-
-  let vestido=vestidoPorId(vestidoId);
-
-  if(vestido && objeto.estado==="Entregada"){
-    vestido.estado="Rentado";
-  }
-
-  if(vestido && objeto.estado==="Regresada"){
-    vestido.estado="Limpieza";
   }
 
   guardarDatos();
   cerrarModal("modalRenta");
-  mostrarPagina("rentas");
-}
-
-function editarRenta(id){
-  abrirRenta(id);
+  actualizarTodo();
+  mostrarToast("Renta guardada ✓");
 }
 
 function eliminarRenta(id){
 
-  if(!confirm("¿Eliminar esta renta?")) return;
+  if(!confirm("¿Eliminar esta renta?"))return;
 
   datos.rentas=datos.rentas.filter(r=>r.id!==id);
+
   guardarDatos();
+  actualizarTodo();
+  mostrarToast("Renta eliminada");
 }
 
-function saldoRenta(r){
-  return Math.max(0,Number(r.precio)-Number(r.anticipo));
+function marcarDevuelta(id){
+
+  const renta=datos.rentas.find(r=>r.id===id);
+
+  if(!renta)return;
+
+  renta.estado="Devuelta";
+
+  const vestido=datos.vestidos.find(v=>v.id===renta.vestidoId);
+
+  if(vestido){
+    vestido.estado="Lavado";
+  }
+
+  guardarDatos();
+  actualizarTodo();
+
+  mostrarToast("Vestido marcado para revisión ✓");
 }
 
 function renderRentas(){
 
-  let cont=document.getElementById("listaRentas");
+  const buscar=(document.getElementById("buscarRenta")?.value || "").toLowerCase();
 
-  let buscar=(document.getElementById("buscarRenta")?.value || "").toLowerCase();
+  const lista=datos.rentas.filter(r=>{
 
-  let lista=datos.rentas
-    .filter(r=>{
-      let c=clientePorId(r.clienteId);
-      let v=vestidoPorId(r.vestidoId);
+    const cliente=datos.clientes.find(c=>c.id===r.clienteId);
+    const vestido=datos.vestidos.find(v=>v.id===r.vestidoId);
 
-      return `${c?.nombre || ""} ${v?.nombre || ""} ${r.estado}`
-        .toLowerCase()
-        .includes(buscar);
-    })
-    .sort((a,b)=>a.salida.localeCompare(b.salida));
+    return `${cliente?.nombre || ""} ${vestido?.nombre || ""} ${r.estado}`
+      .toLowerCase()
+      .includes(buscar);
+  });
+
+  const cont=document.getElementById("listaRentas");
 
   if(!lista.length){
     cont.innerHTML=`
       <div class="empty">
         <div style="font-size:35px">📝</div>
-        <p>No hay rentas registradas.</p>
+        <p>No tienes rentas registradas.</p>
+        <button class="btn" onclick="abrirRenta()">Agregar renta</button>
       </div>`;
     return;
   }
 
-  cont.innerHTML=lista.map(r=>{
+  const ordenadas=[...lista].sort((a,b)=>
+    (a.entrega || "").localeCompare(b.entrega || "")
+  );
 
-    let c=clientePorId(r.clienteId);
-    let v=vestidoPorId(r.vestidoId);
+  cont.innerHTML=ordenadas.map(r=>{
 
-    let saldo=saldoRenta(r);
+    const cliente=datos.clientes.find(c=>c.id===r.clienteId);
+    const vestido=datos.vestidos.find(v=>v.id===r.vestidoId);
 
-    let clase=r.estado==="Regresada"?"green":
-              r.estado==="Cancelada"?"red":"gold";
+    const pendiente=Math.max(0,Number(r.precio||0)-Number(r.anticipo||0));
 
     return `
+    <div class="item">
 
-      <div class="item">
-
-        <div class="item-top">
-
-          <div>
-            <h3>${escapeHTML(c?.nombre || "Cliente eliminada")}</h3>
-            <p>👗 ${escapeHTML(v?.nombre || "Vestido eliminado")}</p>
+      <div class="item-top">
+        <div>
+          <div class="item-title">
+            ${escapeHTML(cliente?.nombre || "Cliente")}
           </div>
 
-          <span class="tag ${clase}">
-            ${escapeHTML(r.estado)}
-          </span>
-
+          <div class="item-info">
+            👗 ${escapeHTML(vestido?.nombre || "Vestido")}<br>
+            📅 Entrega: ${fechaBonita(r.entrega)}<br>
+            🔔 Regreso: ${fechaBonita(r.regreso)}<br>
+            💰 ${dinero(r.precio)} · Anticipo ${dinero(r.anticipo)}<br>
+            Pendiente: <b>${dinero(pendiente)}</b>
+          </div>
         </div>
 
-        <p>📅 Salida: <strong>${formatearFecha(r.salida)}</strong></p>
-        <p>↩️ Regreso: <strong>${formatearFecha(r.regreso)}</strong></p>
+        <span class="badge ${
+          r.estado==="Devuelta" ? "green" :
+          r.estado==="Cancelada" ? "red" : "gold"
+        }">
+          ${escapeHTML(r.estado)}
+        </span>
+      </div>
 
-        <hr>
+      ${r.notas ? `<div class="notice">${escapeHTML(r.notas)}</div>` : ""}
 
-        <div class="stats-row">
-          <span>Total</span>
-          <strong>${dinero(r.precio)}</strong>
-        </div>
+      <div class="actions">
 
-        <div class="stats-row">
-          <span>Anticipo</span>
-          <strong>${dinero(r.anticipo)}</strong>
-        </div>
+        <button class="btn small secondary" onclick="abrirRenta('${r.id}')">
+          ✏️ Editar
+        </button>
 
-        <div class="stats-row">
-          <span>Saldo</span>
-          <strong>${dinero(saldo)}</strong>
-        </div>
+        ${
+          r.estado!=="Devuelta" && r.estado!=="Cancelada"
+          ?
+          `<button class="btn small green" onclick="marcarDevuelta('${r.id}')">
+            ↩️ Devuelta
+          </button>`
+          : ""
+        }
 
-        ${r.notas ? `<p>📝 ${escapeHTML(r.notas)}</p>` : ""}
-
-        <div class="item-buttons">
-
-          ${c?.telefono ? `
-          <button class="btn small green"
-            onclick="abrirWhatsApp('${c.telefono}',
-            'Hola ${escapeHTML(c.nombre)}, te contactamos de Julietta Dresses. Tu renta está programada para ${formatearFecha(r.salida)}. 💕')">
-            📲 WhatsApp
-          </button>` : ""}
-
-          <button class="btn small secondary" onclick="editarRenta('${r.id}')">
-            ✏️ Editar
-          </button>
-
-          <button class="btn small red" onclick="eliminarRenta('${r.id}')">
-            🗑️
-          </button>
-
-        </div>
+        <button class="btn small red" onclick="eliminarRenta('${r.id}')">
+          Eliminar
+        </button>
 
       </div>
+    </div>
     `;
-
   }).join("");
 }
-
 
 /* =========================
    CAJA
@@ -1556,109 +1646,94 @@ function renderRentas(){
 
 function abrirMovimiento(){
 
-  document.getElementById("modalMovimiento").classList.add("show");
-
-  document.getElementById("movConcepto").value="";
-  document.getElementById("movMonto").value="";
-  document.getElementById("movFecha").value=fechaHoy();
   document.getElementById("movTipo").value="Ingreso";
-  document.getElementById("movNotas").value="";
+  document.getElementById("movCantidad").value="";
+  document.getElementById("movConcepto").value="";
+
+  abrirModal("modalMovimiento");
 }
 
 function guardarMovimiento(){
 
-  let concepto=document.getElementById("movConcepto").value.trim();
-  let monto=Number(document.getElementById("movMonto").value)||0;
+  const cantidad=Number(document.getElementById("movCantidad").value || 0);
 
-  if(!concepto || monto<=0){
-    alert("Escribe un concepto y un monto válido.");
+  if(cantidad<=0){
+    alert("Escribe una cantidad válida.");
     return;
   }
 
-  datos.movimientos.push({
-    id:idNuevo(),
-    concepto,
-    monto,
-    fecha:document.getElementById("movFecha").value,
+  const movimiento={
+    id:Date.now().toString(),
     tipo:document.getElementById("movTipo").value,
-    notas:document.getElementById("movNotas").value
-  });
+    cantidad,
+    concepto:document.getElementById("movConcepto").value.trim(),
+    fecha:hoyISO()
+  };
+
+  datos.movimientos.push(movimiento);
 
   guardarDatos();
   cerrarModal("modalMovimiento");
-  mostrarPagina("caja");
+  actualizarTodo();
+
+  mostrarToast("Movimiento guardado ✓");
 }
 
 function eliminarMovimiento(id){
 
-  if(!confirm("¿Eliminar este movimiento?")) return;
+  if(!confirm("¿Eliminar este movimiento?"))return;
 
   datos.movimientos=datos.movimientos.filter(m=>m.id!==id);
+
   guardarDatos();
+  actualizarTodo();
 }
 
 function renderCaja(){
 
-  let ingresos=datos.movimientos
+  const ingresos=datos.movimientos
     .filter(m=>m.tipo==="Ingreso")
-    .reduce((a,m)=>a+Number(m.monto),0);
+    .reduce((s,m)=>s+Number(m.cantidad||0),0);
 
-  let gastos=datos.movimientos
+  const gastos=datos.movimientos
     .filter(m=>m.tipo==="Gasto")
-    .reduce((a,m)=>a+Number(m.monto),0);
+    .reduce((s,m)=>s+Number(m.cantidad||0),0);
 
-  let total=ingresos-gastos;
+  document.getElementById("totalIngresos").textContent=dinero(ingresos);
+  document.getElementById("totalGastos").textContent=dinero(gastos);
+  document.getElementById("saldoCaja").textContent=dinero(ingresos-gastos);
 
-  let mes=new Date().toISOString().slice(0,7);
-
-  let mesTotal=datos.movimientos
-    .filter(m=>m.fecha?.startsWith(mes))
-    .reduce((a,m)=>a+(m.tipo==="Ingreso"?Number(m.monto):-Number(m.monto)),0);
-
-  document.getElementById("cajaTotal").textContent=dinero(total);
-  document.getElementById("cajaMes").textContent=dinero(mesTotal);
-
-  let cont=document.getElementById("listaMovimientos");
-
-  let lista=[...datos.movimientos].sort((a,b)=>b.fecha.localeCompare(a.fecha));
+  const lista=[...datos.movimientos].reverse();
+  const cont=document.getElementById("listaMovimientos");
 
   if(!lista.length){
-    cont.innerHTML=`<div class="empty">Todavía no hay movimientos.</div>`;
+    cont.innerHTML='<div class="empty">No hay movimientos registrados.</div>';
     return;
   }
 
   cont.innerHTML=lista.map(m=>`
 
     <div class="item">
-
       <div class="item-top">
         <div>
-          <h3>${escapeHTML(m.concepto)}</h3>
-          <p>📅 ${formatearFecha(m.fecha)}</p>
+          <div class="item-title">${escapeHTML(m.concepto || "Sin concepto")}</div>
+          <div class="item-info">${fechaBonita(m.fecha)}</div>
         </div>
 
-        <span class="tag ${m.tipo==="Ingreso"?"green":"red"}">
-          ${m.tipo}
-        </span>
+        <div class="money ${m.tipo==="Ingreso" ? "plus":"minus"}">
+          ${m.tipo==="Ingreso" ? "+" : "-"}${dinero(m.cantidad)}
+        </div>
       </div>
 
-      <div class="money">
-        ${m.tipo==="Gasto"?"-":""}${dinero(m.monto)}
-      </div>
-
-      ${m.notas ? `<p>${escapeHTML(m.notas)}</p>` : ""}
-
-      <div class="item-buttons">
+      <div class="actions">
         <button class="btn small red" onclick="eliminarMovimiento('${m.id}')">
-          🗑️ Eliminar
+          Eliminar
         </button>
       </div>
-
     </div>
 
   `).join("");
 }
-
 
 /* =========================
    REGRESOS
@@ -1666,131 +1741,119 @@ function renderCaja(){
 
 function renderRegresos(){
 
-  let hoy=fechaHoy();
+  const cont=document.getElementById("listaRegresos");
 
-  let lista=datos.rentas.filter(r=>
-    r.regreso && r.regreso<=hoy &&
-    r.estado!=="Regresada" &&
-    r.estado!=="Cancelada"
-  );
-
-  let cont=document.getElementById("listaRegresos");
+  const lista=datos.rentas
+    .filter(r=>
+      r.estado!=="Devuelta" &&
+      r.estado!=="Cancelada"
+    )
+    .sort((a,b)=>
+      (a.regreso || "").localeCompare(b.regreso || "")
+    );
 
   if(!lista.length){
-    cont.innerHTML=`
-      <div class="success">
-        ✅ No tienes vestidos pendientes de regreso.
-      </div>`;
+    cont.innerHTML='<div class="empty">No tienes vestidos pendientes de regresar.</div>';
     return;
   }
 
   cont.innerHTML=lista.map(r=>{
 
-    let c=clientePorId(r.clienteId);
-    let v=vestidoPorId(r.vestidoId);
+    const cliente=datos.clientes.find(c=>c.id===r.clienteId);
+    const vestido=datos.vestidos.find(v=>v.id===r.vestidoId);
+
+    const atrasado=r.regreso && r.regreso<hoyISO();
 
     return `
-
-      <div class="item">
-
-        <div class="item-top">
-
-          <div>
-            <h3>${escapeHTML(v?.nombre || "Vestido")}</h3>
-            <p>👩 ${escapeHTML(c?.nombre || "Cliente")}</p>
-          </div>
-
-          <span class="tag red">Pendiente</span>
-
-        </div>
-
-        <p>Fecha de regreso: <strong>${formatearFecha(r.regreso)}</strong></p>
-
-        <div class="item-buttons">
-
-          <button class="btn small green"
-            onclick="marcarRegresada('${r.id}')">
-            ✅ Marcar regresado
-          </button>
-
-          ${c?.telefono ? `
-          <button class="btn small secondary"
-            onclick="abrirWhatsApp('${c.telefono}',
-            'Hola ${escapeHTML(c.nombre)}, te recordamos que tu vestido de Julietta Dresses tiene fecha de regreso ${formatearFecha(r.regreso)}. 💕')">
-            📲 WhatsApp
-          </button>` : ""}
-
-        </div>
-
-      </div>
-    `;
-
-  }).join("");
-}
-
-function marcarRegresada(id){
-
-  let r=datos.rentas.find(x=>x.id===id);
-
-  if(!r) return;
-
-  r.estado="Regresada";
-
-  let v=vestidoPorId(r.vestidoId);
-
-  if(v){
-    v.estado="Limpieza";
-  }
-
-  guardarDatos();
-
-  alert("Vestido marcado como regresado y enviado a revisión/limpieza.");
-}
-
-
-/* =========================
-   REVISIÓN
-========================= */
-
-function renderRevision(){
-
-  let lista=datos.vestidos.filter(v=>
-    v.estado==="Limpieza" ||
-    v.estado==="Reparación"
-  );
-
-  let cont=document.getElementById("listaRevision");
-
-  if(!lista.length){
-    cont.innerHTML=`
-      <div class="success">
-        ✅ No hay vestidos pendientes de revisión.
-      </div>`;
-    return;
-  }
-
-  cont.innerHTML=lista.map(v=>`
-
     <div class="item">
 
       <div class="item-top">
         <div>
-          <h3>${escapeHTML(v.nombre)}</h3>
-          <p>Talla ${escapeHTML(v.talla || "—")} · ${escapeHTML(v.color || "—")}</p>
+          <div class="item-title">${escapeHTML(vestido?.nombre || "Vestido")}</div>
+
+          <div class="item-info">
+            Cliente: ${escapeHTML(cliente?.nombre || "—")}<br>
+            Regreso: <b>${fechaBonita(r.regreso)}</b>
+          </div>
         </div>
 
-        <span class="tag gold">${escapeHTML(v.estado)}</span>
+        <span class="badge ${atrasado ? "red":"gold"}">
+          ${atrasado ? "ATRASADO":"Pendiente"}
+        </span>
       </div>
 
-      <div class="item-buttons">
+      <div class="actions">
 
-        <button class="btn small green"
-          onclick="vestidoListo('${v.id}')">
-          ✨ Listo para renta
+        ${
+          cliente?.telefono
+          ?
+          `<button class="btn small green" onclick="whatsapp('${escapeHTML(cliente.telefono)}')">
+            WhatsApp
+          </button>`
+          : ""
+        }
+
+        <button class="btn small secondary" onclick="abrirRenta('${r.id}')">
+          Ver renta
         </button>
 
-        <button class="btn small secondary"
-          onclick="abrirVestido('${v.id}')">
+        <button class="btn small green" onclick="marcarDevuelta('${r.id}')">
+          ↩️ Marcar devuelta
+        </button>
+
+      </div>
+    </div>
+    `;
+  }).join("");
+}
+
+/* =========================
+   REVISION
+========================= */
+
+function renderRevision(){
+
+  const vestidos=datos.vestidos.filter(v=>
+    v.estado==="Lavado" ||
+    v.estado==="Reparación"
+  );
+
+  const cont=document.getElementById("listaRevision");
+
+  if(!vestidos.length){
+    cont.innerHTML=`
+      <div class="empty">
+        <div style="font-size:35px">🧼</div>
+        <p>No hay vestidos pendientes de revisión.</p>
+      </div>`;
+    return;
+  }
+
+  cont.innerHTML=vestidos.map(v=>`
+
+    <div class="item">
+
+      <div class="item-top">
+
+        <div>
+          <div class="item-title">${escapeHTML(v.nombre)}</div>
+          <div class="item-info">
+            Talla: ${escapeHTML(v.talla || "—")}<br>
+            Color: ${escapeHTML(v.color || "—")}
+          </div>
+        </div>
+
+        <span class="badge gold">${escapeHTML(v.estado)}</span>
+
+      </div>
+
+      <div class="actions">
+
+        <button class="btn small green" onclick="ponerDisponible('${v.id}')">
+          ✓ Disponible
+        </button>
+
+        <button class="btn small secondary" onclick="abrirVestido('${v.id}')">
           ✏️ Editar
         </button>
 
@@ -1801,17 +1864,19 @@ function renderRevision(){
   `).join("");
 }
 
-function vestidoListo(id){
+function ponerDisponible(id){
 
-  let v=vestidoPorId(id);
+  const vestido=datos.vestidos.find(v=>v.id===id);
 
-  if(!v) return;
+  if(!vestido)return;
 
-  v.estado="Disponible";
+  vestido.estado="Disponible";
 
   guardarDatos();
-}
+  actualizarTodo();
 
+  mostrarToast("Vestido disponible ✓");
+}
 
 /* =========================
    CALENDARIO
@@ -1819,265 +1884,153 @@ function vestidoListo(id){
 
 function cambiarMes(cantidad){
 
-  mesActual.setMonth(mesActual.getMonth()+cantidad);
+  fechaCalendario.setMonth(fechaCalendario.getMonth()+cantidad);
+
   renderCalendario();
+  renderEventosMes();
 }
 
 function renderCalendario(){
 
-  let año=mesActual.getFullYear();
-  let mes=mesActual.getMonth();
+  const cont=document.getElementById("calendario");
 
-  let nombres=[
+  const year=fechaCalendario.getFullYear();
+  const month=fechaCalendario.getMonth();
+
+  const nombres=[
     "Enero","Febrero","Marzo","Abril","Mayo","Junio",
     "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
   ];
 
   document.getElementById("mesCalendario").textContent=
-    `${nombres[mes]} ${año}`;
+    `${nombres[month]} ${year}`;
 
-  let primerDia=new Date(año,mes,1).getDay();
+  const nombresDias=["L","M","M","J","V","S","D"];
 
-  let inicio=(primerDia+6)%7;
+  let html=nombresDias.map(d=>
+    `<div class="day-name">${d}</div>`
+  ).join("");
 
-  let dias=new Date(año,mes+1,0).getDate();
+  const primerDia=new Date(year,month,1).getDay();
+  const offset=primerDia===0 ? 6 : primerDia-1;
 
-  let cont=document.getElementById("calendarioDias");
+  const diasMes=new Date(year,month+1,0).getDate();
 
-  cont.innerHTML="";
-
-  for(let i=0;i<inicio;i++){
-    cont.innerHTML+=`<div></div>`;
+  for(let i=0;i<offset;i++){
+    html+=`<div class="day muted"></div>`;
   }
 
-  let hoy=fechaHoy();
+  for(let dia=1;dia<=diasMes;dia++){
 
-  for(let d=1;d<=dias;d++){
+    const fecha=
+      `${year}-${String(month+1).padStart(2,"0")}-${String(dia).padStart(2,"0")}`;
 
-    let fecha=`${año}-${String(mes+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
-
-    let eventos=datos.rentas.filter(r=>
-      r.salida===fecha || r.regreso===fecha
+    const eventos=datos.rentas.filter(r=>
+      r.entrega===fecha ||
+      r.regreso===fecha
     );
 
-    cont.innerHTML+=`
+    html+=`
+      <div class="day ${
+        fecha===hoyISO() ? "today" : ""
+      } ${
+        eventos.length ? "has-event" : ""
+      }">
 
-      <div class="day ${fecha===hoy?"today":""} ${eventos.length?"has-event":""}"
-        onclick="mostrarEventosFecha('${fecha}')">
+        <b>${dia}</b>
 
-        <div class="day-number">${d}</div>
-
-        ${eventos.slice(0,2).map(r=>{
-          let c=clientePorId(r.clienteId);
-          return `<div class="event-dot">• ${escapeHTML(c?.nombre || "Renta")}</div>`;
-        }).join("")}
+        ${
+          eventos.length
+          ? `<span class="dot"></span>`
+          : ""
+        }
 
       </div>
     `;
   }
+
+  cont.innerHTML=html;
 
   renderEventosMes();
 }
 
-function mostrarEventosFecha(fecha){
-
-  let eventos=datos.rentas.filter(r=>
-    r.salida===fecha || r.regreso===fecha
-  );
-
-  let cont=document.getElementById("eventosCalendario");
-
-  if(!eventos.length){
-    cont.innerHTML=`
-      <div class="empty">
-        No hay reservaciones para ${formatearFecha(fecha)}.
-      </div>`;
-    return;
-  }
-
-  cont.innerHTML=`
-
-    <div class="form-box">
-      <h3 style="font-family:Georgia,serif;font-weight:500">
-        Reservaciones del ${formatearFecha(fecha)}
-      </h3>
-
-      ${eventos.map(r=>{
-
-        let c=clientePorId(r.clienteId);
-        let v=vestidoPorId(r.vestidoId);
-
-        return `
-          <div class="stats-row">
-            <span>
-              <strong>${escapeHTML(c?.nombre || "Cliente")}</strong><br>
-              ${escapeHTML(v?.nombre || "Vestido")}
-            </span>
-            <span>${escapeHTML(r.estado)}</span>
-          </div>
-        `;
-
-      }).join("")}
-
-    </div>
-  `;
-}
-
 function renderEventosMes(){
 
-  let año=mesActual.getFullYear();
-  let mes=String(mesActual.getMonth()+1).padStart(2,"0");
+  const year=fechaCalendario.getFullYear();
+  const month=String(fechaCalendario.getMonth()+1).padStart(2,"0");
 
-  let eventos=datos.rentas.filter(r=>
-    r.salida?.startsWith(`${año}-${mes}`) ||
-    r.regreso?.startsWith(`${año}-${mes}`)
+  const prefijo=`${year}-${month}`;
+
+  const eventos=datos.rentas.filter(r=>
+    (r.entrega || "").startsWith(prefijo) ||
+    (r.regreso || "").startsWith(prefijo)
+  ).sort((a,b)=>
+    (a.entrega || "").localeCompare(b.entrega || "")
   );
 
-  let cont=document.getElementById("eventosCalendario");
+  const cont=document.getElementById("eventosMes");
 
   if(!eventos.length){
-    cont.innerHTML=`
-      <div class="empty">
-        No hay reservaciones este mes.
-      </div>`;
+    cont.innerHTML='<div class="empty">No hay eventos este mes.</div>';
     return;
   }
 
-  cont.innerHTML=`
+  cont.innerHTML=eventos.map(r=>{
 
-    <div class="form-box">
-      <h3 style="font-family:Georgia,serif;font-weight:500">
-        Reservaciones del mes
-      </h3>
-
-      ${eventos.sort((a,b)=>a.salida.localeCompare(b.salida)).map(r=>{
-
-        let c=clientePorId(r.clienteId);
-        let v=vestidoPorId(r.vestidoId);
-
-        return `
-          <div class="stats-row">
-
-            <span>
-              <strong>${formatearFecha(r.salida)}</strong><br>
-              ${escapeHTML(c?.nombre || "Cliente")} ·
-              ${escapeHTML(v?.nombre || "Vestido")}
-            </span>
-
-            <span>${escapeHTML(r.estado)}</span>
-
-          </div>
-        `;
-
-      }).join("")}
-
-    </div>
-  `;
-}
-
-
-/* =========================
-   INICIO
-========================= */
-
-function renderInicio(){
-
-  let hoy=fechaHoy();
-
-  let rentasHoy=datos.rentas.filter(r=>
-    r.salida===hoy &&
-    r.estado!=="Cancelada"
-  ).length;
-
-  let mes=hoy.slice(0,7);
-
-  let ingresoMes=datos.movimientos
-    .filter(m=>m.fecha?.startsWith(mes) && m.tipo==="Ingreso")
-    .reduce((a,m)=>a+Number(m.monto),0);
-
-  let regresos=datos.rentas.filter(r=>
-    r.regreso && r.regreso<=hoy &&
-    r.estado!=="Regresada" &&
-    r.estado!=="Cancelada"
-  ).length;
-
-  document.getElementById("totalVestidos").textContent=datos.vestidos.length;
-  document.getElementById("rentasHoy").textContent=rentasHoy;
-  document.getElementById("ingresoMes").textContent=dinero(ingresoMes);
-  document.getElementById("porRegresar").textContent=regresos;
-
-  document.getElementById("fechaActual").textContent=
-    new Date().toLocaleDateString("es-MX",{
-      weekday:"long",
-      day:"numeric",
-      month:"long",
-      year:"numeric"
-    });
-
-  let alertas="";
-
-  if(regresos>0){
-    alertas+=`
-      <div class="alert">
-        ⚠️ Tienes <strong>${regresos}</strong> vestido(s) pendientes de regresar.
-        <button class="btn small gold"
-          style="margin-left:8px"
-          onclick="mostrarPagina('regresos')">
-          Ver
-        </button>
-      </div>
-    `;
-  }
-
-  document.getElementById("alertasInicio").innerHTML=alertas;
-
-  let proximas=datos.rentas
-    .filter(r=>r.salida>=hoy && r.estado!=="Cancelada")
-    .sort((a,b)=>a.salida.localeCompare(b.salida))
-    .slice(0,5);
-
-  let cont=document.getElementById("proximas");
-
-  if(!proximas.length){
-    cont.innerHTML=`<div style="color:#888;font-size:13px">No hay próximas reservaciones.</div>`;
-    return;
-  }
-
-  cont.innerHTML=proximas.map(r=>{
-
-    let c=clientePorId(r.clienteId);
-    let v=vestidoPorId(r.vestidoId);
+    const cliente=datos.clientes.find(c=>c.id===r.clienteId);
+    const vestido=datos.vestidos.find(v=>v.id===r.vestidoId);
 
     return `
-      <div class="stats-row">
+      <div class="item">
+        <div class="item-title">
+          ${escapeHTML(cliente?.nombre || "Cliente")}
+        </div>
 
-        <span>
-          <strong>${formatearFecha(r.salida)}</strong><br>
-          ${escapeHTML(c?.nombre || "Cliente")} ·
-          ${escapeHTML(v?.nombre || "Vestido")}
-        </span>
+        <div class="item-info">
+          👗 ${escapeHTML(vestido?.nombre || "Vestido")}<br>
+          📤 Entrega: ${fechaBonita(r.entrega)}<br>
+          📥 Regreso: ${fechaBonita(r.regreso)}
+        </div>
 
-        <span class="tag">${escapeHTML(r.estado)}</span>
-
+        <span class="badge">${escapeHTML(r.estado)}</span>
       </div>
     `;
-
   }).join("");
 }
-
 
 /* =========================
    CONFIGURACIÓN
 ========================= */
 
-function actualizarInfo(){
+function cargarConfiguracion(){
 
-  document.getElementById("infoVestidos").textContent=datos.vestidos.length;
-  document.getElementById("infoClientes").textContent=datos.clientes.length;
-  document.getElementById("infoRentas").textContent=datos.rentas.length;
-  document.getElementById("infoMovimientos").textContent=datos.movimientos.length;
+  const nombre=document.getElementById("configNombre");
+  const whatsapp=document.getElementById("configWhatsapp");
+
+  if(nombre){
+    nombre.value=datos.configuracion.nombre || "Julietta Dresses";
+  }
+
+  if(whatsapp){
+    whatsapp.value=datos.configuracion.whatsapp || "";
+  }
 }
 
+function guardarConfiguracion(){
+
+  datos.configuracion.nombre=
+    document.getElementById("configNombre").value.trim() ||
+    "Julietta Dresses";
+
+  datos.configuracion.whatsapp=
+    document.getElementById("configWhatsapp").value.trim();
+
+  guardarDatos();
+
+  document.title=datos.configuracion.nombre+" | Control";
+
+  mostrarToast("Configuración guardada ✓");
+}
 
 /* =========================
    RESPALDO
@@ -2085,69 +2038,77 @@ function actualizarInfo(){
 
 function exportarDatos(){
 
-  let respaldo={
-    version:"Julietta Dresses 1.0",
-    fecha:new Date().toISOString(),
-    datos:datos
-  };
+  const contenido=JSON.stringify(datos,null,2);
 
-  let blob=new Blob(
-    [JSON.stringify(respaldo,null,2)],
+  const blob=new Blob(
+    [contenido],
     {type:"application/json"}
   );
 
-  let url=URL.createObjectURL(blob);
+  const url=URL.createObjectURL(blob);
 
-  let a=document.createElement("a");
+  const a=document.createElement("a");
 
   a.href=url;
-  a.download=`Julietta-Dresses-Respaldo-${fechaHoy()}.json`;
+
+  a.download=
+    "julietta-dresses-respaldo-"+hoyISO()+".json";
 
   document.body.appendChild(a);
+
   a.click();
+
   a.remove();
 
   URL.revokeObjectURL(url);
 
-  alert("✅ Respaldo descargado correctamente.");
+  mostrarToast("Respaldo descargado ✓");
 }
 
 function importarDatos(event){
 
-  let archivo=event.target.files[0];
+  const archivo=event.target.files[0];
 
-  if(!archivo) return;
+  if(!archivo)return;
 
-  let lector=new FileReader();
+  const lector=new FileReader();
 
   lector.onload=function(e){
 
     try{
 
-      let respaldo=JSON.parse(e.target.result);
+      const nuevo=JSON.parse(e.target.result);
 
-      if(!respaldo.datos){
-        throw new Error();
+      if(
+        !nuevo ||
+        !Array.isArray(nuevo.vestidos) ||
+        !Array.isArray(nuevo.clientes) ||
+        !Array.isArray(nuevo.rentas) ||
+        !Array.isArray(nuevo.movimientos)
+      ){
+        throw new Error("Archivo inválido");
       }
 
-      if(!confirm(
-        "Esto reemplazará los datos actuales de Julietta Dresses. ¿Continuar?"
-      )){
-        return;
-      }
+      datos=nuevo;
 
-      datos=respaldo.datos;
+      if(!datos.configuracion){
+        datos.configuracion={
+          nombre:"Julietta Dresses",
+          whatsapp:""
+        };
+      }
 
       guardarDatos();
+      actualizarTodo();
 
-      alert("✅ Respaldo restaurado correctamente.");
+      mostrarToast("Respaldo restaurado ✓");
 
     }catch(error){
 
-      alert("❌ El archivo no parece ser un respaldo válido de Julietta Dresses.");
-
+      alert("No se pudo restaurar el respaldo.");
     }
 
+    event.target.value="";
   };
 
   lector.readAsText(archivo);
@@ -2155,105 +2116,41 @@ function importarDatos(event){
 
 function borrarTodo(){
 
-  let confirmar=prompt(
-    'Escribe BORRAR para eliminar todos los datos.'
+  const confirmar=confirm(
+    "⚠️ Esto eliminará vestidos, clientes, rentas y movimientos. ¿Continuar?"
   );
 
-  if(confirmar!=="BORRAR") return;
+  if(!confirmar)return;
+
+  const segunda=confirm(
+    "¿Estás completamente seguro? Esta acción no se puede deshacer."
+  );
+
+  if(!segunda)return;
+
+  localStorage.removeItem(STORAGE_KEY);
 
   datos={
+    configuracion:{
+      nombre:"Julietta Dresses",
+      whatsapp:""
+    },
     vestidos:[],
     clientes:[],
     rentas:[],
     movimientos:[]
   };
 
-  guardarDatos();
+  actualizarTodo();
 
-  alert("Todos los datos fueron eliminados.");
+  mostrarToast("Datos eliminados");
 }
-
-
-/* =========================
-   WHATSAPP
-========================= */
-
-function abrirWhatsApp(numero,mensaje){
-
-  let telefono=String(numero).replace(/\D/g,"");
-
-  if(telefono.length===10){
-    telefono="52"+telefono;
-  }
-
-  let url=
-    "https://wa.me/"+telefono+
-    "?text="+encodeURIComponent(
-      mensaje.replace(/&amp;/g,"&")
-    );
-
-  window.open(url,"_blank");
-}
-
-
-/* =========================
-   MODALES
-========================= */
-
-function cerrarModal(id){
-  document.getElementById(id).classList.remove("show");
-}
-
-document.querySelectorAll(".modal").forEach(modal=>{
-
-  modal.addEventListener("click",function(e){
-
-    if(e.target===modal){
-      modal.classList.remove("show");
-    }
-
-  });
-
-});
-
-
-/* =========================
-   SEGURIDAD HTML
-========================= */
-
-function escapeHTML(text){
-
-  return String(text ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-}
-
-
-/* =========================
-   ACTUALIZAR TODO
-========================= */
-
-function actualizarTodo(){
-
-  renderInicio();
-  renderInventario();
-  renderClientes();
-  renderRentas();
-  renderCaja();
-  renderRegresos();
-  renderRevision();
-  renderCalendario();
-  actualizarInfo();
-}
-
 
 /* =========================
    INICIO
 ========================= */
 
+cargarDatos();
 actualizarTodo();
 
 </script>
