@@ -2,27 +2,31 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="theme-color" content="#7b3048">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f8f2ef">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-<title>Julietta Dresses | Control</title>
+<title>Julietta Dresses</title>
 
 <style>
 :root{
-    --vino:#7b3048;
-    --vino-oscuro:#5d2135;
-    --rosa:#f7e8ed;
-    --rosa2:#fff7f9;
-    --blanco:#ffffff;
-    --texto:#33262b;
-    --gris:#81777b;
-    --borde:#eadde1;
-    --verde:#2e8b57;
-    --amarillo:#d99b16;
-    --rojo:#c94b5b;
-    --sombra:0 5px 20px rgba(91,38,53,.08);
+    --vino:#713247;
+    --vino2:#8e4860;
+    --vino3:#542436;
+    --rosa:#f5e5e9;
+    --rosa2:#fcf7f5;
+    --crema:#f8f2ef;
+    --blanco:#fff;
+    --texto:#30252a;
+    --gris:#83777c;
+    --borde:#eadde0;
+    --dorado:#b8945b;
+    --verde:#4f8b68;
+    --amarillo:#c99538;
+    --rojo:#bd5966;
+    --sombra:0 10px 30px rgba(72,40,50,.09);
+    --radio:22px;
 }
 
 *{
@@ -30,12 +34,16 @@
     -webkit-tap-highlight-color:transparent;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    background:#faf7f8;
+    background:var(--crema);
     color:var(--texto);
-    padding-bottom:80px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    min-height:100vh;
 }
 
 button,input,select,textarea{
@@ -46,26 +54,34 @@ button{
     cursor:pointer;
 }
 
-.header{
-    background:linear-gradient(135deg,var(--vino),#9c4a63);
-    color:white;
-    padding:18px 16px 20px;
+.hidden{
+    display:none!important;
+}
+
+/* =========================
+   APP
+========================= */
+
+.app{
+    width:100%;
+    max-width:600px;
+    min-height:100vh;
+    margin:auto;
+    padding-bottom:105px;
+}
+
+.topbar{
     position:sticky;
     top:0;
-    z-index:50;
-    box-shadow:0 3px 15px rgba(0,0,0,.12);
+    z-index:20;
+    background:rgba(248,242,239,.88);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    padding:16px 18px 12px;
+    border-bottom:1px solid rgba(234,221,224,.65);
 }
 
-.header-inner{
-    max-width:900px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-}
-
-.logo-area{
+.brand{
     display:flex;
     align-items:center;
     gap:12px;
@@ -74,106 +90,249 @@ button{
 .logo{
     width:48px;
     height:48px;
-    border-radius:50%;
-    background:white;
-    color:var(--vino);
+    border-radius:17px;
+    background:linear-gradient(145deg,var(--vino),var(--vino3));
+    color:#fff;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-weight:800;
-    font-size:18px;
-    box-shadow:0 3px 10px rgba(0,0,0,.12);
+    font-family:Georgia,serif;
+    font-size:17px;
+    box-shadow:0 7px 18px rgba(113,50,71,.22);
+    flex-shrink:0;
 }
 
-.header h1{
-    margin:0;
-    font-size:19px;
+.brand-text small{
+    display:block;
+    font-size:10px;
+    letter-spacing:2px;
+    color:var(--dorado);
+    font-weight:700;
+    margin-bottom:2px;
 }
 
-.header small{
-    opacity:.85;
-}
-
-.container{
-    width:100%;
-    max-width:900px;
-    margin:auto;
-    padding:16px;
+.brand-text strong{
+    display:block;
+    font-family:Georgia,serif;
+    font-size:21px;
+    color:var(--vino3);
 }
 
 .page{
     display:none;
+    padding:20px 17px 25px;
+    animation:fadeUp .28s ease;
 }
 
 .page.active{
     display:block;
 }
 
-h2{
-    margin:5px 0 4px;
-    font-size:24px;
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(8px)}
+    to{opacity:1;transform:translateY(0)}
 }
 
-.subtitle{
+/* =========================
+   TITULOS
+========================= */
+
+.page-title{
+    margin:5px 0 3px;
+    font-family:Georgia,serif;
+    font-size:29px;
+    color:var(--vino3);
+}
+
+.page-subtitle{
+    margin:0 0 20px;
     color:var(--gris);
-    font-size:14px;
-    margin-bottom:18px;
+    font-size:13px;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin:25px 2px 12px;
+}
+
+.section-title h3{
+    margin:0;
+    font-family:Georgia,serif;
+    font-size:19px;
+    color:var(--vino3);
+}
+
+.section-title span{
+    font-size:11px;
+    color:var(--gris);
+}
+
+/* =========================
+   INICIO
+========================= */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    border-radius:28px;
+    padding:26px 23px;
+    color:white;
+    background:
+        radial-gradient(circle at 90% 0%,rgba(255,255,255,.18),transparent 35%),
+        linear-gradient(140deg,#713247,#542436);
+    box-shadow:0 15px 35px rgba(84,36,54,.20);
+}
+
+.hero:after{
+    content:"JD";
+    position:absolute;
+    right:-10px;
+    bottom:-32px;
+    font-family:Georgia,serif;
+    font-size:120px;
+    opacity:.06;
+}
+
+.hero small{
+    color:#e6c98e;
+    letter-spacing:2px;
+    font-size:10px;
+    font-weight:700;
+}
+
+.hero h1{
+    font-family:Georgia,serif;
+    font-weight:normal;
+    font-size:31px;
+    margin:7px 0 5px;
+}
+
+.hero p{
+    margin:0;
+    max-width:330px;
+    color:#f6e9ec;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.quick-actions{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:9px;
+    margin-top:15px;
+}
+
+.quick{
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.1);
+    color:white;
+    border-radius:15px;
+    padding:10px 4px;
+    font-size:11px;
+}
+
+.quick b{
+    display:block;
+    font-size:19px;
+    margin-bottom:4px;
 }
 
 .stats{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:12px;
+    gap:11px;
+    margin-top:17px;
 }
 
 .stat{
-    background:white;
+    background:var(--blanco);
     border:1px solid var(--borde);
-    border-radius:18px;
-    padding:16px;
+    border-radius:20px;
+    padding:17px;
     box-shadow:var(--sombra);
 }
 
-.stat-number{
-    font-size:26px;
-    font-weight:800;
-    color:var(--vino);
-}
-
-.stat-label{
-    font-size:13px;
-    color:var(--gris);
-    margin-top:4px;
-}
-
-.section{
-    background:white;
-    border:1px solid var(--borde);
-    border-radius:18px;
-    padding:16px;
-    margin-top:16px;
-    box-shadow:var(--sombra);
-}
-
-.section-title{
+.stat-icon{
+    width:34px;
+    height:34px;
+    border-radius:12px;
+    background:var(--rosa);
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    gap:10px;
-    margin-bottom:12px;
+    justify-content:center;
+    margin-bottom:11px;
 }
 
-.section-title h3{
-    margin:0;
-    font-size:17px;
+.stat strong{
+    display:block;
+    font-size:24px;
+    color:var(--vino3);
 }
+
+.stat span{
+    display:block;
+    font-size:11px;
+    color:var(--gris);
+    margin-top:3px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+    background:var(--blanco);
+    border:1px solid var(--borde);
+    border-radius:var(--radio);
+    padding:16px;
+    margin-bottom:11px;
+    box-shadow:var(--sombra);
+}
+
+.empty{
+    text-align:center;
+    padding:35px 20px;
+    color:var(--gris);
+}
+
+.empty .empty-icon{
+    width:58px;
+    height:58px;
+    border-radius:20px;
+    background:var(--rosa);
+    margin:0 auto 12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+}
+
+.empty strong{
+    display:block;
+    color:var(--vino3);
+    font-family:Georgia,serif;
+    font-size:18px;
+    margin-bottom:5px;
+}
+
+.empty p{
+    font-size:12px;
+    margin:0;
+}
+
+/* =========================
+   BOTONES
+========================= */
 
 .btn{
-    border:none;
-    border-radius:12px;
-    padding:11px 15px;
+    border:0;
+    border-radius:14px;
+    padding:12px 15px;
     font-weight:700;
-    transition:.15s;
+    font-size:13px;
+    transition:.18s;
 }
 
 .btn:active{
@@ -183,196 +342,229 @@ h2{
 .btn-primary{
     background:var(--vino);
     color:white;
+    box-shadow:0 7px 18px rgba(113,50,71,.18);
 }
 
-.btn-secondary{
+.btn-light{
     background:var(--rosa);
-    color:var(--vino);
+    color:var(--vino3);
+}
+
+.btn-gold{
+    background:#f3e8d5;
+    color:#76572b;
 }
 
 .btn-danger{
-    background:#fdecef;
-    color:var(--rojo);
-}
-
-.btn-success{
-    background:#e8f6ee;
-    color:var(--verde);
+    background:#f9e4e7;
+    color:#a43f4c;
 }
 
 .btn-small{
     padding:8px 11px;
-    font-size:13px;
+    border-radius:11px;
+    font-size:11px;
 }
 
-.full{
-    width:100%;
+.floating-add{
+    position:fixed;
+    right:18px;
+    bottom:92px;
+    z-index:15;
+    width:53px;
+    height:53px;
+    border-radius:18px;
+    border:0;
+    background:var(--vino);
+    color:#fff;
+    font-size:25px;
+    box-shadow:0 10px 25px rgba(113,50,71,.28);
 }
+
+/* =========================
+   BUSQUEDA
+========================= */
 
 .search{
+    position:relative;
+    margin-bottom:15px;
+}
+
+.search input{
     width:100%;
     border:1px solid var(--borde);
     background:white;
-    border-radius:14px;
-    padding:13px 14px;
+    border-radius:16px;
+    padding:13px 15px 13px 43px;
     outline:none;
-    margin-bottom:14px;
+    color:var(--texto);
 }
 
-.search:focus,
-input:focus,
-select:focus,
-textarea:focus{
-    border-color:var(--vino);
-    box-shadow:0 0 0 3px rgba(123,48,72,.08);
+.search span{
+    position:absolute;
+    left:15px;
+    top:11px;
+    font-size:17px;
+    color:var(--gris);
 }
 
-.grid{
+/* =========================
+   VESTIDOS
+========================= */
+
+.dress-grid{
     display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:repeat(2,1fr);
     gap:12px;
 }
 
-.card{
+.dress-card{
+    overflow:hidden;
     background:white;
     border:1px solid var(--borde);
-    border-radius:18px;
-    overflow:hidden;
+    border-radius:21px;
     box-shadow:var(--sombra);
 }
 
-.card-body{
-    padding:13px;
-}
-
-.card h3{
-    margin:0 0 5px;
-    font-size:16px;
-}
-
-.card p{
-    margin:4px 0;
-    color:var(--gris);
-    font-size:13px;
-}
-
 .dress-photo{
+    position:relative;
     width:100%;
-    height:190px;
+    aspect-ratio:3/4;
+    background:linear-gradient(145deg,#f4e5e9,#eee1dc);
+    overflow:hidden;
+}
+
+.dress-photo img{
+    width:100%;
+    height:100%;
     object-fit:cover;
     display:block;
-    background:linear-gradient(135deg,#f8e9ee,#fff7f9);
 }
 
-.dress-placeholder{
-    width:100%;
-    height:190px;
-    background:linear-gradient(135deg,#f8e9ee,#fff7f9);
+.photo-placeholder{
+    height:100%;
     display:flex;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
-    font-size:65px;
+    color:#9b7882;
 }
 
-.badge{
-    display:inline-block;
-    padding:5px 9px;
+.photo-placeholder div{
+    font-family:Georgia,serif;
+    font-size:36px;
+}
+
+.photo-placeholder small{
+    margin-top:5px;
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+.status{
+    display:inline-flex;
+    align-items:center;
     border-radius:20px;
-    font-size:11px;
-    font-weight:700;
-    margin-top:6px;
+    padding:5px 8px;
+    font-size:9px;
+    font-weight:800;
 }
 
-.badge-disponible{
-    background:#e9f7ef;
-    color:var(--verde);
+.status.available{
+    background:#e4f2e9;
+    color:#397452;
 }
 
-.badge-rentado{
-    background:#fdecef;
-    color:var(--rojo);
+.status.rented{
+    background:#f5e1e6;
+    color:#9b3f58;
 }
 
-.badge-lavado{
-    background:#fff4d9;
-    color:#a46d00;
+.status.wash{
+    background:#f8edd9;
+    color:#906b27;
 }
 
-.badge-reparacion{
-    background:#eee8fb;
-    color:#68459a;
+.status.repair{
+    background:#f7e1e4;
+    color:#a44551;
+}
+
+.dress-photo .status{
+    position:absolute;
+    left:8px;
+    top:8px;
+    backdrop-filter:blur(5px);
+}
+
+.dress-info{
+    padding:12px;
+}
+
+.dress-info h3{
+    margin:0 0 5px;
+    font-family:Georgia,serif;
+    font-size:16px;
+    color:var(--vino3);
+}
+
+.dress-meta{
+    font-size:10px;
+    color:var(--gris);
+    line-height:1.5;
+}
+
+.dress-price{
+    margin-top:8px;
+    font-size:15px;
+    font-weight:800;
+    color:var(--vino);
 }
 
 .card-actions{
     display:flex;
-    gap:7px;
-    margin-top:12px;
+    gap:6px;
+    margin-top:10px;
 }
 
-.card-actions .btn{
+.card-actions button{
     flex:1;
 }
 
-.empty{
-    text-align:center;
-    padding:35px 15px;
-    color:var(--gris);
-}
+/* =========================
+   FORMULARIOS
+========================= */
 
-.empty-icon{
-    font-size:40px;
-    margin-bottom:8px;
-}
-
-.list-item{
-    border-bottom:1px solid var(--borde);
-    padding:12px 0;
-}
-
-.list-item:last-child{
-    border-bottom:0;
-}
-
-.list-main{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-}
-
-.list-main strong{
+label{
     display:block;
+    font-size:11px;
+    font-weight:700;
+    color:var(--vino3);
+    margin:0 0 6px;
 }
 
-.muted{
-    color:var(--gris);
-    font-size:13px;
+input,select,textarea{
+    width:100%;
+    border:1px solid var(--borde);
+    background:#fff;
+    color:var(--texto);
+    border-radius:13px;
+    padding:12px;
+    outline:none;
+}
+
+input:focus,select:focus,textarea:focus{
+    border-color:#bd8a9a;
+    box-shadow:0 0 0 3px rgba(113,50,71,.06);
+}
+
+textarea{
+    min-height:80px;
+    resize:vertical;
 }
 
 .form-group{
-    margin-bottom:14px;
-}
-
-.form-group label{
-    display:block;
-    font-size:13px;
-    font-weight:700;
-    margin-bottom:6px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-    width:100%;
-    padding:12px;
-    border:1px solid var(--borde);
-    border-radius:12px;
-    outline:none;
-    background:white;
-}
-
-.form-group textarea{
-    min-height:85px;
-    resize:vertical;
+    margin-bottom:13px;
 }
 
 .form-row{
@@ -384,11 +576,12 @@ textarea:focus{
 .modal{
     position:fixed;
     inset:0;
-    background:rgba(38,20,27,.5);
     z-index:100;
     display:none;
     align-items:flex-end;
     justify-content:center;
+    background:rgba(40,23,29,.45);
+    backdrop-filter:blur(5px);
 }
 
 .modal.show{
@@ -396,97 +589,408 @@ textarea:focus{
 }
 
 .modal-box{
-    background:white;
     width:100%;
     max-width:600px;
     max-height:92vh;
     overflow:auto;
-    border-radius:24px 24px 0 0;
-    padding:20px;
+    background:#fff;
+    border-radius:28px 28px 0 0;
+    padding:20px 18px calc(22px + env(safe-area-inset-bottom));
+    animation:modalUp .25s ease;
 }
 
-.modal-header{
+@keyframes modalUp{
+    from{transform:translateY(100%)}
+    to{transform:translateY(0)}
+}
+
+.modal-head{
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    gap:10px;
+    align-items:center;
     margin-bottom:18px;
 }
 
-.modal-header h3{
+.modal-head h2{
     margin:0;
-}
-
-.close{
-    width:38px;
-    height:38px;
-    border:none;
-    border-radius:50%;
-    background:#f5eef0;
-    color:var(--vino);
+    font-family:Georgia,serif;
+    color:var(--vino3);
     font-size:22px;
 }
 
-.image-upload{
-    border:2px dashed #dec8cf;
-    background:#fffafb;
+.close{
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:50%;
+    background:var(--rosa);
+    color:var(--vino3);
+    font-size:19px;
+}
+
+.modal-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+    margin-top:17px;
+}
+
+/* =========================
+   FOTO
+========================= */
+
+.photo-upload{
+    border:1.5px dashed #cdaab6;
     border-radius:18px;
-    padding:15px;
+    background:var(--rosa2);
+    padding:13px;
     text-align:center;
-    margin-bottom:15px;
 }
 
-.image-preview{
+.photo-upload input{
+    border:0;
+    padding:5px;
+    background:transparent;
+}
+
+.photo-preview{
+    margin-top:10px;
+    position:relative;
+}
+
+.photo-preview img{
     width:100%;
-    max-height:280px;
+    max-height:260px;
     object-fit:cover;
-    border-radius:14px;
-    margin-bottom:10px;
+    border-radius:16px;
 }
 
-.image-preview.hidden{
-    display:none;
+.remove-photo{
+    position:absolute;
+    top:8px;
+    right:8px;
+    width:32px;
+    height:32px;
+    border:0;
+    border-radius:50%;
+    background:#fff;
+    color:#a43f4c;
+    box-shadow:0 4px 12px #0002;
 }
 
-.image-buttons{
+/* =========================
+   CLIENTES / RENTAS
+========================= */
+
+.person-row{
     display:flex;
-    gap:8px;
-    justify-content:center;
-    flex-wrap:wrap;
+    align-items:center;
+    gap:12px;
 }
+
+.avatar{
+    width:44px;
+    height:44px;
+    border-radius:15px;
+    background:var(--rosa);
+    color:var(--vino);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:Georgia,serif;
+    font-weight:bold;
+    flex-shrink:0;
+}
+
+.person-info{
+    flex:1;
+    min-width:0;
+}
+
+.person-info strong{
+    display:block;
+    color:var(--vino3);
+    font-size:14px;
+}
+
+.person-info span{
+    display:block;
+    color:var(--gris);
+    font-size:11px;
+    margin-top:3px;
+}
+
+.rental-top{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.rental-name{
+    font-family:Georgia,serif;
+    color:var(--vino3);
+    font-size:16px;
+    font-weight:bold;
+}
+
+.rental-details{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    margin-top:12px;
+}
+
+.detail{
+    background:#faf5f3;
+    padding:9px;
+    border-radius:12px;
+}
+
+.detail small{
+    display:block;
+    font-size:9px;
+    color:var(--gris);
+}
+
+.detail strong{
+    display:block;
+    font-size:11px;
+    margin-top:3px;
+}
+
+/* =========================
+   CALENDARIO
+========================= */
+
+.calendar{
+    background:white;
+    border:1px solid var(--borde);
+    border-radius:22px;
+    padding:14px;
+    box-shadow:var(--sombra);
+}
+
+.calendar-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:13px;
+}
+
+.calendar-head strong{
+    font-family:Georgia,serif;
+    color:var(--vino3);
+    text-transform:capitalize;
+}
+
+.cal-btn{
+    width:34px;
+    height:34px;
+    border:0;
+    border-radius:11px;
+    background:var(--rosa);
+    color:var(--vino);
+}
+
+.weekdays,.days{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:4px;
+}
+
+.weekdays div{
+    text-align:center;
+    font-size:9px;
+    color:var(--gris);
+    font-weight:700;
+    padding-bottom:5px;
+}
+
+.day{
+    min-height:38px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    position:relative;
+}
+
+.day.today{
+    background:var(--vino);
+    color:white;
+    font-weight:bold;
+}
+
+.day.event:after{
+    content:"";
+    position:absolute;
+    bottom:4px;
+    width:4px;
+    height:4px;
+    background:var(--dorado);
+    border-radius:50%;
+}
+
+.day.empty{
+    background:transparent;
+}
+
+/* =========================
+   CAJA
+========================= */
+
+.balance{
+    background:linear-gradient(145deg,var(--vino),var(--vino3));
+    color:white;
+    border-radius:24px;
+    padding:23px;
+    margin-bottom:15px;
+    box-shadow:0 12px 28px rgba(84,36,54,.18);
+}
+
+.balance small{
+    color:#ead0d8;
+    font-size:10px;
+    letter-spacing:1px;
+}
+
+.balance strong{
+    display:block;
+    font-family:Georgia,serif;
+    font-size:32px;
+    margin:5px 0;
+}
+
+.balance span{
+    color:#ead0d8;
+    font-size:11px;
+}
+
+.movement{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.move-icon{
+    width:40px;
+    height:40px;
+    border-radius:14px;
+    background:var(--rosa);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.move-info{
+    flex:1;
+}
+
+.move-info strong{
+    display:block;
+    font-size:13px;
+}
+
+.move-info small{
+    color:var(--gris);
+    font-size:10px;
+}
+
+.income{
+    color:var(--verde);
+    font-weight:bold;
+}
+
+.expense{
+    color:var(--rojo);
+    font-weight:bold;
+}
+
+/* =========================
+   MAS
+========================= */
+
+.menu-card{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:15px;
+    background:white;
+    border:1px solid var(--borde);
+    border-radius:19px;
+    margin-bottom:10px;
+    box-shadow:var(--sombra);
+    width:100%;
+    text-align:left;
+}
+
+.menu-icon{
+    width:44px;
+    height:44px;
+    border-radius:15px;
+    background:var(--rosa);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.menu-text{
+    flex:1;
+}
+
+.menu-text strong{
+    display:block;
+    color:var(--vino3);
+    font-family:Georgia,serif;
+    font-size:15px;
+}
+
+.menu-text span{
+    display:block;
+    color:var(--gris);
+    font-size:10px;
+    margin-top:3px;
+}
+
+.menu-arrow{
+    color:#b6a5aa;
+}
+
+/* =========================
+   BOTTOM NAV
+========================= */
 
 .bottom-nav{
     position:fixed;
+    z-index:50;
     bottom:0;
-    left:0;
-    right:0;
-    background:white;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(600px,100%);
+    padding:8px 7px calc(8px + env(safe-area-inset-bottom));
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
     border-top:1px solid var(--borde);
-    z-index:80;
-    display:flex;
-    justify-content:center;
-    box-shadow:0 -4px 15px rgba(0,0,0,.07);
-}
-
-.nav-inner{
-    width:100%;
-    max-width:900px;
     display:grid;
     grid-template-columns:repeat(7,1fr);
 }
 
 .nav-btn{
-    border:none;
-    background:white;
-    color:#877b80;
-    padding:8px 2px 10px;
-    font-size:10px;
+    border:0;
+    background:transparent;
+    color:#988b90;
+    padding:5px 1px;
+    border-radius:13px;
+    font-size:8px;
 }
 
 .nav-btn span{
     display:block;
-    font-size:20px;
-    margin-bottom:3px;
+    font-size:18px;
+    margin-bottom:2px;
 }
 
 .nav-btn.active{
@@ -494,20 +998,30 @@ textarea:focus{
     font-weight:800;
 }
 
+.nav-btn.active span{
+    transform:translateY(-1px);
+}
+
+/* =========================
+   TOAST
+========================= */
+
 .toast{
     position:fixed;
+    z-index:200;
     left:50%;
-    bottom:92px;
-    transform:translateX(-50%) translateY(20px);
-    background:#33262b;
+    bottom:110px;
+    transform:translateX(-50%) translateY(15px);
+    background:#30252a;
     color:white;
     padding:12px 17px;
-    border-radius:13px;
-    font-size:14px;
-    z-index:200;
+    border-radius:15px;
+    font-size:12px;
     opacity:0;
     pointer-events:none;
     transition:.25s;
+    white-space:nowrap;
+    box-shadow:0 10px 25px #0003;
 }
 
 .toast.show{
@@ -515,89 +1029,26 @@ textarea:focus{
     transform:translateX(-50%) translateY(0);
 }
 
-.calendar-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:15px;
-}
-
-.calendar-header button{
-    border:none;
-    background:var(--rosa);
-    color:var(--vino);
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    font-size:20px;
-}
-
-.calendar-title{
-    font-weight:800;
-    text-transform:capitalize;
-}
-
-.calendar{
-    display:grid;
-    grid-template-columns:repeat(7,1fr);
-    gap:5px;
-}
-
-.calendar-day-name{
-    text-align:center;
-    font-size:11px;
-    color:var(--gris);
-    font-weight:700;
-    padding:5px 0;
-}
-
-.calendar-day{
-    min-height:55px;
-    border:1px solid #eee4e7;
-    border-radius:9px;
-    padding:5px;
-    font-size:11px;
-    background:#fff;
-}
-
-.calendar-day.today{
-    border:2px solid var(--vino);
-}
-
-.calendar-day .event-dot{
-    width:6px;
-    height:6px;
-    border-radius:50%;
-    background:var(--vino);
-    display:inline-block;
-    margin-right:2px;
-}
-
-.money-positive{
-    color:var(--verde);
-    font-weight:800;
-}
-
-.money-negative{
-    color:var(--rojo);
-    font-weight:800;
-}
-
-.balance{
-    font-size:32px;
-    font-weight:900;
-    color:var(--vino);
-    text-align:center;
-    padding:12px;
-}
+/* =========================
+   DESKTOP
+========================= */
 
 @media(min-width:700px){
-    .stats{
-        grid-template-columns:repeat(4,1fr);
+    body{
+        padding:20px 0;
     }
 
-    .grid{
-        grid-template-columns:repeat(3,1fr);
+    .app{
+        background:var(--crema);
+        min-height:calc(100vh - 40px);
+        border-radius:30px;
+        overflow:hidden;
+        box-shadow:0 10px 50px #0001;
+    }
+
+    .topbar{
+        position:sticky;
+        border-radius:30px 30px 0 0;
     }
 
     .modal{
@@ -605,30 +1056,22 @@ textarea:focus{
     }
 
     .modal-box{
-        border-radius:24px;
-    }
-}
-
-@media(max-width:430px){
-    .grid{
-        grid-template-columns:1fr 1fr;
+        border-radius:28px;
+        max-height:85vh;
     }
 
-    .dress-photo,
-    .dress-placeholder{
-        height:155px;
+    .bottom-nav{
+        width:600px;
+        bottom:20px;
+        border:1px solid var(--borde);
+        border-radius:22px;
+        box-shadow:0 10px 35px #0002;
+        padding-bottom:8px;
     }
 
-    .card-body{
-        padding:11px;
-    }
-
-    .card-actions{
-        flex-direction:column;
-    }
-
-    .nav-btn{
-        font-size:9px;
+    .floating-add{
+        right:calc(50% - 280px);
+        bottom:100px;
     }
 }
 </style>
@@ -636,488 +1079,366 @@ textarea:focus{
 
 <body>
 
-<header class="header">
-    <div class="header-inner">
-        <div class="logo-area">
-            <div class="logo">JD</div>
-            <div>
-                <h1 id="tituloNegocio">Julietta Dresses</h1>
-                <small>Control del negocio</small>
-            </div>
+<div class="app">
+
+<header class="topbar">
+    <div class="brand">
+        <div class="logo">JD</div>
+        <div class="brand-text">
+            <small>BOUTIQUE • RENTAS</small>
+            <strong id="nombreHeader">Julietta Dresses</strong>
         </div>
     </div>
 </header>
 
-<main class="container">
+<!-- ================= INICIO ================= -->
 
-<!-- INICIO -->
 <section id="pagina-inicio" class="page active">
-    <h2>Inicio</h2>
-    <div class="subtitle">Resumen de tu negocio</div>
+
+    <div class="hero">
+        <small>BIENVENIDA</small>
+        <h1 id="heroNombre">Julietta Dresses</h1>
+        <p>Controla tus vestidos, clientes y rentas de una manera sencilla y elegante.</p>
+
+        <div class="quick-actions">
+            <button class="quick" onclick="abrirVestido()">
+                <b>＋</b>Vestido
+            </button>
+            <button class="quick" onclick="abrirCliente()">
+                <b>＋</b>Cliente
+            </button>
+            <button class="quick" onclick="abrirRenta()">
+                <b>＋</b>Renta
+            </button>
+        </div>
+    </div>
 
     <div class="stats">
         <div class="stat">
-            <div class="stat-number" id="statVestidos">0</div>
-            <div class="stat-label">Vestidos</div>
+            <div class="stat-icon">👗</div>
+            <strong id="statVestidos">0</strong>
+            <span>Vestidos</span>
         </div>
 
         <div class="stat">
-            <div class="stat-number" id="statClientes">0</div>
-            <div class="stat-label">Clientes</div>
+            <div class="stat-icon">👤</div>
+            <strong id="statClientes">0</strong>
+            <span>Clientes</span>
         </div>
 
         <div class="stat">
-            <div class="stat-number" id="statRentas">0</div>
-            <div class="stat-label">Rentas activas</div>
+            <div class="stat-icon">🗓️</div>
+            <strong id="statRentas">0</strong>
+            <span>Rentas activas</span>
         </div>
 
         <div class="stat">
-            <div class="stat-number" id="statIngresos">$0</div>
-            <div class="stat-label">Ingresos</div>
+            <div class="stat-icon">✦</div>
+            <strong id="statIngresos">$0</strong>
+            <span>Ingresos registrados</span>
         </div>
     </div>
 
-    <div class="section">
-        <div class="section-title">
-            <h3>Próximas devoluciones</h3>
-        </div>
-        <div id="proximasDevoluciones"></div>
+    <div class="section-title">
+        <h3>Próximas rentas</h3>
+        <span id="contadorProximas">0</span>
     </div>
 
-    <div class="section">
-        <div class="section-title">
-            <h3>Próximas rentas</h3>
-        </div>
-        <div id="proximasRentas"></div>
+    <div id="inicioProximas"></div>
+
+    <div class="section-title">
+        <h3>Próximos regresos</h3>
     </div>
+
+    <div id="inicioRegresos"></div>
+
 </section>
 
-<!-- INVENTARIO -->
-<section id="pagina-inventario" class="page">
-    <h2>Vestidos</h2>
-    <div class="subtitle">Administra tu catálogo e inventario</div>
 
-    <button class="btn btn-primary full" onclick="abrirVestido()">＋ Agregar vestido</button>
+<!-- ================= VESTIDOS ================= -->
 
-    <div style="height:12px"></div>
+<section id="pagina-vestidos" class="page">
 
-    <input
-        class="search"
-        id="buscarVestido"
-        placeholder="🔎 Buscar vestido, talla o color..."
-        oninput="renderVestidos()"
-    >
+    <h1 class="page-title">Vestidos</h1>
+    <p class="page-subtitle">Tu colección, organizada y lista para rentar.</p>
 
-    <div id="listaVestidos" class="grid"></div>
+    <div class="search">
+        <span>⌕</span>
+        <input id="buscarVestido" placeholder="Buscar vestido, talla o color..." oninput="renderVestidos()">
+    </div>
+
+    <div id="listaVestidos" class="dress-grid"></div>
+
+    <button class="floating-add" onclick="abrirVestido()">＋</button>
+
 </section>
 
-<!-- CALENDARIO -->
+
+<!-- ================= CALENDARIO ================= -->
+
 <section id="pagina-calendario" class="page">
-    <h2>Calendario</h2>
-    <div class="subtitle">Rentas y devoluciones</div>
 
-    <div class="section">
-        <div class="calendar-header">
-            <button onclick="cambiarMes(-1)">‹</button>
-            <div class="calendar-title" id="mesCalendario"></div>
-            <button onclick="cambiarMes(1)">›</button>
+    <h1 class="page-title">Calendario</h1>
+    <p class="page-subtitle">Visualiza tus rentas y fechas importantes.</p>
+
+    <div class="calendar">
+
+        <div class="calendar-head">
+            <button class="cal-btn" onclick="cambiarMes(-1)">‹</button>
+            <strong id="mesActual"></strong>
+            <button class="cal-btn" onclick="cambiarMes(1)">›</button>
         </div>
 
-        <div class="calendar" id="calendario"></div>
+        <div class="weekdays">
+            <div>L</div>
+            <div>M</div>
+            <div>M</div>
+            <div>J</div>
+            <div>V</div>
+            <div>S</div>
+            <div>D</div>
+        </div>
+
+        <div id="diasCalendario" class="days"></div>
+
     </div>
 
-    <div class="section">
-        <div class="section-title">
-            <h3>Eventos del mes</h3>
-        </div>
-        <div id="eventosMes"></div>
+    <div class="section-title">
+        <h3>Eventos del mes</h3>
     </div>
+
+    <div id="eventosMes"></div>
+
 </section>
 
-<!-- CLIENTES -->
+
+<!-- ================= CLIENTES ================= -->
+
 <section id="pagina-clientes" class="page">
-    <h2>Clientes</h2>
-    <div class="subtitle">Guarda y administra tus clientas</div>
 
-    <button class="btn btn-primary full" onclick="abrirCliente()">＋ Agregar cliente</button>
+    <h1 class="page-title">Clientes</h1>
+    <p class="page-subtitle">Ten toda la información de tus clientas a la mano.</p>
 
-    <div style="height:12px"></div>
-
-    <input
-        class="search"
-        id="buscarCliente"
-        placeholder="🔎 Buscar cliente..."
-        oninput="renderClientes()"
-    >
+    <div class="search">
+        <span>⌕</span>
+        <input id="buscarCliente" placeholder="Buscar cliente..." oninput="renderClientes()">
+    </div>
 
     <div id="listaClientes"></div>
+
+    <button class="floating-add" onclick="abrirCliente()">＋</button>
+
 </section>
 
-<!-- RENTAS -->
-<section id="pagina-rentas" class="page">
-    <h2>Rentas</h2>
-    <div class="subtitle">Control de vestidos rentados</div>
 
-    <button class="btn btn-primary full" onclick="abrirRenta()">＋ Nueva renta</button>
+<!-- ================= RENTAS ================= -->
+
+<section id="pagina-rentas" class="page">
+
+    <h1 class="page-title">Rentas</h1>
+    <p class="page-subtitle">Administra tus apartados y vestidos rentados.</p>
 
     <div id="listaRentas"></div>
+
+    <button class="floating-add" onclick="abrirRenta()">＋</button>
+
 </section>
 
-<!-- CAJA -->
-<section id="pagina-caja" class="page">
-    <h2>Caja</h2>
-    <div class="subtitle">Ingresos, gastos y balance</div>
 
-    <div class="section">
-        <div class="balance" id="balanceCaja">$0</div>
+<!-- ================= CAJA ================= -->
+
+<section id="pagina-caja" class="page">
+
+    <h1 class="page-title">Caja</h1>
+    <p class="page-subtitle">Controla ingresos, gastos y movimientos.</p>
+
+    <div class="balance">
+        <small>BALANCE ACTUAL</small>
+        <strong id="balanceCaja">$0</strong>
+        <span>Ingresos menos gastos registrados</span>
     </div>
 
-    <button class="btn btn-primary full" onclick="abrirMovimiento()">＋ Agregar movimiento</button>
+    <button class="btn btn-primary" style="width:100%" onclick="abrirMovimiento()">
+        ＋ Registrar movimiento
+    </button>
+
+    <div class="section-title">
+        <h3>Movimientos</h3>
+    </div>
 
     <div id="listaMovimientos"></div>
+
 </section>
 
-<!-- MÁS -->
+
+<!-- ================= MAS ================= -->
+
 <section id="pagina-mas" class="page">
-    <h2>Más</h2>
-    <div class="subtitle">Herramientas y configuración</div>
 
-    <div class="section">
-        <div class="section-title">
-            <h3>Regresos pendientes</h3>
-        </div>
-        <div id="listaRegresos"></div>
-    </div>
+    <h1 class="page-title">Más</h1>
+    <p class="page-subtitle">Herramientas y configuración de Julietta Dresses.</p>
 
-    <div class="section">
-        <div class="section-title">
-            <h3>Revisión de vestidos</h3>
+    <button class="menu-card" onclick="mostrarPagina('regresos')">
+        <div class="menu-icon">↩️</div>
+        <div class="menu-text">
+            <strong>Regresos</strong>
+            <span>Vestidos pendientes de devolución</span>
         </div>
-        <div id="listaRevision"></div>
-    </div>
+        <div class="menu-arrow">›</div>
+    </button>
 
-    <div class="section">
-        <div class="section-title">
-            <h3>Configuración</h3>
+    <button class="menu-card" onclick="mostrarPagina('revision')">
+        <div class="menu-icon">🧺</div>
+        <div class="menu-text">
+            <strong>Lavado y reparación</strong>
+            <span>Vestidos que todavía no están disponibles</span>
         </div>
+        <div class="menu-arrow">›</div>
+    </button>
+
+    <button class="menu-card" onclick="mostrarPagina('configuracion')">
+        <div class="menu-icon">⚙️</div>
+        <div class="menu-text">
+            <strong>Configuración</strong>
+            <span>Datos del negocio y respaldos</span>
+        </div>
+        <div class="menu-arrow">›</div>
+    </button>
+
+</section>
+
+
+<!-- ================= REGRESOS ================= -->
+
+<section id="pagina-regresos" class="page">
+
+    <h1 class="page-title">Regresos</h1>
+    <p class="page-subtitle">Revisa qué vestidos deben regresar.</p>
+
+    <div id="listaRegresos"></div>
+
+</section>
+
+
+<!-- ================= REVISION ================= -->
+
+<section id="pagina-revision" class="page">
+
+    <h1 class="page-title">Revisión</h1>
+    <p class="page-subtitle">Vestidos en lavado o reparación.</p>
+
+    <div id="listaRevision"></div>
+
+</section>
+
+
+<!-- ================= CONFIGURACIÓN ================= -->
+
+<section id="pagina-configuracion" class="page">
+
+    <h1 class="page-title">Configuración</h1>
+    <p class="page-subtitle">Personaliza tu aplicación.</p>
+
+    <div class="card">
 
         <div class="form-group">
             <label>Nombre del negocio</label>
-            <input id="configNombre">
+            <input id="configNombre" placeholder="Julietta Dresses">
         </div>
 
         <div class="form-group">
             <label>WhatsApp del negocio</label>
-            <input id="configWhatsapp" type="tel" placeholder="Ej. 8112345678">
+            <input id="configWhatsApp" type="tel" placeholder="Ej. 8112345678">
         </div>
 
-        <button class="btn btn-primary full" onclick="guardarConfiguracion()">
-            Guardar configuración
+        <button class="btn btn-primary" style="width:100%" onclick="guardarConfiguracion()">
+            Guardar cambios
         </button>
 
-        <div style="height:10px"></div>
+    </div>
 
-        <button class="btn btn-secondary full" onclick="exportarDatos()">
-            📥 Descargar respaldo
+    <div class="section-title">
+        <h3>Respaldo</h3>
+    </div>
+
+    <div class="card">
+        <p style="font-size:12px;color:var(--gris);line-height:1.5">
+            Guarda una copia de tus vestidos, fotos, clientes, rentas y movimientos.
+        </p>
+
+        <button class="btn btn-light" style="width:100%;margin-bottom:8px" onclick="exportarDatos()">
+            💾 Descargar respaldo
         </button>
 
-        <div style="height:10px"></div>
+        <input id="archivoImportar" type="file" accept=".json" onchange="importarDatos(event)">
+    </div>
 
-        <label class="btn btn-secondary full" style="display:block;text-align:center">
-            📤 Restaurar respaldo
-            <input type="file" accept=".json,application/json" onchange="importarDatos(event)" style="display:none">
-        </label>
+    <div class="card">
+        <strong style="color:var(--rojo)">Zona de peligro</strong>
 
-        <div style="height:10px"></div>
+        <p style="font-size:11px;color:var(--gris)">
+            Esta opción elimina todos los datos guardados en la aplicación.
+        </p>
 
-        <button class="btn btn-danger full" onclick="eliminarTodo()">
-            🗑️ Eliminar todos los datos
+        <button class="btn btn-danger" style="width:100%" onclick="eliminarTodo()">
+            Eliminar todos los datos
         </button>
     </div>
+
 </section>
 
-</main>
+</div>
 
-<!-- NAVEGACIÓN -->
+
+<!-- ================= NAVEGACIÓN ================= -->
+
 <nav class="bottom-nav">
-    <div class="nav-inner">
 
-        <button class="nav-btn active" onclick="mostrarPagina('inicio',this)">
-            <span>⌂</span>Inicio
-        </button>
+    <button class="nav-btn active" data-page="inicio" onclick="mostrarPagina('inicio')">
+        <span>⌂</span>Inicio
+    </button>
 
-        <button class="nav-btn" onclick="mostrarPagina('inventario',this)">
-            <span>👗</span>Vestidos
-        </button>
+    <button class="nav-btn" data-page="vestidos" onclick="mostrarPagina('vestidos')">
+        <span>👗</span>Vestidos
+    </button>
 
-        <button class="nav-btn" onclick="mostrarPagina('calendario',this)">
-            <span>📅</span>Calendario
-        </button>
+    <button class="nav-btn" data-page="calendario" onclick="mostrarPagina('calendario')">
+        <span>◫</span>Calendario
+    </button>
 
-        <button class="nav-btn" onclick="mostrarPagina('clientes',this)">
-            <span>👩</span>Clientes
-        </button>
+    <button class="nav-btn" data-page="clientes" onclick="mostrarPagina('clientes')">
+        <span>♙</span>Clientes
+    </button>
 
-        <button class="nav-btn" onclick="mostrarPagina('rentas',this)">
-            <span>📝</span>Rentas
-        </button>
+    <button class="nav-btn" data-page="rentas" onclick="mostrarPagina('rentas')">
+        <span>♡</span>Rentas
+    </button>
 
-        <button class="nav-btn" onclick="mostrarPagina('caja',this)">
-            <span>💰</span>Caja
-        </button>
+    <button class="nav-btn" data-page="caja" onclick="mostrarPagina('caja')">
+        <span>◈</span>Caja
+    </button>
 
-        <button class="nav-btn" onclick="mostrarPagina('mas',this)">
-            <span>☰</span>Más
-        </button>
+    <button class="nav-btn" data-page="mas" onclick="mostrarPagina('mas')">
+        <span>•••</span>Más
+    </button>
 
-    </div>
 </nav>
 
-<!-- MODAL VESTIDO -->
-<div class="modal" id="modalVestido">
-    <div class="modal-box">
 
-        <div class="modal-header">
-            <h3 id="tituloModalVestido">Agregar vestido</h3>
-            <button class="close" onclick="cerrarModal('modalVestido')">×</button>
-        </div>
+<!-- ================= MODAL ================= -->
 
-        <input type="hidden" id="vestidoId">
-
-        <div class="image-upload">
-
-            <img
-                id="previewVestido"
-                class="image-preview hidden"
-                alt="Foto del vestido"
-            >
-
-            <div id="sinFotoVestido">
-                <div style="font-size:45px">👗</div>
-                <strong>Foto del vestido</strong>
-                <div class="muted">Puedes agregar una foto desde tu celular</div>
-            </div>
-
-            <div style="height:10px"></div>
-
-            <label class="btn btn-primary">
-                📷 Elegir foto
-                <input
-                    id="fotoVestido"
-                    type="file"
-                    accept="image/*"
-                    capture="environment"
-                    onchange="previsualizarVestido(event)"
-                    style="display:none"
-                >
-            </label>
-
-            <button
-                type="button"
-                class="btn btn-danger"
-                onclick="quitarFotoVestido()"
-            >
-                Quitar foto
-            </button>
-
-        </div>
-
-        <div class="form-group">
-            <label>Nombre / modelo *</label>
-            <input id="vestidoNombre" placeholder="Ej. Vestido Rosa Elegante">
-        </div>
-
-        <div class="form-row">
-
-            <div class="form-group">
-                <label>Talla</label>
-                <input id="vestidoTalla" placeholder="Ej. CH, M, G">
-            </div>
-
-            <div class="form-group">
-                <label>Color</label>
-                <input id="vestidoColor" placeholder="Ej. Rosa">
-            </div>
-
-        </div>
-
-        <div class="form-row">
-
-            <div class="form-group">
-                <label>Precio de renta *</label>
-                <input id="vestidoPrecio" type="number" min="0" step="1" placeholder="0">
-            </div>
-
-            <div class="form-group">
-                <label>Estado</label>
-                <select id="vestidoEstado">
-                    <option value="Disponible">Disponible</option>
-                    <option value="Rentado">Rentado</option>
-                    <option value="Lavado">Lavado</option>
-                    <option value="Reparación">Reparación</option>
-                </select>
-            </div>
-
-        </div>
-
-        <div class="form-group">
-            <label>Notas</label>
-            <textarea id="vestidoNotas" placeholder="Detalles del vestido..."></textarea>
-        </div>
-
-        <button class="btn btn-primary full" onclick="guardarVestido()">
-            Guardar vestido
-        </button>
-
-    </div>
+<div id="modal" class="modal" onclick="cerrarModalExterior(event)">
+    <div id="modalContenido" class="modal-box"></div>
 </div>
 
-<!-- MODAL CLIENTE -->
-<div class="modal" id="modalCliente">
-    <div class="modal-box">
+<div id="toast" class="toast"></div>
 
-        <div class="modal-header">
-            <h3 id="tituloModalCliente">Agregar cliente</h3>
-            <button class="close" onclick="cerrarModal('modalCliente')">×</button>
-        </div>
-
-        <input type="hidden" id="clienteId">
-
-        <div class="form-group">
-            <label>Nombre *</label>
-            <input id="clienteNombre" placeholder="Nombre completo">
-        </div>
-
-        <div class="form-group">
-            <label>Teléfono</label>
-            <input id="clienteTelefono" type="tel" placeholder="Ej. 8112345678">
-        </div>
-
-        <div class="form-group">
-            <label>Notas</label>
-            <textarea id="clienteNotas" placeholder="Medidas, preferencias, etc."></textarea>
-        </div>
-
-        <button class="btn btn-primary full" onclick="guardarCliente()">
-            Guardar cliente
-        </button>
-
-    </div>
-</div>
-
-<!-- MODAL RENTA -->
-<div class="modal" id="modalRenta">
-    <div class="modal-box">
-
-        <div class="modal-header">
-            <h3 id="tituloModalRenta">Nueva renta</h3>
-            <button class="close" onclick="cerrarModal('modalRenta')">×</button>
-        </div>
-
-        <input type="hidden" id="rentaId">
-
-        <div class="form-group">
-            <label>Cliente *</label>
-            <select id="rentaCliente"></select>
-        </div>
-
-        <div class="form-group">
-            <label>Vestido *</label>
-            <select id="rentaVestido"></select>
-        </div>
-
-        <div class="form-row">
-
-            <div class="form-group">
-                <label>Fecha de entrega</label>
-                <input id="rentaEntrega" type="date">
-            </div>
-
-            <div class="form-group">
-                <label>Fecha de devolución</label>
-                <input id="rentaDevolucion" type="date">
-            </div>
-
-        </div>
-
-        <div class="form-row">
-
-            <div class="form-group">
-                <label>Precio</label>
-                <input id="rentaPrecio" type="number" min="0">
-            </div>
-
-            <div class="form-group">
-                <label>Depósito</label>
-                <input id="rentaDeposito" type="number" min="0">
-            </div>
-
-        </div>
-
-        <div class="form-group">
-            <label>Estado</label>
-            <select id="rentaEstado">
-                <option value="Apartada">Apartada</option>
-                <option value="Activa">Activa</option>
-                <option value="Devuelta">Devuelta</option>
-                <option value="Cancelada">Cancelada</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Notas</label>
-            <textarea id="rentaNotas"></textarea>
-        </div>
-
-        <button class="btn btn-primary full" onclick="guardarRenta()">
-            Guardar renta
-        </button>
-
-    </div>
-</div>
-
-<!-- MODAL MOVIMIENTO -->
-<div class="modal" id="modalMovimiento">
-    <div class="modal-box">
-
-        <div class="modal-header">
-            <h3>Agregar movimiento</h3>
-            <button class="close" onclick="cerrarModal('modalMovimiento')">×</button>
-        </div>
-
-        <div class="form-group">
-            <label>Tipo</label>
-            <select id="movTipo">
-                <option value="Ingreso">Ingreso</option>
-                <option value="Gasto">Gasto</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Concepto *</label>
-            <input id="movConcepto" placeholder="Ej. Renta vestido">
-        </div>
-
-        <div class="form-group">
-            <label>Monto *</label>
-            <input id="movMonto" type="number" min="0" step="1">
-        </div>
-
-        <div class="form-group">
-            <label>Fecha</label>
-            <input id="movFecha" type="date">
-        </div>
-
-        <button class="btn btn-primary full" onclick="guardarMovimiento()">
-            Guardar movimiento
-        </button>
-
-    </div>
-</div>
-
-<div class="toast" id="toast"></div>
 
 <script>
+
+/* =====================================================
+   DATOS
+===================================================== */
 
 const STORAGE_KEY = "juliettaDresses";
 
@@ -1132,12 +1453,13 @@ let datos = {
     movimientos:[]
 };
 
-let mesActual = new Date();
-let fotoVestidoActual = null;
+let fotoVestidoActual = "";
+let mesCalendario = new Date();
 
-/* =========================
-   DATOS
-========================= */
+
+/* =====================================================
+   CARGAR / GUARDAR
+===================================================== */
 
 function cargarDatos(){
 
@@ -1147,59 +1469,41 @@ function cargarDatos(){
 
         try{
 
-            const datosGuardados = JSON.parse(guardado);
+            const parsed = JSON.parse(guardado);
 
             datos = {
                 configuracion:{
-                    nombre:"Julietta Dresses",
-                    whatsapp:"",
-                    ...(datosGuardados.configuracion || {})
+                    nombre:parsed.configuracion?.nombre || "Julietta Dresses",
+                    whatsapp:parsed.configuracion?.whatsapp || ""
                 },
-                vestidos:Array.isArray(datosGuardados.vestidos)
-                    ? datosGuardados.vestidos
-                    : [],
-                clientes:Array.isArray(datosGuardados.clientes)
-                    ? datosGuardados.clientes
-                    : [],
-                rentas:Array.isArray(datosGuardados.rentas)
-                    ? datosGuardados.rentas
-                    : [],
-                movimientos:Array.isArray(datosGuardados.movimientos)
-                    ? datosGuardados.movimientos
-                    : []
+                vestidos:Array.isArray(parsed.vestidos) ? parsed.vestidos : [],
+                clientes:Array.isArray(parsed.clientes) ? parsed.clientes : [],
+                rentas:Array.isArray(parsed.rentas) ? parsed.rentas : [],
+                movimientos:Array.isArray(parsed.movimientos) ? parsed.movimientos : []
             };
 
         }catch(e){
-
             console.error(e);
-
         }
-
     }
 
-    guardarDatos();
+    actualizarEstadosVestidos();
 }
 
 function guardarDatos(){
-
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(datos)
-    );
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(datos));
 }
 
-/* =========================
+
+/* =====================================================
    UTILIDADES
-========================= */
+===================================================== */
 
-function dinero(valor){
-
+function dinero(numero){
     return new Intl.NumberFormat("es-MX",{
         style:"currency",
-        currency:"MXN",
-        minimumFractionDigits:0
-    }).format(Number(valor)||0);
-
+        currency:"MXN"
+    }).format(Number(numero)||0);
 }
 
 function escapeHTML(texto){
@@ -1210,7 +1514,6 @@ function escapeHTML(texto){
         .replace(/>/g,"&gt;")
         .replace(/"/g,"&quot;")
         .replace(/'/g,"&#039;");
-
 }
 
 function hoyISO(){
@@ -1226,17 +1529,15 @@ function hoyISO(){
 
 function fechaBonita(fecha){
 
-    if(!fecha) return "Sin fecha";
+    if(!fecha)return "Sin fecha";
 
-    const partes = fecha.split("-");
+    const d = new Date(fecha+"T00:00:00");
 
-    if(partes.length === 3){
-
-        return `${partes[2]}/${partes[1]}/${partes[0]}`;
-
-    }
-
-    return fecha;
+    return d.toLocaleDateString("es-MX",{
+        day:"numeric",
+        month:"short",
+        year:"numeric"
+    });
 }
 
 function mostrarToast(mensaje){
@@ -1248,61 +1549,83 @@ function mostrarToast(mensaje){
 
     setTimeout(()=>{
         toast.classList.remove("show");
-    },2500);
+    },2300);
 }
 
-function abrirModal(id){
 
-    document.getElementById(id).classList.add("show");
-
-}
-
-function cerrarModal(id){
-
-    document.getElementById(id).classList.remove("show");
-
-}
-
-/* =========================
+/* =====================================================
    NAVEGACIÓN
-========================= */
+===================================================== */
 
-function mostrarPagina(pagina,boton){
+function mostrarPagina(nombre){
 
     document.querySelectorAll(".page").forEach(p=>{
         p.classList.remove("active");
     });
 
-    const destino = document.getElementById("pagina-"+pagina);
+    const pagina = document.getElementById("pagina-"+nombre);
 
-    if(destino){
-        destino.classList.add("active");
+    if(pagina){
+        pagina.classList.add("active");
     }
 
-    document.querySelectorAll(".nav-btn").forEach(b=>{
-        b.classList.remove("active");
+    document.querySelectorAll(".nav-btn").forEach(btn=>{
+        btn.classList.toggle(
+            "active",
+            btn.dataset.page===nombre
+        );
     });
 
-    if(boton){
-        boton.classList.add("active");
+    if(nombre==="inicio")renderInicio();
+    if(nombre==="vestidos")renderVestidos();
+    if(nombre==="calendario"){
+        renderCalendario();
+        renderEventosMes();
     }
+    if(nombre==="clientes")renderClientes();
+    if(nombre==="rentas")renderRentas();
+    if(nombre==="caja")renderCaja();
+    if(nombre==="regresos")renderRegresos();
+    if(nombre==="revision")renderRevision();
+    if(nombre==="configuracion")cargarConfiguracion();
 
-    actualizarTodo();
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+    window.scrollTo({top:0,behavior:"smooth"});
 }
 
-/* =========================
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+function abrirModal(html){
+
+    document.getElementById("modalContenido").innerHTML = html;
+    document.getElementById("modal").classList.add("show");
+
+}
+
+function cerrarModal(){
+
+    document.getElementById("modal").classList.remove("show");
+    document.getElementById("modalContenido").innerHTML="";
+
+}
+
+function cerrarModalExterior(event){
+
+    if(event.target.id==="modal"){
+        cerrarModal();
+    }
+}
+
+
+/* =====================================================
    ACTUALIZAR TODO
-========================= */
+===================================================== */
 
 function actualizarTodo(){
 
-    document.getElementById("tituloNegocio").textContent =
-        datos.configuracion.nombre || "Julietta Dresses";
+    actualizarEstadosVestidos();
 
     renderInicio();
     renderVestidos();
@@ -1312,13 +1635,19 @@ function actualizarTodo(){
     renderRegresos();
     renderRevision();
     renderCalendario();
-    cargarConfiguracion();
+    renderEventosMes();
 
+    document.getElementById("nombreHeader").textContent =
+        datos.configuracion.nombre;
+
+    document.getElementById("heroNombre").textContent =
+        datos.configuracion.nombre;
 }
 
-/* =========================
+
+/* =====================================================
    INICIO
-========================= */
+===================================================== */
 
 function renderInicio(){
 
@@ -1328,1641 +1657,1678 @@ function renderInicio(){
     document.getElementById("statClientes").textContent =
         datos.clientes.length;
 
-    const activas = datos.rentas.filter(r=>
-        r.estado === "Activa" ||
-        r.estado === "Apartada"
-    );
-
     document.getElementById("statRentas").textContent =
-        activas.length;
+        datos.rentas.filter(r=>r.estado==="Activa").length;
 
     const ingresos = datos.movimientos
         .filter(m=>m.tipo==="Ingreso")
-        .reduce((a,m)=>a+Number(m.monto||0),0);
+        .reduce((s,m)=>s+Number(m.monto||0),0);
 
     document.getElementById("statIngresos").textContent =
         dinero(ingresos);
 
-    const hoy = hoyISO();
+    const activas = datos.rentas
+        .filter(r=>r.estado==="Activa" || r.estado==="Apartada")
+        .sort((a,b)=>(a.fechaEntrega||"").localeCompare(b.fechaEntrega||""))
+        .slice(0,4);
 
-    const devoluciones = datos.rentas
-        .filter(r=>
-            r.estado==="Activa" &&
-            r.devolucion
-        )
-        .sort((a,b)=>
-            a.devolucion.localeCompare(b.devolucion)
-        )
-        .slice(0,5);
+    document.getElementById("contadorProximas").textContent =
+        activas.length;
 
-    const div = document.getElementById("proximasDevoluciones");
+    const cont = document.getElementById("inicioProximas");
 
-    if(!devoluciones.length){
+    if(!activas.length){
 
-        div.innerHTML = `
-            <div class="empty">
-                No hay devoluciones pendientes.
+        cont.innerHTML=`
+            <div class="card empty">
+                <div class="empty-icon">♡</div>
+                <strong>No hay rentas próximas</strong>
+                <p>Cuando registres una renta aparecerá aquí.</p>
             </div>
         `;
 
     }else{
 
-        div.innerHTML = devoluciones.map(r=>{
+        cont.innerHTML=activas.map(r=>{
 
             const cliente = datos.clientes.find(c=>c.id===r.clienteId);
             const vestido = datos.vestidos.find(v=>v.id===r.vestidoId);
 
             return `
-                <div class="list-item">
-                    <div class="list-main">
+                <div class="card">
+                    <div class="rental-top">
                         <div>
-                            <strong>${escapeHTML(cliente?.nombre || "Cliente")}</strong>
-                            <div class="muted">
-                                ${escapeHTML(vestido?.nombre || "Vestido")}
+                            <div class="rental-name">${escapeHTML(vestido?.nombre || "Vestido")}</div>
+                            <div style="font-size:11px;color:var(--gris);margin-top:4px">
+                                ${escapeHTML(cliente?.nombre || "Cliente")}
                             </div>
                         </div>
+                        <span class="status ${r.estado==="Activa"?"rented":"wash"}">
+                            ${escapeHTML(r.estado)}
+                        </span>
+                    </div>
 
-                        <div>
-                            <strong>${fechaBonita(r.devolucion)}</strong>
-                            ${
-                                r.devolucion < hoy
-                                ? `<div style="color:var(--rojo);font-size:12px">Atrasada</div>`
-                                : ""
-                            }
+                    <div class="rental-details">
+                        <div class="detail">
+                            <small>Entrega</small>
+                            <strong>${fechaBonita(r.fechaEntrega)}</strong>
+                        </div>
+                        <div class="detail">
+                            <small>Regreso</small>
+                            <strong>${fechaBonita(r.fechaRegreso)}</strong>
                         </div>
                     </div>
                 </div>
             `;
 
         }).join("");
-
     }
 
-    const rentas = datos.rentas
-        .filter(r=>
-            r.estado==="Apartada" ||
-            r.estado==="Activa"
-        )
-        .sort((a,b)=>
-            (a.entrega||"").localeCompare(b.entrega||"")
-        )
-        .slice(0,5);
+    const regresos = datos.rentas
+        .filter(r=>r.estado==="Activa")
+        .sort((a,b)=>(a.fechaRegreso||"").localeCompare(b.fechaRegreso||""))
+        .slice(0,3);
 
-    const divRentas = document.getElementById("proximasRentas");
+    const regresoCont = document.getElementById("inicioRegresos");
 
-    if(!rentas.length){
+    if(!regresos.length){
 
-        divRentas.innerHTML = `
-            <div class="empty">
-                No hay próximas rentas.
+        regresoCont.innerHTML=`
+            <div class="card empty">
+                <div class="empty-icon">✓</div>
+                <strong>Todo en orden</strong>
+                <p>No tienes regresos pendientes.</p>
             </div>
         `;
 
     }else{
 
-        divRentas.innerHTML = rentas.map(r=>{
+        regresoCont.innerHTML=regresos.map(r=>{
 
-            const cliente = datos.clientes.find(c=>c.id===r.clienteId);
-            const vestido = datos.vestidos.find(v=>v.id===r.vestidoId);
+            const cliente=datos.clientes.find(c=>c.id===r.clienteId);
+            const vestido=datos.vestidos.find(v=>v.id===r.vestidoId);
 
             return `
-                <div class="list-item">
-                    <div class="list-main">
-                        <div>
-                            <strong>${escapeHTML(cliente?.nombre || "Cliente")}</strong>
-                            <div class="muted">${escapeHTML(vestido?.nombre || "Vestido")}</div>
-                        </div>
-
-                        <div>
-                            ${fechaBonita(r.entrega)}
+                <div class="card">
+                    <div class="person-row">
+                        <div class="avatar">👗</div>
+                        <div class="person-info">
+                            <strong>${escapeHTML(vestido?.nombre||"Vestido")}</strong>
+                            <span>${escapeHTML(cliente?.nombre||"Cliente")} · ${fechaBonita(r.fechaRegreso)}</span>
                         </div>
                     </div>
                 </div>
             `;
 
         }).join("");
-
     }
-
 }
 
-/* =========================
+
+/* =====================================================
    VESTIDOS
-========================= */
+===================================================== */
 
 function abrirVestido(id=null){
 
-    fotoVestidoActual = null;
+    fotoVestidoActual = "";
 
-    document.getElementById("vestidoId").value = "";
-    document.getElementById("vestidoNombre").value = "";
-    document.getElementById("vestidoTalla").value = "";
-    document.getElementById("vestidoColor").value = "";
-    document.getElementById("vestidoPrecio").value = "";
-    document.getElementById("vestidoEstado").value = "Disponible";
-    document.getElementById("vestidoNotas").value = "";
-    document.getElementById("fotoVestido").value = "";
+    const vestido = id
+        ? datos.vestidos.find(v=>v.id===id)
+        : null;
 
-    document.getElementById("tituloModalVestido").textContent =
-        "Agregar vestido";
-
-    mostrarPreviewFoto(null);
-
-    if(id){
-
-        const vestido = datos.vestidos.find(v=>v.id===id);
-
-        if(!vestido) return;
-
-        document.getElementById("tituloModalVestido").textContent =
-            "Editar vestido";
-
-        document.getElementById("vestidoId").value = vestido.id;
-        document.getElementById("vestidoNombre").value = vestido.nombre || "";
-        document.getElementById("vestidoTalla").value = vestido.talla || "";
-        document.getElementById("vestidoColor").value = vestido.color || "";
-        document.getElementById("vestidoPrecio").value = vestido.precio || "";
-        document.getElementById("vestidoEstado").value = vestido.estado || "Disponible";
-        document.getElementById("vestidoNotas").value = vestido.notas || "";
-
-        fotoVestidoActual = vestido.foto || null;
-
-        mostrarPreviewFoto(fotoVestidoActual);
-
+    if(vestido){
+        fotoVestidoActual = vestido.foto || "";
     }
 
-    abrirModal("modalVestido");
+    abrirModal(`
+
+        <div class="modal-head">
+            <h2>${vestido?"Editar vestido":"Nuevo vestido"}</h2>
+            <button class="close" onclick="cerrarModal()">×</button>
+        </div>
+
+        <div class="form-group">
+            <label>Nombre / modelo</label>
+            <input id="vestidoNombre"
+                value="${escapeHTML(vestido?.nombre||"")}"
+                placeholder="Ej. Modelo Valentina">
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Talla</label>
+                <input id="vestidoTalla"
+                    value="${escapeHTML(vestido?.talla||"")}"
+                    placeholder="Ej. M">
+            </div>
+
+            <div class="form-group">
+                <label>Color</label>
+                <input id="vestidoColor"
+                    value="${escapeHTML(vestido?.color||"")}"
+                    placeholder="Ej. Rosa">
+            </div>
+
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Precio de renta</label>
+                <input id="vestidoPrecio"
+                    type="number"
+                    min="0"
+                    value="${vestido?.precio||""}"
+                    placeholder="0">
+            </div>
+
+            <div class="form-group">
+                <label>Estado</label>
+                <select id="vestidoEstado">
+
+                    <option ${!vestido||vestido.estado==="Disponible"?"selected":""}>
+                        Disponible
+                    </option>
+
+                    <option ${vestido?.estado==="Lavado"?"selected":""}>
+                        Lavado
+                    </option>
+
+                    <option ${vestido?.estado==="Reparación"?"selected":""}>
+                        Reparación
+                    </option>
+
+                    <option ${vestido?.estado==="Rentado"?"selected":""}>
+                        Rentado
+                    </option>
+
+                </select>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Foto del vestido</label>
+
+            <div class="photo-upload">
+
+                <div style="font-size:12px;color:var(--gris);margin-bottom:6px">
+                    📸 Agrega una foto desde tu iPhone
+                </div>
+
+                <input
+                    id="vestidoFoto"
+                    type="file"
+                    accept="image/*"
+                    capture="environment"
+                    onchange="previsualizarVestido(event)"
+                >
+
+                <div id="previewFoto" class="photo-preview">
+                    ${
+                        vestido?.foto
+                        ? `
+                            <img src="${vestido.foto}">
+                            <button class="remove-photo" onclick="quitarFotoVestido()">×</button>
+                          `
+                        : ""
+                    }
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Notas</label>
+            <textarea id="vestidoNotas"
+                placeholder="Detalles, medidas, cuidados, etc.">${escapeHTML(vestido?.notas||"")}</textarea>
+        </div>
+
+        <div class="modal-buttons">
+
+            <button class="btn btn-light" onclick="cerrarModal()">
+                Cancelar
+            </button>
+
+            <button class="btn btn-primary"
+                onclick="guardarVestido('${id||""}')">
+                Guardar vestido
+            </button>
+
+        </div>
+    `);
 }
+
 
 function previsualizarVestido(event){
 
     const file = event.target.files?.[0];
 
-    if(!file) return;
+    if(!file)return;
 
-    if(!file.type.startsWith("image/")){
-
-        mostrarToast("Selecciona una imagen válida.");
-        return;
-
-    }
-
-    procesarImagen(file)
-        .then(imagen=>{
-
-            fotoVestidoActual = imagen;
-            mostrarPreviewFoto(imagen);
-
-        })
-        .catch(()=>{
-
-            mostrarToast("No se pudo procesar la imagen.");
-
-        });
-
+    procesarImagen(file);
 }
+
 
 function procesarImagen(file){
 
-    return new Promise((resolve,reject)=>{
+    const reader = new FileReader();
 
-        const lector = new FileReader();
+    reader.onload = function(e){
 
-        lector.onload = e=>{
+        const img = new Image();
 
-            const img = new Image();
+        img.onload = function(){
 
-            img.onload = ()=>{
+            const max = 900;
 
-                const max = 900;
+            let width = img.width;
+            let height = img.height;
 
-                let width = img.width;
-                let height = img.height;
+            if(width>height){
 
-                if(width > max || height > max){
-
-                    if(width > height){
-
-                        height = Math.round(height * max / width);
-                        width = max;
-
-                    }else{
-
-                        width = Math.round(width * max / height);
-                        height = max;
-
-                    }
-
+                if(width>max){
+                    height *= max/width;
+                    width=max;
                 }
 
-                const canvas = document.createElement("canvas");
+            }else{
 
-                canvas.width = width;
-                canvas.height = height;
+                if(height>max){
+                    width *= max/height;
+                    height=max;
+                }
+            }
 
-                const ctx = canvas.getContext("2d");
+            const canvas=document.createElement("canvas");
 
-                ctx.drawImage(
-                    img,
-                    0,
-                    0,
-                    width,
-                    height
-                );
+            canvas.width=width;
+            canvas.height=height;
 
-                resolve(
-                    canvas.toDataURL("image/jpeg",.78)
-                );
+            const ctx=canvas.getContext("2d");
 
-            };
+            ctx.drawImage(img,0,0,width,height);
 
-            img.onerror = reject;
-            img.src = e.target.result;
+            fotoVestidoActual =
+                canvas.toDataURL("image/jpeg",.78);
+
+            mostrarPreviewFoto();
 
         };
 
-        lector.onerror = reject;
+        img.src=e.target.result;
+    };
 
-        lector.readAsDataURL(file);
-
-    });
-
+    reader.readAsDataURL(file);
 }
 
-function mostrarPreviewFoto(foto){
 
-    const img = document.getElementById("previewVestido");
-    const sinFoto = document.getElementById("sinFotoVestido");
+function mostrarPreviewFoto(){
 
-    if(foto){
+    const cont=document.getElementById("previewFoto");
 
-        img.src = foto;
-        img.classList.remove("hidden");
-        sinFoto.style.display = "none";
+    if(!cont)return;
 
-    }else{
+    if(!fotoVestidoActual){
 
-        img.src = "";
-        img.classList.add("hidden");
-        sinFoto.style.display = "block";
+        cont.innerHTML="";
 
+        return;
     }
 
+    cont.innerHTML=`
+        <img src="${fotoVestidoActual}">
+        <button class="remove-photo" onclick="quitarFotoVestido()">×</button>
+    `;
 }
+
 
 function quitarFotoVestido(){
 
-    fotoVestidoActual = null;
+    fotoVestidoActual="";
 
-    document.getElementById("fotoVestido").value = "";
+    const input=document.getElementById("vestidoFoto");
 
-    mostrarPreviewFoto(null);
+    if(input)input.value="";
 
+    mostrarPreviewFoto();
 }
 
-function guardarVestido(){
 
-    const id = document.getElementById("vestidoId").value;
-    const nombre = document.getElementById("vestidoNombre").value.trim();
-    const talla = document.getElementById("vestidoTalla").value.trim();
-    const color = document.getElementById("vestidoColor").value.trim();
-    const precio = Number(document.getElementById("vestidoPrecio").value||0);
-    const estado = document.getElementById("vestidoEstado").value;
-    const notas = document.getElementById("vestidoNotas").value.trim();
+function guardarVestido(id){
+
+    const nombre=document.getElementById("vestidoNombre").value.trim();
 
     if(!nombre){
 
-        mostrarToast("Escribe el nombre o modelo del vestido.");
-        return;
+        mostrarToast("Escribe el nombre del vestido");
 
+        return;
     }
+
+    const vestido={
+
+        id:id || Date.now().toString(),
+
+        nombre,
+
+        talla:document.getElementById("vestidoTalla").value.trim(),
+
+        color:document.getElementById("vestidoColor").value.trim(),
+
+        precio:Number(document.getElementById("vestidoPrecio").value)||0,
+
+        estado:document.getElementById("vestidoEstado").value,
+
+        notas:document.getElementById("vestidoNotas").value.trim(),
+
+        foto:fotoVestidoActual
+
+    };
 
     if(id){
 
-        const vestido = datos.vestidos.find(v=>v.id===id);
+        const index=datos.vestidos.findIndex(v=>v.id===id);
 
-        if(vestido){
-
-            vestido.nombre = nombre;
-            vestido.talla = talla;
-            vestido.color = color;
-            vestido.precio = precio;
-            vestido.estado = estado;
-            vestido.notas = notas;
-            vestido.foto = fotoVestidoActual || null;
-
+        if(index!==-1){
+            datos.vestidos[index]=vestido;
         }
-
-        mostrarToast("Vestido actualizado.");
 
     }else{
 
-        datos.vestidos.push({
-
-            id:"vestido_"+Date.now()+"_"+Math.random().toString(36).slice(2,7),
-
-            nombre,
-            talla,
-            color,
-            precio,
-            estado,
-            notas,
-            foto:fotoVestidoActual || null,
-
-            creado:new Date().toISOString()
-
-        });
-
-        mostrarToast("Vestido agregado.");
-
+        datos.vestidos.push(vestido);
     }
 
     guardarDatos();
 
-    cerrarModal("modalVestido");
+    cerrarModal();
 
     actualizarTodo();
 
+    mostrarToast(id?"Vestido actualizado":"Vestido agregado");
 }
 
-/* =========================
-   RENDER VESTIDOS
-========================= */
 
 function renderVestidos(){
 
-    const contenedor = document.getElementById("listaVestidos");
+    const cont=document.getElementById("listaVestidos");
 
-    if(!contenedor) return;
+    if(!cont)return;
 
-    const busqueda = (
-        document.getElementById("buscarVestido")?.value || ""
-    ).toLowerCase().trim();
+    const busqueda=
+        (document.getElementById("buscarVestido")?.value||"")
+        .toLowerCase();
 
-    const vestidos = datos.vestidos.filter(v=>{
+    const lista=datos.vestidos.filter(v=>{
 
-        const texto = `
-            ${v.nombre||""}
-            ${v.talla||""}
-            ${v.color||""}
-            ${v.estado||""}
-        `.toLowerCase();
+        const texto=
+            `${v.nombre} ${v.talla} ${v.color}`.toLowerCase();
 
         return texto.includes(busqueda);
-
     });
 
-    if(!vestidos.length){
+    if(!lista.length){
 
-        contenedor.innerHTML = `
-            <div class="empty" style="grid-column:1/-1">
+        cont.innerHTML=`
+            <div class="card empty" style="grid-column:1/-1">
                 <div class="empty-icon">👗</div>
-                <strong>No hay vestidos registrados</strong>
-                <div style="margin-top:6px">
-                    Agrega tu primer vestido.
-                </div>
+                <strong>No hay vestidos</strong>
+                <p>Agrega tu primer vestido para comenzar tu catálogo.</p>
+                <button class="btn btn-primary" style="margin-top:15px" onclick="abrirVestido()">
+                    ＋ Agregar vestido
+                </button>
             </div>
         `;
 
         return;
-
     }
 
-    contenedor.innerHTML = vestidos.map(v=>{
+    cont.innerHTML=lista.map(v=>{
 
-        let badge = "badge-disponible";
+        let statusClass="available";
 
-        if(v.estado==="Rentado") badge = "badge-rentado";
-        if(v.estado==="Lavado") badge = "badge-lavado";
-        if(v.estado==="Reparación") badge = "badge-reparacion";
-
-        const foto = v.foto
-            ? `<img class="dress-photo" src="${v.foto}" alt="${escapeHTML(v.nombre)}">`
-            : `<div class="dress-placeholder">👗</div>`;
+        if(v.estado==="Rentado")statusClass="rented";
+        if(v.estado==="Lavado")statusClass="wash";
+        if(v.estado==="Reparación")statusClass="repair";
 
         return `
-            <div class="card">
 
-                ${foto}
+        <div class="dress-card">
 
-                <div class="card-body">
+            <div class="dress-photo">
 
-                    <h3>${escapeHTML(v.nombre)}</h3>
+                ${
+                    v.foto
+                    ? `<img src="${v.foto}" alt="${escapeHTML(v.nombre)}">`
+                    : `
+                        <div class="photo-placeholder">
+                            <div>JD</div>
+                            <small>SIN FOTO</small>
+                        </div>
+                      `
+                }
 
-                    ${
-                        v.talla
-                        ? `<p>📏 Talla: ${escapeHTML(v.talla)}</p>`
-                        : ""
-                    }
-
-                    ${
-                        v.color
-                        ? `<p>🎨 ${escapeHTML(v.color)}</p>`
-                        : ""
-                    }
-
-                    <p>
-                        💰 <strong>${dinero(v.precio)}</strong>
-                    </p>
-
-                    <span class="badge ${badge}">
-                        ${escapeHTML(v.estado || "Disponible")}
-                    </span>
-
-                    ${
-                        v.notas
-                        ? `<p style="margin-top:8px">${escapeHTML(v.notas)}</p>`
-                        : ""
-                    }
-
-                    <div class="card-actions">
-
-                        <button
-                            class="btn btn-secondary btn-small"
-                            onclick="abrirVestido('${v.id}')"
-                        >
-                            Editar
-                        </button>
-
-                        <button
-                            class="btn btn-danger btn-small"
-                            onclick="eliminarVestido('${v.id}')"
-                        >
-                            Eliminar
-                        </button>
-
-                    </div>
-
-                </div>
+                <span class="status ${statusClass}">
+                    ${escapeHTML(v.estado||"Disponible")}
+                </span>
 
             </div>
-        `;
 
-    }).join("");
+            <div class="dress-info">
 
-}
+                <h3>${escapeHTML(v.nombre)}</h3>
 
-function eliminarVestido(id){
-
-    const vestido = datos.vestidos.find(v=>v.id===id);
-
-    if(!vestido) return;
-
-    const tieneRentas = datos.rentas.some(r=>
-        r.vestidoId===id &&
-        r.estado!=="Cancelada"
-    );
-
-    if(tieneRentas){
-
-        if(!confirm(
-            "Este vestido tiene rentas relacionadas. ¿Seguro que quieres eliminarlo?"
-        )) return;
-
-    }else{
-
-        if(!confirm(
-            `¿Eliminar "${vestido.nombre}"?`
-        )) return;
-
-    }
-
-    datos.vestidos = datos.vestidos.filter(v=>v.id!==id);
-
-    guardarDatos();
-    actualizarTodo();
-
-    mostrarToast("Vestido eliminado.");
-
-}
-
-/* =========================
-   CLIENTES
-========================= */
-
-function abrirCliente(id=null){
-
-    document.getElementById("clienteId").value = "";
-    document.getElementById("clienteNombre").value = "";
-    document.getElementById("clienteTelefono").value = "";
-    document.getElementById("clienteNotas").value = "";
-
-    document.getElementById("tituloModalCliente").textContent =
-        "Agregar cliente";
-
-    if(id){
-
-        const cliente = datos.clientes.find(c=>c.id===id);
-
-        if(!cliente) return;
-
-        document.getElementById("tituloModalCliente").textContent =
-            "Editar cliente";
-
-        document.getElementById("clienteId").value = cliente.id;
-        document.getElementById("clienteNombre").value = cliente.nombre || "";
-        document.getElementById("clienteTelefono").value = cliente.telefono || "";
-        document.getElementById("clienteNotas").value = cliente.notas || "";
-
-    }
-
-    abrirModal("modalCliente");
-}
-
-function guardarCliente(){
-
-    const id = document.getElementById("clienteId").value;
-
-    const nombre =
-        document.getElementById("clienteNombre").value.trim();
-
-    const telefono =
-        document.getElementById("clienteTelefono").value.trim();
-
-    const notas =
-        document.getElementById("clienteNotas").value.trim();
-
-    if(!nombre){
-
-        mostrarToast("Escribe el nombre del cliente.");
-        return;
-
-    }
-
-    if(id){
-
-        const cliente = datos.clientes.find(c=>c.id===id);
-
-        if(cliente){
-
-            cliente.nombre = nombre;
-            cliente.telefono = telefono;
-            cliente.notas = notas;
-
-        }
-
-        mostrarToast("Cliente actualizado.");
-
-    }else{
-
-        datos.clientes.push({
-
-            id:"cliente_"+Date.now(),
-            nombre,
-            telefono,
-            notas,
-            creado:new Date().toISOString()
-
-        });
-
-        mostrarToast("Cliente agregado.");
-
-    }
-
-    guardarDatos();
-    cerrarModal("modalCliente");
-    actualizarTodo();
-
-}
-
-function renderClientes(){
-
-    const contenedor =
-        document.getElementById("listaClientes");
-
-    if(!contenedor) return;
-
-    const busqueda =
-        (document.getElementById("buscarCliente")?.value||"")
-        .toLowerCase()
-        .trim();
-
-    const clientes = datos.clientes.filter(c=>{
-
-        return `
-            ${c.nombre||""}
-            ${c.telefono||""}
-        `.toLowerCase().includes(busqueda);
-
-    });
-
-    if(!clientes.length){
-
-        contenedor.innerHTML = `
-            <div class="section">
-                <div class="empty">
-                    <div class="empty-icon">👩</div>
-                    No hay clientes registrados.
+                <div class="dress-meta">
+                    ${v.talla?`Talla ${escapeHTML(v.talla)}`:"Sin talla"}
+                    ${v.color?` · ${escapeHTML(v.color)}`:""}
                 </div>
-            </div>
-        `;
 
-        return;
-
-    }
-
-    contenedor.innerHTML = clientes.map(c=>{
-
-        return `
-            <div class="section">
-
-                <div class="list-main">
-
-                    <div>
-                        <strong>${escapeHTML(c.nombre)}</strong>
-
-                        ${
-                            c.telefono
-                            ? `<div class="muted">📱 ${escapeHTML(c.telefono)}</div>`
-                            : ""
-                        }
-
-                        ${
-                            c.notas
-                            ? `<div class="muted">${escapeHTML(c.notas)}</div>`
-                            : ""
-                        }
-                    </div>
-
-                    <div style="display:flex;gap:6px;align-items:center">
-
-                        ${
-                            c.telefono
-                            ? `
-                            <button
-                                class="btn btn-success btn-small"
-                                onclick="whatsapp('${c.telefono}')"
-                            >
-                                WhatsApp
-                            </button>
-                            `
-                            : ""
-                        }
-
-                    </div>
-
+                <div class="dress-price">
+                    ${dinero(v.precio)}
                 </div>
 
                 <div class="card-actions">
 
-                    <button
-                        class="btn btn-secondary btn-small"
-                        onclick="abrirCliente('${c.id}')"
-                    >
+                    <button class="btn btn-light btn-small"
+                        onclick="abrirVestido('${v.id}')">
                         Editar
                     </button>
 
-                    <button
-                        class="btn btn-danger btn-small"
-                        onclick="eliminarCliente('${c.id}')"
-                    >
+                    <button class="btn btn-danger btn-small"
+                        onclick="eliminarVestido('${v.id}')">
                         Eliminar
                     </button>
 
                 </div>
 
             </div>
+
+        </div>
+
         `;
 
     }).join("");
-
 }
 
-function eliminarCliente(id){
 
-    if(!confirm("¿Eliminar este cliente?")) return;
+function eliminarVestido(id){
 
-    datos.clientes =
-        datos.clientes.filter(c=>c.id!==id);
+    const vestido=datos.vestidos.find(v=>v.id===id);
+
+    if(!vestido)return;
+
+    if(!confirm(`¿Eliminar "${vestido.nombre}"?`))return;
+
+    datos.vestidos=datos.vestidos.filter(v=>v.id!==id);
 
     guardarDatos();
+
     actualizarTodo();
 
-    mostrarToast("Cliente eliminado.");
-
+    mostrarToast("Vestido eliminado");
 }
 
-/* =========================
-   WHATSAPP
-========================= */
 
-function whatsapp(numero){
+/* =====================================================
+   CLIENTES
+===================================================== */
 
-    let n = String(numero||"")
-        .replace(/\D/g,"");
+function abrirCliente(id=null){
 
-    if(!n) return;
+    const cliente=id
+        ?datos.clientes.find(c=>c.id===id)
+        :null;
 
-    if(n.length===10){
-        n = "52"+n;
+    abrirModal(`
+
+        <div class="modal-head">
+            <h2>${cliente?"Editar cliente":"Nuevo cliente"}</h2>
+            <button class="close" onclick="cerrarModal()">×</button>
+        </div>
+
+        <div class="form-group">
+            <label>Nombre completo</label>
+            <input id="clienteNombre"
+                value="${escapeHTML(cliente?.nombre||"")}"
+                placeholder="Nombre de la clienta">
+        </div>
+
+        <div class="form-group">
+            <label>Teléfono / WhatsApp</label>
+            <input id="clienteTelefono"
+                type="tel"
+                value="${escapeHTML(cliente?.telefono||"")}"
+                placeholder="8112345678">
+        </div>
+
+        <div class="form-group">
+            <label>Notas</label>
+            <textarea id="clienteNotas"
+                placeholder="Medidas, preferencias, notas...">${escapeHTML(cliente?.notas||"")}</textarea>
+        </div>
+
+        <div class="modal-buttons">
+
+            <button class="btn btn-light" onclick="cerrarModal()">
+                Cancelar
+            </button>
+
+            <button class="btn btn-primary"
+                onclick="guardarCliente('${id||""}')">
+                Guardar
+            </button>
+
+        </div>
+
+    `);
+}
+
+
+function guardarCliente(id){
+
+    const nombre=document.getElementById("clienteNombre").value.trim();
+
+    if(!nombre){
+
+        mostrarToast("Escribe el nombre");
+
+        return;
     }
 
-    window.open(
-        "https://wa.me/"+n,
-        "_blank"
-    );
+    const cliente={
 
-}
+        id:id||Date.now().toString(),
 
-/* =========================
-   RENTAS
-========================= */
+        nombre,
 
-function abrirRenta(id=null){
+        telefono:document.getElementById("clienteTelefono").value.trim(),
 
-    document.getElementById("rentaId").value = "";
+        notas:document.getElementById("clienteNotas").value.trim()
 
-    llenarSelectClientes();
-    llenarSelectVestidos();
-
-    document.getElementById("rentaEntrega").value = hoyISO();
-
-    const d = new Date();
-    d.setDate(d.getDate()+3);
-
-    const retorno =
-        `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
-
-    document.getElementById("rentaDevolucion").value = retorno;
-
-    document.getElementById("rentaPrecio").value = "";
-    document.getElementById("rentaDeposito").value = "";
-    document.getElementById("rentaEstado").value = "Apartada";
-    document.getElementById("rentaNotas").value = "";
-
-    document.getElementById("tituloModalRenta").textContent =
-        "Nueva renta";
+    };
 
     if(id){
 
-        const renta = datos.rentas.find(r=>r.id===id);
+        const index=datos.clientes.findIndex(c=>c.id===id);
 
-        if(!renta) return;
-
-        document.getElementById("tituloModalRenta").textContent =
-            "Editar renta";
-
-        document.getElementById("rentaId").value = renta.id;
-        document.getElementById("rentaCliente").value = renta.clienteId;
-        document.getElementById("rentaVestido").value = renta.vestidoId;
-        document.getElementById("rentaEntrega").value = renta.entrega || "";
-        document.getElementById("rentaDevolucion").value = renta.devolucion || "";
-        document.getElementById("rentaPrecio").value = renta.precio || "";
-        document.getElementById("rentaDeposito").value = renta.deposito || "";
-        document.getElementById("rentaEstado").value = renta.estado || "Apartada";
-        document.getElementById("rentaNotas").value = renta.notas || "";
-
-    }
-
-    abrirModal("modalRenta");
-}
-
-function llenarSelectClientes(){
-
-    const select =
-        document.getElementById("rentaCliente");
-
-    select.innerHTML = `
-        <option value="">Selecciona un cliente</option>
-        ${
-            datos.clientes.map(c=>
-                `<option value="${c.id}">
-                    ${escapeHTML(c.nombre)}
-                </option>`
-            ).join("")
+        if(index!==-1){
+            datos.clientes[index]=cliente;
         }
-    `;
-
-}
-
-function llenarSelectVestidos(){
-
-    const select =
-        document.getElementById("rentaVestido");
-
-    select.innerHTML = `
-        <option value="">Selecciona un vestido</option>
-        ${
-            datos.vestidos.map(v=>
-                `<option value="${v.id}">
-                    ${escapeHTML(v.nombre)}
-                    ${v.talla ? " · "+escapeHTML(v.talla) : ""}
-                    · ${dinero(v.precio)}
-                </option>`
-            ).join("")
-        }
-    `;
-
-}
-
-document.getElementById("rentaVestido")
-    .addEventListener("change",function(){
-
-        const vestido =
-            datos.vestidos.find(v=>v.id===this.value);
-
-        if(vestido){
-
-            document.getElementById("rentaPrecio").value =
-                vestido.precio || "";
-
-        }
-
-    });
-
-function guardarRenta(){
-
-    const id =
-        document.getElementById("rentaId").value;
-
-    const clienteId =
-        document.getElementById("rentaCliente").value;
-
-    const vestidoId =
-        document.getElementById("rentaVestido").value;
-
-    const entrega =
-        document.getElementById("rentaEntrega").value;
-
-    const devolucion =
-        document.getElementById("rentaDevolucion").value;
-
-    const precio =
-        Number(document.getElementById("rentaPrecio").value||0);
-
-    const deposito =
-        Number(document.getElementById("rentaDeposito").value||0);
-
-    const estado =
-        document.getElementById("rentaEstado").value;
-
-    const notas =
-        document.getElementById("rentaNotas").value.trim();
-
-    if(!clienteId){
-
-        mostrarToast("Selecciona un cliente.");
-        return;
-
-    }
-
-    if(!vestidoId){
-
-        mostrarToast("Selecciona un vestido.");
-        return;
-
-    }
-
-    if(id){
-
-        const renta = datos.rentas.find(r=>r.id===id);
-
-        if(renta){
-
-            renta.clienteId = clienteId;
-            renta.vestidoId = vestidoId;
-            renta.entrega = entrega;
-            renta.devolucion = devolucion;
-            renta.precio = precio;
-            renta.deposito = deposito;
-            renta.estado = estado;
-            renta.notas = notas;
-
-        }
-
-        mostrarToast("Renta actualizada.");
 
     }else{
 
-        datos.rentas.push({
-
-            id:"renta_"+Date.now(),
-            clienteId,
-            vestidoId,
-            entrega,
-            devolucion,
-            precio,
-            deposito,
-            estado,
-            notas,
-            creado:new Date().toISOString()
-
-        });
-
-        mostrarToast("Renta registrada.");
-
+        datos.clientes.push(cliente);
     }
-
-    actualizarEstadosVestidos();
 
     guardarDatos();
 
-    cerrarModal("modalRenta");
+    cerrarModal();
 
     actualizarTodo();
 
+    mostrarToast(id?"Cliente actualizado":"Cliente agregado");
 }
+
+
+function renderClientes(){
+
+    const cont=document.getElementById("listaClientes");
+
+    if(!cont)return;
+
+    const busqueda=
+        (document.getElementById("buscarCliente")?.value||"")
+        .toLowerCase();
+
+    const lista=datos.clientes.filter(c=>
+        `${c.nombre} ${c.telefono}`.toLowerCase().includes(busqueda)
+    );
+
+    if(!lista.length){
+
+        cont.innerHTML=`
+            <div class="card empty">
+                <div class="empty-icon">♙</div>
+                <strong>No hay clientes</strong>
+                <p>Agrega tus primeras clientas.</p>
+            </div>
+        `;
+
+        return;
+    }
+
+    cont.innerHTML=lista.map(c=>{
+
+        const inicial=(c.nombre||"?").charAt(0).toUpperCase();
+
+        return `
+
+        <div class="card">
+
+            <div class="person-row">
+
+                <div class="avatar">${inicial}</div>
+
+                <div class="person-info">
+
+                    <strong>${escapeHTML(c.nombre)}</strong>
+
+                    <span>
+                        ${escapeHTML(c.telefono||"Sin teléfono")}
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="card-actions">
+
+                <button class="btn btn-light btn-small"
+                    onclick="abrirCliente('${c.id}')">
+                    Editar
+                </button>
+
+                ${
+                    c.telefono
+                    ? `
+                    <button class="btn btn-gold btn-small"
+                        onclick="whatsapp('${escapeHTML(c.telefono)}')">
+                        WhatsApp
+                    </button>
+                    `
+                    :""
+                }
+
+                <button class="btn btn-danger btn-small"
+                    onclick="eliminarCliente('${c.id}')">
+                    Eliminar
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+    }).join("");
+}
+
+
+function eliminarCliente(id){
+
+    const cliente=datos.clientes.find(c=>c.id===id);
+
+    if(!cliente)return;
+
+    if(!confirm(`¿Eliminar a ${cliente.nombre}?`))return;
+
+    datos.clientes=
+        datos.clientes.filter(c=>c.id!==id);
+
+    guardarDatos();
+
+    actualizarTodo();
+
+    mostrarToast("Cliente eliminado");
+}
+
+
+function whatsapp(numero){
+
+    const limpio=String(numero).replace(/\D/g,"");
+
+    if(!limpio)return;
+
+    const prefijo=limpio.length===10
+        ?"52"+limpio
+        :limpio;
+
+    window.open(
+        "https://wa.me/"+prefijo,
+        "_blank"
+    );
+}
+
+
+/* =====================================================
+   RENTAS
+===================================================== */
+
+function abrirRenta(id=null){
+
+    const renta=id
+        ?datos.rentas.find(r=>r.id===id)
+        :null;
+
+    abrirModal(`
+
+        <div class="modal-head">
+            <h2>${renta?"Editar renta":"Nueva renta"}</h2>
+            <button class="close" onclick="cerrarModal()">×</button>
+        </div>
+
+        <div class="form-group">
+            <label>Cliente</label>
+            <select id="rentaCliente">
+                ${llenarSelectClientes(renta?.clienteId)}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Vestido</label>
+            <select id="rentaVestido">
+                ${llenarSelectVestidos(renta?.vestidoId)}
+            </select>
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Fecha de entrega</label>
+                <input id="rentaEntrega"
+                    type="date"
+                    value="${renta?.fechaEntrega||hoyISO()}">
+            </div>
+
+            <div class="form-group">
+                <label>Fecha de regreso</label>
+                <input id="rentaRegreso"
+                    type="date"
+                    value="${renta?.fechaRegreso||hoyISO()}">
+            </div>
+
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Precio</label>
+                <input id="rentaPrecio"
+                    type="number"
+                    min="0"
+                    value="${renta?.precio||""}">
+            </div>
+
+            <div class="form-group">
+                <label>Depósito</label>
+                <input id="rentaDeposito"
+                    type="number"
+                    min="0"
+                    value="${renta?.deposito||""}">
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Estado</label>
+
+            <select id="rentaEstado">
+
+                <option ${!renta||renta.estado==="Apartada"?"selected":""}>
+                    Apartada
+                </option>
+
+                <option ${renta?.estado==="Activa"?"selected":""}>
+                    Activa
+                </option>
+
+                <option ${renta?.estado==="Devuelta"?"selected":""}>
+                    Devuelta
+                </option>
+
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Notas</label>
+            <textarea id="rentaNotas">${escapeHTML(renta?.notas||"")}</textarea>
+        </div>
+
+        <div class="modal-buttons">
+
+            <button class="btn btn-light" onclick="cerrarModal()">
+                Cancelar
+            </button>
+
+            <button class="btn btn-primary"
+                onclick="guardarRenta('${id||""}')">
+                Guardar renta
+            </button>
+
+        </div>
+    `);
+}
+
+
+function llenarSelectClientes(seleccionado){
+
+    if(!datos.clientes.length){
+
+        return `<option value="">Primero agrega un cliente</option>`;
+    }
+
+    return datos.clientes.map(c=>`
+
+        <option value="${c.id}"
+            ${c.id===seleccionado?"selected":""}>
+            ${escapeHTML(c.nombre)}
+        </option>
+
+    `).join("");
+}
+
+
+function llenarSelectVestidos(seleccionado){
+
+    if(!datos.vestidos.length){
+
+        return `<option value="">Primero agrega un vestido</option>`;
+    }
+
+    return datos.vestidos.map(v=>`
+
+        <option value="${v.id}"
+            ${v.id===seleccionado?"selected":""}>
+            ${escapeHTML(v.nombre)}
+            ${v.talla?` · ${escapeHTML(v.talla)}`:""}
+        </option>
+
+    `).join("");
+}
+
+
+function guardarRenta(id){
+
+    const clienteId=document.getElementById("rentaCliente").value;
+    const vestidoId=document.getElementById("rentaVestido").value;
+
+    if(!clienteId || !vestidoId){
+
+        mostrarToast("Selecciona cliente y vestido");
+
+        return;
+    }
+
+    const renta={
+
+        id:id||Date.now().toString(),
+
+        clienteId,
+
+        vestidoId,
+
+        fechaEntrega:document.getElementById("rentaEntrega").value,
+
+        fechaRegreso:document.getElementById("rentaRegreso").value,
+
+        precio:Number(document.getElementById("rentaPrecio").value)||0,
+
+        deposito:Number(document.getElementById("rentaDeposito").value)||0,
+
+        estado:document.getElementById("rentaEstado").value,
+
+        notas:document.getElementById("rentaNotas").value.trim()
+
+    };
+
+    if(id){
+
+        const index=datos.rentas.findIndex(r=>r.id===id);
+
+        if(index!==-1){
+            datos.rentas[index]=renta;
+        }
+
+    }else{
+
+        datos.rentas.push(renta);
+    }
+
+    guardarDatos();
+
+    cerrarModal();
+
+    actualizarTodo();
+
+    mostrarToast(id?"Renta actualizada":"Renta registrada");
+}
+
 
 function actualizarEstadosVestidos(){
 
     datos.vestidos.forEach(v=>{
 
-        const rentaActiva =
-            datos.rentas.find(r=>
-                r.vestidoId===v.id &&
-                (
-                    r.estado==="Activa" ||
-                    r.estado==="Apartada"
-                )
-            );
+        const renta=datos.rentas.find(r=>
+            r.vestidoId===v.id &&
+            (r.estado==="Activa" || r.estado==="Apartada")
+        );
 
-        if(rentaActiva){
+        if(renta){
 
-            v.estado = "Rentado";
+            v.estado="Rentado";
 
         }else if(v.estado==="Rentado"){
 
-            v.estado = "Disponible";
-
+            v.estado="Disponible";
         }
 
     });
 
+    guardarDatos();
 }
+
 
 function renderRentas(){
 
-    const contenedor =
-        document.getElementById("listaRentas");
+    const cont=document.getElementById("listaRentas");
 
-    if(!contenedor) return;
+    if(!cont)return;
 
-    const rentas = [...datos.rentas]
+    const lista=[...datos.rentas]
         .sort((a,b)=>
-            (b.entrega||"").localeCompare(a.entrega||"")
+            (b.fechaEntrega||"").localeCompare(a.fechaEntrega||"")
         );
 
-    if(!rentas.length){
+    if(!lista.length){
 
-        contenedor.innerHTML = `
-            <div class="section">
-                <div class="empty">
-                    <div class="empty-icon">📝</div>
-                    No hay rentas registradas.
-                </div>
+        cont.innerHTML=`
+            <div class="card empty">
+                <div class="empty-icon">♡</div>
+                <strong>No hay rentas</strong>
+                <p>Registra una renta para verla aquí.</p>
+                <button class="btn btn-primary" style="margin-top:15px" onclick="abrirRenta()">
+                    ＋ Nueva renta
+                </button>
             </div>
         `;
 
         return;
-
     }
 
-    contenedor.innerHTML = rentas.map(r=>{
+    cont.innerHTML=lista.map(r=>{
 
-        const cliente =
-            datos.clientes.find(c=>c.id===r.clienteId);
+        const cliente=datos.clientes.find(c=>c.id===r.clienteId);
+        const vestido=datos.vestidos.find(v=>v.id===r.vestidoId);
 
-        const vestido =
-            datos.vestidos.find(v=>v.id===r.vestidoId);
+        let statusClass="wash";
 
-        let badge =
-            r.estado==="Devuelta"
-            ? "badge-disponible"
-            : r.estado==="Cancelada"
-            ? "badge-rentado"
-            : "badge-lavado";
+        if(r.estado==="Activa")statusClass="rented";
+        if(r.estado==="Devuelta")statusClass="available";
 
         return `
-            <div class="section">
 
-                <div class="list-main">
+        <div class="card">
 
-                    <div>
+            <div class="rental-top">
 
-                        <strong>
-                            ${escapeHTML(cliente?.nombre || "Cliente")}
-                        </strong>
-
-                        <div class="muted">
-                            👗 ${escapeHTML(vestido?.nombre || "Vestido")}
-                        </div>
-
-                        <div class="muted">
-                            Entrega: ${fechaBonita(r.entrega)}
-                        </div>
-
-                        <div class="muted">
-                            Devolución: ${fechaBonita(r.devolucion)}
-                        </div>
-
+                <div>
+                    <div class="rental-name">
+                        ${escapeHTML(vestido?.nombre||"Vestido")}
                     </div>
 
-                    <div style="text-align:right">
-                        <strong>${dinero(r.precio)}</strong>
-
-                        <br>
-
-                        <span class="badge ${badge}">
-                            ${escapeHTML(r.estado)}
-                        </span>
+                    <div style="font-size:11px;color:var(--gris);margin-top:4px">
+                        ${escapeHTML(cliente?.nombre||"Cliente")}
                     </div>
-
                 </div>
 
-                <div class="card-actions">
+                <span class="status ${statusClass}">
+                    ${escapeHTML(r.estado)}
+                </span>
 
-                    <button
-                        class="btn btn-secondary btn-small"
-                        onclick="abrirRenta('${r.id}')"
-                    >
-                        Editar
-                    </button>
+            </div>
 
-                    ${
-                        r.estado==="Activa"
-                        ? `
-                        <button
-                            class="btn btn-success btn-small"
-                            onclick="marcarDevuelta('${r.id}')"
-                        >
-                            Devuelta
-                        </button>
-                        `
-                        : ""
-                    }
+            <div class="rental-details">
 
-                    <button
-                        class="btn btn-danger btn-small"
-                        onclick="eliminarRenta('${r.id}')"
-                    >
-                        Eliminar
-                    </button>
+                <div class="detail">
+                    <small>Entrega</small>
+                    <strong>${fechaBonita(r.fechaEntrega)}</strong>
+                </div>
 
+                <div class="detail">
+                    <small>Regreso</small>
+                    <strong>${fechaBonita(r.fechaRegreso)}</strong>
+                </div>
+
+                <div class="detail">
+                    <small>Renta</small>
+                    <strong>${dinero(r.precio)}</strong>
+                </div>
+
+                <div class="detail">
+                    <small>Depósito</small>
+                    <strong>${dinero(r.deposito)}</strong>
                 </div>
 
             </div>
-        `;
 
-    }).join("");
-
-}
-
-function marcarDevuelta(id){
-
-    const renta =
-        datos.rentas.find(r=>r.id===id);
-
-    if(!renta) return;
-
-    renta.estado = "Devuelta";
-
-    const vestido =
-        datos.vestidos.find(v=>v.id===renta.vestidoId);
-
-    if(vestido){
-
-        vestido.estado = "Lavado";
-
-    }
-
-    const existeMovimiento =
-        datos.movimientos.some(m=>
-            m.rentaId===id
-        );
-
-    if(!existeMovimiento){
-
-        datos.movimientos.push({
-
-            id:"mov_"+Date.now(),
-
-            tipo:"Ingreso",
-
-            concepto:
-                "Renta de "+(
-                    datos.vestidos.find(v=>v.id===renta.vestidoId)?.nombre
-                    || "vestido"
-                ),
-
-            monto:Number(renta.precio||0),
-
-            fecha:hoyISO(),
-
-            rentaId:id
-
-        });
-
-    }
-
-    guardarDatos();
-    actualizarTodo();
-
-    mostrarToast("Vestido marcado como devuelto.");
-
-}
-
-function eliminarRenta(id){
-
-    if(!confirm("¿Eliminar esta renta?")) return;
-
-    datos.rentas =
-        datos.rentas.filter(r=>r.id!==id);
-
-    actualizarEstadosVestidos();
-
-    guardarDatos();
-    actualizarTodo();
-
-    mostrarToast("Renta eliminada.");
-
-}
-
-/* =========================
-   CAJA
-========================= */
-
-function abrirMovimiento(){
-
-    document.getElementById("movTipo").value = "Ingreso";
-    document.getElementById("movConcepto").value = "";
-    document.getElementById("movMonto").value = "";
-    document.getElementById("movFecha").value = hoyISO();
-
-    abrirModal("modalMovimiento");
-
-}
-
-function guardarMovimiento(){
-
-    const tipo =
-        document.getElementById("movTipo").value;
-
-    const concepto =
-        document.getElementById("movConcepto").value.trim();
-
-    const monto =
-        Number(document.getElementById("movMonto").value||0);
-
-    const fecha =
-        document.getElementById("movFecha").value;
-
-    if(!concepto){
-
-        mostrarToast("Escribe el concepto.");
-        return;
-
-    }
-
-    if(monto<=0){
-
-        mostrarToast("Escribe un monto válido.");
-        return;
-
-    }
-
-    datos.movimientos.push({
-
-        id:"mov_"+Date.now(),
-        tipo,
-        concepto,
-        monto,
-        fecha
-
-    });
-
-    guardarDatos();
-
-    cerrarModal("modalMovimiento");
-
-    actualizarTodo();
-
-    mostrarToast("Movimiento agregado.");
-
-}
-
-function renderCaja(){
-
-    const ingresos =
-        datos.movimientos
-        .filter(m=>m.tipo==="Ingreso")
-        .reduce((a,m)=>a+Number(m.monto||0),0);
-
-    const gastos =
-        datos.movimientos
-        .filter(m=>m.tipo==="Gasto")
-        .reduce((a,m)=>a+Number(m.monto||0),0);
-
-    document.getElementById("balanceCaja").textContent =
-        dinero(ingresos-gastos);
-
-    const contenedor =
-        document.getElementById("listaMovimientos");
-
-    if(!contenedor) return;
-
-    const movimientos =
-        [...datos.movimientos]
-        .sort((a,b)=>
-            (b.fecha||"").localeCompare(a.fecha||"")
-        );
-
-    if(!movimientos.length){
-
-        contenedor.innerHTML = `
-            <div class="section">
-                <div class="empty">
-                    No hay movimientos.
-                </div>
-            </div>
-        `;
-
-        return;
-
-    }
-
-    contenedor.innerHTML = movimientos.map(m=>{
-
-        const positivo =
-            m.tipo==="Ingreso";
-
-        return `
-            <div class="section">
-
-                <div class="list-main">
-
-                    <div>
-                        <strong>${escapeHTML(m.concepto)}</strong>
-
-                        <div class="muted">
-                            ${fechaBonita(m.fecha)}
-                        </div>
-                    </div>
-
-                    <div class="${positivo ? "money-positive":"money-negative"}">
-                        ${positivo ? "+" : "-"}${dinero(m.monto)}
-                    </div>
-
-                </div>
-
-                <button
-                    class="btn btn-danger btn-small"
-                    style="margin-top:10px"
-                    onclick="eliminarMovimiento('${m.id}')"
-                >
+            <div class="card-actions">
+
+                <button class="btn btn-light btn-small"
+                    onclick="abrirRenta('${r.id}')">
+                    Editar
+                </button>
+
+                ${
+                    r.estado==="Activa"
+                    ? `
+                    <button class="btn btn-gold btn-small"
+                        onclick="marcarDevuelta('${r.id}')">
+                        Marcar devuelta
+                    </button>
+                    `
+                    :""
+                }
+
+                <button class="btn btn-danger btn-small"
+                    onclick="eliminarRenta('${r.id}')">
                     Eliminar
                 </button>
 
             </div>
+
+        </div>
+
         `;
 
     }).join("");
-
 }
+
+
+function marcarDevuelta(id){
+
+    const renta=datos.rentas.find(r=>r.id===id);
+
+    if(!renta)return;
+
+    renta.estado="Devuelta";
+
+    const vestido=datos.vestidos.find(v=>v.id===renta.vestidoId);
+
+    if(vestido){
+        vestido.estado="Lavado";
+    }
+
+    const existeMovimiento=datos.movimientos.some(
+        m=>m.rentaId===id
+    );
+
+    if(!existeMovimiento && Number(renta.precio)>0){
+
+        datos.movimientos.push({
+
+            id:Date.now().toString(),
+
+            fecha:hoyISO(),
+
+            concepto:"Renta de "+(vestido?.nombre||"Vestido"),
+
+            tipo:"Ingreso",
+
+            monto:Number(renta.precio),
+
+            rentaId:id
+
+        });
+    }
+
+    guardarDatos();
+
+    actualizarTodo();
+
+    mostrarToast("Vestido marcado para lavado");
+}
+
+
+function eliminarRenta(id){
+
+    if(!confirm("¿Eliminar esta renta?"))return;
+
+    datos.rentas=
+        datos.rentas.filter(r=>r.id!==id);
+
+    guardarDatos();
+
+    actualizarTodo();
+
+    mostrarToast("Renta eliminada");
+}
+
+
+/* =====================================================
+   CAJA
+===================================================== */
+
+function abrirMovimiento(id=null){
+
+    const movimiento=id
+        ?datos.movimientos.find(m=>m.id===id)
+        :null;
+
+    abrirModal(`
+
+        <div class="modal-head">
+            <h2>${movimiento?"Editar movimiento":"Nuevo movimiento"}</h2>
+            <button class="close" onclick="cerrarModal()">×</button>
+        </div>
+
+        <div class="form-group">
+            <label>Concepto</label>
+            <input id="movConcepto"
+                value="${escapeHTML(movimiento?.concepto||"")}"
+                placeholder="Ej. Renta vestido">
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Tipo</label>
+                <select id="movTipo">
+
+                    <option ${!movimiento||movimiento.tipo==="Ingreso"?"selected":""}>
+                        Ingreso
+                    </option>
+
+                    <option ${movimiento?.tipo==="Gasto"?"selected":""}>
+                        Gasto
+                    </option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Monto</label>
+                <input id="movMonto"
+                    type="number"
+                    min="0"
+                    value="${movimiento?.monto||""}"
+                    placeholder="0">
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Fecha</label>
+            <input id="movFecha"
+                type="date"
+                value="${movimiento?.fecha||hoyISO()}">
+        </div>
+
+        <div class="modal-buttons">
+
+            <button class="btn btn-light" onclick="cerrarModal()">
+                Cancelar
+            </button>
+
+            <button class="btn btn-primary"
+                onclick="guardarMovimiento('${id||""}')">
+                Guardar
+            </button>
+
+        </div>
+
+    `);
+}
+
+
+function guardarMovimiento(id){
+
+    const movimiento={
+
+        id:id||Date.now().toString(),
+
+        concepto:
+            document.getElementById("movConcepto").value.trim()
+            ||"Movimiento",
+
+        tipo:
+            document.getElementById("movTipo").value,
+
+        monto:
+            Number(document.getElementById("movMonto").value)||0,
+
+        fecha:
+            document.getElementById("movFecha").value
+
+    };
+
+    if(id){
+
+        const index=
+            datos.movimientos.findIndex(m=>m.id===id);
+
+        if(index!==-1){
+            datos.movimientos[index]=movimiento;
+        }
+
+    }else{
+
+        datos.movimientos.push(movimiento);
+    }
+
+    guardarDatos();
+
+    cerrarModal();
+
+    actualizarTodo();
+
+    mostrarToast("Movimiento guardado");
+}
+
+
+function renderCaja(){
+
+    const cont=document.getElementById("listaMovimientos");
+
+    if(!cont)return;
+
+    let ingresos=0;
+    let gastos=0;
+
+    datos.movimientos.forEach(m=>{
+
+        if(m.tipo==="Ingreso"){
+            ingresos+=Number(m.monto||0);
+        }else{
+            gastos+=Number(m.monto||0);
+        }
+
+    });
+
+    document.getElementById("balanceCaja").textContent =
+        dinero(ingresos-gastos);
+
+    const lista=[...datos.movimientos]
+        .sort((a,b)=>(b.fecha||"").localeCompare(a.fecha||""));
+
+    if(!lista.length){
+
+        cont.innerHTML=`
+            <div class="card empty">
+                <div class="empty-icon">◈</div>
+                <strong>No hay movimientos</strong>
+                <p>Registra tus ingresos y gastos.</p>
+            </div>
+        `;
+
+        return;
+    }
+
+    cont.innerHTML=lista.map(m=>`
+
+        <div class="card">
+
+            <div class="movement">
+
+                <div class="move-icon">
+                    ${m.tipo==="Ingreso"?"↗":"↘"}
+                </div>
+
+                <div class="move-info">
+
+                    <strong>${escapeHTML(m.concepto)}</strong>
+
+                    <small>${fechaBonita(m.fecha)}</small>
+
+                </div>
+
+                <div class="${m.tipo==="Ingreso"?"income":"expense"}">
+                    ${m.tipo==="Ingreso"?"+":"-"}${dinero(m.monto)}
+                </div>
+
+            </div>
+
+            <div class="card-actions">
+
+                <button class="btn btn-light btn-small"
+                    onclick="abrirMovimiento('${m.id}')">
+                    Editar
+                </button>
+
+                <button class="btn btn-danger btn-small"
+                    onclick="eliminarMovimiento('${m.id}')">
+                    Eliminar
+                </button>
+
+            </div>
+
+        </div>
+
+    `).join("");
+}
+
 
 function eliminarMovimiento(id){
 
-    if(!confirm("¿Eliminar este movimiento?")) return;
+    if(!confirm("¿Eliminar este movimiento?"))return;
 
-    datos.movimientos =
+    datos.movimientos=
         datos.movimientos.filter(m=>m.id!==id);
 
     guardarDatos();
+
     actualizarTodo();
 
-    mostrarToast("Movimiento eliminado.");
-
+    mostrarToast("Movimiento eliminado");
 }
 
-/* =========================
+
+/* =====================================================
    REGRESOS
-========================= */
+===================================================== */
 
 function renderRegresos(){
 
-    const contenedor =
-        document.getElementById("listaRegresos");
+    const cont=document.getElementById("listaRegresos");
 
-    if(!contenedor) return;
+    if(!cont)return;
 
-    const hoy = hoyISO();
+    const hoy=hoyISO();
 
-    const pendientes =
-        datos.rentas.filter(r=>
-            (
-                r.estado==="Activa" ||
-                r.estado==="Apartada"
-            ) &&
-            r.devolucion
-        ).sort((a,b)=>
-            a.devolucion.localeCompare(b.devolucion)
+    const lista=datos.rentas
+        .filter(r=>
+            r.estado==="Activa" &&
+            r.fechaRegreso
+        )
+        .sort((a,b)=>
+            a.fechaRegreso.localeCompare(b.fechaRegreso)
         );
 
-    if(!pendientes.length){
+    if(!lista.length){
 
-        contenedor.innerHTML = `
-            <div class="empty">
-                No hay regresos pendientes.
+        cont.innerHTML=`
+            <div class="card empty">
+                <div class="empty-icon">✓</div>
+                <strong>No tienes regresos pendientes</strong>
+                <p>Todo está al corriente.</p>
             </div>
         `;
 
         return;
-
     }
 
-    contenedor.innerHTML =
-        pendientes.map(r=>{
+    cont.innerHTML=lista.map(r=>{
 
-            const cliente =
-                datos.clientes.find(c=>c.id===r.clienteId);
+        const cliente=
+            datos.clientes.find(c=>c.id===r.clienteId);
 
-            const vestido =
-                datos.vestidos.find(v=>v.id===r.vestidoId);
+        const vestido=
+            datos.vestidos.find(v=>v.id===r.vestidoId);
 
-            const atrasada =
-                r.devolucion < hoy;
+        const vencido=
+            r.fechaRegreso<hoy;
 
-            return `
-                <div class="list-item">
+        return `
 
-                    <div class="list-main">
+        <div class="card">
 
-                        <div>
-                            <strong>
-                                ${escapeHTML(cliente?.nombre || "Cliente")}
-                            </strong>
+            <div class="rental-top">
 
-                            <div class="muted">
-                                ${escapeHTML(vestido?.nombre || "Vestido")}
-                            </div>
-                        </div>
+                <div>
 
-                        <div style="text-align:right">
-                            <strong>${fechaBonita(r.devolucion)}</strong>
-
-                            ${
-                                atrasada
-                                ? `<div style="color:var(--rojo);font-size:12px;font-weight:700">ATRASADA</div>`
-                                : ""
-                            }
-                        </div>
-
+                    <div class="rental-name">
+                        ${escapeHTML(vestido?.nombre||"Vestido")}
                     </div>
 
-                    <div class="card-actions">
-
-                        ${
-                            cliente?.telefono
-                            ? `
-                            <button
-                                class="btn btn-success btn-small"
-                                onclick="whatsapp('${cliente.telefono}')"
-                            >
-                                WhatsApp
-                            </button>
-                            `
-                            : ""
-                        }
-
-                        <button
-                            class="btn btn-secondary btn-small"
-                            onclick="abrirRenta('${r.id}')"
-                        >
-                            Ver renta
-                        </button>
-
-                        <button
-                            class="btn btn-primary btn-small"
-                            onclick="marcarDevuelta('${r.id}')"
-                        >
-                            Devuelta
-                        </button>
-
+                    <div style="font-size:11px;color:var(--gris);margin-top:4px">
+                        ${escapeHTML(cliente?.nombre||"Cliente")}
                     </div>
 
                 </div>
-            `;
 
-        }).join("");
+                <span class="status ${vencido?"repair":"wash"}">
+                    ${vencido?"ATRASADO":"PENDIENTE"}
+                </span>
 
+            </div>
+
+            <div class="detail" style="margin-top:12px">
+
+                <small>Fecha de regreso</small>
+
+                <strong>
+                    ${fechaBonita(r.fechaRegreso)}
+                </strong>
+
+            </div>
+
+            <div class="card-actions">
+
+                ${
+                    cliente?.telefono
+                    ? `
+                    <button class="btn btn-gold btn-small"
+                        onclick="whatsapp('${escapeHTML(cliente.telefono)}')">
+                        WhatsApp
+                    </button>
+                    `
+                    :""
+                }
+
+                <button class="btn btn-light btn-small"
+                    onclick="abrirRenta('${r.id}')">
+                    Ver renta
+                </button>
+
+                <button class="btn btn-primary btn-small"
+                    onclick="marcarDevuelta('${r.id}')">
+                    Devuelta
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+    }).join("");
 }
 
-/* =========================
+
+/* =====================================================
    REVISIÓN
-========================= */
+===================================================== */
 
 function renderRevision(){
 
-    const contenedor =
-        document.getElementById("listaRevision");
+    const cont=document.getElementById("listaRevision");
 
-    if(!contenedor) return;
+    if(!cont)return;
 
-    const vestidos =
-        datos.vestidos.filter(v=>
-            v.estado==="Lavado" ||
-            v.estado==="Reparación"
-        );
+    const lista=datos.vestidos.filter(v=>
+        v.estado==="Lavado" ||
+        v.estado==="Reparación"
+    );
 
-    if(!vestidos.length){
+    if(!lista.length){
 
-        contenedor.innerHTML = `
-            <div class="empty">
-                Todos los vestidos están disponibles.
+        cont.innerHTML=`
+            <div class="card empty">
+                <div class="empty-icon">✨</div>
+                <strong>Todo está listo</strong>
+                <p>No tienes vestidos pendientes de revisión.</p>
             </div>
         `;
 
         return;
-
     }
 
-    contenedor.innerHTML =
-        vestidos.map(v=>{
+    cont.innerHTML=lista.map(v=>`
 
-            return `
-                <div class="list-item">
+        <div class="card">
 
-                    <div class="list-main">
+            <div class="person-row">
 
-                        <div>
-                            <strong>${escapeHTML(v.nombre)}</strong>
+                <div class="avatar">👗</div>
 
-                            <div class="muted">
-                                ${escapeHTML(v.estado)}
-                            </div>
-                        </div>
+                <div class="person-info">
 
-                        <button
-                            class="btn btn-success btn-small"
-                            onclick="ponerDisponible('${v.id}')"
-                        >
-                            Disponible
-                        </button>
+                    <strong>${escapeHTML(v.nombre)}</strong>
 
-                    </div>
+                    <span>
+                        ${escapeHTML(v.talla||"")}
+                        ${v.color?" · "+escapeHTML(v.color):""}
+                    </span>
 
                 </div>
-            `;
 
-        }).join("");
+                <span class="status ${v.estado==="Lavado"?"wash":"repair"}">
+                    ${escapeHTML(v.estado)}
+                </span>
 
+            </div>
+
+            <div class="card-actions">
+
+                <button class="btn btn-primary btn-small"
+                    onclick="ponerDisponible('${v.id}')">
+                    Marcar disponible
+                </button>
+
+                <button class="btn btn-light btn-small"
+                    onclick="abrirVestido('${v.id}')">
+                    Editar
+                </button>
+
+            </div>
+
+        </div>
+
+    `).join("");
 }
+
 
 function ponerDisponible(id){
 
-    const vestido =
-        datos.vestidos.find(v=>v.id===id);
+    const vestido=datos.vestidos.find(v=>v.id===id);
 
-    if(!vestido) return;
+    if(!vestido)return;
 
-    vestido.estado = "Disponible";
+    vestido.estado="Disponible";
 
     guardarDatos();
+
     actualizarTodo();
 
-    mostrarToast("Vestido disponible.");
-
+    mostrarToast("Vestido disponible");
 }
 
-/* =========================
+
+/* =====================================================
    CALENDARIO
-========================= */
+===================================================== */
 
 function cambiarMes(cambio){
 
-    mesActual.setMonth(
-        mesActual.getMonth()+cambio
+    mesCalendario.setMonth(
+        mesCalendario.getMonth()+cambio
     );
 
     renderCalendario();
-
+    renderEventosMes();
 }
+
 
 function renderCalendario(){
 
-    const calendario =
-        document.getElementById("calendario");
+    const cont=document.getElementById("diasCalendario");
 
-    const titulo =
-        document.getElementById("mesCalendario");
+    if(!cont)return;
 
-    if(!calendario || !titulo) return;
+    const year=mesCalendario.getFullYear();
+    const month=mesCalendario.getMonth();
 
-    const year = mesActual.getFullYear();
-    const month = mesActual.getMonth();
+    const nombre=
+        mesCalendario.toLocaleDateString("es-MX",{
+            month:"long",
+            year:"numeric"
+        });
 
-    titulo.textContent =
-        mesActual.toLocaleDateString(
-            "es-MX",
-            {
-                month:"long",
-                year:"numeric"
-            }
-        );
+    document.getElementById("mesActual").textContent=nombre;
 
-    const nombres =
-        ["L","M","M","J","V","S","D"];
+    const primerDia=new Date(year,month,1);
 
-    let html =
-        nombres.map(d=>
-            `<div class="calendar-day-name">${d}</div>`
-        ).join("");
+    let inicio=primerDia.getDay();
 
-    const primerDia =
-        new Date(year,month,1).getDay();
+    inicio=inicio===0?6:inicio-1;
 
-    const inicio =
-        primerDia===0 ? 6 : primerDia-1;
-
-    const dias =
+    const ultimoDia=
         new Date(year,month+1,0).getDate();
 
-    for(let i=0;i<inicio;i++){
-
-        html += `<div></div>`;
-
-    }
-
-    for(let dia=1;dia<=dias;dia++){
-
-        const fecha =
-            `${year}-${String(month+1).padStart(2,"0")}-${String(dia).padStart(2,"0")}`;
-
-        const esHoy =
-            fecha===hoyISO();
-
-        const eventos =
-            datos.rentas.filter(r=>
-                r.entrega===fecha ||
-                r.devolucion===fecha
-            );
-
-        html += `
-            <div class="calendar-day ${esHoy ? "today":""}">
-
-                <strong>${dia}</strong>
-
-                ${
-                    eventos.map(r=>{
-
-                        const entrega =
-                            r.entrega===fecha;
-
-                        return `
-                            <div
-                                style="margin-top:3px;font-size:9px"
-                                title="${entrega ? "Entrega":"Devolución"}"
-                            >
-                                <span class="event-dot"></span>
-                                ${entrega ? "E":"D"}
-                            </div>
-                        `;
-
-                    }).join("")
-                }
-
-            </div>
-        `;
-
-    }
-
-    calendario.innerHTML = html;
-
-    renderEventosMes();
-
-}
-
-function renderEventosMes(){
-
-    const contenedor =
-        document.getElementById("eventosMes");
-
-    if(!contenedor) return;
-
-    const year = mesActual.getFullYear();
-    const month = mesActual.getMonth();
-
-    const prefijo =
-        `${year}-${String(month+1).padStart(2,"0")}`;
-
-    const eventos = [];
+    const eventos=new Set();
 
     datos.rentas.forEach(r=>{
 
-        if(r.entrega?.startsWith(prefijo)){
+        [r.fechaEntrega,r.fechaRegreso].forEach(fecha=>{
 
-            eventos.push({
-                fecha:r.entrega,
+            if(fecha){
+                eventos.add(fecha);
+            }
+
+        });
+
+    });
+
+    let html="";
+
+    for(let i=0;i<inicio;i++){
+
+        html+=`<div class="day empty"></div>`;
+    }
+
+    for(let dia=1;dia<=ultimoDia;dia++){
+
+        const fecha=
+            `${year}-${String(month+1).padStart(2,"0")}-${String(dia).padStart(2,"0")}`;
+
+        const clases=[
+            "day",
+            fecha===hoyISO()?"today":"",
+            eventos.has(fecha)?"event":""
+        ].join(" ");
+
+        html+=`
+            <div class="${clases}">
+                ${dia}
+            </div>
+        `;
+    }
+
+    cont.innerHTML=html;
+}
+
+
+function renderEventosMes(){
+
+    const cont=document.getElementById("eventosMes");
+
+    if(!cont)return;
+
+    const year=mesCalendario.getFullYear();
+    const month=String(mesCalendario.getMonth()+1).padStart(2,"0");
+
+    const lista=[];
+
+    datos.rentas.forEach(r=>{
+
+        if(r.fechaEntrega?.startsWith(`${year}-${month}`)){
+
+            lista.push({
+                fecha:r.fechaEntrega,
                 tipo:"Entrega",
                 renta:r
             });
 
         }
 
-        if(r.devolucion?.startsWith(prefijo)){
+        if(r.fechaRegreso?.startsWith(`${year}-${month}`)){
 
-            eventos.push({
-                fecha:r.devolucion,
-                tipo:"Devolución",
+            lista.push({
+                fecha:r.fechaRegreso,
+                tipo:"Regreso",
                 renta:r
             });
 
@@ -2970,257 +3336,212 @@ function renderEventosMes(){
 
     });
 
-    eventos.sort((a,b)=>
-        a.fecha.localeCompare(b.fecha)
-    );
+    lista.sort((a,b)=>a.fecha.localeCompare(b.fecha));
 
-    if(!eventos.length){
+    if(!lista.length){
 
-        contenedor.innerHTML = `
-            <div class="empty">
-                No hay eventos este mes.
+        cont.innerHTML=`
+            <div class="card empty">
+                <div class="empty-icon">◫</div>
+                <strong>Mes tranquilo</strong>
+                <p>No hay eventos registrados este mes.</p>
             </div>
         `;
 
         return;
-
     }
 
-    contenedor.innerHTML =
-        eventos.map(e=>{
+    cont.innerHTML=lista.map(e=>{
 
-            const cliente =
-                datos.clientes.find(c=>
-                    c.id===e.renta.clienteId
-                );
+        const cliente=
+            datos.clientes.find(c=>c.id===e.renta.clienteId);
 
-            const vestido =
-                datos.vestidos.find(v=>
-                    v.id===e.renta.vestidoId
-                );
+        const vestido=
+            datos.vestidos.find(v=>v.id===e.renta.vestidoId);
 
-            return `
-                <div class="list-item">
+        return `
 
-                    <div class="list-main">
+        <div class="card">
 
-                        <div>
-                            <strong>${e.tipo}</strong>
+            <div class="person-row">
 
-                            <div class="muted">
-                                ${escapeHTML(cliente?.nombre || "Cliente")}
-                            </div>
+                <div class="avatar">
+                    ${e.tipo==="Entrega"?"↑":"↓"}
+                </div>
 
-                            <div class="muted">
-                                ${escapeHTML(vestido?.nombre || "Vestido")}
-                            </div>
-                        </div>
+                <div class="person-info">
 
-                        <strong>
-                            ${fechaBonita(e.fecha)}
-                        </strong>
+                    <strong>
+                        ${e.tipo} · ${escapeHTML(vestido?.nombre||"Vestido")}
+                    </strong>
 
-                    </div>
+                    <span>
+                        ${fechaBonita(e.fecha)}
+                        · ${escapeHTML(cliente?.nombre||"Cliente")}
+                    </span>
 
                 </div>
-            `;
 
-        }).join("");
+            </div>
 
+        </div>
+
+        `;
+
+    }).join("");
 }
 
-/* =========================
+
+/* =====================================================
    CONFIGURACIÓN
-========================= */
+===================================================== */
 
 function cargarConfiguracion(){
 
-    const nombre =
-        document.getElementById("configNombre");
+    document.getElementById("configNombre").value=
+        datos.configuracion.nombre||"";
 
-    const whatsappInput =
-        document.getElementById("configWhatsapp");
-
-    if(!nombre || !whatsappInput) return;
-
-    nombre.value =
-        datos.configuracion.nombre || "";
-
-    whatsappInput.value =
-        datos.configuracion.whatsapp || "";
-
+    document.getElementById("configWhatsApp").value=
+        datos.configuracion.whatsapp||"";
 }
+
 
 function guardarConfiguracion(){
 
-    datos.configuracion.nombre =
+    datos.configuracion.nombre=
         document.getElementById("configNombre").value.trim()
-        || "Julietta Dresses";
+        ||"Julietta Dresses";
 
-    datos.configuracion.whatsapp =
-        document.getElementById("configWhatsapp").value.trim();
+    datos.configuracion.whatsapp=
+        document.getElementById("configWhatsApp").value.trim();
 
     guardarDatos();
+
     actualizarTodo();
 
-    mostrarToast("Configuración guardada.");
-
+    mostrarToast("Configuración guardada");
 }
 
-/* =========================
+
+/* =====================================================
    RESPALDO
-========================= */
+===================================================== */
 
 function exportarDatos(){
 
-    const contenido =
+    const contenido=
         JSON.stringify(datos,null,2);
 
-    const blob =
-        new Blob(
-            [contenido],
-            {type:"application/json"}
-        );
+    const blob=new Blob(
+        [contenido],
+        {type:"application/json"}
+    );
 
-    const url =
-        URL.createObjectURL(blob);
+    const url=URL.createObjectURL(blob);
 
-    const a =
-        document.createElement("a");
+    const a=document.createElement("a");
 
-    a.href = url;
+    a.href=url;
 
-    a.download =
+    a.download=
         "julietta-dresses-respaldo-"+hoyISO()+".json";
 
     a.click();
 
     URL.revokeObjectURL(url);
 
-    mostrarToast("Respaldo descargado.");
-
+    mostrarToast("Respaldo descargado");
 }
+
 
 function importarDatos(event){
 
-    const file =
-        event.target.files?.[0];
+    const file=event.target.files?.[0];
 
-    if(!file) return;
+    if(!file)return;
 
-    const reader =
-        new FileReader();
+    const reader=new FileReader();
 
-    reader.onload = e=>{
+    reader.onload=function(e){
 
         try{
 
-            const importado =
-                JSON.parse(e.target.result);
+            const nuevo=JSON.parse(e.target.result);
 
             if(
-                !importado ||
-                !Array.isArray(importado.vestidos) ||
-                !Array.isArray(importado.clientes) ||
-                !Array.isArray(importado.rentas) ||
-                !Array.isArray(importado.movimientos)
+                !nuevo ||
+                !Array.isArray(nuevo.vestidos) ||
+                !Array.isArray(nuevo.clientes) ||
+                !Array.isArray(nuevo.rentas)
             ){
 
-                throw new Error("Formato inválido");
-
+                throw new Error("Archivo inválido");
             }
 
             if(!confirm(
                 "Esto reemplazará los datos actuales por el respaldo. ¿Continuar?"
-            )){
+            ))return;
 
-                event.target.value = "";
-                return;
-
-            }
-
-            datos = {
-
-                configuracion:{
-                    nombre:"Julietta Dresses",
-                    whatsapp:"",
-                    ...(importado.configuracion||{})
-                },
-
-                vestidos:importado.vestidos,
-                clientes:importado.clientes,
-                rentas:importado.rentas,
-                movimientos:importado.movimientos
-
-            };
+            datos=nuevo;
 
             guardarDatos();
+
             actualizarTodo();
 
-            mostrarToast("Respaldo restaurado.");
+            mostrarToast("Respaldo restaurado");
 
         }catch(error){
 
+            alert("No se pudo restaurar el respaldo.");
+
             console.error(error);
-
-            alert(
-                "El archivo no parece ser un respaldo válido de Julietta Dresses."
-            );
-
         }
-
-        event.target.value = "";
 
     };
 
     reader.readAsText(file);
-
 }
 
-/* =========================
+
+/* =====================================================
    ELIMINAR TODO
-========================= */
+===================================================== */
 
 function eliminarTodo(){
 
-    const confirmar =
-        prompt(
-            "Escribe ELIMINAR para borrar todos los datos de Julietta Dresses:"
-        );
+    if(!confirm(
+        "¿Seguro que quieres eliminar TODOS los datos de Julietta Dresses?"
+    ))return;
 
-    if(confirmar!=="ELIMINAR"){
+    if(!confirm(
+        "Esta acción no se puede deshacer. ¿Continuar?"
+    ))return;
 
-        mostrarToast("No se eliminaron los datos.");
-        return;
+    localStorage.removeItem(STORAGE_KEY);
 
-    }
-
-    datos = {
-
+    datos={
         configuracion:{
             nombre:"Julietta Dresses",
             whatsapp:""
         },
-
         vestidos:[],
         clientes:[],
         rentas:[],
         movimientos:[]
-
     };
 
-    guardarDatos();
     actualizarTodo();
 
-    mostrarToast("Todos los datos fueron eliminados.");
-
+    mostrarToast("Datos eliminados");
 }
 
-/* =========================
-   INICIO
-========================= */
+
+/* =====================================================
+   INICIAR APP
+===================================================== */
 
 cargarDatos();
+
 actualizarTodo();
 
 </script>
