@@ -2,1034 +2,1318 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#b99a9f">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#7b3048">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
 <title>Julietta Dresses | Control</title>
 
 <style>
 :root{
-  --rosa:#c9a8ad;
-  --rosa-claro:#f7eff0;
-  --rosa-medio:#ead9dc;
-  --vino:#74565d;
-  --texto:#292629;
-  --gris:#777;
-  --blanco:#fff;
-  --verde:#64846f;
-  --amarillo:#a98548;
-  --rojo:#a55b5b;
-  --borde:#eadde0;
-  --sombra:0 8px 25px rgba(70,45,50,.10);
+    --vino:#7b3048;
+    --vino-oscuro:#5d2135;
+    --rosa:#f7e8ed;
+    --rosa2:#fff7f9;
+    --blanco:#ffffff;
+    --texto:#33262b;
+    --gris:#81777b;
+    --borde:#eadde1;
+    --verde:#2e8b57;
+    --amarillo:#d99b16;
+    --rojo:#c94b5b;
+    --sombra:0 5px 20px rgba(91,38,53,.08);
 }
 
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
 
 body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  background:#faf7f7;
-  color:var(--texto);
-  padding-bottom:90px;
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:#faf7f8;
+    color:var(--texto);
+    padding-bottom:80px;
 }
 
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-
-header{
-  background:linear-gradient(135deg,#fff,#f1e4e6);
-  padding:20px 18px;
-  border-bottom:1px solid var(--borde);
-  position:sticky;
-  top:0;
-  z-index:20;
+button,input,select,textarea{
+    font:inherit;
 }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
+button{
+    cursor:pointer;
+}
+
+.header{
+    background:linear-gradient(135deg,var(--vino),#9c4a63);
+    color:white;
+    padding:18px 16px 20px;
+    position:sticky;
+    top:0;
+    z-index:50;
+    box-shadow:0 3px 15px rgba(0,0,0,.12);
+}
+
+.header-inner{
+    max-width:900px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
 .logo{
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  background:var(--vino);
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:700;
-  font-size:18px;
-  box-shadow:var(--sombra);
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:white;
+    color:var(--vino);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    font-size:18px;
+    box-shadow:0 3px 10px rgba(0,0,0,.12);
 }
 
-.brand h1{
-  margin:0;
-  font-family:Georgia,serif;
-  font-size:23px;
-  color:var(--vino);
+.header h1{
+    margin:0;
+    font-size:19px;
 }
 
-.brand p{
-  margin:3px 0 0;
-  color:var(--gris);
-  font-size:12px;
+.header small{
+    opacity:.85;
 }
 
-main{
-  max-width:900px;
-  margin:auto;
-  padding:18px;
+.container{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    padding:16px;
 }
 
-.page{display:none}
-.page.active{display:block}
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
 
 h2{
-  font-family:Georgia,serif;
-  color:var(--vino);
-  margin:5px 0 5px;
+    margin:5px 0 4px;
+    font-size:24px;
 }
 
 .subtitle{
-  color:var(--gris);
-  margin:0 0 18px;
-  font-size:14px;
+    color:var(--gris);
+    font-size:14px;
+    margin-bottom:18px;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-
-.card{
-  background:white;
-  border:1px solid var(--borde);
-  border-radius:18px;
-  padding:16px;
-  box-shadow:var(--sombra);
+.stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
 }
 
 .stat{
-  font-size:25px;
-  font-weight:700;
-  color:var(--vino);
-  margin-top:6px;
+    background:white;
+    border:1px solid var(--borde);
+    border-radius:18px;
+    padding:16px;
+    box-shadow:var(--sombra);
 }
 
-.label{
-  font-size:12px;
-  color:var(--gris);
+.stat-number{
+    font-size:26px;
+    font-weight:800;
+    color:var(--vino);
+}
+
+.stat-label{
+    font-size:13px;
+    color:var(--gris);
+    margin-top:4px;
 }
 
 .section{
-  margin-top:20px;
+    background:white;
+    border:1px solid var(--borde);
+    border-radius:18px;
+    padding:16px;
+    margin-top:16px;
+    box-shadow:var(--sombra);
 }
 
 .section-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  margin-bottom:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+.section-title h3{
+    margin:0;
+    font-size:17px;
 }
 
 .btn{
-  border:0;
-  border-radius:12px;
-  padding:11px 15px;
-  background:var(--vino);
-  color:white;
-  font-weight:600;
+    border:none;
+    border-radius:12px;
+    padding:11px 15px;
+    font-weight:700;
+    transition:.15s;
 }
 
-.btn.secondary{
-  background:var(--rosa-claro);
-  color:var(--vino);
+.btn:active{
+    transform:scale(.97);
 }
 
-.btn.green{background:var(--verde)}
-.btn.red{background:var(--rojo)}
-.btn.gold{background:var(--amarillo)}
-
-.btn.small{
-  padding:8px 10px;
-  font-size:12px;
+.btn-primary{
+    background:var(--vino);
+    color:white;
 }
 
-.actions{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-  margin-top:10px;
+.btn-secondary{
+    background:var(--rosa);
+    color:var(--vino);
 }
 
-input,select,textarea{
-  width:100%;
-  border:1px solid var(--borde);
-  background:#fff;
-  border-radius:12px;
-  padding:12px;
-  outline:none;
+.btn-danger{
+    background:#fdecef;
+    color:var(--rojo);
 }
 
-input:focus,select:focus,textarea:focus{
-  border-color:var(--rosa);
+.btn-success{
+    background:#e8f6ee;
+    color:var(--verde);
 }
 
-.form-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
+.btn-small{
+    padding:8px 11px;
+    font-size:13px;
 }
 
-.field label{
-  display:block;
-  font-size:12px;
-  color:var(--gris);
-  margin-bottom:5px;
+.full{
+    width:100%;
 }
-
-.field.full{grid-column:1/-1}
 
 .search{
-  margin-bottom:12px;
+    width:100%;
+    border:1px solid var(--borde);
+    background:white;
+    border-radius:14px;
+    padding:13px 14px;
+    outline:none;
+    margin-bottom:14px;
 }
 
-.item{
-  background:white;
-  border:1px solid var(--borde);
-  border-radius:16px;
-  padding:14px;
-  margin-bottom:10px;
+.search:focus,
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--vino);
+    box-shadow:0 0 0 3px rgba(123,48,72,.08);
 }
 
-.item-top{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
 }
 
-.item-title{
-  font-weight:700;
-  color:var(--vino);
+.card{
+    background:white;
+    border:1px solid var(--borde);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:var(--sombra);
 }
 
-.item-info{
-  color:var(--gris);
-  font-size:13px;
-  margin-top:5px;
-  line-height:1.5;
+.card-body{
+    padding:13px;
+}
+
+.card h3{
+    margin:0 0 5px;
+    font-size:16px;
+}
+
+.card p{
+    margin:4px 0;
+    color:var(--gris);
+    font-size:13px;
+}
+
+.dress-photo{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+    display:block;
+    background:linear-gradient(135deg,#f8e9ee,#fff7f9);
+}
+
+.dress-placeholder{
+    width:100%;
+    height:190px;
+    background:linear-gradient(135deg,#f8e9ee,#fff7f9);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:65px;
 }
 
 .badge{
-  display:inline-block;
-  border-radius:20px;
-  padding:5px 9px;
-  font-size:11px;
-  font-weight:600;
-  background:var(--rosa-claro);
-  color:var(--vino);
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:700;
+    margin-top:6px;
 }
 
-.badge.green{
-  background:#e8f1eb;
-  color:var(--verde);
+.badge-disponible{
+    background:#e9f7ef;
+    color:var(--verde);
 }
 
-.badge.red{
-  background:#f6e6e6;
-  color:var(--rojo);
+.badge-rentado{
+    background:#fdecef;
+    color:var(--rojo);
 }
 
-.badge.gold{
-  background:#f4eedf;
-  color:var(--amarillo);
+.badge-lavado{
+    background:#fff4d9;
+    color:#a46d00;
+}
+
+.badge-reparacion{
+    background:#eee8fb;
+    color:#68459a;
+}
+
+.card-actions{
+    display:flex;
+    gap:7px;
+    margin-top:12px;
+}
+
+.card-actions .btn{
+    flex:1;
 }
 
 .empty{
-  text-align:center;
-  padding:30px 15px;
-  color:var(--gris);
-  background:white;
-  border:1px dashed var(--borde);
-  border-radius:16px;
+    text-align:center;
+    padding:35px 15px;
+    color:var(--gris);
 }
 
-.bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  height:78px;
-  background:rgba(255,255,255,.96);
-  border-top:1px solid var(--borde);
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  z-index:50;
-  padding-bottom:env(safe-area-inset-bottom);
+.empty-icon{
+    font-size:40px;
+    margin-bottom:8px;
 }
 
-.nav-btn{
-  border:0;
-  background:none;
-  color:#888;
-  font-size:10px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:3px;
+.list-item{
+    border-bottom:1px solid var(--borde);
+    padding:12px 0;
 }
 
-.nav-btn span{
-  font-size:21px;
+.list-item:last-child{
+    border-bottom:0;
 }
 
-.nav-btn.active{
-  color:var(--vino);
-  font-weight:700;
+.list-main{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.list-main strong{
+    display:block;
+}
+
+.muted{
+    color:var(--gris);
+    font-size:13px;
+}
+
+.form-group{
+    margin-bottom:14px;
+}
+
+.form-group label{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid var(--borde);
+    border-radius:12px;
+    outline:none;
+    background:white;
+}
+
+.form-group textarea{
+    min-height:85px;
+    resize:vertical;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
 }
 
 .modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(40,25,30,.45);
-  z-index:100;
-  align-items:flex-end;
-  justify-content:center;
+    position:fixed;
+    inset:0;
+    background:rgba(38,20,27,.5);
+    z-index:100;
+    display:none;
+    align-items:flex-end;
+    justify-content:center;
 }
 
-.modal.show{display:flex}
+.modal.show{
+    display:flex;
+}
 
 .modal-box{
-  background:#fff;
-  width:100%;
-  max-width:650px;
-  max-height:92vh;
-  overflow:auto;
-  border-radius:24px 24px 0 0;
-  padding:20px;
+    background:white;
+    width:100%;
+    max-width:600px;
+    max-height:92vh;
+    overflow:auto;
+    border-radius:24px 24px 0 0;
+    padding:20px;
 }
 
-.modal-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:16px;
+.modal-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:18px;
 }
 
-.modal-head h3{
-  margin:0;
-  color:var(--vino);
-  font-family:Georgia,serif;
+.modal-header h3{
+    margin:0;
 }
 
 .close{
-  border:0;
-  background:var(--rosa-claro);
-  color:var(--vino);
-  border-radius:50%;
-  width:35px;
-  height:35px;
-  font-size:20px;
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:50%;
+    background:#f5eef0;
+    color:var(--vino);
+    font-size:22px;
+}
+
+.image-upload{
+    border:2px dashed #dec8cf;
+    background:#fffafb;
+    border-radius:18px;
+    padding:15px;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.image-preview{
+    width:100%;
+    max-height:280px;
+    object-fit:cover;
+    border-radius:14px;
+    margin-bottom:10px;
+}
+
+.image-preview.hidden{
+    display:none;
+}
+
+.image-buttons{
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:white;
+    border-top:1px solid var(--borde);
+    z-index:80;
+    display:flex;
+    justify-content:center;
+    box-shadow:0 -4px 15px rgba(0,0,0,.07);
+}
+
+.nav-inner{
+    width:100%;
+    max-width:900px;
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+}
+
+.nav-btn{
+    border:none;
+    background:white;
+    color:#877b80;
+    padding:8px 2px 10px;
+    font-size:10px;
+}
+
+.nav-btn span{
+    display:block;
+    font-size:20px;
+    margin-bottom:3px;
+}
+
+.nav-btn.active{
+    color:var(--vino);
+    font-weight:800;
 }
 
 .toast{
-  position:fixed;
-  bottom:95px;
-  left:50%;
-  transform:translateX(-50%) translateY(20px);
-  background:#292629;
-  color:#fff;
-  padding:12px 17px;
-  border-radius:12px;
-  opacity:0;
-  pointer-events:none;
-  transition:.25s;
-  z-index:200;
-  font-size:13px;
+    position:fixed;
+    left:50%;
+    bottom:92px;
+    transform:translateX(-50%) translateY(20px);
+    background:#33262b;
+    color:white;
+    padding:12px 17px;
+    border-radius:13px;
+    font-size:14px;
+    z-index:200;
+    opacity:0;
+    pointer-events:none;
+    transition:.25s;
 }
 
 .toast.show{
-  opacity:1;
-  transform:translateX(-50%) translateY(0);
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
 }
 
-.calendar-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:12px;
+.calendar-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.calendar-header button{
+    border:none;
+    background:var(--rosa);
+    color:var(--vino);
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    font-size:20px;
 }
 
 .calendar-title{
-  font-weight:700;
-  color:var(--vino);
+    font-weight:800;
+    text-transform:capitalize;
 }
 
 .calendar{
-  display:grid;
-  grid-template-columns:repeat(7,1fr);
-  gap:4px;
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:5px;
 }
 
-.day-name{
-  text-align:center;
-  font-size:10px;
-  color:var(--gris);
-  padding:5px 0;
+.calendar-day-name{
+    text-align:center;
+    font-size:11px;
+    color:var(--gris);
+    font-weight:700;
+    padding:5px 0;
 }
 
-.day{
-  min-height:48px;
-  border:1px solid var(--borde);
-  border-radius:9px;
-  background:#fff;
-  padding:5px;
-  font-size:11px;
+.calendar-day{
+    min-height:55px;
+    border:1px solid #eee4e7;
+    border-radius:9px;
+    padding:5px;
+    font-size:11px;
+    background:#fff;
 }
 
-.day.muted{
-  opacity:.35;
+.calendar-day.today{
+    border:2px solid var(--vino);
 }
 
-.day.today{
-  border:2px solid var(--vino);
+.calendar-day .event-dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--vino);
+    display:inline-block;
+    margin-right:2px;
 }
 
-.day.has-event{
-  background:var(--rosa-claro);
+.money-positive{
+    color:var(--verde);
+    font-weight:800;
 }
 
-.dot{
-  width:6px;
-  height:6px;
-  background:var(--rojo);
-  border-radius:50%;
-  display:inline-block;
-  margin-left:2px;
+.money-negative{
+    color:var(--rojo);
+    font-weight:800;
 }
 
-.money{
-  font-size:22px;
-  font-weight:700;
-}
-
-.money.plus{color:var(--verde)}
-.money.minus{color:var(--rojo)}
-
-hr{
-  border:0;
-  border-top:1px solid var(--borde);
-  margin:16px 0;
-}
-
-.notice{
-  background:var(--rosa-claro);
-  border-radius:15px;
-  padding:13px;
-  color:var(--vino);
-  font-size:13px;
-  margin-bottom:12px;
-}
-
-@media(max-width:600px){
-  .form-grid{grid-template-columns:1fr}
-  .field.full{grid-column:auto}
-  .grid{grid-template-columns:repeat(2,1fr)}
-  main{padding:14px}
+.balance{
+    font-size:32px;
+    font-weight:900;
+    color:var(--vino);
+    text-align:center;
+    padding:12px;
 }
 
 @media(min-width:700px){
-  .bottom-nav{
-    max-width:900px;
-    left:50%;
-    transform:translateX(-50%);
-    border-left:1px solid var(--borde);
-    border-right:1px solid var(--borde);
-    border-radius:20px 20px 0 0;
-  }
+    .stats{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .modal{
+        align-items:center;
+    }
+
+    .modal-box{
+        border-radius:24px;
+    }
+}
+
+@media(max-width:430px){
+    .grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .dress-photo,
+    .dress-placeholder{
+        height:155px;
+    }
+
+    .card-body{
+        padding:11px;
+    }
+
+    .card-actions{
+        flex-direction:column;
+    }
+
+    .nav-btn{
+        font-size:9px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="brand">
-    <div class="logo">JD</div>
-    <div>
-      <h1>Julietta Dresses</h1>
-      <p>Control de rentas y vestidos</p>
+<header class="header">
+    <div class="header-inner">
+        <div class="logo-area">
+            <div class="logo">JD</div>
+            <div>
+                <h1 id="tituloNegocio">Julietta Dresses</h1>
+                <small>Control del negocio</small>
+            </div>
+        </div>
     </div>
-  </div>
 </header>
 
-<main>
+<main class="container">
 
 <!-- INICIO -->
-<section id="page-inicio" class="page active">
-  <h2>Hola 👋</h2>
-  <p class="subtitle">Aquí tienes el resumen de tu negocio.</p>
+<section id="pagina-inicio" class="page active">
+    <h2>Inicio</h2>
+    <div class="subtitle">Resumen de tu negocio</div>
 
-  <div class="grid">
-    <div class="card">
-      <div class="label">Vestidos</div>
-      <div class="stat" id="statVestidos">0</div>
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-number" id="statVestidos">0</div>
+            <div class="stat-label">Vestidos</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number" id="statClientes">0</div>
+            <div class="stat-label">Clientes</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number" id="statRentas">0</div>
+            <div class="stat-label">Rentas activas</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number" id="statIngresos">$0</div>
+            <div class="stat-label">Ingresos</div>
+        </div>
     </div>
 
-    <div class="card">
-      <div class="label">Clientes</div>
-      <div class="stat" id="statClientes">0</div>
+    <div class="section">
+        <div class="section-title">
+            <h3>Próximas devoluciones</h3>
+        </div>
+        <div id="proximasDevoluciones"></div>
     </div>
 
-    <div class="card">
-      <div class="label">Rentas activas</div>
-      <div class="stat" id="statRentas">0</div>
+    <div class="section">
+        <div class="section-title">
+            <h3>Próximas rentas</h3>
+        </div>
+        <div id="proximasRentas"></div>
     </div>
-
-    <div class="card">
-      <div class="label">Ingresos</div>
-      <div class="stat" id="statIngresos">$0</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">
-      <h3>Próximos regresos</h3>
-      <button class="btn small secondary" onclick="mostrarPagina('regresos')">Ver todos</button>
-    </div>
-    <div id="alertasInicio"></div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">
-      <h3>Próximas rentas</h3>
-    </div>
-    <div id="proximasRentas"></div>
-  </div>
 </section>
 
 <!-- INVENTARIO -->
-<section id="page-inventario" class="page">
-  <div class="section-title">
-    <div>
-      <h2>Inventario 👗</h2>
-      <p class="subtitle">Administra todos tus vestidos.</p>
-    </div>
-    <button class="btn" onclick="abrirVestido()">+ Vestido</button>
-  </div>
+<section id="pagina-inventario" class="page">
+    <h2>Vestidos</h2>
+    <div class="subtitle">Administra tu catálogo e inventario</div>
 
-  <input class="search" id="buscarVestido" placeholder="🔎 Buscar vestido..." oninput="renderInventario()">
+    <button class="btn btn-primary full" onclick="abrirVestido()">＋ Agregar vestido</button>
 
-  <div id="listaInventario"></div>
+    <div style="height:12px"></div>
+
+    <input
+        class="search"
+        id="buscarVestido"
+        placeholder="🔎 Buscar vestido, talla o color..."
+        oninput="renderVestidos()"
+    >
+
+    <div id="listaVestidos" class="grid"></div>
 </section>
 
 <!-- CALENDARIO -->
-<section id="page-calendario" class="page">
-  <h2>Calendario 📅</h2>
-  <p class="subtitle">Consulta tus rentas por fecha.</p>
+<section id="pagina-calendario" class="page">
+    <h2>Calendario</h2>
+    <div class="subtitle">Rentas y devoluciones</div>
 
-  <div class="card">
-    <div class="calendar-head">
-      <button class="btn small secondary" onclick="cambiarMes(-1)">‹</button>
-      <div class="calendar-title" id="mesCalendario"></div>
-      <button class="btn small secondary" onclick="cambiarMes(1)">›</button>
+    <div class="section">
+        <div class="calendar-header">
+            <button onclick="cambiarMes(-1)">‹</button>
+            <div class="calendar-title" id="mesCalendario"></div>
+            <button onclick="cambiarMes(1)">›</button>
+        </div>
+
+        <div class="calendar" id="calendario"></div>
     </div>
 
-    <div class="calendar" id="calendario"></div>
-  </div>
-
-  <div class="section">
-    <h3>Eventos del mes</h3>
-    <div id="eventosMes"></div>
-  </div>
+    <div class="section">
+        <div class="section-title">
+            <h3>Eventos del mes</h3>
+        </div>
+        <div id="eventosMes"></div>
+    </div>
 </section>
 
 <!-- CLIENTES -->
-<section id="page-clientes" class="page">
-  <div class="section-title">
-    <div>
-      <h2>Clientes 👩</h2>
-      <p class="subtitle">Guarda y consulta tus clientas.</p>
-    </div>
-    <button class="btn" onclick="abrirCliente()">+ Cliente</button>
-  </div>
+<section id="pagina-clientes" class="page">
+    <h2>Clientes</h2>
+    <div class="subtitle">Guarda y administra tus clientas</div>
 
-  <input class="search" id="buscarCliente" placeholder="🔎 Buscar cliente..." oninput="renderClientes()">
+    <button class="btn btn-primary full" onclick="abrirCliente()">＋ Agregar cliente</button>
 
-  <div id="listaClientes"></div>
+    <div style="height:12px"></div>
+
+    <input
+        class="search"
+        id="buscarCliente"
+        placeholder="🔎 Buscar cliente..."
+        oninput="renderClientes()"
+    >
+
+    <div id="listaClientes"></div>
 </section>
 
 <!-- RENTAS -->
-<section id="page-rentas" class="page">
-  <div class="section-title">
-    <div>
-      <h2>Rentas 📝</h2>
-      <p class="subtitle">Controla reservaciones y rentas.</p>
-    </div>
-    <button class="btn" onclick="abrirRenta()">+ Renta</button>
-  </div>
+<section id="pagina-rentas" class="page">
+    <h2>Rentas</h2>
+    <div class="subtitle">Control de vestidos rentados</div>
 
-  <input class="search" id="buscarRenta" placeholder="🔎 Buscar renta..." oninput="renderRentas()">
+    <button class="btn btn-primary full" onclick="abrirRenta()">＋ Nueva renta</button>
 
-  <div id="listaRentas"></div>
+    <div id="listaRentas"></div>
 </section>
 
 <!-- CAJA -->
-<section id="page-caja" class="page">
-  <div class="section-title">
-    <div>
-      <h2>Caja 💰</h2>
-      <p class="subtitle">Control de ingresos y gastos.</p>
-    </div>
-    <button class="btn" onclick="abrirMovimiento()">+ Movimiento</button>
-  </div>
+<section id="pagina-caja" class="page">
+    <h2>Caja</h2>
+    <div class="subtitle">Ingresos, gastos y balance</div>
 
-  <div class="grid">
-    <div class="card">
-      <div class="label">Ingresos</div>
-      <div class="money plus" id="totalIngresos">$0</div>
+    <div class="section">
+        <div class="balance" id="balanceCaja">$0</div>
     </div>
 
-    <div class="card">
-      <div class="label">Gastos</div>
-      <div class="money minus" id="totalGastos">$0</div>
-    </div>
-  </div>
+    <button class="btn btn-primary full" onclick="abrirMovimiento()">＋ Agregar movimiento</button>
 
-  <div class="card" style="margin-top:12px">
-    <div class="label">Saldo</div>
-    <div class="stat" id="saldoCaja">$0</div>
-  </div>
-
-  <div class="section">
-    <h3>Movimientos</h3>
     <div id="listaMovimientos"></div>
-  </div>
 </section>
 
-<!-- REGRESOS -->
-<section id="page-regresos" class="page">
-  <h2>Regresos 🔔</h2>
-  <p class="subtitle">Vestidos que deben regresar.</p>
+<!-- MÁS -->
+<section id="pagina-mas" class="page">
+    <h2>Más</h2>
+    <div class="subtitle">Herramientas y configuración</div>
 
-  <div id="listaRegresos"></div>
-</section>
-
-<!-- REVISION -->
-<section id="page-revision" class="page">
-  <div class="section-title">
-    <div>
-      <h2>Revisión 🧼</h2>
-      <p class="subtitle">Controla lavado, daños y disponibilidad.</p>
-    </div>
-  </div>
-
-  <div id="listaRevision"></div>
-</section>
-
-<!-- CONFIGURACIÓN -->
-<section id="page-config" class="page">
-  <h2>Configuración ⚙️</h2>
-  <p class="subtitle">Personaliza y respalda tu información.</p>
-
-  <div class="card">
-    <h3>Datos del negocio</h3>
-
-    <div class="field">
-      <label>Nombre del negocio</label>
-      <input id="configNombre" placeholder="Julietta Dresses">
+    <div class="section">
+        <div class="section-title">
+            <h3>Regresos pendientes</h3>
+        </div>
+        <div id="listaRegresos"></div>
     </div>
 
-    <div class="field" style="margin-top:10px">
-      <label>WhatsApp</label>
-      <input id="configWhatsapp" placeholder="Ej. 8112345678">
+    <div class="section">
+        <div class="section-title">
+            <h3>Revisión de vestidos</h3>
+        </div>
+        <div id="listaRevision"></div>
     </div>
 
-    <button class="btn" style="margin-top:12px" onclick="guardarConfiguracion()">
-      Guardar
-    </button>
-  </div>
+    <div class="section">
+        <div class="section-title">
+            <h3>Configuración</h3>
+        </div>
 
-  <div class="card" style="margin-top:15px">
-    <h3>💾 Respaldo</h3>
-    <p class="item-info">
-      Descarga una copia de toda la información de Julietta Dresses.
-    </p>
+        <div class="form-group">
+            <label>Nombre del negocio</label>
+            <input id="configNombre">
+        </div>
 
-    <div class="actions">
-      <button class="btn green" onclick="exportarDatos()">⬇️ Descargar respaldo</button>
-      <button class="btn secondary" onclick="document.getElementById('archivoImportar').click()">⬆️ Restaurar respaldo</button>
-      <input type="file" id="archivoImportar" accept=".json" style="display:none" onchange="importarDatos(event)">
+        <div class="form-group">
+            <label>WhatsApp del negocio</label>
+            <input id="configWhatsapp" type="tel" placeholder="Ej. 8112345678">
+        </div>
+
+        <button class="btn btn-primary full" onclick="guardarConfiguracion()">
+            Guardar configuración
+        </button>
+
+        <div style="height:10px"></div>
+
+        <button class="btn btn-secondary full" onclick="exportarDatos()">
+            📥 Descargar respaldo
+        </button>
+
+        <div style="height:10px"></div>
+
+        <label class="btn btn-secondary full" style="display:block;text-align:center">
+            📤 Restaurar respaldo
+            <input type="file" accept=".json,application/json" onchange="importarDatos(event)" style="display:none">
+        </label>
+
+        <div style="height:10px"></div>
+
+        <button class="btn btn-danger full" onclick="eliminarTodo()">
+            🗑️ Eliminar todos los datos
+        </button>
     </div>
-  </div>
-
-  <div class="card" style="margin-top:15px">
-    <h3>⚠️ Zona de cuidado</h3>
-    <p class="item-info">
-      Esta opción elimina toda la información guardada en este dispositivo.
-    </p>
-    <button class="btn red" onclick="borrarTodo()">Borrar todos los datos</button>
-  </div>
 </section>
 
 </main>
 
 <!-- NAVEGACIÓN -->
 <nav class="bottom-nav">
-  <button class="nav-btn active" onclick="mostrarPagina('inicio',this)">
-    <span>🏠</span>Inicio
-  </button>
+    <div class="nav-inner">
 
-  <button class="nav-btn" onclick="mostrarPagina('inventario',this)">
-    <span>👗</span>Vestidos
-  </button>
+        <button class="nav-btn active" onclick="mostrarPagina('inicio',this)">
+            <span>⌂</span>Inicio
+        </button>
 
-  <button class="nav-btn" onclick="mostrarPagina('calendario',this)">
-    <span>📅</span>Calendario
-  </button>
+        <button class="nav-btn" onclick="mostrarPagina('inventario',this)">
+            <span>👗</span>Vestidos
+        </button>
 
-  <button class="nav-btn" onclick="mostrarPagina('clientes',this)">
-    <span>👩</span>Clientes
-  </button>
+        <button class="nav-btn" onclick="mostrarPagina('calendario',this)">
+            <span>📅</span>Calendario
+        </button>
 
-  <button class="nav-btn" onclick="mostrarPagina('rentas',this)">
-    <span>📝</span>Rentas
-  </button>
+        <button class="nav-btn" onclick="mostrarPagina('clientes',this)">
+            <span>👩</span>Clientes
+        </button>
 
-  <button class="nav-btn" onclick="mostrarPagina('caja',this)">
-    <span>💰</span>Caja
-  </button>
+        <button class="nav-btn" onclick="mostrarPagina('rentas',this)">
+            <span>📝</span>Rentas
+        </button>
 
-  <button class="nav-btn" onclick="mostrarPagina('config',this)">
-    <span>⚙️</span>Más
-  </button>
+        <button class="nav-btn" onclick="mostrarPagina('caja',this)">
+            <span>💰</span>Caja
+        </button>
+
+        <button class="nav-btn" onclick="mostrarPagina('mas',this)">
+            <span>☰</span>Más
+        </button>
+
+    </div>
 </nav>
 
 <!-- MODAL VESTIDO -->
 <div class="modal" id="modalVestido">
-  <div class="modal-box">
-    <div class="modal-head">
-      <h3 id="tituloVestido">Nuevo vestido</h3>
-      <button class="close" onclick="cerrarModal('modalVestido')">×</button>
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h3 id="tituloModalVestido">Agregar vestido</h3>
+            <button class="close" onclick="cerrarModal('modalVestido')">×</button>
+        </div>
+
+        <input type="hidden" id="vestidoId">
+
+        <div class="image-upload">
+
+            <img
+                id="previewVestido"
+                class="image-preview hidden"
+                alt="Foto del vestido"
+            >
+
+            <div id="sinFotoVestido">
+                <div style="font-size:45px">👗</div>
+                <strong>Foto del vestido</strong>
+                <div class="muted">Puedes agregar una foto desde tu celular</div>
+            </div>
+
+            <div style="height:10px"></div>
+
+            <label class="btn btn-primary">
+                📷 Elegir foto
+                <input
+                    id="fotoVestido"
+                    type="file"
+                    accept="image/*"
+                    capture="environment"
+                    onchange="previsualizarVestido(event)"
+                    style="display:none"
+                >
+            </label>
+
+            <button
+                type="button"
+                class="btn btn-danger"
+                onclick="quitarFotoVestido()"
+            >
+                Quitar foto
+            </button>
+
+        </div>
+
+        <div class="form-group">
+            <label>Nombre / modelo *</label>
+            <input id="vestidoNombre" placeholder="Ej. Vestido Rosa Elegante">
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Talla</label>
+                <input id="vestidoTalla" placeholder="Ej. CH, M, G">
+            </div>
+
+            <div class="form-group">
+                <label>Color</label>
+                <input id="vestidoColor" placeholder="Ej. Rosa">
+            </div>
+
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Precio de renta *</label>
+                <input id="vestidoPrecio" type="number" min="0" step="1" placeholder="0">
+            </div>
+
+            <div class="form-group">
+                <label>Estado</label>
+                <select id="vestidoEstado">
+                    <option value="Disponible">Disponible</option>
+                    <option value="Rentado">Rentado</option>
+                    <option value="Lavado">Lavado</option>
+                    <option value="Reparación">Reparación</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Notas</label>
+            <textarea id="vestidoNotas" placeholder="Detalles del vestido..."></textarea>
+        </div>
+
+        <button class="btn btn-primary full" onclick="guardarVestido()">
+            Guardar vestido
+        </button>
+
     </div>
-
-    <input type="hidden" id="vestidoId">
-
-    <div class="form-grid">
-      <div class="field">
-        <label>Nombre / modelo</label>
-        <input id="vestidoNombre" placeholder="Ej. Vestido Rosa">
-      </div>
-
-      <div class="field">
-        <label>Talla</label>
-        <input id="vestidoTalla" placeholder="Ej. M">
-      </div>
-
-      <div class="field">
-        <label>Color</label>
-        <input id="vestidoColor" placeholder="Ej. Rosa">
-      </div>
-
-      <div class="field">
-        <label>Precio de renta</label>
-        <input id="vestidoPrecio" type="number" min="0" placeholder="0">
-      </div>
-
-      <div class="field">
-        <label>Estado</label>
-        <select id="vestidoEstado">
-          <option value="Disponible">Disponible</option>
-          <option value="Rentado">Rentado</option>
-          <option value="Apartado">Apartado</option>
-          <option value="Lavado">Lavado</option>
-          <option value="Reparación">Reparación</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Notas</label>
-        <input id="vestidoNotas" placeholder="Detalles">
-      </div>
-    </div>
-
-    <button class="btn" style="width:100%;margin-top:16px" onclick="guardarVestido()">
-      Guardar vestido
-    </button>
-  </div>
 </div>
 
 <!-- MODAL CLIENTE -->
 <div class="modal" id="modalCliente">
-  <div class="modal-box">
-    <div class="modal-head">
-      <h3 id="tituloCliente">Nueva cliente</h3>
-      <button class="close" onclick="cerrarModal('modalCliente')">×</button>
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h3 id="tituloModalCliente">Agregar cliente</h3>
+            <button class="close" onclick="cerrarModal('modalCliente')">×</button>
+        </div>
+
+        <input type="hidden" id="clienteId">
+
+        <div class="form-group">
+            <label>Nombre *</label>
+            <input id="clienteNombre" placeholder="Nombre completo">
+        </div>
+
+        <div class="form-group">
+            <label>Teléfono</label>
+            <input id="clienteTelefono" type="tel" placeholder="Ej. 8112345678">
+        </div>
+
+        <div class="form-group">
+            <label>Notas</label>
+            <textarea id="clienteNotas" placeholder="Medidas, preferencias, etc."></textarea>
+        </div>
+
+        <button class="btn btn-primary full" onclick="guardarCliente()">
+            Guardar cliente
+        </button>
+
     </div>
-
-    <input type="hidden" id="clienteId">
-
-    <div class="form-grid">
-      <div class="field">
-        <label>Nombre</label>
-        <input id="clienteNombre" placeholder="Nombre completo">
-      </div>
-
-      <div class="field">
-        <label>Teléfono</label>
-        <input id="clienteTelefono" type="tel" placeholder="8112345678">
-      </div>
-
-      <div class="field full">
-        <label>Notas</label>
-        <textarea id="clienteNotas" rows="3" placeholder="Medidas, preferencias, etc."></textarea>
-      </div>
-    </div>
-
-    <button class="btn" style="width:100%;margin-top:16px" onclick="guardarCliente()">
-      Guardar cliente
-    </button>
-  </div>
 </div>
 
 <!-- MODAL RENTA -->
 <div class="modal" id="modalRenta">
-  <div class="modal-box">
-    <div class="modal-head">
-      <h3 id="tituloRenta">Nueva renta</h3>
-      <button class="close" onclick="cerrarModal('modalRenta')">×</button>
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h3 id="tituloModalRenta">Nueva renta</h3>
+            <button class="close" onclick="cerrarModal('modalRenta')">×</button>
+        </div>
+
+        <input type="hidden" id="rentaId">
+
+        <div class="form-group">
+            <label>Cliente *</label>
+            <select id="rentaCliente"></select>
+        </div>
+
+        <div class="form-group">
+            <label>Vestido *</label>
+            <select id="rentaVestido"></select>
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Fecha de entrega</label>
+                <input id="rentaEntrega" type="date">
+            </div>
+
+            <div class="form-group">
+                <label>Fecha de devolución</label>
+                <input id="rentaDevolucion" type="date">
+            </div>
+
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Precio</label>
+                <input id="rentaPrecio" type="number" min="0">
+            </div>
+
+            <div class="form-group">
+                <label>Depósito</label>
+                <input id="rentaDeposito" type="number" min="0">
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Estado</label>
+            <select id="rentaEstado">
+                <option value="Apartada">Apartada</option>
+                <option value="Activa">Activa</option>
+                <option value="Devuelta">Devuelta</option>
+                <option value="Cancelada">Cancelada</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Notas</label>
+            <textarea id="rentaNotas"></textarea>
+        </div>
+
+        <button class="btn btn-primary full" onclick="guardarRenta()">
+            Guardar renta
+        </button>
+
     </div>
-
-    <input type="hidden" id="rentaId">
-
-    <div class="form-grid">
-      <div class="field">
-        <label>Cliente</label>
-        <select id="rentaCliente"></select>
-      </div>
-
-      <div class="field">
-        <label>Vestido</label>
-        <select id="rentaVestido"></select>
-      </div>
-
-      <div class="field">
-        <label>Fecha de entrega</label>
-        <input id="rentaEntrega" type="date">
-      </div>
-
-      <div class="field">
-        <label>Fecha de regreso</label>
-        <input id="rentaRegreso" type="date">
-      </div>
-
-      <div class="field">
-        <label>Precio acordado</label>
-        <input id="rentaPrecio" type="number" min="0">
-      </div>
-
-      <div class="field">
-        <label>Anticipo</label>
-        <input id="rentaAnticipo" type="number" min="0">
-      </div>
-
-      <div class="field">
-        <label>Estado</label>
-        <select id="rentaEstado">
-          <option value="Apartada">Apartada</option>
-          <option value="Confirmada">Confirmada</option>
-          <option value="Entregada">Entregada</option>
-          <option value="Devuelta">Devuelta</option>
-          <option value="Cancelada">Cancelada</option>
-        </select>
-      </div>
-
-      <div class="field full">
-        <label>Notas</label>
-        <textarea id="rentaNotas" rows="3"></textarea>
-      </div>
-    </div>
-
-    <button class="btn" style="width:100%;margin-top:16px" onclick="guardarRenta()">
-      Guardar renta
-    </button>
-  </div>
 </div>
 
-<!-- MODAL CAJA -->
+<!-- MODAL MOVIMIENTO -->
 <div class="modal" id="modalMovimiento">
-  <div class="modal-box">
-    <div class="modal-head">
-      <h3>Nuevo movimiento</h3>
-      <button class="close" onclick="cerrarModal('modalMovimiento')">×</button>
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h3>Agregar movimiento</h3>
+            <button class="close" onclick="cerrarModal('modalMovimiento')">×</button>
+        </div>
+
+        <div class="form-group">
+            <label>Tipo</label>
+            <select id="movTipo">
+                <option value="Ingreso">Ingreso</option>
+                <option value="Gasto">Gasto</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Concepto *</label>
+            <input id="movConcepto" placeholder="Ej. Renta vestido">
+        </div>
+
+        <div class="form-group">
+            <label>Monto *</label>
+            <input id="movMonto" type="number" min="0" step="1">
+        </div>
+
+        <div class="form-group">
+            <label>Fecha</label>
+            <input id="movFecha" type="date">
+        </div>
+
+        <button class="btn btn-primary full" onclick="guardarMovimiento()">
+            Guardar movimiento
+        </button>
+
     </div>
-
-    <div class="form-grid">
-      <div class="field">
-        <label>Tipo</label>
-        <select id="movTipo">
-          <option value="Ingreso">Ingreso</option>
-          <option value="Gasto">Gasto</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Cantidad</label>
-        <input id="movCantidad" type="number" min="0">
-      </div>
-
-      <div class="field full">
-        <label>Concepto</label>
-        <input id="movConcepto" placeholder="Ej. Renta vestido">
-      </div>
-    </div>
-
-    <button class="btn" style="width:100%;margin-top:16px" onclick="guardarMovimiento()">
-      Guardar movimiento
-    </button>
-  </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
+
 const STORAGE_KEY = "juliettaDresses";
 
 let datos = {
-  configuracion:{
-    nombre:"Julietta Dresses",
-    whatsapp:""
-  },
-  vestidos:[],
-  clientes:[],
-  rentas:[],
-  movimientos:[]
+    configuracion:{
+        nombre:"Julietta Dresses",
+        whatsapp:""
+    },
+    vestidos:[],
+    clientes:[],
+    rentas:[],
+    movimientos:[]
 };
 
-let fechaCalendario = new Date();
+let mesActual = new Date();
+let fotoVestidoActual = null;
+
+/* =========================
+   DATOS
+========================= */
 
 function cargarDatos(){
-  try{
+
     const guardado = localStorage.getItem(STORAGE_KEY);
 
     if(guardado){
-      datos = JSON.parse(guardado);
 
-      if(!datos.configuracion) datos.configuracion={nombre:"Julietta Dresses",whatsapp:""};
-      if(!datos.vestidos) datos.vestidos=[];
-      if(!datos.clientes) datos.clientes=[];
-      if(!datos.rentas) datos.rentas=[];
-      if(!datos.movimientos) datos.movimientos=[];
+        try{
+
+            const datosGuardados = JSON.parse(guardado);
+
+            datos = {
+                configuracion:{
+                    nombre:"Julietta Dresses",
+                    whatsapp:"",
+                    ...(datosGuardados.configuracion || {})
+                },
+                vestidos:Array.isArray(datosGuardados.vestidos)
+                    ? datosGuardados.vestidos
+                    : [],
+                clientes:Array.isArray(datosGuardados.clientes)
+                    ? datosGuardados.clientes
+                    : [],
+                rentas:Array.isArray(datosGuardados.rentas)
+                    ? datosGuardados.rentas
+                    : [],
+                movimientos:Array.isArray(datosGuardados.movimientos)
+                    ? datosGuardados.movimientos
+                    : []
+            };
+
+        }catch(e){
+
+            console.error(e);
+
+        }
+
     }
-  }catch(e){
-    console.log(e);
-  }
+
+    guardarDatos();
 }
 
 function guardarDatos(){
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(datos));
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(datos)
+    );
 }
 
-function dinero(numero){
-  return Number(numero || 0).toLocaleString("es-MX",{
-    style:"currency",
-    currency:"MXN"
-  });
+/* =========================
+   UTILIDADES
+========================= */
+
+function dinero(valor){
+
+    return new Intl.NumberFormat("es-MX",{
+        style:"currency",
+        currency:"MXN",
+        minimumFractionDigits:0
+    }).format(Number(valor)||0);
+
 }
 
-function escapeHTML(text){
-  return String(text ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-}
+function escapeHTML(texto){
 
-function fechaBonita(fecha){
-  if(!fecha)return "Sin fecha";
+    return String(texto ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
-  const partes=fecha.split("-");
-
-  if(partes.length!==3)return fecha;
-
-  return `${partes[2]}/${partes[1]}/${partes[0]}`;
 }
 
 function hoyISO(){
-  const d=new Date();
-  const y=d.getFullYear();
-  const m=String(d.getMonth()+1).padStart(2,"0");
-  const day=String(d.getDate()).padStart(2,"0");
-  return `${y}-${m}-${day}`;
+
+    const d = new Date();
+
+    const y = d.getFullYear();
+    const m = String(d.getMonth()+1).padStart(2,"0");
+    const day = String(d.getDate()).padStart(2,"0");
+
+    return `${y}-${m}-${day}`;
+}
+
+function fechaBonita(fecha){
+
+    if(!fecha) return "Sin fecha";
+
+    const partes = fecha.split("-");
+
+    if(partes.length === 3){
+
+        return `${partes[2]}/${partes[1]}/${partes[0]}`;
+
+    }
+
+    return fecha;
 }
 
 function mostrarToast(mensaje){
-  const toast=document.getElementById("toast");
-  toast.textContent=mensaje;
-  toast.classList.add("show");
 
-  setTimeout(()=>{
-    toast.classList.remove("show");
-  },2200);
-}
+    const toast = document.getElementById("toast");
 
-function mostrarPagina(nombre,boton){
+    toast.textContent = mensaje;
+    toast.classList.add("show");
 
-  document.querySelectorAll(".page").forEach(p=>{
-    p.classList.remove("active");
-  });
-
-  const pagina=document.getElementById("page-"+nombre);
-
-  if(pagina) pagina.classList.add("active");
-
-  document.querySelectorAll(".nav-btn").forEach(b=>{
-    b.classList.remove("active");
-  });
-
-  if(boton){
-    boton.classList.add("active");
-  }else{
-    const botones=document.querySelectorAll(".nav-btn");
-
-    botones.forEach(b=>{
-      if(b.getAttribute("onclick")?.includes("'"+nombre+"'")){
-        b.classList.add("active");
-      }
-    });
-  }
-
-  actualizarTodo();
-  window.scrollTo(0,0);
-}
-
-function actualizarTodo(){
-  renderInicio();
-  renderInventario();
-  renderClientes();
-  renderRentas();
-  renderCaja();
-  renderRegresos();
-  renderRevision();
-  renderCalendario();
-  cargarConfiguracion();
+    setTimeout(()=>{
+        toast.classList.remove("show");
+    },2500);
 }
 
 function abrirModal(id){
-  document.getElementById(id).classList.add("show");
+
+    document.getElementById(id).classList.add("show");
+
 }
 
 function cerrarModal(id){
-  document.getElementById(id).classList.remove("show");
+
+    document.getElementById(id).classList.remove("show");
+
+}
+
+/* =========================
+   NAVEGACIÓN
+========================= */
+
+function mostrarPagina(pagina,boton){
+
+    document.querySelectorAll(".page").forEach(p=>{
+        p.classList.remove("active");
+    });
+
+    const destino = document.getElementById("pagina-"+pagina);
+
+    if(destino){
+        destino.classList.add("active");
+    }
+
+    document.querySelectorAll(".nav-btn").forEach(b=>{
+        b.classList.remove("active");
+    });
+
+    if(boton){
+        boton.classList.add("active");
+    }
+
+    actualizarTodo();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+/* =========================
+   ACTUALIZAR TODO
+========================= */
+
+function actualizarTodo(){
+
+    document.getElementById("tituloNegocio").textContent =
+        datos.configuracion.nombre || "Julietta Dresses";
+
+    renderInicio();
+    renderVestidos();
+    renderClientes();
+    renderRentas();
+    renderCaja();
+    renderRegresos();
+    renderRevision();
+    renderCalendario();
+    cargarConfiguracion();
+
 }
 
 /* =========================
@@ -1038,218 +1322,518 @@ function cerrarModal(id){
 
 function renderInicio(){
 
-  document.getElementById("statVestidos").textContent=datos.vestidos.length;
-  document.getElementById("statClientes").textContent=datos.clientes.length;
+    document.getElementById("statVestidos").textContent =
+        datos.vestidos.length;
 
-  const rentasActivas=datos.rentas.filter(r=>
-    r.estado!=="Devuelta" &&
-    r.estado!=="Cancelada"
-  );
+    document.getElementById("statClientes").textContent =
+        datos.clientes.length;
 
-  document.getElementById("statRentas").textContent=rentasActivas.length;
+    const activas = datos.rentas.filter(r=>
+        r.estado === "Activa" ||
+        r.estado === "Apartada"
+    );
 
-  const ingresos=datos.movimientos
-    .filter(m=>m.tipo==="Ingreso")
-    .reduce((s,m)=>s+Number(m.cantidad||0),0);
+    document.getElementById("statRentas").textContent =
+        activas.length;
 
-  document.getElementById("statIngresos").textContent=dinero(ingresos);
+    const ingresos = datos.movimientos
+        .filter(m=>m.tipo==="Ingreso")
+        .reduce((a,m)=>a+Number(m.monto||0),0);
 
-  const alertas=document.getElementById("alertasInicio");
+    document.getElementById("statIngresos").textContent =
+        dinero(ingresos);
 
-  const proximos=datos.rentas
-    .filter(r=>
-      r.estado!=="Devuelta" &&
-      r.estado!=="Cancelada" &&
-      r.regreso
-    )
-    .sort((a,b)=>a.regreso.localeCompare(b.regreso))
-    .slice(0,4);
+    const hoy = hoyISO();
 
-  if(!proximos.length){
-    alertas.innerHTML='<div class="empty">No tienes regresos próximos.</div>';
-  }else{
-    alertas.innerHTML=proximos.map(r=>{
+    const devoluciones = datos.rentas
+        .filter(r=>
+            r.estado==="Activa" &&
+            r.devolucion
+        )
+        .sort((a,b)=>
+            a.devolucion.localeCompare(b.devolucion)
+        )
+        .slice(0,5);
 
-      const cliente=datos.clientes.find(c=>c.id===r.clienteId);
-      const vestido=datos.vestidos.find(v=>v.id===r.vestidoId);
+    const div = document.getElementById("proximasDevoluciones");
 
-      return `
-      <div class="item">
-        <div class="item-top">
-          <div>
-            <div class="item-title">${escapeHTML(cliente?.nombre || "Cliente")}</div>
-            <div class="item-info">
-              ${escapeHTML(vestido?.nombre || "Vestido")}<br>
-              Regresa: <b>${fechaBonita(r.regreso)}</b>
+    if(!devoluciones.length){
+
+        div.innerHTML = `
+            <div class="empty">
+                No hay devoluciones pendientes.
             </div>
-          </div>
-          <span class="badge gold">${escapeHTML(r.estado)}</span>
-        </div>
-      </div>`;
-    }).join("");
-  }
+        `;
 
-  const futuras=datos.rentas
-    .filter(r=>r.entrega && r.entrega>=hoyISO() && r.estado!=="Cancelada")
-    .sort((a,b)=>a.entrega.localeCompare(b.entrega))
-    .slice(0,4);
+    }else{
 
-  const cont=document.getElementById("proximasRentas");
+        div.innerHTML = devoluciones.map(r=>{
 
-  if(!futuras.length){
-    cont.innerHTML='<div class="empty">No hay rentas próximas.</div>';
-  }else{
-    cont.innerHTML=futuras.map(r=>{
+            const cliente = datos.clientes.find(c=>c.id===r.clienteId);
+            const vestido = datos.vestidos.find(v=>v.id===r.vestidoId);
 
-      const cliente=datos.clientes.find(c=>c.id===r.clienteId);
-      const vestido=datos.vestidos.find(v=>v.id===r.vestidoId);
+            return `
+                <div class="list-item">
+                    <div class="list-main">
+                        <div>
+                            <strong>${escapeHTML(cliente?.nombre || "Cliente")}</strong>
+                            <div class="muted">
+                                ${escapeHTML(vestido?.nombre || "Vestido")}
+                            </div>
+                        </div>
 
-      return `
-      <div class="item">
-        <div class="item-title">${escapeHTML(cliente?.nombre || "Cliente")}</div>
-        <div class="item-info">
-          ${escapeHTML(vestido?.nombre || "Vestido")} ·
-          Entrega ${fechaBonita(r.entrega)}
-        </div>
-      </div>`;
-    }).join("");
-  }
+                        <div>
+                            <strong>${fechaBonita(r.devolucion)}</strong>
+                            ${
+                                r.devolucion < hoy
+                                ? `<div style="color:var(--rojo);font-size:12px">Atrasada</div>`
+                                : ""
+                            }
+                        </div>
+                    </div>
+                </div>
+            `;
+
+        }).join("");
+
+    }
+
+    const rentas = datos.rentas
+        .filter(r=>
+            r.estado==="Apartada" ||
+            r.estado==="Activa"
+        )
+        .sort((a,b)=>
+            (a.entrega||"").localeCompare(b.entrega||"")
+        )
+        .slice(0,5);
+
+    const divRentas = document.getElementById("proximasRentas");
+
+    if(!rentas.length){
+
+        divRentas.innerHTML = `
+            <div class="empty">
+                No hay próximas rentas.
+            </div>
+        `;
+
+    }else{
+
+        divRentas.innerHTML = rentas.map(r=>{
+
+            const cliente = datos.clientes.find(c=>c.id===r.clienteId);
+            const vestido = datos.vestidos.find(v=>v.id===r.vestidoId);
+
+            return `
+                <div class="list-item">
+                    <div class="list-main">
+                        <div>
+                            <strong>${escapeHTML(cliente?.nombre || "Cliente")}</strong>
+                            <div class="muted">${escapeHTML(vestido?.nombre || "Vestido")}</div>
+                        </div>
+
+                        <div>
+                            ${fechaBonita(r.entrega)}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+        }).join("");
+
+    }
+
 }
 
 /* =========================
-   INVENTARIO
+   VESTIDOS
 ========================= */
 
 function abrirVestido(id=null){
 
-  document.getElementById("vestidoId").value="";
-  document.getElementById("vestidoNombre").value="";
-  document.getElementById("vestidoTalla").value="";
-  document.getElementById("vestidoColor").value="";
-  document.getElementById("vestidoPrecio").value="";
-  document.getElementById("vestidoEstado").value="Disponible";
-  document.getElementById("vestidoNotas").value="";
+    fotoVestidoActual = null;
 
-  document.getElementById("tituloVestido").textContent="Nuevo vestido";
+    document.getElementById("vestidoId").value = "";
+    document.getElementById("vestidoNombre").value = "";
+    document.getElementById("vestidoTalla").value = "";
+    document.getElementById("vestidoColor").value = "";
+    document.getElementById("vestidoPrecio").value = "";
+    document.getElementById("vestidoEstado").value = "Disponible";
+    document.getElementById("vestidoNotas").value = "";
+    document.getElementById("fotoVestido").value = "";
 
-  if(id){
-    const v=datos.vestidos.find(x=>x.id===id);
+    document.getElementById("tituloModalVestido").textContent =
+        "Agregar vestido";
 
-    if(!v)return;
+    mostrarPreviewFoto(null);
 
-    document.getElementById("tituloVestido").textContent="Editar vestido";
-    document.getElementById("vestidoId").value=v.id;
-    document.getElementById("vestidoNombre").value=v.nombre || "";
-    document.getElementById("vestidoTalla").value=v.talla || "";
-    document.getElementById("vestidoColor").value=v.color || "";
-    document.getElementById("vestidoPrecio").value=v.precio || "";
-    document.getElementById("vestidoEstado").value=v.estado || "Disponible";
-    document.getElementById("vestidoNotas").value=v.notas || "";
-  }
+    if(id){
 
-  abrirModal("modalVestido");
+        const vestido = datos.vestidos.find(v=>v.id===id);
+
+        if(!vestido) return;
+
+        document.getElementById("tituloModalVestido").textContent =
+            "Editar vestido";
+
+        document.getElementById("vestidoId").value = vestido.id;
+        document.getElementById("vestidoNombre").value = vestido.nombre || "";
+        document.getElementById("vestidoTalla").value = vestido.talla || "";
+        document.getElementById("vestidoColor").value = vestido.color || "";
+        document.getElementById("vestidoPrecio").value = vestido.precio || "";
+        document.getElementById("vestidoEstado").value = vestido.estado || "Disponible";
+        document.getElementById("vestidoNotas").value = vestido.notas || "";
+
+        fotoVestidoActual = vestido.foto || null;
+
+        mostrarPreviewFoto(fotoVestidoActual);
+
+    }
+
+    abrirModal("modalVestido");
+}
+
+function previsualizarVestido(event){
+
+    const file = event.target.files?.[0];
+
+    if(!file) return;
+
+    if(!file.type.startsWith("image/")){
+
+        mostrarToast("Selecciona una imagen válida.");
+        return;
+
+    }
+
+    procesarImagen(file)
+        .then(imagen=>{
+
+            fotoVestidoActual = imagen;
+            mostrarPreviewFoto(imagen);
+
+        })
+        .catch(()=>{
+
+            mostrarToast("No se pudo procesar la imagen.");
+
+        });
+
+}
+
+function procesarImagen(file){
+
+    return new Promise((resolve,reject)=>{
+
+        const lector = new FileReader();
+
+        lector.onload = e=>{
+
+            const img = new Image();
+
+            img.onload = ()=>{
+
+                const max = 900;
+
+                let width = img.width;
+                let height = img.height;
+
+                if(width > max || height > max){
+
+                    if(width > height){
+
+                        height = Math.round(height * max / width);
+                        width = max;
+
+                    }else{
+
+                        width = Math.round(width * max / height);
+                        height = max;
+
+                    }
+
+                }
+
+                const canvas = document.createElement("canvas");
+
+                canvas.width = width;
+                canvas.height = height;
+
+                const ctx = canvas.getContext("2d");
+
+                ctx.drawImage(
+                    img,
+                    0,
+                    0,
+                    width,
+                    height
+                );
+
+                resolve(
+                    canvas.toDataURL("image/jpeg",.78)
+                );
+
+            };
+
+            img.onerror = reject;
+            img.src = e.target.result;
+
+        };
+
+        lector.onerror = reject;
+
+        lector.readAsDataURL(file);
+
+    });
+
+}
+
+function mostrarPreviewFoto(foto){
+
+    const img = document.getElementById("previewVestido");
+    const sinFoto = document.getElementById("sinFotoVestido");
+
+    if(foto){
+
+        img.src = foto;
+        img.classList.remove("hidden");
+        sinFoto.style.display = "none";
+
+    }else{
+
+        img.src = "";
+        img.classList.add("hidden");
+        sinFoto.style.display = "block";
+
+    }
+
+}
+
+function quitarFotoVestido(){
+
+    fotoVestidoActual = null;
+
+    document.getElementById("fotoVestido").value = "";
+
+    mostrarPreviewFoto(null);
+
 }
 
 function guardarVestido(){
 
-  const nombre=document.getElementById("vestidoNombre").value.trim();
+    const id = document.getElementById("vestidoId").value;
+    const nombre = document.getElementById("vestidoNombre").value.trim();
+    const talla = document.getElementById("vestidoTalla").value.trim();
+    const color = document.getElementById("vestidoColor").value.trim();
+    const precio = Number(document.getElementById("vestidoPrecio").value||0);
+    const estado = document.getElementById("vestidoEstado").value;
+    const notas = document.getElementById("vestidoNotas").value.trim();
 
-  if(!nombre){
-    alert("Escribe el nombre o modelo del vestido.");
-    return;
-  }
+    if(!nombre){
 
-  const id=document.getElementById("vestidoId").value;
+        mostrarToast("Escribe el nombre o modelo del vestido.");
+        return;
 
-  const vestido={
-    id:id || Date.now().toString(),
-    nombre,
-    talla:document.getElementById("vestidoTalla").value.trim(),
-    color:document.getElementById("vestidoColor").value.trim(),
-    precio:Number(document.getElementById("vestidoPrecio").value || 0),
-    estado:document.getElementById("vestidoEstado").value,
-    notas:document.getElementById("vestidoNotas").value.trim()
-  };
+    }
 
-  if(id){
-    const index=datos.vestidos.findIndex(v=>v.id===id);
+    if(id){
 
-    if(index>=0) datos.vestidos[index]=vestido;
-  }else{
-    datos.vestidos.push(vestido);
-  }
+        const vestido = datos.vestidos.find(v=>v.id===id);
 
-  guardarDatos();
-  cerrarModal("modalVestido");
-  actualizarTodo();
-  mostrarToast("Vestido guardado ✓");
+        if(vestido){
+
+            vestido.nombre = nombre;
+            vestido.talla = talla;
+            vestido.color = color;
+            vestido.precio = precio;
+            vestido.estado = estado;
+            vestido.notas = notas;
+            vestido.foto = fotoVestidoActual || null;
+
+        }
+
+        mostrarToast("Vestido actualizado.");
+
+    }else{
+
+        datos.vestidos.push({
+
+            id:"vestido_"+Date.now()+"_"+Math.random().toString(36).slice(2,7),
+
+            nombre,
+            talla,
+            color,
+            precio,
+            estado,
+            notas,
+            foto:fotoVestidoActual || null,
+
+            creado:new Date().toISOString()
+
+        });
+
+        mostrarToast("Vestido agregado.");
+
+    }
+
+    guardarDatos();
+
+    cerrarModal("modalVestido");
+
+    actualizarTodo();
+
+}
+
+/* =========================
+   RENDER VESTIDOS
+========================= */
+
+function renderVestidos(){
+
+    const contenedor = document.getElementById("listaVestidos");
+
+    if(!contenedor) return;
+
+    const busqueda = (
+        document.getElementById("buscarVestido")?.value || ""
+    ).toLowerCase().trim();
+
+    const vestidos = datos.vestidos.filter(v=>{
+
+        const texto = `
+            ${v.nombre||""}
+            ${v.talla||""}
+            ${v.color||""}
+            ${v.estado||""}
+        `.toLowerCase();
+
+        return texto.includes(busqueda);
+
+    });
+
+    if(!vestidos.length){
+
+        contenedor.innerHTML = `
+            <div class="empty" style="grid-column:1/-1">
+                <div class="empty-icon">👗</div>
+                <strong>No hay vestidos registrados</strong>
+                <div style="margin-top:6px">
+                    Agrega tu primer vestido.
+                </div>
+            </div>
+        `;
+
+        return;
+
+    }
+
+    contenedor.innerHTML = vestidos.map(v=>{
+
+        let badge = "badge-disponible";
+
+        if(v.estado==="Rentado") badge = "badge-rentado";
+        if(v.estado==="Lavado") badge = "badge-lavado";
+        if(v.estado==="Reparación") badge = "badge-reparacion";
+
+        const foto = v.foto
+            ? `<img class="dress-photo" src="${v.foto}" alt="${escapeHTML(v.nombre)}">`
+            : `<div class="dress-placeholder">👗</div>`;
+
+        return `
+            <div class="card">
+
+                ${foto}
+
+                <div class="card-body">
+
+                    <h3>${escapeHTML(v.nombre)}</h3>
+
+                    ${
+                        v.talla
+                        ? `<p>📏 Talla: ${escapeHTML(v.talla)}</p>`
+                        : ""
+                    }
+
+                    ${
+                        v.color
+                        ? `<p>🎨 ${escapeHTML(v.color)}</p>`
+                        : ""
+                    }
+
+                    <p>
+                        💰 <strong>${dinero(v.precio)}</strong>
+                    </p>
+
+                    <span class="badge ${badge}">
+                        ${escapeHTML(v.estado || "Disponible")}
+                    </span>
+
+                    ${
+                        v.notas
+                        ? `<p style="margin-top:8px">${escapeHTML(v.notas)}</p>`
+                        : ""
+                    }
+
+                    <div class="card-actions">
+
+                        <button
+                            class="btn btn-secondary btn-small"
+                            onclick="abrirVestido('${v.id}')"
+                        >
+                            Editar
+                        </button>
+
+                        <button
+                            class="btn btn-danger btn-small"
+                            onclick="eliminarVestido('${v.id}')"
+                        >
+                            Eliminar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+
+    }).join("");
+
 }
 
 function eliminarVestido(id){
 
-  const v=datos.vestidos.find(x=>x.id===id);
+    const vestido = datos.vestidos.find(v=>v.id===id);
 
-  if(!v)return;
+    if(!vestido) return;
 
-  if(!confirm(`¿Eliminar "${v.nombre}"?`))return;
+    const tieneRentas = datos.rentas.some(r=>
+        r.vestidoId===id &&
+        r.estado!=="Cancelada"
+    );
 
-  datos.vestidos=datos.vestidos.filter(x=>x.id!==id);
+    if(tieneRentas){
 
-  guardarDatos();
-  actualizarTodo();
-  mostrarToast("Vestido eliminado");
-}
+        if(!confirm(
+            "Este vestido tiene rentas relacionadas. ¿Seguro que quieres eliminarlo?"
+        )) return;
 
-function renderInventario(){
+    }else{
 
-  const buscar=(document.getElementById("buscarVestido")?.value || "").toLowerCase();
+        if(!confirm(
+            `¿Eliminar "${vestido.nombre}"?`
+        )) return;
 
-  const lista=datos.vestidos.filter(v=>
-    `${v.nombre} ${v.talla} ${v.color} ${v.estado}`.toLowerCase().includes(buscar)
-  );
+    }
 
-  const cont=document.getElementById("listaInventario");
+    datos.vestidos = datos.vestidos.filter(v=>v.id!==id);
 
-  if(!lista.length){
-    cont.innerHTML=`
-      <div class="empty">
-        <div style="font-size:35px">👗</div>
-        <p>No tienes vestidos registrados.</p>
-        <button class="btn" onclick="abrirVestido()">Agregar vestido</button>
-      </div>`;
-    return;
-  }
+    guardarDatos();
+    actualizarTodo();
 
-  cont.innerHTML=lista.map(v=>`
+    mostrarToast("Vestido eliminado.");
 
-    <div class="item">
-      <div class="item-top">
-        <div>
-          <div class="item-title">${escapeHTML(v.nombre)}</div>
-          <div class="item-info">
-            Talla: ${escapeHTML(v.talla || "—")}<br>
-            Color: ${escapeHTML(v.color || "—")}<br>
-            Renta: <b>${dinero(v.precio)}</b>
-          </div>
-        </div>
-
-        <span class="badge ${
-          v.estado==="Disponible" ? "green" :
-          v.estado==="Rentado" ? "red" : "gold"
-        }">
-          ${escapeHTML(v.estado)}
-        </span>
-      </div>
-
-      ${v.notas ? `<div class="notice">${escapeHTML(v.notas)}</div>` : ""}
-
-      <div class="actions">
-        <button class="btn small secondary" onclick="abrirVestido('${v.id}')">✏️ Editar</button>
-        <button class="btn small red" onclick="eliminarVestido('${v.id}')">Eliminar</button>
-      </div>
-    </div>
-
-  `).join("");
 }
 
 /* =========================
@@ -1258,142 +1842,226 @@ function renderInventario(){
 
 function abrirCliente(id=null){
 
-  document.getElementById("clienteId").value="";
-  document.getElementById("clienteNombre").value="";
-  document.getElementById("clienteTelefono").value="";
-  document.getElementById("clienteNotas").value="";
+    document.getElementById("clienteId").value = "";
+    document.getElementById("clienteNombre").value = "";
+    document.getElementById("clienteTelefono").value = "";
+    document.getElementById("clienteNotas").value = "";
 
-  document.getElementById("tituloCliente").textContent="Nueva cliente";
+    document.getElementById("tituloModalCliente").textContent =
+        "Agregar cliente";
 
-  if(id){
+    if(id){
 
-    const c=datos.clientes.find(x=>x.id===id);
+        const cliente = datos.clientes.find(c=>c.id===id);
 
-    if(!c)return;
+        if(!cliente) return;
 
-    document.getElementById("tituloCliente").textContent="Editar cliente";
-    document.getElementById("clienteId").value=c.id;
-    document.getElementById("clienteNombre").value=c.nombre || "";
-    document.getElementById("clienteTelefono").value=c.telefono || "";
-    document.getElementById("clienteNotas").value=c.notas || "";
-  }
+        document.getElementById("tituloModalCliente").textContent =
+            "Editar cliente";
 
-  abrirModal("modalCliente");
+        document.getElementById("clienteId").value = cliente.id;
+        document.getElementById("clienteNombre").value = cliente.nombre || "";
+        document.getElementById("clienteTelefono").value = cliente.telefono || "";
+        document.getElementById("clienteNotas").value = cliente.notas || "";
+
+    }
+
+    abrirModal("modalCliente");
 }
 
 function guardarCliente(){
 
-  const nombre=document.getElementById("clienteNombre").value.trim();
+    const id = document.getElementById("clienteId").value;
 
-  if(!nombre){
-    alert("Escribe el nombre de la cliente.");
-    return;
-  }
+    const nombre =
+        document.getElementById("clienteNombre").value.trim();
 
-  const id=document.getElementById("clienteId").value;
+    const telefono =
+        document.getElementById("clienteTelefono").value.trim();
 
-  const cliente={
-    id:id || Date.now().toString(),
-    nombre,
-    telefono:document.getElementById("clienteTelefono").value.trim(),
-    notas:document.getElementById("clienteNotas").value.trim()
-  };
+    const notas =
+        document.getElementById("clienteNotas").value.trim();
 
-  if(id){
-    const index=datos.clientes.findIndex(c=>c.id===id);
+    if(!nombre){
 
-    if(index>=0) datos.clientes[index]=cliente;
-  }else{
-    datos.clientes.push(cliente);
-  }
+        mostrarToast("Escribe el nombre del cliente.");
+        return;
 
-  guardarDatos();
-  cerrarModal("modalCliente");
-  actualizarTodo();
-  mostrarToast("Cliente guardada ✓");
-}
+    }
 
-function eliminarCliente(id){
+    if(id){
 
-  const c=datos.clientes.find(x=>x.id===id);
+        const cliente = datos.clientes.find(c=>c.id===id);
 
-  if(!c)return;
+        if(cliente){
 
-  if(!confirm(`¿Eliminar a ${c.nombre}?`))return;
+            cliente.nombre = nombre;
+            cliente.telefono = telefono;
+            cliente.notas = notas;
 
-  datos.clientes=datos.clientes.filter(x=>x.id!==id);
+        }
 
-  guardarDatos();
-  actualizarTodo();
-  mostrarToast("Cliente eliminada");
-}
+        mostrarToast("Cliente actualizado.");
 
-function whatsapp(telefono){
+    }else{
 
-  if(!telefono){
-    alert("Esta cliente no tiene teléfono registrado.");
-    return;
-  }
+        datos.clientes.push({
 
-  let numero=telefono.replace(/\D/g,"");
+            id:"cliente_"+Date.now(),
+            nombre,
+            telefono,
+            notas,
+            creado:new Date().toISOString()
 
-  if(numero.length===10){
-    numero="52"+numero;
-  }
+        });
 
-  window.open("https://wa.me/"+numero,"_blank");
+        mostrarToast("Cliente agregado.");
+
+    }
+
+    guardarDatos();
+    cerrarModal("modalCliente");
+    actualizarTodo();
+
 }
 
 function renderClientes(){
 
-  const buscar=(document.getElementById("buscarCliente")?.value || "").toLowerCase();
+    const contenedor =
+        document.getElementById("listaClientes");
 
-  const lista=datos.clientes.filter(c=>
-    `${c.nombre} ${c.telefono}`.toLowerCase().includes(buscar)
-  );
+    if(!contenedor) return;
 
-  const cont=document.getElementById("listaClientes");
+    const busqueda =
+        (document.getElementById("buscarCliente")?.value||"")
+        .toLowerCase()
+        .trim();
 
-  if(!lista.length){
-    cont.innerHTML=`
-      <div class="empty">
-        <div style="font-size:35px">👩</div>
-        <p>No tienes clientes registradas.</p>
-        <button class="btn" onclick="abrirCliente()">Agregar cliente</button>
-      </div>`;
-    return;
-  }
+    const clientes = datos.clientes.filter(c=>{
 
-  cont.innerHTML=lista.map(c=>`
+        return `
+            ${c.nombre||""}
+            ${c.telefono||""}
+        `.toLowerCase().includes(busqueda);
 
-    <div class="item">
-      <div class="item-title">${escapeHTML(c.nombre)}</div>
+    });
 
-      <div class="item-info">
-        📱 ${escapeHTML(c.telefono || "Sin teléfono")}
-      </div>
+    if(!clientes.length){
 
-      ${c.notas ? `<div class="notice">${escapeHTML(c.notas)}</div>` : ""}
+        contenedor.innerHTML = `
+            <div class="section">
+                <div class="empty">
+                    <div class="empty-icon">👩</div>
+                    No hay clientes registrados.
+                </div>
+            </div>
+        `;
 
-      <div class="actions">
+        return;
 
-        ${c.telefono ? `
-          <button class="btn small green" onclick="whatsapp('${escapeHTML(c.telefono)}')">
-            WhatsApp
-          </button>` : ""}
+    }
 
-        <button class="btn small secondary" onclick="abrirCliente('${c.id}')">
-          ✏️ Editar
-        </button>
+    contenedor.innerHTML = clientes.map(c=>{
 
-        <button class="btn small red" onclick="eliminarCliente('${c.id}')">
-          Eliminar
-        </button>
+        return `
+            <div class="section">
 
-      </div>
-    </div>
+                <div class="list-main">
 
-  `).join("");
+                    <div>
+                        <strong>${escapeHTML(c.nombre)}</strong>
+
+                        ${
+                            c.telefono
+                            ? `<div class="muted">📱 ${escapeHTML(c.telefono)}</div>`
+                            : ""
+                        }
+
+                        ${
+                            c.notas
+                            ? `<div class="muted">${escapeHTML(c.notas)}</div>`
+                            : ""
+                        }
+                    </div>
+
+                    <div style="display:flex;gap:6px;align-items:center">
+
+                        ${
+                            c.telefono
+                            ? `
+                            <button
+                                class="btn btn-success btn-small"
+                                onclick="whatsapp('${c.telefono}')"
+                            >
+                                WhatsApp
+                            </button>
+                            `
+                            : ""
+                        }
+
+                    </div>
+
+                </div>
+
+                <div class="card-actions">
+
+                    <button
+                        class="btn btn-secondary btn-small"
+                        onclick="abrirCliente('${c.id}')"
+                    >
+                        Editar
+                    </button>
+
+                    <button
+                        class="btn btn-danger btn-small"
+                        onclick="eliminarCliente('${c.id}')"
+                    >
+                        Eliminar
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+
+    }).join("");
+
+}
+
+function eliminarCliente(id){
+
+    if(!confirm("¿Eliminar este cliente?")) return;
+
+    datos.clientes =
+        datos.clientes.filter(c=>c.id!==id);
+
+    guardarDatos();
+    actualizarTodo();
+
+    mostrarToast("Cliente eliminado.");
+
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function whatsapp(numero){
+
+    let n = String(numero||"")
+        .replace(/\D/g,"");
+
+    if(!n) return;
+
+    if(n.length===10){
+        n = "52"+n;
+    }
+
+    window.open(
+        "https://wa.me/"+n,
+        "_blank"
+    );
+
 }
 
 /* =========================
@@ -1402,242 +2070,411 @@ function renderClientes(){
 
 function abrirRenta(id=null){
 
-  llenarSelectClientes();
-  llenarSelectVestidos();
+    document.getElementById("rentaId").value = "";
 
-  document.getElementById("rentaId").value="";
-  document.getElementById("rentaCliente").value="";
-  document.getElementById("rentaVestido").value="";
-  document.getElementById("rentaEntrega").value=hoyISO();
+    llenarSelectClientes();
+    llenarSelectVestidos();
 
-  const manana=new Date();
-  manana.setDate(manana.getDate()+1);
+    document.getElementById("rentaEntrega").value = hoyISO();
 
-  document.getElementById("rentaRegreso").value=manana.toISOString().slice(0,10);
+    const d = new Date();
+    d.setDate(d.getDate()+3);
 
-  document.getElementById("rentaPrecio").value="";
-  document.getElementById("rentaAnticipo").value="";
-  document.getElementById("rentaEstado").value="Apartada";
-  document.getElementById("rentaNotas").value="";
+    const retorno =
+        `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
 
-  document.getElementById("tituloRenta").textContent="Nueva renta";
+    document.getElementById("rentaDevolucion").value = retorno;
 
-  if(id){
+    document.getElementById("rentaPrecio").value = "";
+    document.getElementById("rentaDeposito").value = "";
+    document.getElementById("rentaEstado").value = "Apartada";
+    document.getElementById("rentaNotas").value = "";
 
-    const r=datos.rentas.find(x=>x.id===id);
+    document.getElementById("tituloModalRenta").textContent =
+        "Nueva renta";
 
-    if(!r)return;
+    if(id){
 
-    document.getElementById("tituloRenta").textContent="Editar renta";
-    document.getElementById("rentaId").value=r.id;
-    document.getElementById("rentaCliente").value=r.clienteId;
-    document.getElementById("rentaVestido").value=r.vestidoId;
-    document.getElementById("rentaEntrega").value=r.entrega || "";
-    document.getElementById("rentaRegreso").value=r.regreso || "";
-    document.getElementById("rentaPrecio").value=r.precio || "";
-    document.getElementById("rentaAnticipo").value=r.anticipo || "";
-    document.getElementById("rentaEstado").value=r.estado || "Apartada";
-    document.getElementById("rentaNotas").value=r.notas || "";
-  }
+        const renta = datos.rentas.find(r=>r.id===id);
 
-  abrirModal("modalRenta");
+        if(!renta) return;
+
+        document.getElementById("tituloModalRenta").textContent =
+            "Editar renta";
+
+        document.getElementById("rentaId").value = renta.id;
+        document.getElementById("rentaCliente").value = renta.clienteId;
+        document.getElementById("rentaVestido").value = renta.vestidoId;
+        document.getElementById("rentaEntrega").value = renta.entrega || "";
+        document.getElementById("rentaDevolucion").value = renta.devolucion || "";
+        document.getElementById("rentaPrecio").value = renta.precio || "";
+        document.getElementById("rentaDeposito").value = renta.deposito || "";
+        document.getElementById("rentaEstado").value = renta.estado || "Apartada";
+        document.getElementById("rentaNotas").value = renta.notas || "";
+
+    }
+
+    abrirModal("modalRenta");
 }
 
 function llenarSelectClientes(){
 
-  const select=document.getElementById("rentaCliente");
+    const select =
+        document.getElementById("rentaCliente");
 
-  select.innerHTML=
-    `<option value="">Selecciona una cliente</option>`+
-    datos.clientes.map(c=>
-      `<option value="${c.id}">${escapeHTML(c.nombre)}</option>`
-    ).join("");
+    select.innerHTML = `
+        <option value="">Selecciona un cliente</option>
+        ${
+            datos.clientes.map(c=>
+                `<option value="${c.id}">
+                    ${escapeHTML(c.nombre)}
+                </option>`
+            ).join("")
+        }
+    `;
+
 }
 
 function llenarSelectVestidos(){
 
-  const select=document.getElementById("rentaVestido");
+    const select =
+        document.getElementById("rentaVestido");
 
-  select.innerHTML=
-    `<option value="">Selecciona un vestido</option>`+
-    datos.vestidos.map(v=>
-      `<option value="${v.id}">
-        ${escapeHTML(v.nombre)} — ${escapeHTML(v.talla || "Sin talla")}
-      </option>`
-    ).join("");
+    select.innerHTML = `
+        <option value="">Selecciona un vestido</option>
+        ${
+            datos.vestidos.map(v=>
+                `<option value="${v.id}">
+                    ${escapeHTML(v.nombre)}
+                    ${v.talla ? " · "+escapeHTML(v.talla) : ""}
+                    · ${dinero(v.precio)}
+                </option>`
+            ).join("")
+        }
+    `;
+
 }
+
+document.getElementById("rentaVestido")
+    .addEventListener("change",function(){
+
+        const vestido =
+            datos.vestidos.find(v=>v.id===this.value);
+
+        if(vestido){
+
+            document.getElementById("rentaPrecio").value =
+                vestido.precio || "";
+
+        }
+
+    });
 
 function guardarRenta(){
 
-  const clienteId=document.getElementById("rentaCliente").value;
-  const vestidoId=document.getElementById("rentaVestido").value;
+    const id =
+        document.getElementById("rentaId").value;
 
-  if(!clienteId){
-    alert("Selecciona una cliente.");
-    return;
-  }
+    const clienteId =
+        document.getElementById("rentaCliente").value;
 
-  if(!vestidoId){
-    alert("Selecciona un vestido.");
-    return;
-  }
+    const vestidoId =
+        document.getElementById("rentaVestido").value;
 
-  const id=document.getElementById("rentaId").value;
+    const entrega =
+        document.getElementById("rentaEntrega").value;
 
-  const renta={
-    id:id || Date.now().toString(),
-    clienteId,
-    vestidoId,
-    entrega:document.getElementById("rentaEntrega").value,
-    regreso:document.getElementById("rentaRegreso").value,
-    precio:Number(document.getElementById("rentaPrecio").value || 0),
-    anticipo:Number(document.getElementById("rentaAnticipo").value || 0),
-    estado:document.getElementById("rentaEstado").value,
-    notas:document.getElementById("rentaNotas").value.trim()
-  };
+    const devolucion =
+        document.getElementById("rentaDevolucion").value;
 
-  if(id){
+    const precio =
+        Number(document.getElementById("rentaPrecio").value||0);
 
-    const index=datos.rentas.findIndex(r=>r.id===id);
+    const deposito =
+        Number(document.getElementById("rentaDeposito").value||0);
 
-    if(index>=0) datos.rentas[index]=renta;
+    const estado =
+        document.getElementById("rentaEstado").value;
 
-  }else{
+    const notas =
+        document.getElementById("rentaNotas").value.trim();
 
-    datos.rentas.push(renta);
+    if(!clienteId){
 
-    const vestido=datos.vestidos.find(v=>v.id===vestidoId);
+        mostrarToast("Selecciona un cliente.");
+        return;
 
-    if(vestido && renta.estado!=="Devuelta" && renta.estado!=="Cancelada"){
-      vestido.estado="Rentado";
     }
-  }
 
-  guardarDatos();
-  cerrarModal("modalRenta");
-  actualizarTodo();
-  mostrarToast("Renta guardada ✓");
+    if(!vestidoId){
+
+        mostrarToast("Selecciona un vestido.");
+        return;
+
+    }
+
+    if(id){
+
+        const renta = datos.rentas.find(r=>r.id===id);
+
+        if(renta){
+
+            renta.clienteId = clienteId;
+            renta.vestidoId = vestidoId;
+            renta.entrega = entrega;
+            renta.devolucion = devolucion;
+            renta.precio = precio;
+            renta.deposito = deposito;
+            renta.estado = estado;
+            renta.notas = notas;
+
+        }
+
+        mostrarToast("Renta actualizada.");
+
+    }else{
+
+        datos.rentas.push({
+
+            id:"renta_"+Date.now(),
+            clienteId,
+            vestidoId,
+            entrega,
+            devolucion,
+            precio,
+            deposito,
+            estado,
+            notas,
+            creado:new Date().toISOString()
+
+        });
+
+        mostrarToast("Renta registrada.");
+
+    }
+
+    actualizarEstadosVestidos();
+
+    guardarDatos();
+
+    cerrarModal("modalRenta");
+
+    actualizarTodo();
+
 }
 
-function eliminarRenta(id){
+function actualizarEstadosVestidos(){
 
-  if(!confirm("¿Eliminar esta renta?"))return;
+    datos.vestidos.forEach(v=>{
 
-  datos.rentas=datos.rentas.filter(r=>r.id!==id);
+        const rentaActiva =
+            datos.rentas.find(r=>
+                r.vestidoId===v.id &&
+                (
+                    r.estado==="Activa" ||
+                    r.estado==="Apartada"
+                )
+            );
 
-  guardarDatos();
-  actualizarTodo();
-  mostrarToast("Renta eliminada");
-}
+        if(rentaActiva){
 
-function marcarDevuelta(id){
+            v.estado = "Rentado";
 
-  const renta=datos.rentas.find(r=>r.id===id);
+        }else if(v.estado==="Rentado"){
 
-  if(!renta)return;
+            v.estado = "Disponible";
 
-  renta.estado="Devuelta";
+        }
 
-  const vestido=datos.vestidos.find(v=>v.id===renta.vestidoId);
+    });
 
-  if(vestido){
-    vestido.estado="Lavado";
-  }
-
-  guardarDatos();
-  actualizarTodo();
-
-  mostrarToast("Vestido marcado para revisión ✓");
 }
 
 function renderRentas(){
 
-  const buscar=(document.getElementById("buscarRenta")?.value || "").toLowerCase();
+    const contenedor =
+        document.getElementById("listaRentas");
 
-  const lista=datos.rentas.filter(r=>{
+    if(!contenedor) return;
 
-    const cliente=datos.clientes.find(c=>c.id===r.clienteId);
-    const vestido=datos.vestidos.find(v=>v.id===r.vestidoId);
+    const rentas = [...datos.rentas]
+        .sort((a,b)=>
+            (b.entrega||"").localeCompare(a.entrega||"")
+        );
 
-    return `${cliente?.nombre || ""} ${vestido?.nombre || ""} ${r.estado}`
-      .toLowerCase()
-      .includes(buscar);
-  });
+    if(!rentas.length){
 
-  const cont=document.getElementById("listaRentas");
+        contenedor.innerHTML = `
+            <div class="section">
+                <div class="empty">
+                    <div class="empty-icon">📝</div>
+                    No hay rentas registradas.
+                </div>
+            </div>
+        `;
 
-  if(!lista.length){
-    cont.innerHTML=`
-      <div class="empty">
-        <div style="font-size:35px">📝</div>
-        <p>No tienes rentas registradas.</p>
-        <button class="btn" onclick="abrirRenta()">Agregar renta</button>
-      </div>`;
-    return;
-  }
+        return;
 
-  const ordenadas=[...lista].sort((a,b)=>
-    (a.entrega || "").localeCompare(b.entrega || "")
-  );
+    }
 
-  cont.innerHTML=ordenadas.map(r=>{
+    contenedor.innerHTML = rentas.map(r=>{
 
-    const cliente=datos.clientes.find(c=>c.id===r.clienteId);
-    const vestido=datos.vestidos.find(v=>v.id===r.vestidoId);
+        const cliente =
+            datos.clientes.find(c=>c.id===r.clienteId);
 
-    const pendiente=Math.max(0,Number(r.precio||0)-Number(r.anticipo||0));
+        const vestido =
+            datos.vestidos.find(v=>v.id===r.vestidoId);
 
-    return `
-    <div class="item">
+        let badge =
+            r.estado==="Devuelta"
+            ? "badge-disponible"
+            : r.estado==="Cancelada"
+            ? "badge-rentado"
+            : "badge-lavado";
 
-      <div class="item-top">
-        <div>
-          <div class="item-title">
-            ${escapeHTML(cliente?.nombre || "Cliente")}
-          </div>
+        return `
+            <div class="section">
 
-          <div class="item-info">
-            👗 ${escapeHTML(vestido?.nombre || "Vestido")}<br>
-            📅 Entrega: ${fechaBonita(r.entrega)}<br>
-            🔔 Regreso: ${fechaBonita(r.regreso)}<br>
-            💰 ${dinero(r.precio)} · Anticipo ${dinero(r.anticipo)}<br>
-            Pendiente: <b>${dinero(pendiente)}</b>
-          </div>
-        </div>
+                <div class="list-main">
 
-        <span class="badge ${
-          r.estado==="Devuelta" ? "green" :
-          r.estado==="Cancelada" ? "red" : "gold"
-        }">
-          ${escapeHTML(r.estado)}
-        </span>
-      </div>
+                    <div>
 
-      ${r.notas ? `<div class="notice">${escapeHTML(r.notas)}</div>` : ""}
+                        <strong>
+                            ${escapeHTML(cliente?.nombre || "Cliente")}
+                        </strong>
 
-      <div class="actions">
+                        <div class="muted">
+                            👗 ${escapeHTML(vestido?.nombre || "Vestido")}
+                        </div>
 
-        <button class="btn small secondary" onclick="abrirRenta('${r.id}')">
-          ✏️ Editar
-        </button>
+                        <div class="muted">
+                            Entrega: ${fechaBonita(r.entrega)}
+                        </div>
 
-        ${
-          r.estado!=="Devuelta" && r.estado!=="Cancelada"
-          ?
-          `<button class="btn small green" onclick="marcarDevuelta('${r.id}')">
-            ↩️ Devuelta
-          </button>`
-          : ""
-        }
+                        <div class="muted">
+                            Devolución: ${fechaBonita(r.devolucion)}
+                        </div>
 
-        <button class="btn small red" onclick="eliminarRenta('${r.id}')">
-          Eliminar
-        </button>
+                    </div>
 
-      </div>
-    </div>
-    `;
-  }).join("");
+                    <div style="text-align:right">
+                        <strong>${dinero(r.precio)}</strong>
+
+                        <br>
+
+                        <span class="badge ${badge}">
+                            ${escapeHTML(r.estado)}
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="card-actions">
+
+                    <button
+                        class="btn btn-secondary btn-small"
+                        onclick="abrirRenta('${r.id}')"
+                    >
+                        Editar
+                    </button>
+
+                    ${
+                        r.estado==="Activa"
+                        ? `
+                        <button
+                            class="btn btn-success btn-small"
+                            onclick="marcarDevuelta('${r.id}')"
+                        >
+                            Devuelta
+                        </button>
+                        `
+                        : ""
+                    }
+
+                    <button
+                        class="btn btn-danger btn-small"
+                        onclick="eliminarRenta('${r.id}')"
+                    >
+                        Eliminar
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+
+    }).join("");
+
+}
+
+function marcarDevuelta(id){
+
+    const renta =
+        datos.rentas.find(r=>r.id===id);
+
+    if(!renta) return;
+
+    renta.estado = "Devuelta";
+
+    const vestido =
+        datos.vestidos.find(v=>v.id===renta.vestidoId);
+
+    if(vestido){
+
+        vestido.estado = "Lavado";
+
+    }
+
+    const existeMovimiento =
+        datos.movimientos.some(m=>
+            m.rentaId===id
+        );
+
+    if(!existeMovimiento){
+
+        datos.movimientos.push({
+
+            id:"mov_"+Date.now(),
+
+            tipo:"Ingreso",
+
+            concepto:
+                "Renta de "+(
+                    datos.vestidos.find(v=>v.id===renta.vestidoId)?.nombre
+                    || "vestido"
+                ),
+
+            monto:Number(renta.precio||0),
+
+            fecha:hoyISO(),
+
+            rentaId:id
+
+        });
+
+    }
+
+    guardarDatos();
+    actualizarTodo();
+
+    mostrarToast("Vestido marcado como devuelto.");
+
+}
+
+function eliminarRenta(id){
+
+    if(!confirm("¿Eliminar esta renta?")) return;
+
+    datos.rentas =
+        datos.rentas.filter(r=>r.id!==id);
+
+    actualizarEstadosVestidos();
+
+    guardarDatos();
+    actualizarTodo();
+
+    mostrarToast("Renta eliminada.");
+
 }
 
 /* =========================
@@ -1646,93 +2483,154 @@ function renderRentas(){
 
 function abrirMovimiento(){
 
-  document.getElementById("movTipo").value="Ingreso";
-  document.getElementById("movCantidad").value="";
-  document.getElementById("movConcepto").value="";
+    document.getElementById("movTipo").value = "Ingreso";
+    document.getElementById("movConcepto").value = "";
+    document.getElementById("movMonto").value = "";
+    document.getElementById("movFecha").value = hoyISO();
 
-  abrirModal("modalMovimiento");
+    abrirModal("modalMovimiento");
+
 }
 
 function guardarMovimiento(){
 
-  const cantidad=Number(document.getElementById("movCantidad").value || 0);
+    const tipo =
+        document.getElementById("movTipo").value;
 
-  if(cantidad<=0){
-    alert("Escribe una cantidad válida.");
-    return;
-  }
+    const concepto =
+        document.getElementById("movConcepto").value.trim();
 
-  const movimiento={
-    id:Date.now().toString(),
-    tipo:document.getElementById("movTipo").value,
-    cantidad,
-    concepto:document.getElementById("movConcepto").value.trim(),
-    fecha:hoyISO()
-  };
+    const monto =
+        Number(document.getElementById("movMonto").value||0);
 
-  datos.movimientos.push(movimiento);
+    const fecha =
+        document.getElementById("movFecha").value;
 
-  guardarDatos();
-  cerrarModal("modalMovimiento");
-  actualizarTodo();
+    if(!concepto){
 
-  mostrarToast("Movimiento guardado ✓");
-}
+        mostrarToast("Escribe el concepto.");
+        return;
 
-function eliminarMovimiento(id){
+    }
 
-  if(!confirm("¿Eliminar este movimiento?"))return;
+    if(monto<=0){
 
-  datos.movimientos=datos.movimientos.filter(m=>m.id!==id);
+        mostrarToast("Escribe un monto válido.");
+        return;
 
-  guardarDatos();
-  actualizarTodo();
+    }
+
+    datos.movimientos.push({
+
+        id:"mov_"+Date.now(),
+        tipo,
+        concepto,
+        monto,
+        fecha
+
+    });
+
+    guardarDatos();
+
+    cerrarModal("modalMovimiento");
+
+    actualizarTodo();
+
+    mostrarToast("Movimiento agregado.");
+
 }
 
 function renderCaja(){
 
-  const ingresos=datos.movimientos
-    .filter(m=>m.tipo==="Ingreso")
-    .reduce((s,m)=>s+Number(m.cantidad||0),0);
+    const ingresos =
+        datos.movimientos
+        .filter(m=>m.tipo==="Ingreso")
+        .reduce((a,m)=>a+Number(m.monto||0),0);
 
-  const gastos=datos.movimientos
-    .filter(m=>m.tipo==="Gasto")
-    .reduce((s,m)=>s+Number(m.cantidad||0),0);
+    const gastos =
+        datos.movimientos
+        .filter(m=>m.tipo==="Gasto")
+        .reduce((a,m)=>a+Number(m.monto||0),0);
 
-  document.getElementById("totalIngresos").textContent=dinero(ingresos);
-  document.getElementById("totalGastos").textContent=dinero(gastos);
-  document.getElementById("saldoCaja").textContent=dinero(ingresos-gastos);
+    document.getElementById("balanceCaja").textContent =
+        dinero(ingresos-gastos);
 
-  const lista=[...datos.movimientos].reverse();
-  const cont=document.getElementById("listaMovimientos");
+    const contenedor =
+        document.getElementById("listaMovimientos");
 
-  if(!lista.length){
-    cont.innerHTML='<div class="empty">No hay movimientos registrados.</div>';
-    return;
-  }
+    if(!contenedor) return;
 
-  cont.innerHTML=lista.map(m=>`
+    const movimientos =
+        [...datos.movimientos]
+        .sort((a,b)=>
+            (b.fecha||"").localeCompare(a.fecha||"")
+        );
 
-    <div class="item">
-      <div class="item-top">
-        <div>
-          <div class="item-title">${escapeHTML(m.concepto || "Sin concepto")}</div>
-          <div class="item-info">${fechaBonita(m.fecha)}</div>
-        </div>
+    if(!movimientos.length){
 
-        <div class="money ${m.tipo==="Ingreso" ? "plus":"minus"}">
-          ${m.tipo==="Ingreso" ? "+" : "-"}${dinero(m.cantidad)}
-        </div>
-      </div>
+        contenedor.innerHTML = `
+            <div class="section">
+                <div class="empty">
+                    No hay movimientos.
+                </div>
+            </div>
+        `;
 
-      <div class="actions">
-        <button class="btn small red" onclick="eliminarMovimiento('${m.id}')">
-          Eliminar
-        </button>
-      </div>
-    </div>
+        return;
 
-  `).join("");
+    }
+
+    contenedor.innerHTML = movimientos.map(m=>{
+
+        const positivo =
+            m.tipo==="Ingreso";
+
+        return `
+            <div class="section">
+
+                <div class="list-main">
+
+                    <div>
+                        <strong>${escapeHTML(m.concepto)}</strong>
+
+                        <div class="muted">
+                            ${fechaBonita(m.fecha)}
+                        </div>
+                    </div>
+
+                    <div class="${positivo ? "money-positive":"money-negative"}">
+                        ${positivo ? "+" : "-"}${dinero(m.monto)}
+                    </div>
+
+                </div>
+
+                <button
+                    class="btn btn-danger btn-small"
+                    style="margin-top:10px"
+                    onclick="eliminarMovimiento('${m.id}')"
+                >
+                    Eliminar
+                </button>
+
+            </div>
+        `;
+
+    }).join("");
+
+}
+
+function eliminarMovimiento(id){
+
+    if(!confirm("¿Eliminar este movimiento?")) return;
+
+    datos.movimientos =
+        datos.movimientos.filter(m=>m.id!==id);
+
+    guardarDatos();
+    actualizarTodo();
+
+    mostrarToast("Movimiento eliminado.");
+
 }
 
 /* =========================
@@ -1741,261 +2639,394 @@ function renderCaja(){
 
 function renderRegresos(){
 
-  const cont=document.getElementById("listaRegresos");
+    const contenedor =
+        document.getElementById("listaRegresos");
 
-  const lista=datos.rentas
-    .filter(r=>
-      r.estado!=="Devuelta" &&
-      r.estado!=="Cancelada"
-    )
-    .sort((a,b)=>
-      (a.regreso || "").localeCompare(b.regreso || "")
-    );
+    if(!contenedor) return;
 
-  if(!lista.length){
-    cont.innerHTML='<div class="empty">No tienes vestidos pendientes de regresar.</div>';
-    return;
-  }
+    const hoy = hoyISO();
 
-  cont.innerHTML=lista.map(r=>{
+    const pendientes =
+        datos.rentas.filter(r=>
+            (
+                r.estado==="Activa" ||
+                r.estado==="Apartada"
+            ) &&
+            r.devolucion
+        ).sort((a,b)=>
+            a.devolucion.localeCompare(b.devolucion)
+        );
 
-    const cliente=datos.clientes.find(c=>c.id===r.clienteId);
-    const vestido=datos.vestidos.find(v=>v.id===r.vestidoId);
+    if(!pendientes.length){
 
-    const atrasado=r.regreso && r.regreso<hoyISO();
+        contenedor.innerHTML = `
+            <div class="empty">
+                No hay regresos pendientes.
+            </div>
+        `;
 
-    return `
-    <div class="item">
+        return;
 
-      <div class="item-top">
-        <div>
-          <div class="item-title">${escapeHTML(vestido?.nombre || "Vestido")}</div>
+    }
 
-          <div class="item-info">
-            Cliente: ${escapeHTML(cliente?.nombre || "—")}<br>
-            Regreso: <b>${fechaBonita(r.regreso)}</b>
-          </div>
-        </div>
+    contenedor.innerHTML =
+        pendientes.map(r=>{
 
-        <span class="badge ${atrasado ? "red":"gold"}">
-          ${atrasado ? "ATRASADO":"Pendiente"}
-        </span>
-      </div>
+            const cliente =
+                datos.clientes.find(c=>c.id===r.clienteId);
 
-      <div class="actions">
+            const vestido =
+                datos.vestidos.find(v=>v.id===r.vestidoId);
 
-        ${
-          cliente?.telefono
-          ?
-          `<button class="btn small green" onclick="whatsapp('${escapeHTML(cliente.telefono)}')">
-            WhatsApp
-          </button>`
-          : ""
-        }
+            const atrasada =
+                r.devolucion < hoy;
 
-        <button class="btn small secondary" onclick="abrirRenta('${r.id}')">
-          Ver renta
-        </button>
+            return `
+                <div class="list-item">
 
-        <button class="btn small green" onclick="marcarDevuelta('${r.id}')">
-          ↩️ Marcar devuelta
-        </button>
+                    <div class="list-main">
 
-      </div>
-    </div>
-    `;
-  }).join("");
+                        <div>
+                            <strong>
+                                ${escapeHTML(cliente?.nombre || "Cliente")}
+                            </strong>
+
+                            <div class="muted">
+                                ${escapeHTML(vestido?.nombre || "Vestido")}
+                            </div>
+                        </div>
+
+                        <div style="text-align:right">
+                            <strong>${fechaBonita(r.devolucion)}</strong>
+
+                            ${
+                                atrasada
+                                ? `<div style="color:var(--rojo);font-size:12px;font-weight:700">ATRASADA</div>`
+                                : ""
+                            }
+                        </div>
+
+                    </div>
+
+                    <div class="card-actions">
+
+                        ${
+                            cliente?.telefono
+                            ? `
+                            <button
+                                class="btn btn-success btn-small"
+                                onclick="whatsapp('${cliente.telefono}')"
+                            >
+                                WhatsApp
+                            </button>
+                            `
+                            : ""
+                        }
+
+                        <button
+                            class="btn btn-secondary btn-small"
+                            onclick="abrirRenta('${r.id}')"
+                        >
+                            Ver renta
+                        </button>
+
+                        <button
+                            class="btn btn-primary btn-small"
+                            onclick="marcarDevuelta('${r.id}')"
+                        >
+                            Devuelta
+                        </button>
+
+                    </div>
+
+                </div>
+            `;
+
+        }).join("");
+
 }
 
 /* =========================
-   REVISION
+   REVISIÓN
 ========================= */
 
 function renderRevision(){
 
-  const vestidos=datos.vestidos.filter(v=>
-    v.estado==="Lavado" ||
-    v.estado==="Reparación"
-  );
+    const contenedor =
+        document.getElementById("listaRevision");
 
-  const cont=document.getElementById("listaRevision");
+    if(!contenedor) return;
 
-  if(!vestidos.length){
-    cont.innerHTML=`
-      <div class="empty">
-        <div style="font-size:35px">🧼</div>
-        <p>No hay vestidos pendientes de revisión.</p>
-      </div>`;
-    return;
-  }
+    const vestidos =
+        datos.vestidos.filter(v=>
+            v.estado==="Lavado" ||
+            v.estado==="Reparación"
+        );
 
-  cont.innerHTML=vestidos.map(v=>`
+    if(!vestidos.length){
 
-    <div class="item">
+        contenedor.innerHTML = `
+            <div class="empty">
+                Todos los vestidos están disponibles.
+            </div>
+        `;
 
-      <div class="item-top">
+        return;
 
-        <div>
-          <div class="item-title">${escapeHTML(v.nombre)}</div>
-          <div class="item-info">
-            Talla: ${escapeHTML(v.talla || "—")}<br>
-            Color: ${escapeHTML(v.color || "—")}
-          </div>
-        </div>
+    }
 
-        <span class="badge gold">${escapeHTML(v.estado)}</span>
+    contenedor.innerHTML =
+        vestidos.map(v=>{
 
-      </div>
+            return `
+                <div class="list-item">
 
-      <div class="actions">
+                    <div class="list-main">
 
-        <button class="btn small green" onclick="ponerDisponible('${v.id}')">
-          ✓ Disponible
-        </button>
+                        <div>
+                            <strong>${escapeHTML(v.nombre)}</strong>
 
-        <button class="btn small secondary" onclick="abrirVestido('${v.id}')">
-          ✏️ Editar
-        </button>
+                            <div class="muted">
+                                ${escapeHTML(v.estado)}
+                            </div>
+                        </div>
 
-      </div>
+                        <button
+                            class="btn btn-success btn-small"
+                            onclick="ponerDisponible('${v.id}')"
+                        >
+                            Disponible
+                        </button>
 
-    </div>
+                    </div>
 
-  `).join("");
+                </div>
+            `;
+
+        }).join("");
+
 }
 
 function ponerDisponible(id){
 
-  const vestido=datos.vestidos.find(v=>v.id===id);
+    const vestido =
+        datos.vestidos.find(v=>v.id===id);
 
-  if(!vestido)return;
+    if(!vestido) return;
 
-  vestido.estado="Disponible";
+    vestido.estado = "Disponible";
 
-  guardarDatos();
-  actualizarTodo();
+    guardarDatos();
+    actualizarTodo();
 
-  mostrarToast("Vestido disponible ✓");
+    mostrarToast("Vestido disponible.");
+
 }
 
 /* =========================
    CALENDARIO
 ========================= */
 
-function cambiarMes(cantidad){
+function cambiarMes(cambio){
 
-  fechaCalendario.setMonth(fechaCalendario.getMonth()+cantidad);
+    mesActual.setMonth(
+        mesActual.getMonth()+cambio
+    );
 
-  renderCalendario();
-  renderEventosMes();
+    renderCalendario();
+
 }
 
 function renderCalendario(){
 
-  const cont=document.getElementById("calendario");
+    const calendario =
+        document.getElementById("calendario");
 
-  const year=fechaCalendario.getFullYear();
-  const month=fechaCalendario.getMonth();
+    const titulo =
+        document.getElementById("mesCalendario");
 
-  const nombres=[
-    "Enero","Febrero","Marzo","Abril","Mayo","Junio",
-    "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
-  ];
+    if(!calendario || !titulo) return;
 
-  document.getElementById("mesCalendario").textContent=
-    `${nombres[month]} ${year}`;
+    const year = mesActual.getFullYear();
+    const month = mesActual.getMonth();
 
-  const nombresDias=["L","M","M","J","V","S","D"];
+    titulo.textContent =
+        mesActual.toLocaleDateString(
+            "es-MX",
+            {
+                month:"long",
+                year:"numeric"
+            }
+        );
 
-  let html=nombresDias.map(d=>
-    `<div class="day-name">${d}</div>`
-  ).join("");
+    const nombres =
+        ["L","M","M","J","V","S","D"];
 
-  const primerDia=new Date(year,month,1).getDay();
-  const offset=primerDia===0 ? 6 : primerDia-1;
+    let html =
+        nombres.map(d=>
+            `<div class="calendar-day-name">${d}</div>`
+        ).join("");
 
-  const diasMes=new Date(year,month+1,0).getDate();
+    const primerDia =
+        new Date(year,month,1).getDay();
 
-  for(let i=0;i<offset;i++){
-    html+=`<div class="day muted"></div>`;
-  }
+    const inicio =
+        primerDia===0 ? 6 : primerDia-1;
 
-  for(let dia=1;dia<=diasMes;dia++){
+    const dias =
+        new Date(year,month+1,0).getDate();
 
-    const fecha=
-      `${year}-${String(month+1).padStart(2,"0")}-${String(dia).padStart(2,"0")}`;
+    for(let i=0;i<inicio;i++){
 
-    const eventos=datos.rentas.filter(r=>
-      r.entrega===fecha ||
-      r.regreso===fecha
-    );
+        html += `<div></div>`;
 
-    html+=`
-      <div class="day ${
-        fecha===hoyISO() ? "today" : ""
-      } ${
-        eventos.length ? "has-event" : ""
-      }">
+    }
 
-        <b>${dia}</b>
+    for(let dia=1;dia<=dias;dia++){
 
-        ${
-          eventos.length
-          ? `<span class="dot"></span>`
-          : ""
-        }
+        const fecha =
+            `${year}-${String(month+1).padStart(2,"0")}-${String(dia).padStart(2,"0")}`;
 
-      </div>
-    `;
-  }
+        const esHoy =
+            fecha===hoyISO();
 
-  cont.innerHTML=html;
+        const eventos =
+            datos.rentas.filter(r=>
+                r.entrega===fecha ||
+                r.devolucion===fecha
+            );
 
-  renderEventosMes();
+        html += `
+            <div class="calendar-day ${esHoy ? "today":""}">
+
+                <strong>${dia}</strong>
+
+                ${
+                    eventos.map(r=>{
+
+                        const entrega =
+                            r.entrega===fecha;
+
+                        return `
+                            <div
+                                style="margin-top:3px;font-size:9px"
+                                title="${entrega ? "Entrega":"Devolución"}"
+                            >
+                                <span class="event-dot"></span>
+                                ${entrega ? "E":"D"}
+                            </div>
+                        `;
+
+                    }).join("")
+                }
+
+            </div>
+        `;
+
+    }
+
+    calendario.innerHTML = html;
+
+    renderEventosMes();
+
 }
 
 function renderEventosMes(){
 
-  const year=fechaCalendario.getFullYear();
-  const month=String(fechaCalendario.getMonth()+1).padStart(2,"0");
+    const contenedor =
+        document.getElementById("eventosMes");
 
-  const prefijo=`${year}-${month}`;
+    if(!contenedor) return;
 
-  const eventos=datos.rentas.filter(r=>
-    (r.entrega || "").startsWith(prefijo) ||
-    (r.regreso || "").startsWith(prefijo)
-  ).sort((a,b)=>
-    (a.entrega || "").localeCompare(b.entrega || "")
-  );
+    const year = mesActual.getFullYear();
+    const month = mesActual.getMonth();
 
-  const cont=document.getElementById("eventosMes");
+    const prefijo =
+        `${year}-${String(month+1).padStart(2,"0")}`;
 
-  if(!eventos.length){
-    cont.innerHTML='<div class="empty">No hay eventos este mes.</div>';
-    return;
-  }
+    const eventos = [];
 
-  cont.innerHTML=eventos.map(r=>{
+    datos.rentas.forEach(r=>{
 
-    const cliente=datos.clientes.find(c=>c.id===r.clienteId);
-    const vestido=datos.vestidos.find(v=>v.id===r.vestidoId);
+        if(r.entrega?.startsWith(prefijo)){
 
-    return `
-      <div class="item">
-        <div class="item-title">
-          ${escapeHTML(cliente?.nombre || "Cliente")}
-        </div>
+            eventos.push({
+                fecha:r.entrega,
+                tipo:"Entrega",
+                renta:r
+            });
 
-        <div class="item-info">
-          👗 ${escapeHTML(vestido?.nombre || "Vestido")}<br>
-          📤 Entrega: ${fechaBonita(r.entrega)}<br>
-          📥 Regreso: ${fechaBonita(r.regreso)}
-        </div>
+        }
 
-        <span class="badge">${escapeHTML(r.estado)}</span>
-      </div>
-    `;
-  }).join("");
+        if(r.devolucion?.startsWith(prefijo)){
+
+            eventos.push({
+                fecha:r.devolucion,
+                tipo:"Devolución",
+                renta:r
+            });
+
+        }
+
+    });
+
+    eventos.sort((a,b)=>
+        a.fecha.localeCompare(b.fecha)
+    );
+
+    if(!eventos.length){
+
+        contenedor.innerHTML = `
+            <div class="empty">
+                No hay eventos este mes.
+            </div>
+        `;
+
+        return;
+
+    }
+
+    contenedor.innerHTML =
+        eventos.map(e=>{
+
+            const cliente =
+                datos.clientes.find(c=>
+                    c.id===e.renta.clienteId
+                );
+
+            const vestido =
+                datos.vestidos.find(v=>
+                    v.id===e.renta.vestidoId
+                );
+
+            return `
+                <div class="list-item">
+
+                    <div class="list-main">
+
+                        <div>
+                            <strong>${e.tipo}</strong>
+
+                            <div class="muted">
+                                ${escapeHTML(cliente?.nombre || "Cliente")}
+                            </div>
+
+                            <div class="muted">
+                                ${escapeHTML(vestido?.nombre || "Vestido")}
+                            </div>
+                        </div>
+
+                        <strong>
+                            ${fechaBonita(e.fecha)}
+                        </strong>
+
+                    </div>
+
+                </div>
+            `;
+
+        }).join("");
+
 }
 
 /* =========================
@@ -2004,32 +3035,36 @@ function renderEventosMes(){
 
 function cargarConfiguracion(){
 
-  const nombre=document.getElementById("configNombre");
-  const whatsapp=document.getElementById("configWhatsapp");
+    const nombre =
+        document.getElementById("configNombre");
 
-  if(nombre){
-    nombre.value=datos.configuracion.nombre || "Julietta Dresses";
-  }
+    const whatsappInput =
+        document.getElementById("configWhatsapp");
 
-  if(whatsapp){
-    whatsapp.value=datos.configuracion.whatsapp || "";
-  }
+    if(!nombre || !whatsappInput) return;
+
+    nombre.value =
+        datos.configuracion.nombre || "";
+
+    whatsappInput.value =
+        datos.configuracion.whatsapp || "";
+
 }
 
 function guardarConfiguracion(){
 
-  datos.configuracion.nombre=
-    document.getElementById("configNombre").value.trim() ||
-    "Julietta Dresses";
+    datos.configuracion.nombre =
+        document.getElementById("configNombre").value.trim()
+        || "Julietta Dresses";
 
-  datos.configuracion.whatsapp=
-    document.getElementById("configWhatsapp").value.trim();
+    datos.configuracion.whatsapp =
+        document.getElementById("configWhatsapp").value.trim();
 
-  guardarDatos();
+    guardarDatos();
+    actualizarTodo();
 
-  document.title=datos.configuracion.nombre+" | Control";
+    mostrarToast("Configuración guardada.");
 
-  mostrarToast("Configuración guardada ✓");
 }
 
 /* =========================
@@ -2038,112 +3073,147 @@ function guardarConfiguracion(){
 
 function exportarDatos(){
 
-  const contenido=JSON.stringify(datos,null,2);
+    const contenido =
+        JSON.stringify(datos,null,2);
 
-  const blob=new Blob(
-    [contenido],
-    {type:"application/json"}
-  );
+    const blob =
+        new Blob(
+            [contenido],
+            {type:"application/json"}
+        );
 
-  const url=URL.createObjectURL(blob);
+    const url =
+        URL.createObjectURL(blob);
 
-  const a=document.createElement("a");
+    const a =
+        document.createElement("a");
 
-  a.href=url;
+    a.href = url;
 
-  a.download=
-    "julietta-dresses-respaldo-"+hoyISO()+".json";
+    a.download =
+        "julietta-dresses-respaldo-"+hoyISO()+".json";
 
-  document.body.appendChild(a);
+    a.click();
 
-  a.click();
+    URL.revokeObjectURL(url);
 
-  a.remove();
+    mostrarToast("Respaldo descargado.");
 
-  URL.revokeObjectURL(url);
-
-  mostrarToast("Respaldo descargado ✓");
 }
 
 function importarDatos(event){
 
-  const archivo=event.target.files[0];
+    const file =
+        event.target.files?.[0];
 
-  if(!archivo)return;
+    if(!file) return;
 
-  const lector=new FileReader();
+    const reader =
+        new FileReader();
 
-  lector.onload=function(e){
+    reader.onload = e=>{
 
-    try{
+        try{
 
-      const nuevo=JSON.parse(e.target.result);
+            const importado =
+                JSON.parse(e.target.result);
 
-      if(
-        !nuevo ||
-        !Array.isArray(nuevo.vestidos) ||
-        !Array.isArray(nuevo.clientes) ||
-        !Array.isArray(nuevo.rentas) ||
-        !Array.isArray(nuevo.movimientos)
-      ){
-        throw new Error("Archivo inválido");
-      }
+            if(
+                !importado ||
+                !Array.isArray(importado.vestidos) ||
+                !Array.isArray(importado.clientes) ||
+                !Array.isArray(importado.rentas) ||
+                !Array.isArray(importado.movimientos)
+            ){
 
-      datos=nuevo;
+                throw new Error("Formato inválido");
 
-      if(!datos.configuracion){
-        datos.configuracion={
-          nombre:"Julietta Dresses",
-          whatsapp:""
-        };
-      }
+            }
 
-      guardarDatos();
-      actualizarTodo();
+            if(!confirm(
+                "Esto reemplazará los datos actuales por el respaldo. ¿Continuar?"
+            )){
 
-      mostrarToast("Respaldo restaurado ✓");
+                event.target.value = "";
+                return;
 
-    }catch(error){
+            }
 
-      alert("No se pudo restaurar el respaldo.");
-    }
+            datos = {
 
-    event.target.value="";
-  };
+                configuracion:{
+                    nombre:"Julietta Dresses",
+                    whatsapp:"",
+                    ...(importado.configuracion||{})
+                },
 
-  lector.readAsText(archivo);
+                vestidos:importado.vestidos,
+                clientes:importado.clientes,
+                rentas:importado.rentas,
+                movimientos:importado.movimientos
+
+            };
+
+            guardarDatos();
+            actualizarTodo();
+
+            mostrarToast("Respaldo restaurado.");
+
+        }catch(error){
+
+            console.error(error);
+
+            alert(
+                "El archivo no parece ser un respaldo válido de Julietta Dresses."
+            );
+
+        }
+
+        event.target.value = "";
+
+    };
+
+    reader.readAsText(file);
+
 }
 
-function borrarTodo(){
+/* =========================
+   ELIMINAR TODO
+========================= */
 
-  const confirmar=confirm(
-    "⚠️ Esto eliminará vestidos, clientes, rentas y movimientos. ¿Continuar?"
-  );
+function eliminarTodo(){
 
-  if(!confirmar)return;
+    const confirmar =
+        prompt(
+            "Escribe ELIMINAR para borrar todos los datos de Julietta Dresses:"
+        );
 
-  const segunda=confirm(
-    "¿Estás completamente seguro? Esta acción no se puede deshacer."
-  );
+    if(confirmar!=="ELIMINAR"){
 
-  if(!segunda)return;
+        mostrarToast("No se eliminaron los datos.");
+        return;
 
-  localStorage.removeItem(STORAGE_KEY);
+    }
 
-  datos={
-    configuracion:{
-      nombre:"Julietta Dresses",
-      whatsapp:""
-    },
-    vestidos:[],
-    clientes:[],
-    rentas:[],
-    movimientos:[]
-  };
+    datos = {
 
-  actualizarTodo();
+        configuracion:{
+            nombre:"Julietta Dresses",
+            whatsapp:""
+        },
 
-  mostrarToast("Datos eliminados");
+        vestidos:[],
+        clientes:[],
+        rentas:[],
+        movimientos:[]
+
+    };
+
+    guardarDatos();
+    actualizarTodo();
+
+    mostrarToast("Todos los datos fueron eliminados.");
+
 }
 
 /* =========================
