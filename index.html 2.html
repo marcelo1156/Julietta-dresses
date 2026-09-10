@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Julietta Dresses</title>
+
+<style>
+:root{
+  --black:#121011;--black2:#201b1d;--wine:#4a202f;--wine2:#6b3348;
+  --champ:#c7a66a;--cream:#f7f3ee;--paper:#fffdf9;--ink:#171416;
+  --muted:#8b8280;--line:#e8e0d8;--green:#218c61;--red:#b34f57;
+  --blue:#5879a9;--shadow:0 18px 55px rgba(27,18,21,.10);--r:22px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+body{min-height:100vh}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+button:active{transform:scale(.98)}
+.app{min-height:100vh}
+.sidebar{display:none}
+@media(min-width:950px){
+ .sidebar{display:flex;position:fixed;inset:0 auto 0 0;width:250px;background:var(--black);color:#fff;padding:28px 17px;flex-direction:column;z-index:50}
+ .side-brand{padding:5px 13px 34px}.side-brand img{width:145px;height:85px;object-fit:contain;filter:invert(1);mix-blend-mode:screen}
+ .side-brand small{display:block;color:#b9abad;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+ .side-nav{display:flex;flex-direction:column;gap:5px}.side-nav button{border:0;background:transparent;color:#bcb1b4;text-align:left;padding:13px 14px;border-radius:13px;display:flex;align-items:center;gap:12px;font-size:13px}
+ .side-nav button.active,.side-nav button:hover{background:#292326;color:#fff}.side-icon{width:21px;text-align:center;font-size:17px}
+ .side-bottom{margin-top:auto;border-top:1px solid #30292c;padding:16px 13px;color:#9e9397;font-size:10px;line-height:1.6}
+ .main{margin-left:250px}
+}
+.mobile-top{position:sticky;top:0;z-index:40;background:rgba(247,243,238,.94);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);padding:calc(8px + env(safe-area-inset-top)) 16px 9px}
+.mobile-top-inner{display:flex;align-items:center;justify-content:space-between}
+.mobile-logo{width:150px;height:55px;object-fit:contain;mix-blend-mode:multiply}
+.top-actions{display:flex;gap:7px}.icon-btn{width:42px;height:42px;border:1px solid var(--line);background:var(--paper);border-radius:13px;color:var(--ink);display:grid;place-items:center}
+.content{max-width:1300px;margin:auto;padding:20px 15px 110px}
+@media(min-width:950px){.mobile-top{display:none}.content{padding:38px 42px 55px}}
+.page{display:none}.page.active{display:block;animation:in .25s ease}@keyframes in{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.page-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:22px}.page-head h1{margin:0;font:500 32px Georgia,serif;letter-spacing:-.7px}.page-head p{margin:6px 0 0;color:var(--muted);font-size:12px}
+.btn{min-height:44px;border:0;border-radius:13px;padding:0 16px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:7px}.primary{background:var(--black);color:#fff;box-shadow:0 9px 20px #0002}.secondary{background:var(--paper);color:var(--ink);border:1px solid var(--line)}.danger{background:#fae8e9;color:#a64b53}
+.hero{position:relative;overflow:hidden;min-height:330px;border-radius:30px;background:linear-gradient(110deg,#151011 0%,#28171d 54%,#4a2532 100%);color:#fff;margin-bottom:18px;box-shadow:0 25px 60px #24151c25}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 92% 15%,#c7a66a42,transparent 27%),radial-gradient(circle at 76% 100%,#9c587044,transparent 32%)}
+.hero-logo{position:absolute;right:22px;top:20px;width:130px;height:75px;object-fit:contain;filter:invert(1);mix-blend-mode:screen;opacity:.9}
+.hero-copy{position:relative;padding:40px 25px;max-width:590px}.eyebrow{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#d8c5a1}.hero h2{font:500 38px/1.04 Georgia,serif;margin:13px 0 11px;letter-spacing:-1px}.hero p{color:#d9cdd0;max-width:430px;font-size:13px;line-height:1.6;margin:0}.hero-actions{display:flex;gap:8px;margin-top:24px}.hero .primary{background:#fff;color:#171214}.hero .secondary{background:#ffffff12;color:#fff;border-color:#ffffff2b}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:22px}.kpi{background:var(--paper);border:1px solid var(--line);padding:16px;border-radius:18px}.kpi-label{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}.kpi-value{font:500 27px Georgia,serif;margin-top:7px}.kpi-note{font-size:9px;color:var(--muted);margin-top:4px}
+@media(min-width:650px){.kpis{grid-template-columns:repeat(4,1fr)}} 
+.section-title{display:flex;align-items:center;justify-content:space-between;margin:25px 0 12px}.section-title h2{font:500 21px Georgia,serif;margin:0}.link{border:0;background:none;color:var(--wine2);font-size:11px;font-weight:700}
+.dashboard-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:14px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:21px;padding:17px}.panel h3{font:500 19px Georgia,serif;margin:0 0 14px}.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.next-rental{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:17px;padding:12px;margin-bottom:8px}.mini-date{width:48px;height:52px;border-radius:13px;background:#f1e8e6;display:grid;place-items:center;text-align:center;flex:none}.mini-date b{font:500 20px Georgia,serif;display:block}.mini-date span{font-size:8px;text-transform:uppercase;color:var(--muted)}.next-info{flex:1;min-width:0}.next-info strong{display:block;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.next-info span{display:block;color:var(--muted);font-size:10px;margin-top:4px}.empty{padding:30px 15px;text-align:center;color:var(--muted)}.empty-mark{font:35px Georgia,serif;color:#b9b0ad}.empty h3{font:500 19px Georgia,serif;color:var(--ink);margin:8px 0 4px}.empty p{font-size:10px;margin:0}
+.quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.quick{border:1px solid var(--line);background:#fff;border-radius:15px;padding:13px;text-align:left;min-height:84px}.quick .qicon{font-size:21px;margin-bottom:10px}.quick strong{display:block;font-size:11px}.quick span{display:block;color:var(--muted);font-size:9px;margin-top:3px}
+.search{height:47px;background:var(--paper);border:1px solid var(--line);border-radius:14px;display:flex;align-items:center;padding:0 13px;gap:8px;margin-bottom:10px}.search input{border:0;outline:0;background:none;width:100%;font-size:12px}
+.filters{display:flex;gap:7px;overflow:auto;padding-bottom:3px;margin-bottom:15px}.filter{white-space:nowrap;border:1px solid var(--line);background:var(--paper);color:var(--muted);border-radius:30px;padding:8px 13px;font-size:10px}.filter.active{background:var(--black);border-color:var(--black);color:#fff}
+.dress-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.dress-card{background:var(--paper);border:1px solid var(--line);overflow:hidden;border-radius:20px;transition:.2s}.dress-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.dress-photo{height:245px;background:#ece5e0;position:relative}.dress-photo img{width:100%;height:100%;object-fit:cover}.dress-photo .no-photo{height:100%;display:grid;place-items:center;font:42px Georgia,serif;color:#a79e9b}.status{position:absolute;left:9px;top:9px}.dress-body{padding:13px}.dress-name{font:500 17px Georgia,serif}.dress-meta{font-size:9px;color:var(--muted);margin-top:4px;line-height:1.5}.dress-price{font-size:14px;font-weight:800;margin-top:9px;color:var(--wine)}.dress-actions{display:flex;gap:6px;margin-top:11px}.dress-actions .btn{flex:1;min-height:38px;padding:0 8px;font-size:10px}
+@media(min-width:700px){.dress-grid{grid-template-columns:repeat(3,1fr)}}@media(min-width:1100px){.dress-grid{grid-template-columns:repeat(4,1fr)}}
+.badge{display:inline-flex;border-radius:20px;padding:5px 8px;font-size:8px;font-weight:800}.green{background:#e5f4ed;color:#247a57}.red{background:#fae8e9;color:#a54d55}.gold{background:#f6eddb;color:#89672f}.blue{background:#eaf0fa;color:#56709c}.gray{background:#efedeb;color:#716b69}
+.client-list,.rental-list{display:flex;flex-direction:column;gap:8px}.client-card{display:flex;align-items:center;gap:11px;padding:13px;background:var(--paper);border:1px solid var(--line);border-radius:17px}.avatar{width:46px;height:46px;border-radius:15px;background:#eee1e5;color:var(--wine);display:grid;place-items:center;font:500 17px Georgia,serif;flex:none}.client-main{flex:1;min-width:0}.client-main strong{display:block;font-size:12px}.client-main span{display:block;color:var(--muted);font-size:9px;margin-top:4px}.client-actions{display:flex;gap:6px}.wa{width:43px;height:43px;border:0;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;flex:none}.wa svg{width:21px;height:21px;fill:#fff}
+.rental-card{display:flex;gap:12px;align-items:center;padding:13px;background:var(--paper);border:1px solid var(--line);border-radius:17px}.rental-photo{width:56px;height:65px;border-radius:12px;overflow:hidden;background:#eee6e2;flex:none}.rental-photo img{width:100%;height:100%;object-fit:cover}.rental-photo.no{display:grid;place-items:center;font:22px Georgia,serif;color:#aaa}.rental-info{flex:1;min-width:0}.rental-info strong{display:block;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rental-info span{display:block;color:var(--muted);font-size:9px;margin-top:4px}.rental-side{text-align:right}.rental-side b{display:block;font-size:12px}.rental-side small{display:block;margin-top:5px}
+.calendar-wrap{background:var(--paper);border:1px solid var(--line);border-radius:21px;padding:16px}.calendar-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.month{font:500 20px Georgia,serif}.cal-btns{display:flex;gap:5px}.cal-btns button{width:34px;height:34px;border:1px solid var(--line);background:#fff;border-radius:10px}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.weekday{text-align:center;font-size:8px;color:var(--muted);padding:5px 0}.day{min-height:58px;border:1px solid var(--line);border-radius:10px;padding:6px;font-size:10px;background:#fff}.day.empty{background:transparent;border-color:transparent}.day.today{border-color:var(--champ);box-shadow:inset 0 0 0 1px var(--champ)}.day.selected{background:#f2e8e9}.dots{margin-top:5px}.dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--wine);margin-right:2px}
+.money-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.money-card{padding:18px;background:var(--paper);border:1px solid var(--line);border-radius:18px}.money-card span{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}.money-card b{display:block;font:500 27px Georgia,serif;margin-top:6px}
+.more-grid{display:grid;gap:9px}.more-item{display:flex;align-items:center;gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:14px;text-align:left;width:100%}.more-icon{width:42px;height:42px;border-radius:13px;background:#eee5e5;display:grid;place-items:center;font-size:18px}.more-text{flex:1}.more-text strong{display:block;font-size:12px}.more-text span{display:block;color:var(--muted);font-size:9px;margin-top:3px}.arrow{color:#aaa}
+.form-grid{display:grid;gap:12px}.two{grid-template-columns:1fr 1fr}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:9px;font-weight:800;color:#6e6667;text-transform:uppercase;letter-spacing:.6px}.field input,.field select,.field textarea{width:100%;min-height:46px;border:1px solid var(--line);background:#fbf9f6;border-radius:12px;padding:11px;outline:0;color:var(--ink)}.field textarea{min-height:90px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--wine);background:#fff}.photo-box{border:1px dashed #cfc3c0;border-radius:16px;min-height:145px;overflow:hidden;background:#fbf9f6;display:grid;place-items:center;position:relative}.photo-box img{width:100%;height:210px;object-fit:cover}.photo-placeholder{text-align:center;color:var(--muted);font-size:10px}.photo-placeholder b{display:block;font:500 19px Georgia,serif;color:var(--ink);margin-bottom:4px}.form-actions{display:flex;justify-content:flex-end;gap:7px;margin-top:17px}
+.table-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #f0eae5}.table-row:last-child{border:0}.table-row strong{font-size:11px}.table-row span{font-size:9px;color:var(--muted)}
+.review-card{background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:14px;margin-bottom:8px}.review-card h3{font:500 17px Georgia,serif;margin:0 0 5px}.review-card p{font-size:10px;color:var(--muted);margin:4px 0}
+.modal{display:none;position:fixed;inset:0;background:#17101499;backdrop-filter:blur(7px);z-index:100;align-items:flex-end;justify-content:center;padding:10px}.modal.open{display:flex}.modal-box{width:100%;max-width:680px;max-height:94vh;overflow:auto;background:var(--paper);border-radius:27px 27px 16px 16px;padding:19px;box-shadow:0 30px 90px #0005;animation:sheet .24s ease}@keyframes sheet{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}.handle{width:38px;height:4px;border-radius:10px;background:#d8d0cc;margin:0 auto 17px}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.modal-head h2{font:500 23px Georgia,serif;margin:0}.close{width:36px;height:36px;border:0;border-radius:11px;background:#eee8e5;color:var(--ink);font-size:19px}
+.toast{position:fixed;left:50%;bottom:95px;transform:translate(-50%,18px);opacity:0;pointer-events:none;background:var(--black);color:#fff;padding:12px 16px;border-radius:13px;font-size:11px;z-index:200;transition:.25s;box-shadow:0 12px 35px #0004}.toast.show{opacity:1;transform:translate(-50%,0)}
+.bottom-nav{position:fixed;left:9px;right:9px;bottom:calc(8px + env(safe-area-inset-bottom));height:66px;background:#111011f5;backdrop-filter:blur(18px);border-radius:23px;z-index:60;display:grid;grid-template-columns:repeat(5,1fr);padding:5px;box-shadow:0 18px 50px #0004}.bottom-nav button{border:0;background:transparent;color:#b9afb1;border-radius:17px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:8px}.bottom-nav button.active{background:#fff;color:#171416}.navicon{font-size:18px}
+@media(min-width:950px){.bottom-nav{display:none}}
+@media(max-width:649px){.dashboard-grid{grid-template-columns:1fr}.hero{min-height:300px}.hero-logo{width:105px}.hero h2{font-size:34px}.two{grid-template-columns:1fr}.rental-side{display:none}}
+@media print{.sidebar,.mobile-top,.bottom-nav,.btn{display:none!important}.main{margin:0}.content{padding:0}}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<aside class="sidebar">
+  <div class="side-brand">
+    <img src="julietta-logo.png" alt="Julietta Dresses">
+    <small>Dress Rental Studio</small>
+  </div>
+  <nav class="side-nav">
+    <button onclick="mostrarPagina('inicio')" data-nav="inicio">⌂ <span>Inicio</span></button>
+    <button onclick="mostrarPagina('vestidos')" data-nav="vestidos">♢ <span>Vestidos</span></button>
+    <button onclick="mostrarPagina('rentas')" data-nav="rentas">◷ <span>Rentas</span></button>
+    <button onclick="mostrarPagina('clientes')" data-nav="clientes">♙ <span>Clientas</span></button>
+    <button onclick="mostrarPagina('calendario')" data-nav="calendario">▦ <span>Calendario</span></button>
+    <button onclick="mostrarPagina('caja')" data-nav="caja">$ <span>Caja</span></button>
+    <button onclick="mostrarPagina('mas')" data-nav="mas">••• <span>Más</span></button>
+  </nav>
+  <div class="side-bottom">JULIÈTTA DRESSES<br>Sistema de administración</div>
+</aside>
+
+<main class="main">
+<header class="mobile-top">
+  <div class="mobile-top-inner">
+    <img class="mobile-logo" src="julietta-logo.png" alt="Julietta Dresses">
+    <div class="top-actions">
+      <button class="icon-btn" onclick="mostrarPagina('configuracion')" aria-label="Configuración">⚙</button>
+    </div>
+  </div>
+</header>
+
+<div class="content">
+
+<section id="page-inicio" class="page active">
+  <div class="hero">
+    <img class="hero-logo" src="julietta-logo.png" alt="">
+    <div class="hero-copy">
+      <div class="eyebrow">JULIÈTTA DRESSES · RENTAL STUDIO</div>
+      <h2>Tu historia<br>también se viste<br>de elegancia.</h2>
+      <p>Administra tu colección, tus clientas, apartados, rentas y dinero desde un solo lugar.</p>
+      <div class="hero-actions">
+        <button class="btn primary" onclick="abrirRenta()">＋ Nueva renta</button>
+        <button class="btn secondary" onclick="abrirVestido()">＋ Vestido</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-label">Vestidos</div><div class="kpi-value" id="statVestidos">0</div><div class="kpi-note">en tu colección</div></div>
+    <div class="kpi"><div class="kpi-label">Rentas activas</div><div class="kpi-value" id="statRentas">0</div><div class="kpi-note">apartados y rentas</div></div>
+    <div class="kpi"><div class="kpi-label">Clientas</div><div class="kpi-value" id="statClientes">0</div><div class="kpi-note">en tu cartera</div></div>
+    <div class="kpi"><div class="kpi-label">Ingresos</div><div class="kpi-value" id="statIngresos">$0</div><div class="kpi-note">este mes</div></div>
+  </div>
+
+  <div class="dashboard-grid">
+    <div class="panel">
+      <div class="panel-head"><h3>Próximas rentas</h3><button class="link" onclick="mostrarPagina('rentas')">Ver todas →</button></div>
+      <div id="inicioRentas"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h3>Acciones rápidas</h3></div>
+      <div class="quick-grid">
+        <button class="quick" onclick="abrirCliente()"><div class="qicon">♙</div><strong>Nueva clienta</strong><span>Registrar información</span></button>
+        <button class="quick" onclick="abrirRenta()"><div class="qicon">♢</div><strong>Nueva renta</strong><span>Crear apartado</span></button>
+        <button class="quick" onclick="abrirMovimiento()"><div class="qicon">$</div><strong>Movimiento</strong><span>Registrar dinero</span></button>
+        <button class="quick" onclick="mostrarPagina('calendario')"><div class="qicon">▦</div><strong>Agenda</strong><span>Ver calendario</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title"><h2>Selección de la colección</h2><button class="link" onclick="mostrarPagina('vestidos')">Catálogo completo →</button></div>
+  <div id="inicioVestidos" class="dress-grid"></div>
+</section>
+
+<section id="page-vestidos" class="page">
+  <div class="page-head"><div><h1>Vestidos</h1><p>Tu colección, organizada y lista para rentar.</p></div><button class="btn primary" onclick="abrirVestido()">＋ Agregar</button></div>
+  <div class="search">⌕ <input id="buscarVestido" type="search" placeholder="Buscar vestido, talla o color..." oninput="renderVestidos()"></div>
+  <div class="filters">
+    <button class="filter active" onclick="filtrarVestidos('Todos',this)">Todos</button>
+    <button class="filter" onclick="filtrarVestidos('Disponible',this)">Disponibles</button>
+    <button class="filter" onclick="filtrarVestidos('Rentado',this)">Rentados</button>
+    <button class="filter" onclick="filtrarVestidos('Lavado',this)">Lavado</button>
+    <button class="filter" onclick="filtrarVestidos('Reparación',this)">Reparación</button>
+  </div>
+  <div id="vestidosGrid" class="dress-grid"></div>
+</section>
+
+<section id="page-rentas" class="page">
+  <div class="page-head"><div><h1>Rentas</h1><p>Controla apartados, entregas y devoluciones.</p></div><button class="btn primary" onclick="abrirRenta()">＋ Nueva</button></div>
+  <div class="filters">
+    <button class="filter active" onclick="filtrarRentas('Todas',this)">Todas</button>
+    <button class="filter" onclick="filtrarRentas('Apartada',this)">Apartadas</button>
+    <button class="filter" onclick="filtrarRentas('Activa',this)">Activas</button>
+    <button class="filter" onclick="filtrarRentas('Devuelta',this)">Devueltas</button>
+  </div>
+  <div id="rentasLista" class="rental-list"></div>
+</section>
+
+<section id="page-clientes" class="page">
+  <div class="page-head"><div><h1>Clientas</h1><p>Tu cartera siempre a la mano.</p></div><button class="btn primary" onclick="abrirCliente()">＋ Agregar</button></div>
+  <div class="search">⌕ <input id="buscarCliente" type="search" placeholder="Buscar clienta..." oninput="renderClientes()"></div>
+  <div id="clientesLista" class="client-list"></div>
+</section>
+
+<section id="page-calendario" class="page">
+  <div class="page-head"><div><h1>Calendario</h1><p>Consulta entregas y devoluciones.</p></div></div>
+  <div class="calendar-wrap">
+    <div class="calendar-head"><div class="month" id="calendarTitle"></div><div class="cal-btns"><button onclick="cambiarMes(-1)">‹</button><button onclick="cambiarMes(1)">›</button></div></div>
+    <div id="calendar" class="calendar"></div>
+  </div>
+  <div class="section-title"><h2>Agenda del mes</h2></div>
+  <div id="eventosMes" class="rental-list"></div>
+</section>
+
+<section id="page-caja" class="page">
+  <div class="page-head"><div><h1>Caja</h1><p>Controla ingresos y egresos.</p></div><button class="btn primary" onclick="abrirMovimiento()">＋ Movimiento</button></div>
+  <div class="money-grid">
+    <div class="money-card"><span>Ingresos del mes</span><b id="cajaIngresos">$0</b></div>
+    <div class="money-card"><span>Egresos del mes</span><b id="cajaEgresos">$0</b></div>
+    <div class="money-card"><span>Balance del mes</span><b id="cajaBalance">$0</b></div>
+    <div class="money-card"><span>Movimientos</span><b id="cajaMovimientos">0</b></div>
+  </div>
+  <div class="section-title"><h2>Movimientos</h2></div>
+  <div class="panel"><div id="cajaLista"></div></div>
+</section>
+
+<section id="page-mas" class="page">
+  <div class="page-head"><div><h1>Más</h1><p>Herramientas de administración.</p></div></div>
+  <div class="more-grid">
+    <button class="more-item" onclick="mostrarPagina('regresos')"><div class="more-icon">↩</div><div class="more-text"><strong>Vestidos por regresar</strong><span>Revisar rentas que necesitan devolución</span></div><span class="arrow">›</span></button>
+    <button class="more-item" onclick="mostrarPagina('revision')"><div class="more-icon">✓</div><div class="more-text"><strong>Revisión y limpieza</strong><span>Marcar vestidos listos nuevamente</span></div><span class="arrow">›</span></button>
+    <button class="more-item" onclick="mostrarPagina('configuracion')"><div class="more-icon">⚙</div><div class="more-text"><strong>Configuración</strong><span>Datos de tu negocio y WhatsApp</span></div><span class="arrow">›</span></button>
+    <button class="more-item" onclick="exportarDatos()"><div class="more-icon">⇩</div><div class="more-text"><strong>Crear respaldo</strong><span>Guardar una copia de tus datos</span></div><span class="arrow">›</span></button>
+    <button class="more-item" onclick="document.getElementById('importFile').click()"><div class="more-icon">⇧</div><div class="more-text"><strong>Restaurar respaldo</strong><span>Importar una copia anterior</span></div><span class="arrow">›</span></button>
+    <input id="importFile" type="file" accept="application/json" hidden onchange="importarDatos(event)">
+    <button class="more-item" onclick="eliminarTodo()"><div class="more-icon">×</div><div class="more-text"><strong>Eliminar todos los datos</strong><span>Usar únicamente si deseas comenzar de cero</span></div><span class="arrow">›</span></button>
+  </div>
+</section>
+
+<section id="page-regresos" class="page">
+  <div class="page-head"><div><h1>Vestidos por regresar</h1><p>Rentas que requieren devolución.</p></div></div>
+  <div id="regresosLista"></div>
+</section>
+
+<section id="page-revision" class="page">
+  <div class="page-head"><div><h1>Revisión</h1><p>Prepara los vestidos después de cada renta.</p></div></div>
+  <div id="revisionLista"></div>
+</section>
+
+<section id="page-configuracion" class="page">
+  <div class="page-head"><div><h1>Configuración</h1><p>Personaliza tu estudio.</p></div></div>
+  <div class="panel">
+    <div class="form-grid">
+      <div class="field"><label>Nombre del negocio</label><input id="cfgNombre"></div>
+      <div class="field"><label>WhatsApp del negocio</label><input id="cfgWhatsapp" inputmode="tel" placeholder="Ej. 8112345678"></div>
+    </div>
+    <div class="form-actions"><button class="btn primary" onclick="guardarConfiguracion()">Guardar cambios</button></div>
+  </div>
+</section>
+
+</div>
+</main>
+
+<nav class="bottom-nav">
+ <button onclick="mostrarPagina('inicio')" data-nav="inicio"><span class="navicon">⌂</span>Inicio</button>
+ <button onclick="mostrarPagina('vestidos')" data-nav="vestidos"><span class="navicon">♢</span>Vestidos</button>
+ <button onclick="mostrarPagina('rentas')" data-nav="rentas"><span class="navicon">◷</span>Rentas</button>
+ <button onclick="mostrarPagina('clientes')" data-nav="clientes"><span class="navicon">♙</span>Clientas</button>
+ <button onclick="mostrarPagina('mas')" data-nav="mas"><span class="navicon">•••</span>Más</button>
+</nav>
+</div>
+
+<div id="modal" class="modal" onclick="if(event.target===this)cerrarModal()">
+ <div class="modal-box">
+  <div class="handle"></div>
+  <div class="modal-head"><h2 id="modalTitle">Julietta</h2><button class="close" onclick="cerrarModal()">×</button></div>
+  <div id="modalBody"></div>
+ </div>
+</div>
+<div id="toast" class="toast"></div>
+
+<script>
+const KEY="juliettaDresses";
+const OLD_KEYS=["julietta_dresses_v1"];
+
+/* Catálogo inicial de JULIÈTTA DRESSES tomado del catálogo de la boutique.
+   Se carga únicamente cuando no existe información guardada, para no borrar
+   ni duplicar vestidos que la usuaria ya tenga en su teléfono. */
+const CATALOGO_INICIAL=[
+ ["MIA",1500,"L"],["LIA",1500,"S"],["SARA",1500,"XL"],["VALERIA",1500,"M"],["ADELE",1500,"L"],["ALYSSA",1300,"S"],
+ ["AURORA",1500,"M"],["ELENA",1500,"S"],["MARIA",1200,"M"],["SOFIA",1200,"M"],["PAULA",1000,"M"],["TIANA",1300,"M"],
+ ["OLIVIA",1300,"M"],["SIENNA",1200,"S"],["DAVINA",1500,"S"],["JOSE",1500,"M"],["HADA",1300,"M"],["ALICE",1200,"S"],
+ ["ERIK",1500,"XL"],["BRUNO",1500,"M"],["SANTIAGO",1500,"XL"],["RODRIGO",1400,"M"],["LEO",1300,"S"],["PABLO",1500,"S"],
+ ["MATEO",1300,"M"],["DIEGO",1200,"S"],["GRACIE",1500,"M"],["LUCAS",1300,"L"],["HUGO",1000,"M"],["ALEJANDRO",1400,"S"],
+ ["CLOE",1400,"M"],["NOAH",1300,"S"],["BELLA",1500,"M"],["EMMA",1000,"M"],["JUNIPER",1300,"S"],["KENIA",1500,"M"],
+ ["LUNA",1500,"M"],["OLIVER",1500,"M"],["PALOMA",1300,"S"],["CAROLINA",1200,"M"],["RENÉ",1300,"S"],["IRIS",1500,"S"],
+ ["ELSA",1300,"M"],["LUCIA",1000,"M"],["INDIGO",1400,"L"],["GABRIEL",1400,"S"],["FELIPE",1200,"S"],["SAMUEL",1200,"S"],
+ ["VEGA",1400,"L"],["AMELIA",1400,"M"],["ALEXA",1400,"M"],["ROYAL rojo",1400,"L"],["ROYAL azul",1400,"L"],["ESCARLET",1400,"L"],
+ ["ALVARO",1300,"M"],["MILA",1400,"L"],["BASTIAN",1300,"S"],["GOLDEN",1300,"S"],["EMILIA",1300,"M"],["MATIAS",1500,"M"],
+ ["ALICIA",1300,"M"],["DANIEL",1400,"L"],["JORGE",1300,"M"],["RENATA",1300,"M"],["VICTORIA",1300,"S"],["KIRA",1300,"M"],
+ ["ANDRÉS",1300,"M"],["ESME",1300,"M"],["THIAGO",1500,"S"],["ROSE",1500,"M"],["FRANCO",1400,"L"]
+];
+
+function catalogoInicial(){
+ return CATALOGO_INICIAL.map((x,i)=>({
+   id:"catalogo-"+(i+1),
+   nombre:x[0],
+   talla:x[2],
+   color:"",
+   precio:x[1],
+   estado:"Disponible",
+   notas:"Vestido de maternidad",
+   foto:""
+ }));
+}
+
+function normalizarDatos(d){
+ return {
+  configuracion:{nombre:"Julietta Dresses",whatsapp:"",...(d.configuracion||{})},
+  vestidos:Array.isArray(d.vestidos)?d.vestidos:[],
+  clientes:Array.isArray(d.clientes)?d.clientes:[],
+  rentas:Array.isArray(d.rentas)?d.rentas:[],
+  movimientos:Array.isArray(d.movimientos)?d.movimientos:[],
+  catalogoBaseCargado:d.catalogoBaseCargado===true
+ };
+}
+
+function cargarDatos(){
+ try{
+  let raw=localStorage.getItem(KEY);
+  if(!raw){
+   for(const k of OLD_KEYS){
+    const legacy=localStorage.getItem(k);
+    if(legacy){raw=legacy;break;}
+   }
+  }
+  if(raw){
+   const d=normalizarDatos(JSON.parse(raw));
+   if(d.vestidos.length===0 && d.catalogoBaseCargado!==true){
+    d.vestidos=catalogoInicial();
+    d.catalogoBaseCargado=true;
+   }
+   return d;
+  }
+ }catch(e){}
+ return {configuracion:{nombre:"Julietta Dresses",whatsapp:""},vestidos:catalogoInicial(),clientes:[],rentas:[],movimientos:[],catalogoBaseCargado:true};
+}
+function guardarDatos(){localStorage.setItem(KEY,JSON.stringify(datos));}
+function id(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function dinero(n){return Number(n||0).toLocaleString("es-MX",{style:"currency",currency:"MXN",maximumFractionDigits:0})}
+function hoyISO(){let d=new Date();return d.toISOString().slice(0,10)}
+function fechaBonita(f){if(!f)return "—";let [y,m,d]=String(f).split("-");return `${d}/${m}/${y}`}
+function fechaLarga(f){if(!f)return "—";return new Date(f+"T12:00:00").toLocaleDateString("es-MX",{day:"numeric",month:"short",year:"numeric"})}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function toast(t){let x=document.getElementById("toast");x.textContent=t;x.classList.add("show");clearTimeout(window._toast);window._toast=setTimeout(()=>x.classList.remove("show"),2400)}
+function abrirModal(title,body){document.getElementById("modalTitle").textContent=title;document.getElementById("modalBody").innerHTML=body;document.getElementById("modal").classList.add("open")}
+function cerrarModal(){document.getElementById("modal").classList.remove("open")}
+function mostrarPagina(p){
+ document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
+ const el=document.getElementById("page-"+p);if(el)el.classList.add("active");
+ document.querySelectorAll("[data-nav]").forEach(x=>x.classList.toggle("active",x.dataset.nav===p));
+ window.scrollTo({top:0,behavior:"smooth"});
+ actualizarTodo();
+}
+function whatsapp(telefono){
+ if(!telefono){toast("Esta clienta no tiene teléfono registrado");return}
+ let n=String(telefono).replace(/\D/g,"");
+ if(n.length===10)n="52"+n;
+ if(n.length===12 && n.startsWith("52")){}
+ window.open("https://wa.me/"+n,"_blank");
+}
+function iniciales(n){return String(n||"C").trim().split(/\s+/).slice(0,2).map(x=>x[0]).join("").toUpperCase()}
+
+function abrirVestido(editId=null){
+ window._vestidoFoto=null;
+ let v=datos.vestidos.find(x=>x.id===editId)||{id:"",nombre:"",talla:"",color:"",precio:"",estado:"Disponible",notas:"",foto:""};
+ abrirModal(editId?"Editar vestido":"Nuevo vestido",`
+  <div class="form-grid">
+   <div class="field"><label>Nombre del vestido</label><input id="vNombre" value="${esc(v.nombre)}" placeholder="Ej. Valentina"></div>
+   <div class="form-grid two">
+    <div class="field"><label>Talla</label><input id="vTalla" value="${esc(v.talla)}" placeholder="M"></div>
+    <div class="field"><label>Color</label><input id="vColor" value="${esc(v.color)}" placeholder="Vino"></div>
+   </div>
+   <div class="form-grid two">
+    <div class="field"><label>Precio de renta</label><input id="vPrecio" type="number" min="0" value="${esc(v.precio)}"></div>
+    <div class="field"><label>Estado</label><select id="vEstado">${["Disponible","Rentado","Lavado","Reparación"].map(s=>`<option ${s===v.estado?"selected":""}>${s}</option>`).join("")}</select></div>
+   </div>
+   <div class="field"><label>Foto del vestido</label><div class="photo-box" id="photoBox">${v.foto?`<img src="${v.foto}" id="photoPreview">`:`<div class="photo-placeholder"><b>Foto de colección</b>Agrega una imagen desde tu iPhone</div>`}</div><input id="vFoto" type="file" accept="image/*" onchange="previsualizarVestido(event)" style="margin-top:8px">
+   <div style="font-size:10px;color:var(--muted);margin-top:5px">Desde iPhone: elige una foto de tu galería o toma una nueva.</div></div>
+   <div class="field"><label>Notas</label><textarea id="vNotas" placeholder="Detalles, ajustes o cuidados...">${esc(v.notas)}</textarea></div>
+  </div>
+  <div class="form-actions"><button class="btn secondary" onclick="cerrarModal()">Cancelar</button><button class="btn primary" onclick="guardarVestido('${editId||""}')">Guardar vestido</button></div>
+ `);
+}
+function previsualizarVestido(e){
+ const f=e.target.files?.[0];if(!f)return;
+ const r=new FileReader();r.onload=()=>{procesarImagen(r.result)};r.readAsDataURL(f);
+}
+function procesarImagen(src){
+ const img=new Image();img.onload=()=>{
+  const max=1000,scale=Math.min(1,max/Math.max(img.width,img.height));
+  const c=document.createElement("canvas");c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);
+  c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+  const data=c.toDataURL("image/jpeg",.78);
+  document.getElementById("photoBox").innerHTML=`<img src="${data}" id="photoPreview">`;
+  window._vestidoFoto=data;
+ };img.src=src;
+}
+function guardarVestido(editId){
+ const obj={id:editId||id(),nombre:document.getElementById("vNombre").value.trim(),talla:document.getElementById("vTalla").value.trim(),color:document.getElementById("vColor").value.trim(),precio:Number(document.getElementById("vPrecio").value||0),estado:document.getElementById("vEstado").value,notas:document.getElementById("vNotas").value.trim(),foto:window._vestidoFoto||datos.vestidos.find(x=>x.id===editId)?.foto||""};
+ if(!obj.nombre){toast("Escribe el nombre del vestido");return}
+ const i=datos.vestidos.findIndex(x=>x.id===obj.id);if(i>=0)datos.vestidos[i]=obj;else datos.vestidos.push(obj);
+ window._vestidoFoto=null;guardarDatos();cerrarModal();actualizarTodo();toast("Vestido guardado");
+}
+function badgeEstado(s){let c=s==="Disponible"?"green":s==="Rentado"?"red":s==="Lavado"?"blue":s==="Apartada"?"gold":"gray";return `<span class="badge ${c}">${esc(s)}</span>`}
+function cardVestido(v){
+ return `<article class="dress-card"><div class="dress-photo">${v.foto?`<img src="${v.foto}" alt="${esc(v.nombre)}">`:`<div class="no-photo">J</div>`}<div class="status">${badgeEstado(v.estado)}</div></div><div class="dress-body"><div class="dress-name">${esc(v.nombre)}</div><div class="dress-meta">Talla ${esc(v.talla||"—")} · ${esc(v.color||"Sin color")}</div><div class="dress-price">${dinero(v.precio)}</div><div class="dress-actions"><button class="btn secondary" onclick="abrirVestido('${v.id}')">Editar</button><button class="btn danger" onclick="eliminarVestido('${v.id}')">Eliminar</button></div></div></article>`;
+}
+function renderVestidos(){
+ const q=(document.getElementById("buscarVestido")?.value||"").toLowerCase();
+ const arr=datos.vestidos.filter(v=>(filtroVestidos==="Todos"||v.estado===filtroVestidos)&&(`${v.nombre} ${v.talla} ${v.color}`.toLowerCase().includes(q)));
+ document.getElementById("vestidosGrid").innerHTML=arr.length?arr.map(cardVestido).join(""):`<div class="panel" style="grid-column:1/-1"><div class="empty"><div class="empty-mark">♢</div><h3>Aún no hay vestidos</h3><p>Agrega tu primera pieza de la colección.</p></div></div>`;
+}
+function filtrarVestidos(f,b){filtroVestidos=f;document.querySelectorAll("#page-vestidos .filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");renderVestidos()}
+function eliminarVestido(i){if(!confirm("¿Eliminar este vestido?"))return;datos.vestidos=datos.vestidos.filter(v=>v.id!==i);guardarDatos();actualizarTodo();toast("Vestido eliminado")}
+
+function abrirCliente(editId=null){
+ let c=datos.clientes.find(x=>x.id===editId)||{id:"",nombre:"",telefono:"",notas:""};
+ abrirModal(editId?"Editar clienta":"Nueva clienta",`
+  <div class="form-grid">
+   <div class="field"><label>Nombre completo</label><input id="cNombre" value="${esc(c.nombre)}" placeholder="Nombre de la clienta"></div>
+   <div class="field"><label>Teléfono / WhatsApp</label><input id="cTelefono" inputmode="tel" value="${esc(c.telefono)}" placeholder="10 dígitos"></div>
+   <div class="field"><label>Notas</label><textarea id="cNotas" placeholder="Talla, preferencias, detalles...">${esc(c.notas)}</textarea></div>
+  </div>
+  <div class="form-actions"><button class="btn secondary" onclick="cerrarModal()">Cancelar</button><button class="btn primary" onclick="guardarCliente('${editId||""}')">Guardar clienta</button></div>
+ `);
+}
+function guardarCliente(editId){
+ const obj={id:editId||id(),nombre:document.getElementById("cNombre").value.trim(),telefono:document.getElementById("cTelefono").value.trim(),notas:document.getElementById("cNotas").value.trim()};
+ if(!obj.nombre){toast("Escribe el nombre de la clienta");return}
+ const i=datos.clientes.findIndex(x=>x.id===obj.id);if(i>=0)datos.clientes[i]=obj;else datos.clientes.push(obj);
+ guardarDatos();cerrarModal();actualizarTodo();toast("Clienta guardada");
+}
+function renderClientes(){
+ const q=(document.getElementById("buscarCliente")?.value||"").toLowerCase();
+ const arr=datos.clientes.filter(c=>`${c.nombre} ${c.telefono}`.toLowerCase().includes(q));
+ document.getElementById("clientesLista").innerHTML=arr.length?arr.map(c=>{
+  const count=datos.rentas.filter(r=>r.clienteId===c.id).length;
+  return `<div class="client-card"><div class="avatar">${esc(iniciales(c.nombre))}</div><div class="client-main"><strong>${esc(c.nombre)}</strong><span>${esc(c.telefono||"Sin teléfono")} · ${count} renta${count===1?"":"s"}</span></div><div class="client-actions">${c.telefono?`<button class="wa" onclick="whatsapp('${esc(c.telefono)}')" title="Abrir WhatsApp"><svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.9 11.9 0 0 0 12.05 0C5.47 0 .12 5.35.12 11.94c0 2.1.55 4.15 1.6 5.96L.02 24l6.25-1.64a11.9 11.9 0 0 0 5.77 1.47h.01c6.58 0 11.94-5.35 11.94-11.94a11.9 11.9 0 0 0-3.49-8.39ZM12.06 21.8h-.01a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.98.99-3.62-.23-.37a9.9 9.9 0 1 1 8.37 4.6Zm5.43-7.42c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.48s1.08 2.88 1.23 3.08c.15.2 2.13 3.25 5.16 4.55.72.31 1.28.49 1.72.63.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg></button>`:""}<button class="btn secondary" style="min-height:40px;padding:0 10px" onclick="abrirCliente('${c.id}')">Editar</button></div></div>`;
+ }).join(""):`<div class="panel"><div class="empty"><div class="empty-mark">♙</div><h3>Aún no hay clientas</h3><p>Registra tu primera clienta.</p></div></div>`;
+}
+function eliminarCliente(i){if(!confirm("¿Eliminar esta clienta?"))return;datos.clientes=datos.clientes.filter(c=>c.id!==i);guardarDatos();actualizarTodo();toast("Clienta eliminada")}
+
+function llenarSelectClientes(sel){
+ return `<option value="">Selecciona una clienta</option>`+datos.clientes.map(c=>`<option value="${c.id}" ${c.id===sel?"selected":""}>${esc(c.nombre)}</option>`).join("");
+}
+function llenarSelectVestidos(sel){
+ const available=datos.vestidos.filter(v=>v.estado==="Disponible"||v.id===sel);
+ return `<option value="">Selecciona un vestido</option>`+available.map(v=>`<option value="${v.id}" ${v.id===sel?"selected":""}>${esc(v.nombre)} · ${esc(v.talla||"")} · ${dinero(v.precio)}</option>`).join("");
+}
+function abrirRenta(editId=null){
+ let r=datos.rentas.find(x=>x.id===editId)||{id:"",clienteId:"",vestidoId:"",fechaEntrega:hoyISO(),fechaRegreso:hoyISO(),precio:"",deposito:"",estado:"Apartada",notas:""};
+ if(!r.precio&&r.vestidoId){r.precio=datos.vestidos.find(v=>v.id===r.vestidoId)?.precio||0}
+ abrirModal(editId?"Editar renta":"Nueva renta",`
+  <div class="form-grid">
+   <div class="form-grid two"><div class="field"><label>Clienta</label><select id="rCliente">${llenarSelectClientes(r.clienteId)}</select></div><div class="field"><label>Vestido</label><select id="rVestido" onchange="if(!document.getElementById('rPrecio').value)document.getElementById('rPrecio').value=this.options[this.selectedIndex]?.textContent.match(/\\$[\\d,]+/)?.[0]?.replace(/[$,]/g,'')||''">${llenarSelectVestidos(r.vestidoId)}</select></div></div>
+   <div class="form-grid two"><div class="field"><label>Entrega</label><input id="rEntrega" type="date" value="${r.fechaEntrega}"></div><div class="field"><label>Devolución</label><input id="rRegreso" type="date" value="${r.fechaRegreso}"></div></div>
+   <div class="form-grid two"><div class="field"><label>Precio</label><input id="rPrecio" type="number" min="0" value="${esc(r.precio)}"></div><div class="field"><label>Depósito</label><input id="rDeposito" type="number" min="0" value="${esc(r.deposito)}"></div></div>
+   <div class="field"><label>Estado</label><select id="rEstado">${["Apartada","Activa","Devuelta"].map(s=>`<option ${s===r.estado?"selected":""}>${s}</option>`).join("")}</select></div>
+   <div class="field"><label>Notas</label><textarea id="rNotas">${esc(r.notas)}</textarea></div>
+  </div>
+  <div class="form-actions"><button class="btn secondary" onclick="cerrarModal()">Cancelar</button><button class="btn primary" onclick="guardarRenta('${editId||""}')">Guardar renta</button></div>
+ `);
+}
+function guardarRenta(editId){
+ const old=datos.rentas.find(r=>r.id===editId);
+ const obj={id:editId||id(),clienteId:document.getElementById("rCliente").value,vestidoId:document.getElementById("rVestido").value,fechaEntrega:document.getElementById("rEntrega").value,fechaRegreso:document.getElementById("rRegreso").value,precio:Number(document.getElementById("rPrecio").value||0),deposito:Number(document.getElementById("rDeposito").value||0),estado:document.getElementById("rEstado").value,notas:document.getElementById("rNotas").value.trim()};
+ if(!obj.clienteId||!obj.vestidoId){toast("Selecciona clienta y vestido");return}
+ const i=datos.rentas.findIndex(r=>r.id===obj.id);if(i>=0)datos.rentas[i]=obj;else datos.rentas.push(obj);
+ actualizarEstadosVestidos();guardarDatos();cerrarModal();actualizarTodo();toast("Renta guardada");
+}
+function actualizarEstadosVestidos(){
+ datos.vestidos.forEach(v=>{
+  const active=datos.rentas.find(r=>r.vestidoId===v.id&&(r.estado==="Apartada"||r.estado==="Activa"));
+  if(active)v.estado=active.estado==="Apartada"?"Rentado":"Rentado";
+  else if(v.estado==="Rentado")v.estado="Disponible";
+ });
+}
+function badgeRenta(s){return badgeEstado(s)}
+function cardRenta(r){
+ const c=datos.clientes.find(x=>x.id===r.clienteId),v=datos.vestidos.find(x=>x.id===r.vestidoId);
+ return `<div class="rental-card"><div class="rental-photo ${v?.foto?"":"no"}">${v?.foto?`<img src="${v.foto}" alt="">`:"♢"}</div><div class="rental-info"><strong>${esc(c?.nombre||"Clienta eliminada")}</strong><span>${esc(v?.nombre||"Vestido eliminado")} · Entrega ${fechaBonita(r.fechaEntrega)} · Regreso ${fechaBonita(r.fechaRegreso)}</span><div style="margin-top:7px">${badgeRenta(r.estado)}</div></div><div class="rental-side"><b>${dinero(r.precio)}</b><small><button class="btn secondary" style="min-height:34px;padding:0 9px" onclick="abrirRenta('${r.id}')">Editar</button></small></div></div>`;
+}
+function renderRentas(){
+ const arr=datos.rentas.filter(r=>filtroRentas==="Todas"||r.estado===filtroRentas).sort((a,b)=>String(a.fechaEntrega).localeCompare(String(b.fechaEntrega)));
+ document.getElementById("rentasLista").innerHTML=arr.length?arr.map(cardRenta).join(""):`<div class="panel"><div class="empty"><div class="empty-mark">◷</div><h3>No hay rentas</h3><p>Cuando registres una aparecerá aquí.</p></div></div>`;
+}
+function filtrarRentas(f,b){filtroRentas=f;document.querySelectorAll("#page-rentas .filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");renderRentas()}
+function marcarDevuelta(i){const r=datos.rentas.find(x=>x.id===i);if(!r)return;r.estado="Devuelta";const v=datos.vestidos.find(x=>x.id===r.vestidoId);if(v)v.estado="Lavado";if(!datos.movimientos.some(m=>m.rentaId===r.id&&m.tipo==="Ingreso"))datos.movimientos.push({id:id(),fecha:hoyISO(),concepto:"Renta · "+(v?.nombre||"Vestido"),tipo:"Ingreso",monto:Number(r.precio||0),rentaId:r.id});guardarDatos();actualizarTodo();toast("Renta marcada como devuelta")}
+function eliminarRenta(i){if(!confirm("¿Eliminar esta renta?"))return;datos.rentas=datos.rentas.filter(r=>r.id!==i);actualizarEstadosVestidos();guardarDatos();actualizarTodo();toast("Renta eliminada")}
+
+function abrirMovimiento(editId=null){
+ let m=datos.movimientos.find(x=>x.id===editId)||{id:"",fecha:hoyISO(),concepto:"",tipo:"Ingreso",monto:""};
+ abrirModal(editId?"Editar movimiento":"Nuevo movimiento",`
+  <div class="form-grid">
+   <div class="field"><label>Fecha</label><input id="mFecha" type="date" value="${m.fecha}"></div>
+   <div class="field"><label>Concepto</label><input id="mConcepto" value="${esc(m.concepto)}" placeholder="Ej. renta, compra, anticipo..."></div>
+   <div class="form-grid two"><div class="field"><label>Tipo</label><select id="mTipo"><option ${m.tipo==="Ingreso"?"selected":""}>Ingreso</option><option ${m.tipo==="Egreso"?"selected":""}>Egreso</option></select></div><div class="field"><label>Monto</label><input id="mMonto" type="number" min="0" value="${esc(m.monto)}"></div></div>
+  </div>
+  <div class="form-actions"><button class="btn secondary" onclick="cerrarModal()">Cancelar</button><button class="btn primary" onclick="guardarMovimiento('${editId||""}')">Guardar</button></div>
+ `);
+}
+function guardarMovimiento(editId){
+ const obj={id:editId||id(),fecha:document.getElementById("mFecha").value,concepto:document.getElementById("mConcepto").value.trim(),tipo:document.getElementById("mTipo").value,monto:Number(document.getElementById("mMonto").value||0)};
+ if(!obj.concepto){toast("Escribe un concepto");return}
+ const i=datos.movimientos.findIndex(m=>m.id===obj.id);if(i>=0)datos.movimientos[i]=obj;else datos.movimientos.push(obj);guardarDatos();cerrarModal();actualizarTodo();toast("Movimiento guardado");
+}
+function renderCaja(){
+ const ym=hoyISO().slice(0,7),ms=datos.movimientos.filter(m=>String(m.fecha).startsWith(ym));
+ const ing=ms.filter(m=>m.tipo==="Ingreso").reduce((a,m)=>a+Number(m.monto||0),0),eg=ms.filter(m=>m.tipo==="Egreso").reduce((a,m)=>a+Number(m.monto||0),0);
+ document.getElementById("cajaIngresos").textContent=dinero(ing);document.getElementById("cajaEgresos").textContent=dinero(eg);document.getElementById("cajaBalance").textContent=dinero(ing-eg);document.getElementById("cajaMovimientos").textContent=ms.length;
+ document.getElementById("cajaLista").innerHTML=ms.sort((a,b)=>String(b.fecha).localeCompare(String(a.fecha))).map(m=>`<div class="table-row"><div><strong>${esc(m.concepto)}</strong><span style="display:block">${fechaBonita(m.fecha)}</span></div><div><strong class="${m.tipo==="Ingreso"?"money-positive":"money-negative"}">${m.tipo==="Ingreso"?"+":"-"}${dinero(m.monto)}</strong><button class="btn secondary" style="min-height:31px;padding:0 7px;margin-left:5px" onclick="abrirMovimiento('${m.id}')">Editar</button><button class="btn danger" style="min-height:31px;padding:0 7px" onclick="eliminarMovimiento('${m.id}')">×</button></div></div>`).join("")||`<div class="empty"><div class="empty-mark">$</div><h3>Sin movimientos</h3><p>Registra ingresos o egresos.</p></div>`;
+}
+function eliminarMovimiento(i){if(!confirm("¿Eliminar este movimiento?"))return;datos.movimientos=datos.movimientos.filter(m=>m.id!==i);guardarDatos();actualizarTodo();toast("Movimiento eliminado")}
+
+function renderRegresos(){
+ const arr=datos.rentas.filter(r=>r.estado==="Activa"||r.estado==="Apartada").sort((a,b)=>String(a.fechaRegreso).localeCompare(String(b.fechaRegreso)));
+ document.getElementById("regresosLista").innerHTML=arr.length?arr.map(r=>{const c=datos.clientes.find(x=>x.id===r.clienteId),v=datos.vestidos.find(x=>x.id===r.vestidoId);return `<div class="review-card"><h3>${esc(v?.nombre||"Vestido")} · ${esc(c?.nombre||"Clienta")}</h3><p>Entrega: ${fechaLarga(r.fechaEntrega)}</p><p>Devolución: ${fechaLarga(r.fechaRegreso)}</p><div class="form-actions"><button class="btn primary" onclick="marcarDevuelta('${r.id}')">Marcar devuelta</button></div></div>`}).join(""):`<div class="panel"><div class="empty"><div class="empty-mark">✓</div><h3>Todo en orden</h3><p>No tienes vestidos pendientes de regreso.</p></div></div>`;
+}
+function renderRevision(){
+ const arr=datos.vestidos.filter(v=>v.estado==="Lavado"||v.estado==="Reparación");
+ document.getElementById("revisionLista").innerHTML=arr.length?arr.map(v=>`<div class="review-card"><h3>${esc(v.nombre)}</h3><p>Estado actual: ${badgeEstado(v.estado)}</p><p>${esc(v.notas||"Sin notas")}</p><div class="form-actions"><button class="btn primary" onclick="ponerDisponible('${v.id}')">Marcar disponible</button><button class="btn secondary" onclick="abrirVestido('${v.id}')">Editar</button></div></div>`).join(""):`<div class="panel"><div class="empty"><div class="empty-mark">✓</div><h3>No hay vestidos pendientes</h3><p>Tu colección está lista.</p></div></div>`;
+}
+function ponerDisponible(i){const v=datos.vestidos.find(x=>x.id===i);if(v){v.estado="Disponible";guardarDatos();actualizarTodo();toast("Vestido disponible")}}
+
+function cambiarMes(n){calendarioFecha.setMonth(calendarioFecha.getMonth()+n);renderCalendario()}
+function renderCalendario(){
+ const y=calendarioFecha.getFullYear(),m=calendarioFecha.getMonth();
+ document.getElementById("calendarTitle").textContent=new Date(y,m,1).toLocaleDateString("es-MX",{month:"long",year:"numeric"});
+ const first=new Date(y,m,1),last=new Date(y,m+1,0),offset=(first.getDay()+6)%7;
+ let h=["L","M","M","J","V","S","D"].map(x=>`<div class="weekday">${x}</div>`).join("");
+ for(let i=0;i<offset;i++)h+=`<div class="day empty"></div>`;
+ for(let d=1;d<=last.getDate();d++){
+  const iso=`${y}-${String(m+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
+  const events=datos.rentas.filter(r=>r.fechaEntrega===iso||r.fechaRegreso===iso);
+  h+=`<div class="day ${iso===hoyISO()?"today":""}"><div>${d}</div><div class="dots">${events.slice(0,3).map(()=>`<span class="dot"></span>`).join("")}</div></div>`;
+ }
+ document.getElementById("calendar").innerHTML=h;
+ const events=datos.rentas.filter(r=>String(r.fechaEntrega).startsWith(`${y}-${String(m+1).padStart(2,"0")}`)||String(r.fechaRegreso).startsWith(`${y}-${String(m+1).padStart(2,"0")}`)).sort((a,b)=>String(a.fechaEntrega).localeCompare(String(b.fechaEntrega)));
+ document.getElementById("eventosMes").innerHTML=events.length?events.map(cardRenta).join(""):`<div class="panel"><div class="empty"><div class="empty-mark">▦</div><h3>Agenda vacía</h3><p>No hay rentas en este mes.</p></div></div>`;
+}
+function cargarConfiguracion(){document.getElementById("cfgNombre").value=datos.configuracion.nombre||"Julietta Dresses";document.getElementById("cfgWhatsapp").value=datos.configuracion.whatsapp||""}
+function guardarConfiguracion(){datos.configuracion.nombre=document.getElementById("cfgNombre").value.trim()||"Julietta Dresses";datos.configuracion.whatsapp=document.getElementById("cfgWhatsapp").value.trim();guardarDatos();toast("Configuración guardada")}
+function exportarDatos(){
+ const blob=new Blob([JSON.stringify(datos,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="julietta-dresses-respaldo-"+hoyISO()+".json";a.click();URL.revokeObjectURL(a.href);toast("Respaldo creado");
+}
+function importarDatos(e){
+ const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d||!Array.isArray(d.vestidos)||!Array.isArray(d.clientes)||!Array.isArray(d.rentas)){throw Error()}datos={configuracion:{nombre:"Julietta Dresses",whatsapp:"",...(d.configuracion||{})},vestidos:d.vestidos,clientes:d.clientes,rentas:d.rentas,movimientos:Array.isArray(d.movimientos)?d.movimientos:[]};guardarDatos();actualizarTodo();toast("Respaldo restaurado")}catch(x){toast("El archivo no es válido")}};r.readAsText(f);e.target.value=""}
+function eliminarTodo(){if(!confirm("Esto eliminará todos los vestidos, clientas, rentas y movimientos. ¿Continuar?"))return;if(!confirm("Última confirmación: ¿borrar TODO?"))return;datos={configuracion:{nombre:"Julietta Dresses",whatsapp:""},vestidos:[],clientes:[],rentas:[],movimientos:[]};guardarDatos();actualizarTodo();toast("Datos eliminados")}
+function renderInicio(){
+ document.getElementById("statVestidos").textContent=datos.vestidos.length;
+ document.getElementById("statRentas").textContent=datos.rentas.filter(r=>r.estado==="Apartada"||r.estado==="Activa").length;
+ document.getElementById("statClientes").textContent=datos.clientes.length;
+ const ym=hoyISO().slice(0,7),ing=datos.movimientos.filter(m=>m.tipo==="Ingreso"&&String(m.fecha).startsWith(ym)).reduce((a,m)=>a+Number(m.monto||0),0);
+ document.getElementById("statIngresos").textContent=dinero(ing);
+ const next=datos.rentas.filter(r=>r.estado!=="Devuelta").sort((a,b)=>String(a.fechaEntrega).localeCompare(String(b.fechaEntrega))).slice(0,4);
+ document.getElementById("inicioRentas").innerHTML=next.length?next.map(r=>{const c=datos.clientes.find(x=>x.id===r.clienteId),v=datos.vestidos.find(x=>x.id===r.vestidoId);return `<div class="next-rental"><div class="mini-date"><b>${String(r.fechaEntrega||"").slice(8,10)||"—"}</b><span>${r.fechaEntrega?new Date(r.fechaEntrega+"T12:00:00").toLocaleDateString("es-MX",{month:"short"}):""}</span></div><div class="next-info"><strong>${esc(c?.nombre||"Clienta")}</strong><span>${esc(v?.nombre||"Vestido")} · regreso ${fechaBonita(r.fechaRegreso)}</span></div>${badgeRenta(r.estado)}</div>`}).join(""):`<div class="empty"><div class="empty-mark">⌑</div><h3>No hay rentas próximas</h3><p>Las nuevas rentas aparecerán aquí.</p></div>`;
+ document.getElementById("inicioVestidos").innerHTML=datos.vestidos.slice(0,4).map(cardVestido).join("")||`<div class="panel" style="grid-column:1/-1"><div class="empty"><div class="empty-mark">♢</div><h3>Tu colección comienza aquí</h3><p>Agrega tu primer vestido.</p></div></div>`;
+}
+function actualizarTodo(){
+ actualizarEstadosVestidos();
+ renderInicio();renderVestidos();renderRentas();renderClientes();renderCalendario();renderCaja();renderRegresos();renderRevision();cargarConfiguracion();
+}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")cerrarModal()});
+actualizarTodo();
+document.querySelectorAll("[data-nav]").forEach(x=>x.classList.toggle("active",x.dataset.nav==="inicio"));
+</script>
+</body>
+</html>
